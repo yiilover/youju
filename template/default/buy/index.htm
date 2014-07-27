@@ -1,0 +1,99 @@
+	{template 'header'}
+<div class="m">	
+
+<body>
+<div class="top_up">
+<div id="wrap" class="wanted">
+
+<link rel="stylesheet" type="text/css" href="{AJ_SKIN}a.css" />
+
+ <!--位置-->
+     <div class="add">您当前的位置：<a href="{$MODULE[1][linkurl]}" title="{$AJ[sitename]}">{$AJ[sitename]}</a>&nbsp;&gt;&nbsp;<a href="{$MOD[linkurl]}">{$MOD[name]}    </a>&nbsp;&gt;&nbsp;求购房源列表</div>
+    <!--找房条件-->
+    <div class="condition">
+       <div class="Ccon">
+        	<div class="Ccon_padding">
+        	               <div class="p">
+                  <span class="a_name">区　　域：</span>
+                  <span class="area_height">
+                 
+                 <a  {if $_GET['areaid']==$cityid or $_GET['areaid'] =='' }class="select"{else}{/if} href="{$MOD[linkurl]}list.php?catid={$_GET['catid']}&typeid={$_GET['typeid']}&areaid=">不限</a>
+				 {php $mainarea = get_mainarea($cityid)}
+					{loop $mainarea $k $v}
+              <a  {if $v[areaid]==$areaid}class='select'{else}{/if} href="{$MOD[linkurl]}list.php?catid={$_GET['catid']}&typeid={$_GET['typeid']}&areaid={$v[areaid]}">{$v[areaname]}</a> {/loop}
+                                    
+                  </span>
+              </div><div class="clear"></div>
+                                               
+                                             <div class="p">
+               <span class="a_name">物业类型：</span>
+               <span> <a href="{$MOD[linkurl]}list.php?areaid={$_GET['areaid']}&typeid={$_GET['typeid']}&catid="  class='{if $_GET['catid']==''}select{/if}'>不限</a>
+							   	{loop $maincat $k $v}
+		<a  href="{$MOD[linkurl]}list.php?areaid={$_GET['areaid']}&typeid={$_GET['typeid']}&catid={$v[catid]}" class='{if $v[catid]==$catid}select{/if}'>{$v[catname]}</a>
+		{/loop} 
+               </span>             
+               </div><div class="clear"></div>
+			
+               <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+    <!--您已选择-->
+     <!--列表开始-->
+    <div class="mt10">
+    	<div class="fl wd720">
+    		<div class="esflist_TleA">
+            	<ul class="esflistTitle">
+			<li class="{if $_GET['typeid']==''}titLA{else}titLB bor_right{/if}"><a  href="{$MOD[linkurl]}list.php?areaid={$_GET['areaid']}&catid={$_GET['catid']}&typeid=">全部房源</a></li> 
+				
+				 {loop $TYPE $k $v}
+	                	<li class="{if $_GET['typeid']==$k and $_GET['typeid']!='' }titLA{else}titLB bor_right{/if}"><a    href="{$MOD[linkurl]}list.php?areaid={$_GET['areaid']}&catid={$_GET['catid']}&typeid={$k}">{$v}</a></li> {/loop} 
+                </ul>
+                
+                <div class="clear"></div>
+            </div>
+            <div class="leftTle">
+            	<h2>共有<b>{$items}</b>个符合要求房源</h2>
+                <div class="clear"></div>
+           </div>
+           <div class="boxlist">
+           		            	       {if $page == 1}{load('ad_m'.$moduleid.'_c'.$catid.'.htm')}{/if}
+		{if $tags}{template 'list-'.$module, 'tag'}{/if}
+           		            	           </div>
+            <!--分页-->{if $showpage && $pages}
+	<div class="pagination" >{$pages}</div>{/if}
+                        
+                    </div>
+        <!--右侧-->
+        <div class="fr wd230">
+	<!--经纪人排行-->
+	<div class="box">
+		<h3>
+			<b>经纪人排行</b>
+		</h3>
+		<div class="list_contentPople">
+		
+							<!--{php $tags=tag("table=member&condition=groupid=6&areaid=$cityid&order=userid desc&pagesize=10&template=null");}-->
+ {loop $tags $i $t}
+						<div class="poplelist">
+				<a href="{userurl($t[username], '')}" class="jAvatar" target="_blank"><img src="{imgurl($t[thumb])}"></a>
+				<ul>
+					<li><a href="{userurl($t[username], '')}">{$t[truename]}</a></li>
+					<li>区域：{area_pos($t[areaid], '')}</li>
+					<li>电话：{$t[mobile]}</li>
+				</ul>
+			</div>{/loop}
+			 		</div>
+	</div>
+</div>        <div class="clear"></div>
+    </div>
+　　<!--尾部开始-->
+    <div style="clear:both"></div>
+<div style="padding-bottom:20px;" id="foot">
+ {template 'footer'}
+</div>
+    <!--尾部结束-->
+</div>
+</div>
+
+</body></html>

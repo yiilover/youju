@@ -1,0 +1,58 @@
+{loop $tags $i $t}
+<DIV class="item">
+<DIV class="cf">
+<DIV class="txtBox fl">
+<DIV class="hd">
+<H3 style="height: 60px; position: relative;">
+<A  
+href="{$t[linkurl]}" 
+target="_blank">{$t[title]}</A>
+<DIV style="right: 0px; bottom: 0px; position: absolute;" 
+class="numBox fr">目前已有<SPAN id="kft_route_signup_num_250" 
+class="num">{$t[orders]}</SPAN>人报名</DIV></H3></DIV>
+<DIV class="bd">
+<P></P>
+<UL class="list">
+  <LI><SPAN class="bold">市场价格：</SPAN><span class="zhuzhai"><s><font color="#FF0000">{$t[marketprice]}</font></s></span></LI>
+  <LI><SPAN class="bold">独享优惠：</SPAN>{$t[price]}</LI>
+</UL></DIV>
+<DIV class="ft">
+<A href="{$t[linkurl]}" 
+target="_blank"><SPAN class="btn btnBm icons">立即报名</SPAN></A><SPAN 
+class="hide">250</SPAN></DIV></DIV>
+<DIV class="picBox fr"><A href="{$t[linkurl]}" 
+target="_blank"><IMG src="{$t[thumb]}" 
+width="370" height="235"></A></DIV>
+</DIV>
+<TABLE class="lineList icons">
+  <TBODY>
+  <TR>
+    <TD>&nbsp;</TD>
+    <TD>&nbsp;</TD>
+    <TD>&nbsp;</TD>
+    <TD>&nbsp;</TD>
+  </TR></TBODY></TABLE></DIV>
+  
+<!--<div class="bd">
+	<ul>
+	<li class="h1"><a href="#" class="youhui"></a><a href="" class="price" target="_blank">{$t[title]}</a></li>
+	<li class="cuxiao"><a href="{$t[linkurl]}" target="_blank"><img src="{$t[thumb]}" class="leftImg" alt="{$t[alt]}" height="120" width="180"></a>
+	     <p class="yuanjia"><span class="baomings"><b>{$t[orders]}</b>人已报名</span>市场价格：<span class="zhuzhai">{$t[marketprice]}</span></p>
+	</li>
+	<li class="junjia"><a href="{$t[linkurl]}" class="kankan{if $t[process] == 0 || $t[process] == 1 || $t[process] == 2}{else}_over{/if}" target="_blank"></a>{$t[price]}</li>
+	</ul>
+	<img class="ft" src="{AJ_SKIN}images/tuan/ul_bg.gif">
+	</div>-->
+	
+{/loop}
+{if $showpage && $pages}
+ <div class="page">
+    <table border="0" cellpadding="1" cellspacing="5">
+  <tbody><tr>
+    <td class="align_c">
+	{$pages}
+	</td>
+  </tr>
+</tbody></table> 
+ </div>
+{/if}

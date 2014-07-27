@@ -1,0 +1,280 @@
+/*------小区概况------*/
+.p_add{font-size:12px;color:#666;line-height:40px;height:40px;padding-left:5px;}
+.p_add a{color:#666}
+.p_add em{color:#F60;}
+/*导航*/
+.Atitle h1{color: #FF6600;font-size: 32px;font-weight: 600;line-height: 50px;padding: 0 0 10px;font-family: "微软雅黑","黑体";}
+.clearfix:after{clear: both;content: ".";display: block;height: 0;visibility: hidden;}
+.subNav{background:url(../image/sell/community/navbgnew.gif) no-repeat 0 0;height: 40px;}
+.subNav ul{float: left;font-size: 14px;height: 35px;line-height: 35px;margin-top: 5px;padding-left: 15px;}
+.subNav li{float: left;height:35px;;overflow: hidden;width:85px;text-align:center;}
+.subNav li a,.subNav li a:visited{background:url(../image/sell/community/navbgnew.gif) 0 -95px;color: #fff;display: block; text-decoration: none !important;height:35px;line-height:35px;padding:0 5px 0 0}
+.subNav li a:hover{background-position:0 -140px;line-height:35px;color:#fff}
+.subNav li.selected a,.subNav li.selected a:visited{background-position:0 -50px;color:#000}
+.subNav p{float: right;line-height: 24px;padding: 7px 10px 0 0;}
+.subNav p a{background:url(../image/sell/community/navbgnew.gif) -95px -49px;display: inline-block;margin-left: 5px;text-align: center;width: 70px;line-height:24px;}
+/*小区详情*/
+.content{width:960px;overflow:hidden}
+.left{width:710px;overflow:hidden;}
+.partA{width:710px;overflow:hidden}
+.partA_left{width:284px;border:1px solid #ddd;height:213px;padding:2px;}
+#KinSlideshow{width:284px;height:213px;}
+.partA_right{width:410px}
+.partA_right h2{border-bottom: 1px solid #dbdbdb;font-family: "微软雅黑","黑体";font-size: 20px;line-height: 40px;}
+.partA_right ul{list-style:none}
+.partA_right ul li{line-height:25px;}
+.partA_right ul li span.title{color:#777;}
+.partA_right ul li span.priseA{color:#3ec71f;font-family:Arial;font-size:14px;font-weight:bolder;background:url(../image/sell/community/icon.gif) no-repeat 0 3px;padding:0 0 0 10px}
+.partA_right ul li span.priseB{color:#ff6647;font-family:Arial;font-size:14px;font-weight:bolder;background:url(../image/sell/community/icon.gif) no-repeat 0 -12px;padding:0 0 0 10px}
+.partA_right ul li span.priseC{color:#3ec71f;font-family:Arial;font-size:14px;font-weight:bolder;padding:0px;}
+.partA_right ul li span.priseD{color:#ff6647;font-family:Arial;font-size:14px;font-weight:bolder;padding:0px;}
+.partA_right ul li em a,.partA_right ul li em a:visited{color:#0082ca}
+.partA_right ul li span.share img{padding:2px 5px 0 2px;}
+#map_container{width:690px;height:227px; margin:9px auto;text-align:center;}
+#nomap{width:690px;height:227px;margin:9px auto;text-align:center;}
+#nomap img {padding-top:60px;}
+
+/*出售出租*/
+.partB,.partC{width:708px;border:1px solid #ddd;overflow:hidden}
+.partB h3,.partC h3{background:url(../image/sell/community/icon.gif) repeat-x 0 -25px;line-height:33px;height:33px;padding:0 0 0 10px;color:#013368;font-size:12px;font-weight:bold}
+.partB h3 em,.partB h3 em.title_select{width:88px;text-align:center;display:inline-block;line-height:36px; cursor:pointer;}
+.partB h3 em.title_select{background:url(../image/sell/community/tab_select.gif) no-repeat 0 5px;}
+.partC h3 span.more a,.partC h3 span.more a:visited,.partB h3 span.more{float:right;padding:0 10px 0 0 ;font-weight:normal;line-height:33px}
+.partB h3 span.more span.prise{color:#f00;font:12px/1.5 tahoma,arial,宋体;font-weight:bold}
+.partB ul{list-style:none;overflow:hidden;margin:10px 10px 0 10px;}
+.partB ul li{padding:0 0 10px 0;width:225px;float:left}
+.partB ul li img{float:left;}
+.partB ul li div.centerimg a{border: 1px solid #ECF3F9;display: block;float:left;padding: 2px;}
+.partB ul li div.centerimg a:hover{border:1px solid #80c9ff}
+.partB ul li div.house,.partB ul li div.perimeter{display:inline;float: left;margin:0 0 0 6px;font:12px/1.5 tahoma,arial,宋体;overflow:hidden;}
+.partB ul li div.house span,.partB ul li div.perimeter span{padding: 0 4px 0 0;}
+.partB ul li div.house p{line-height:18px}
+.partB ul li div.perimeter p{line-height:24px}
+.partB ul li div.perimeter p.center{color:#999;}
+.partB ul li div.perimeter p.center span em{color:#f60}
+.partB ul li div.house strong,.partB ul li div.perimeter strong{color: #E20000;font-weight: bold;}
+/*小区地图*/
+.partB div.map{margin:10px}
+/*小区相册*/
+.photo{margin:10px;overflow:hidden;list-style:none;}
+.photo li{float:left;margin:0 6px 0 4px;}
+.photo li a{padding:5px;border:1px solid #ddd;display:block}
+.photo li a:hover{border:1px solid #80c9ff}
+/*right*/
+.right{width:240px;}
+.village{width:238px;border:1px solid #e3e3e3;overflow:hidden}
+.village h3{background:url(../image/sell/community/icon.gif) repeat-x 0 -25px;line-height:33px;height:33px;padding:0 0 0 10px;color:#013368;font-size:12px;font-weight:bold}
+.b_elist_rhousea{ margin:8px 10px;width:218px;overflow:hidden;}
+.b_elist_rhousea p{width:218px;height:24px;}
+.b_elist_rhousea p span{display:block;float:left;}
+.b_elist_rhousea p span.b_elist_rtxt1{width:90px;overflow:hidden;}
+.b_elist_rhousea p span.b_elist_rtxt1 a,.b_elist_rhousea p span.b_elist_rtxt1 a:visited{color:#06c;}
+.b_elist_rhousea p span.b_elist_rtxt1 a:hover{color:#f60;}
+.b_elist_rhousea p span.b_elist_rtxt2{width:55px;font:12px/1.5 tahoma,arial,宋体;overflow:hidden;}
+.b_elist_rhousea p span.b_elist_rtxt3{width:70px;color:#f60;font:12px/1.5 tahoma,arial,宋体;text-align:right;overflow:hidden;}
+/*小区专家*/
+.expert{list-style:none;margin:0 10px;overflow:hidden;}
+.expert li{height:60px;border-bottom:1px dashed #dedede;overflow:hidden;padding:10px 0;*padding:8px 0;}
+.expert li.last{border-bottom:none}
+.expert li a.imge{display:block; width:57px; height:57px;float: left;}
+.expert li a img {border-radius: 2px 2px 2px 2px; width: 45px;height:45px;padding:5px;border:1px solid #ddd;display:block}
+.expert li a.imge:hover img{border-color:#80c9ff}
+.expert li span.tox_con{float: left;font-size: 12px;width:150px;padding:0 0 0 5px;line-height:18px}
+.expert li span.tox_con a,.expert li span.tox_con a:visited{color:#06c}
+/*------价格行情------*/
+.partD{width:708px;overflow:hidden;border:1px solid #ddd;padding:0 0 10px 0}
+.partD p.title{background:url(../image/sell/community/icon.gif) repeat-x 0 -64px;height:54px;line-height:54px;padding:0 0 0 30px;font-family:tahoma,arial,宋体}
+.partD p.title span{font-size:22px;font-weight:bold;}
+.partD p.title span.prise_up{color:#f60;}
+.partD p.title span.prise_zero{color:#390;}
+.prise_upload{color:#f60;background:url(../image/sell/community/prise_up.gif) no-repeat;padding:0 0 0 25px;}
+.partD p.title span.prise_down{color:#390;background:url(../image/sell/community/prise.gif) no-repeat 0 -146px;padding:0 0 0 25px;} 
+.partD p.title span.today{font-size:12px;color:#0360af;font-weight:normal;background:url(../image/sell/community/prise.gif) no-repeat 0 -180px;padding:0 0 0 18px;margin:0 0 0 20px}
+.tab-line{height: 32px;line-height: 32px;padding-left: 10px;}
+.tab-line span{background:url(../image/sell/community/prise.gif) no-repeat; color: #858585; cursor: pointer; float: left; font-size: 14px;margin-right: 10px;text-align: center; width: 122px;}
+.tab-line span.btnon {background-position: -125px 0;color: #666666;}
+.prise_map{margin:10px;text-align:center;width:661px; height:314px;}
+.right-tab{background:url(../image/sell/community/prise.gif) no-repeat;font-size: 14px; height: 32px; overflow: hidden; width: 315px;line-height:35px;margin:0 auto}
+.fid_btn{background-position:0 -71px}
+.end_btn {background-position:0 -35px;}
+.right-tab span{color: #666;float: left;text-align: center;width:157px;line-height:35px;cursor:pointer;}
+.partE{width:708px;border:1px solid #ddd;border-top:none;padding:1px 0 0 0;background:#f4f4f4;}
+.partE p{border-bottom:1px dashed #ddd;overflow:hidden;height:32px}
+.partE p.end{border-bottom:none}
+.partE p span{border-right:1px solid #ddd;line-height:32px;width:140px;display:block;float:left;text-align:center}
+.partE p span.first{font-weight:bold}
+.partE p span.last{border-right:none}
+/*周边小区房价*/
+.partF{width:708px;border:1px solid #ddd;overflow:hidden}
+.partF h3,.partG h3{background:url(../image/sell/community/icon.gif) repeat-x 0 -25px;line-height:33px;height:33px;padding:0 0 0 10px;color:#013368;font-size:12px;font-weight:bold}
+.partF div.Topten{margin:10px;line-height:30px}
+.partF div.Topten ul li span{ display:block; float:left; width:90px; font-weight:normal; padding-right:7px; color:#666}
+.partF div.Topten ul li .bkname{ display:block; float:left; width:130px; padding-right:5px; font-weight:normal}
+.partF div.Topten ul li .zf{ font-family:"宋体"; display:block; float:left; width:70px; font-weight:normal; padding-right:7px;font-weight:bold}
+.partF div.Topten ul li .pre_up{color:#ff0000;}
+.partF div.Topten ul li .pre_down{color:#008800;}
+.partF div.Topten .border_right{ border-right:1px #e5e5e5 solid}
+.partF div.Topten p{ padding-top:5px; padding-right:10px;}
+.partF div.Topten p a{ width:auto; float:right; text-align:right;}
+.partF div.zb{ width:718px; background:#FFF; display:block;}
+.partF div.zb ul li{ float:left; width:330px; padding-left:15px; background:url(../image/sell/community/prise.gif) no-repeat 0 -196px}
+.partF div.zb ul{ background:none; padding-left:0px;}
+/*您可能感兴趣的小区*/
+.partG{width:958px;border:1px solid #Ddd;overflow:hidden}
+.partG ul{list-style:none;margin:10px;overflow:hidden}
+.partG ul li{margin:0 5px 0 3px;width:148px;float:left}
+.partG ul li p{line-height:24px;font-family:tahoma,arial,宋体;text-align:center;width:148px}
+.partG ul li p em{color:#f60;}
+.partG div.zb{padding:10px;line-height:24px;}
+/*------出售------*/
+.b_elist_txt{padding:0 10px 10px 0;background:url(../image/sell/community/termbg.jpg) repeat-x bottom right}
+.b_elist_txt p {display: inline-block;line-height:26px;_height:26px}
+.b_elist_txt p span{font-family:tahoma,arial,宋体;}
+.b_elist_txt p span a.select,.b_elist_txt p span a:visited.select{background:#f60;color:#ffffff;margin:0 2px 0 0}
+.b_elist_txt p a,.b_elist_txt p a:visited{color:#2953a6;padding:2px;*padding:2px 2px 0 2px;_padding:2px}/**/
+.b_elist_txt p a:hover{color:#f60;}
+.icon{background:url(../image/sell/community/prise.gif) no-repeat 0 -283px;width:47px;height:21px;line-height:21px;border:none;cursor:pointer;vertical-align:middle;}
+.term{background:url(../image/sell/community/termbga.gif) repeat-x;border:1px solid #ebebeb;height:30px;line-height:30px;padding:0 10px}
+.term div.term_search{width:260px;overflow:hidden;padding:3px 0 0 0;float:left}
+.term div.term_search input.import{width:200px;float:left;color:#999;border:1px solid #DCDCDC;height:22px;line-height:22px;padding:0 0 0 5px}
+.term div.term_search input.inport_button{border: 1px solid #DCDCDC;border-left:none;color: #666;height:24px;width:48px;background:url(../image/sell/community/b_list_bg4.gif) repeat-x;float:left;cursor:pointer;}
+.term div.moreselect{width:300px;margin:0 0 0 10px;float:left;padding:3px 0 0 0 }  
+.term div.moreselect span.term_title{background:url(../image/sell/community/termbga.gif) repeat-x 0 -37px;border:1px solid #FFD585;height:22px;line-height:22px;text-align:center;padding:0 4px;color:#bb4f00;width:70px;}
+/*装修*/
+.moreselect .a_listdown1{display: block;float: left;position: relative;width: auto; z-index:1}
+.listspanmid{height:22px;line-height:22px; vertical-align:middle;}
+.moreselect .a_listdown1 .down_list1{border:1px solid #ccc;line-height:22px;z-index:1000;position:absolute;top:23px;left:0;}
+.moreselect .a_listdown1 .down_list1 a,.moreselect .a_listdown1 .down_list1 a:visited{height:22px;text-align:left;padding-left:5px;width:69px;display:block;background:#fff;line-height:24px}
+.moreselect .a_listdown1 .down_list1 a:hover{background:#EFFAEC;color:#333;}
+/*发布时间*/
+.moreselect .a_listdown2{display: block;float: left;position: relative;width: auto; z-index:1000}
+.moreselect .a_listdown2 .down_list2{border:1px solid #ccc;line-height:22px;z-index:200;position:absolute;top:23px;left:0}
+.moreselect .a_listdown2 .down_list2 a,.moreselect .a_listdown2 .down_list2 a:visited{height:22px;text-align:left;padding-left:5px;width:69px;display:block;background:#fff;line-height:24px}
+.moreselect .a_listdown2 .down_list2 a:hover{background:#EFFAEC;color:#333;}
+.moreselect span {background:#ffffff url(../image/sell/community/prise.gif) no-repeat 75px -251px;border:1px solid #d9d9d9;border-left:none;float: left;
+padding: 0 0 0 10px; width: 85px;height:22px;}
+.term_clear{background:url(../image/sell/community/prise.gif) no-repeat -38px -244px;padding:0 0 0 18px;color: #666666;float: right;margin: 0px 0 0 0; width:75px; height:30px;}
+/*出售房源条件*/
+.partH{height:40px;line-height:40px;border:1px dashed #ddd;padding: 0 10px;font-family:tahoma,arial,宋体;}
+.blue{background:#edf8fa;}
+.green{background:#effaec}
+.partH span.total{font-size:14px;}
+.partH span.total em{padding: 0 5px;font-weight:bold;color:#f60;}
+.partH div.fr{padding:7px 0 0 0}
+.partH div.a_listdown3{display: block;float: left;position: relative;width: auto;}
+.partH div.a_listdown3 span {background:#ffffff url(../image/sell/community/prise.gif) no-repeat 130px -250px;
+border:1px solid #d9d9d9;float: left; padding: 0 0 0 10px; width:140px;height:24px;line-height:24px;vertical-align:middle;}
+.partH div.a_listdown3 .down_list3{border:1px solid #ccc;line-height:22px;position:absolute;top:25px;left:0;}
+.partH div.a_listdown3 .down_list3 a,.partH div.a_listdown3 .down_list3 a:visited{height:22px;text-align:left;padding-left:5px;width:125px;display:block;background:#fff;line-height:24px}
+.partH div.a_listdown3 div.down_list3 a:hover{background:#EFFAEC;color:#333;}
+.partH div.area{padding:0 10px;width:30px;z-index: 1;border:1px solid #D9D9D9 ;border-left:none;height:24px;vertical-align:middle;line-height:24px;}
+.partH .areafl1{background:#ffffff url(../image/sell/community/b_lise_icondown.gif) no-repeat 37px 8px;}
+.partH .areafl2{background:#ffffff url(../image/sell/community/b_lise_iconup.gif) no-repeat 37px 8px;}
+.partH .areafl3{background:#ffffff url(../image/sell/community/prise.gif) no-repeat 40px -307px;}
+.houselist{overflow:hidden;min-height:200px;}
+.houselist .building{border-bottom:1px solid #ddd;overflow:hidden;padding:15px 10px;min-height:88px;_height:88px;}
+.houselist .building .house{width:106px;position:relative;float:left}
+.houselist .building .house img{padding:2px;border:1px solid #ddd;}
+.houselist .building .house span{background:url(../image/sell/community/icon_more_28x16.gif) no-repeat;
+  color: #FFFFFF;display: block;font-size: 12px;height: 16px;line-height: 18px;margin: 5px 5px 0 0;position: absolute; text-align: center;
+ left:3px; top:57px; width: 28px;}
+.houselist .info{float:left;margin:0 0 0 10px;width:570px;font-family:tahoma,arial,宋体;}
+.houselist .info h3{color: #0066CC;font-size: 14px;font-weight: bold;text-decoration: underline;}
+.houselist .info h3 a,.houselist .info h3 a:visited{color:#0360af;}
+.houselist .info .other_row{width:570px}
+.houselist .info .other_row ul.other{float:left;width:350px;}
+.houselist .info .other_row ul.other li{line-height:20px;}
+.houselist .info .other_row ul.other li a{color:#0360af;}
+.houselist .info .other_row ul.other li.time{color:#888;}
+.houselist .info .other_row p.info_area{float:left;width:100px;text-align:center;font-size:14px;color:#333;font-weight:bold;padding:10px 0 0 0;}
+.houselist .info .other_row p.info_price{float:left;width:120px;text-align:center;font-size:18px;color:#f60;font-weight:bold;padding:10px 0 0 0;}
+.houselist .highlight{background:#EDF8FA;}
+.houselist .highlight_green{background:#effaec;}
+/*户型图*/
+.partI{width:958px;border:1px solid #Ddd;overflow:hidden}
+.partI h3{background:url(../image/sell/community/icon.gif) repeat-x 0 -25px;line-height:33px;height:33px;padding:0 0 0 10px;color:#013368;font-size:12px;font-weight:bold}
+.partI h3 span{float:right;padding:0 10px 0 0;font-weight:normal}
+.partI h3 span strong{font-weight:bold;color:#f60}
+.partI ul{list-style:none;padding:10px;overflow:hidden}
+.partI ul li{margin:0 13px 10px 13px;width:206px;float:left;}
+.partI ul li a.huxing{background:url(../image/sell/community/photobg.gif) no-repeat;width:206px;height:156px;display:block}
+.partI ul li img{padding:2px 0 0 2px}
+.partI ul li p{line-height:24px;width:206px;font-family:tahoma,arial,宋体;text-align:center}
+
+.partI ul li p em{color:#f60;}
+/**--------------------------周边配套-----------------------------**/
+.map_Main{width:958px;border:1px solid #ddd;}
+.tit{float:left;width:120px;}
+#around{width:120px;height:557px;background:url(../image/sell/community/map_tab1_bg.gif) repeat-y center top;float:left;}
+.tit ul li {width:120px;height:41px;overflow:hidden;background:url(../image/sell/community/map_tab1_normal.gif) no-repeat;border-bottom:1px solid #ddd;line-height:41px; vertical-align:middle;padding-top:15px\9;height:26px\9;}
+/***默认背景**/
+/***当前状态背景**/
+.tit ul li.tab01active{line-height:41px;background:url(../image/sell/community/map_tab1_active.gif) no-repeat;vertical-align:middle;}
+.tit ul li a{height:18px;padding-top:37px\9;}
+.tit ul li a.twoword{padding:13px 50px 10px 40px;}
+.tit ul li a.fourword{padding:13px 26px 10px 40px;}
+.tit ul li a:link,.tit ul li a:visited{color:#0360af;}
+.tit ul li a.map_con1{background:url(../image/sell/community/map_icon.gif) no-repeat 5px -5px;}
+.tit ul li a.map_con2{background:url(../image/sell/community/map_icon.gif) no-repeat 5px -44px;}
+.tit ul li a.map_con3{background:url(../image/sell/community/map_icon.gif) no-repeat 5px -85px;}
+.tit ul li a.map_con4{background:url(../image/sell/community/map_icon.gif) no-repeat 5px -130px;}
+.tit ul li a.map_con5{background:url(../image/sell/community/map_icon.gif) no-repeat 5px -167px;}
+/***当前状态背景**/
+.cont{float:right;width:834px;}
+.contentTab01{padding:4px 3px 4px 0px;height:557px;}
+.mapImg{float:left;width:600px;height:556px;overflow:hidden;margin:0px 4px;_margin:0px 2px;}
+.mapTxt{width:230px;height:auto;background:#f0f0f0;padding-top:10px;}
+.mapTxt p{width:200px;color:#333;padding:0px 15px 0px 15px;border-bottom:1px solid #ddd;}
+.mapTxt p strong{font-weight:bold;display:block;padding-bottom:6px;}
+.mapTxt ul{border-top:1px solid #fff;padding:6px 0 6px 13px;}
+.mapTxt ul strong{color:#22658f;font-weight:bold;}
+.mapTxt ul li{padding-left:30px;margin:5px 0;color:#666;background:url(../image/sell/community/map_icon1.gif) no-repeat left top;}
+.mapTxt ul li span{display:block;color:#333;}
+.Topten ol.map_List li{line-height:24px;}
+.Topten ol.map_List li span{background:none;color:#0360af;}
+/*小区详情*/
+.partk{width:710px;border:1px solid #ddd;border-right:none;border-bottom:none;color:#666}
+.partk td{border-bottom:1px solid #ddd;border-right:1px solid #ddd;height:36px;line-height:36px;padding:0 0 0 5px}
+.partk td.title{padding:0 0 0 25px;background:#f7f7f7;color:#0360af}
+.partk td strong{font-weight:bold}
+.infobox{border:1px solid #ddd;border-top:none;width:688px;padding:10px}
+.infobox h3{line-height:33px;height:33px;padding:0 0 0 20px;color:#013368;font-size:12px;font-weight:bold;background:url(../image/sell/community/prise.gif) no-repeat 0 -323px;}
+.infobox .infotxt{line-height:24px;}
+/*今日房价*/
+#today_price{ padding:5px 20px 30px 20px;}
+#today_price font{color:#F60;}
+/*照片详细页*/
+.a_photo2 .a_right{ width:210px; margin-top:20px; margin-right:15px; background:#f3f3f3; border:1px #e3e3e3 solid;height:460px; margin-bottom:20px;}
+.a_photo2 .a_left{ margin-bottom:20px;height:auto; width:auto;float:left;padding:0px 45px 0px 10px;}
+.a_photo2 .a_left .info{ width:590px;float:left}
+.a_photo2 .a_left .info p{ padding-top:5px; text-align:right}
+.a_photo2 .a_left .info .title{ text-align:center; height:40px; line-height:40px; font-weight:600; font-size:14px}
+.a_photo2 .a_left .pic{ width:550px; border:1px #CCC solid; padding:20px; text-align:center; }
+.a_photo2 .a_left .a_left_box{float:left; width:40px; padding-top:220px;height:55px;}
+.a_photo2 .a_left .a_left_box a{text-decoration:none;}
+.a_photo2 .a_left .a_left_box a .left_button{ background-image:url(../image/sell/community/photoxx2.gif); width:18px; height:55px;  cursor:pointer;}
+.a_photo2 .a_left .a_left_box a .right_button{ background-image:url(../image/sell/community/photoxx1.gif); width:18px; height:55px;  float:right;cursor:pointer;}
+.a_photo2 .a_right{float:left;}
+.a_photo2 .a_right ul{ height:430px;}
+.a_photo2 .a_right ul li{ width:80px; height:59px; float:left; padding:15px 5px 0px 15px;}
+.a_photo2 .a_right ul a img{ width:76px; height:55px;}
+.a_photo2 .a_right ul a { display:block;  background:#FFF; padding:1px; border:1px #CCC solid;}
+.a_photo2 .a_right .page{ padding-left:20px;}
+.a_photo2 .a_right .page a{height:16px; line-height:16px; padding:1px 3px; border:1px #fff solid; float:left;cursor:pointer;}
+.a_photo2 .a_right .page .prve{ margin-right:80px;}
+.a_photo2 .a_right .page a:hover,.a_photo2 .a_right .page a:active{border:1px #ccc solid; cursor:pointer;}
+.a_photo2 .a_right ul a:hover,.a_photo2 .a_right ul a:active {border:1px #e00 solid;cursor:pointer;}
+
+/*------------------地图------------------*/
+.main_cont{border:1px solid #CCC;padding:4px 4px 4px 0px;width:954px;margin-top:6px;}
+.a_map table{ border:1px #CCC solid; height:435px; width:958px;}
+.a_map .pic{ width:810px; padding-right:3px; }
+.a_map .info{ width:147px; background:#f4f4f4; padding-top:10px;}
+.a_map table .info form span{ display:block; vertical-align:middle; height:25px; float:none;padding:8px 5px 5px 20px; }
+.a_map table .info input{ float:left; width:13px; height:13px; margin:5px;}
+.a_map table .info em{display:block; padding-left:20px; height:25px; line-height:25px;float:left;}
+.a_map table .info a{ display:block; padding-left:20px; margin-left:20px; height:30px; line-height:30px;}
+.a_map table .info a:link,.a_map table .info a:visited{ color:#333}
+.a_map table .info .reset{ background:url(../image/sell/community/icon1.gif) no-repeat left center; margin-top:60px;}
+.a_map table .info .print{ background:url(../image/sell/community/icon2.gif) no-repeat left center;}
+.a_map table .info .seebig{ background:url(../image/sell/community/icon3.gif) no-repeat left center;}

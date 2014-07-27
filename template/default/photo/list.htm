@@ -1,0 +1,59 @@
+{template 'header'}
+<div class="m">	
+		<div class="bread">
+			您当前的位置：<a href="{$MODULE[1][linkurl]}">首页</a> &gt;
+			<a href="{$MODULE[6][linkurl]}" >{$city_name}新房</a>&nbsp;&gt;&nbsp;<a href="{$MOD[linkurl]}">{$MOD[name]}</a>&nbsp;&gt;
+			{cat_pos($CAT, ' &raquo; ')}</div>
+	<!--搜索-->
+	<div class="search">
+	<form action="{$MOD[linkurl]}search.php" id="fsearch">
+	<span class="hxs">图库搜索：</span>
+	<div class="lab01_box" id="searchR">
+		<span class="zi">图库类别：</span>
+		<div class="none"> 
+			<select name="catid" class=box2 id="unitType">
+                           <option value="">不限</option>
+						   {php $leixing = get_maincat(0,12)}
+			
+                           {loop $leixing $k $v}<option value="{$v[catid]}">{$v[catname]}</option>{/loop}  
+                         
+                         </select>
+			
+		</div>
+		<span class="zi">&nbsp;地区：</span>
+		<div class="none"> 
+			<select name="areaid" class=box2 id="areaId" >
+                           <option value="" selected="selected">区域 </option>
+						    {php $mainarea = get_mainarea($cityid)}
+						    {loop $mainarea $k $v}    
+						   <option value="{$v[areaid]}">{$v[areaname]}</option>{/loop}
+                            </select> 
+		</div>
+		
+		<span class="zi">&nbsp;</span>
+		<input id="key_val" type="text" class="a_text"name="kw"  value="">
+		<input id="search_bt" type="submit" value="" class="a_search_btn"></div>
+	<div class="clear"></div>
+</div>	<!--图-->
+		<div id="hxtCon">
+			<!--一  start-->
+			<h2 class="hxt_hot mt10">
+							<b>{loop $maincat $k $v}<a href="{$MOD[linkurl]}{$v[linkurl]}">{set_style($v[catname],$v[style])}({$v[item]})</a>{/loop}
+	       			            	
+	            	            </b>
+       					<span>图库</span></h2>
+			<div class="box mt10 border">
+				<h2>
+					{cat_pos($CAT, ' &raquo; ')}
+					<span>相册</span>
+				</h2>
+				<ul class="hxt_list cf smhx">
+				{if $tags}{template 'list-'.$module, 'tag'}{/if}
+				</ul>
+{if $showpage && $pages}<div class="pagination" >{$pages}</div>{/if}
+			</div>
+		</div>
+		{template 'footer'}  </div>
+
+</body>
+</html>

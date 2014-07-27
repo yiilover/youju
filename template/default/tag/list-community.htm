@@ -1,0 +1,28 @@
+<table id="FyList" class="FyList">
+{loop $tags $k $t}<tr class="">
+						<td class="pic">
+							<a href="{$t[linkurl]}" title="{$t[alt]}" target="_blank"><img data-src="{imgurl($t[thumb])}" alt="{$t[alt]}"></a>
+						</td>
+						<td class="infos">
+							<h5>
+								<a href="{$t[linkurl]}" title="{$t[alt]}" target="_blank">{$t[title]}</a>
+							</h5>
+							<p>{$t[address]} <a target="_blank" href="{$t[linkurl]}">查看地图</a>
+								<br>				
+								<a target="_blank" href="{$t[linkurl]}">小区概况</a>/<a target="_blank" href="{$t[linkurl]}">价格走势</a>/<a target="_blank" href="{$t[linkurl]}">小区相册</a>
+							</p>
+						</td>
+						<td class="area">
+							{if get_avg_price($t[itemid])}<b>{get_avg_price($t[itemid])}</b>元/㎡{else}<b>待定</b>{/if}
+	
+							<br>同比上月：{if $t[avg_price]>$t[avg_priceb] and $t[percent_change]<>0}<b class="up">{$t[percent_change]}%</b>{elseif $t[avg_price]< $t[avg_priceb]}<b class="down">{$t[percent_change]}%</b>{else}<b>→</b>{/if}
+													</td>
+						<td class="price">
+							<a class="shou" href="{$t[linkurl]}" target="_blank">{get_sale($t[itemid])}套</a>
+							<a class="zu" href="{$t[linkurl]}" target="_blank">{get_rent($t[itemid])}套</a>
+						</td>
+					</tr>
+							
+					{/loop}	
+							</table>
+{if $showpage && $pages}<div class="pages">{$pages}</div>{/if}

@@ -1,0 +1,131 @@
+	{template 'header'}
+<div class="m">	
+		<div class="bread">
+			您当前的位置：<a href="{$MODULE[1][linkurl]}" title="{$AJ[sitename]}">{$AJ[sitename]}</a> &gt; <a href="{$MOD[linkurl]}">{$MOD[name]}    </a> &gt; <a href="{$MOD[linkurl]}list.php?areaid={$cityid}">{area_poss($cityid, ' ')}</a>  &gt;
+			小区找房
+		</div>
+		<div class="modB">
+			<div class="conl1">
+				<div class="cf" style="padding-top:9px;">
+					<span class="a_name">区&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;域：</span>
+					<span>
+						<a  {if $_GET['areaid']==$cityid or $_GET['areaid'] =='' }class="c"{else}{/if} href="{$MOD[linkurl]}list.php?p={$_GET['p']}&r={$_GET['r']}&a={$_GET['a']}&f={$_GET['f']}&y={$_GET['y']}&catid={$_GET['catid']}&typeid={$_GET['typeid']}&day={$_GET['day']}&areaid=">不限</a>
+					{loop $mainarea $k $v}
+              <a  {if $v[areaid]==$areaid}class='c'{else}{/if} href="{$MOD[linkurl]}list.php?l={$_GET['l']}&areaid={$v[areaid]}">{$v[areaname]}</a> {/loop}
+																</span>
+									</div>
+				
+				<div class="cf">
+					<span class="a_name">首&nbsp;&nbsp;字&nbsp;&nbsp;母：</span>
+					<span class="Letter">
+						<a class="{if $_GET['l'] ==''}n c{else}n{/if}" href="{$MOD[linkurl]}list.php?catid={$_GET['catid']}&p={$_GET['p']}&areaid={$_GET['areaid']}&typeid={$_GET['typeid']}&l=" >不限</a>
+                                    {php $l = array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z');}
+{loop $l $k $v}<a class="{if $_GET['l']==$v}n c{else}{/if}" href="{$MOD[linkurl]}list.php?areaid={$_GET['areaid']}&l={$v}">{$v}</a>
+                                                   					{/loop}</span>
+				</div>
+			</div>
+		</div>
+		
+		<div class="cf">
+			<div class="w720 fl">
+				<div class="Tle2">
+				<form id="aijiacms_search" action="{$MODULE[18][linkurl]}search.php" onsubmit="return Dsearch();">
+<input type="hidden" name="spread" value="0" id="aijiacms_spread"/>
+						<input id="hname" name="kw" data-val="请输入小区名字" value="请输入小区名字" class="txt" autocomplete="off" type="text">
+						<input id="kwsearch" name="" class="btn" value="" type="submit">
+					</form>
+				
+					<span class="fr">共有 <b class="red">{$items}</b> 套符合要求的小区</span>
+				</div>
+				<!--list-->
+								<table id="FyList xqSearch" class="FyList">
+								<tbody>
+		
+			{if $tags}
+
+{if $page == 1}{load('ad_m'.$moduleid.'_c'.$catid.'.htm')}{/if}
+		{if $tags}{template 'list-'.$module, 'tag'}{/if}
+		</tbody>
+		</table>
+		{if $showpage && $pages}
+	<div class="pagination" >{$pages}</div>{/if}
+
+       {else}
+	   <table id="FyList" class="FyList">
+	   <tbody>
+	   <tr>
+		{template 'noresult', 'message'}
+		</tr>
+			</tbody></table>
+		{/if}
+							</div>
+			<div class="w230 fr">
+				<div class="modC">
+	<h4 class="modBT"><sub></sub>
+		热门二手房
+	</h4>
+		<ul class="t3List">
+					<!--{php $tags=tag("moduleid=5&condition=status=3&areaid=$areaid&length=22&pagesize=6&order=hits desc&target=_blank&template=null");}-->
+ {loop $tags $i $t}
+						<li>
+				<span class="lettsub7"><a target="_blank" href="{$t[linkurl]}" title="{$t[title]}">{$t[housename]}</a></span>
+				<span class="w2">{area_poss($t[areaid], '')}</span>
+				<span class="w3">{if $t[price]}{$t[price]}万{else}面议{/if}	</span>
+			</li>{/loop}
+			</ul>
+	</div>				<div class="modC">
+					<h4 class="modBT"><sub></sub>
+						热门出售房
+					</h4>
+										<ul class="t3List">
+													<!--{php $tags=tag("moduleid=7&condition=status=3&areaid=$cityid&length=22&pagesize=6&order=hits desc&target=_blank&template=null");}-->
+ {loop $tags $i $t}
+						<li>
+				<span class="lettsub7"><a target="_blank" href="{$t[linkurl]}" title="{$t[title]}">{$t[housename]}</a></span>
+				<span class="w2">{area_poss($t[areaid], '')}</span>
+				<span class="w3">{if $t[price]}{$t[price]}元/月{else}面议{/if}	</span>
+			</li>{/loop}
+											</ul>
+									</div>
+				<div class="modC">
+					<h4 class="modBT"><sub></sub>
+						网友关注小区排行
+					</h4>
+										<ul class="top10">
+											<!--{php $tags=tag("moduleid=18&condition=status=3&areaid=$cityid&length=22&pagesize=10&order=hits desc&target=_blank&template=null");}-->
+ {loop $tags $i $t}
+						<li>
+				<span class="lettsub7"><a target="_blank" href="{$t[linkurl]}" title="{$t[title]}">{$t[title]}</a></span>
+				<span class="w2">{area_poss($t[areaid], '')}</span>
+				<span class="w3">{if get_avg_price($t[itemid])}{get_avg_price($t[itemid])}元/㎡{else}待定{/if}	</span>
+			</li>{/loop}
+											</ul>
+									</div>
+			</div>
+		</div>
+		{template 'footer'}</div><ul id="autoc" class="autopop"></ul>
+<script type="text/javascript">
+seajs.use(["jquery","alert","autoc","cookie"],function($,alertM){
+	$("#s_list1").add("tr").hover(function(){
+		$(this).addClass("h")
+	},function(){
+		$(this).removeClass("h")
+	})
+	var $hname=$("#hname").autoC("");
+	var ht=$hname.attr("data-val");
+	$hname.on("focus",function(){
+		if($hname.val()==ht)
+			$hname.val("");
+	}).on("blur",function(){
+		if($hname.val()=="")
+			$hname.val(ht);
+	}).closest("form").submit(function(){
+		if($hname.val()==ht){
+			$hname.focus()
+			return false;
+		}
+	})
+})
+</script>
+
+<ul id="autoc" class="autopop"></ul></body></html>

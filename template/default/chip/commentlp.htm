@@ -1,0 +1,16 @@
+{if in_array($moduleid, explode(',', get_module_setting(3, 'comment_module')))}
+ <div class="mt10 fl w750" id="Comment"  style="display:;">
+			
+				
+				<div class="modA mt10">
+					<h4><sub class="l"></sub>
+						{$title}ÍøÓÑµãÆÀ£¨<span id="comment_count">0</span>£©
+						<ul class="modTab">
+							<li >È«²¿</li>
+						</ul>
+					</h4>
+
+	
+	<script type="text/javascript">show_comment('{$MODULE[3][linkurl]}', {$moduleid}, {$itemid});</script>
+	
+{/if}

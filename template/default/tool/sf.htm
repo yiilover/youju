@@ -1,0 +1,100 @@
+{template 'header'}
+<div class="m">	
+
+   <link href="{AJ_SKIN}/xinfang_jisuanqi.css" rel="stylesheet" type="text/css"/>
+ 	<div id="content">
+<!--计算器-->
+			<div class="b_cal mt10 cf">
+				<div class="b_cal_box b_cal_line fl">
+					<div class="b_cal_bg1"></div>
+					<a class="b_cal_box_bg1" href="{$MODULE[1][linkurl]}tool/"></a>
+				</div>
+				<div class="b_cal_box b_cal_line fl ">
+					<div class="b_cal_bg2 "></div>
+					<a class="b_cal_box_bg2" href="{$MODULE[1][linkurl]}tool/benxi.php"></a>
+					<a class="b_cal_box_bg3" href="{$MODULE[1][linkurl]}tool/benjin.php"></a>
+					<a class="b_cal_box_bg4" href="{$MODULE[1][linkurl]}tool/gjj.php"></a>
+				</div>
+				<div class="b_cal_box fl">
+					<div class="b_cal_bg3"></div>
+					<a class="b_cal_box_bg5" href="{$MODULE[1][linkurl]}tool/tqhd.php"></a>
+					<a class="b_cal_box_red6" href="{$MODULE[1][linkurl]}tool/sf.php"></a>
+				</div>
+			</div>
+<!--内容区-->
+			<div class="b_cal mt10">				
+								<div class="b_cal_bg cf">
+					<form name="formt3" action="" method="post">
+						<div class="b_cal_left fl">
+							<div class="b_cal_left_top">
+								<div class="b_cal_bg4 "></div>
+							</div>
+							<div class="b_cal_left_conn">
+								<ul>
+									<li>
+										<span></span>
+									</li>
+									<li>
+										<span>单　　价：</span>
+										<input maxlength="6" size="8" name="dj3">&nbsp;元/平米</li>
+									<li>
+										<span>面　　积：</span>
+										<input maxlength="7" size="8" name="mj3">&nbsp;平方米</li>
+									<li class="cbt">
+										<input name="" type="button" class="sbmt" onClick="runjs3(this.form)">
+										<input name="" onClick="formReset(this.form);" type="reset" class="tbmt" value=""></li>
+								</ul>
+							</div>
+						</div>
+						<div class="b_cal_right fr">
+							<h2>查看结果</h2>
+							<ul>
+								<li>
+									<span>房屋总价：</span>
+									<input size="8" name="fkz3">（元）</li>
+								<li>
+									<span>契&nbsp;&nbsp;税：</span>
+									<input size="8" name="q">（元）</li>
+								<li>
+									<span>印 花 税：</span>
+									<input size="8" name="yh">（元）</li>
+								<li>
+									<span>公证费：</span>
+									<input size="8" name="gzh">（元）</li>
+								<li>
+									<span>房屋买卖手续费：</span>
+									<input size="6" name="fw">（元）</li>
+								<li style="width:100%">
+									<span>委托办理产权手续费：</span>
+									<input size="5" name="wt">（元）</li>
+							</ul>
+							<span class="tip">购房税费 银行贷款需要支付的费用</span>
+							<h2>购房能力评估</h2>
+							<p>
+								1.公积金贷款额度最高为80万左右；
+								<br>2.对已贷款购买一套住房，但人均面积低于当地水平，再审</p>
+						</div>
+					</form>
+				</div>
+<script type="text/javascript">
+function runjs3(obj){dj3=parseFloat(obj.dj3.value)
+mj3=parseFloat(obj.mj3.value)
+fkz3=dj3*mj3
+yh=fkz3*0.0005
+if (dj3<=9432) q=fkz3*0.015
+else if (dj3>9432) q=fkz3*0.03
+if (mj3<=120)  fw=500;
+else if (120<mj3<=5000)   fw=1500;
+ if (mj3>5000)  fw=5000
+gzh=fkz3*0.003
+obj.yh.value=Math.round(yh*100,5)/100
+obj.fkz3.value=Math.round(fkz3*100,5)/100
+//obj.q.value=Math.round(q*100,5)/100
+obj.gzh.value=Math.round(gzh*100,5)/100
+obj.wt.value=Math.round(gzh*100,5)/100
+obj.fw.value=Math.round(fw*100,5)/100}
+</script>			</div>
+		</div>
+		{template 'footer'}</div>
+</body>
+</html>

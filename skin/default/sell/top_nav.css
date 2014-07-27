@@ -1,0 +1,44 @@
+.dh_left {
+	BACKGROUND: url(../image/sell/dh1.gif) no-repeat
+}
+.dh {
+	BACKGROUND: url(../image/sell/dh2.gif) repeat-x
+}
+.dh_right {
+	BACKGROUND: url(../image/sell/dh3.gif) no-repeat
+}
+.dh UL LI.dh_line {
+	BACKGROUND: url(../image/sell/dh-line.gif) no-repeat
+}
+.dh .dh_one {
+	BACKGROUND: url(../image/sell/dha.gif) no-repeat 10px 0px
+}
+#content {
+	WIDTH: 960px; FLOAT: left
+}
+.a_menu .nav .nav_content A.current:link {
+	BACKGROUND: url(../image/sell/headerbg.gif) no-repeat left top
+}
+.a_menu .nav .nav_content A.current:visited {
+	BACKGROUND: url(../image/sell/headerbg.gif) no-repeat left top
+}
+.a_menu .nav .nav_content A.current:hover {
+	BACKGROUND: url(../image/sell/headerbg.gif) no-repeat left top
+}
+.a_menu .nav .nav_content A.current:active {
+	BACKGROUND: url(../image/sell/headerbg.gif) no-repeat left top
+}
+.a_menu {
+	BORDER-BOTTOM-COLOR: #5e9ec6; BORDER-TOP-COLOR: #5e9ec6; BORDER-RIGHT-COLOR: #5e9ec6; BORDER-LEFT-COLOR: #5e9ec6
+}
+.a_menu .nav .nav_content A:hover {
+	BACKGROUND: url(../image/sell/header2.gif)
+}
+.a_menu .nav .nav_content A:active {
+	BACKGROUND: url(../image/sell/header2.gif)
+}
+/* quickLink-顶部快速链接 */
+.partbd ul li{display:block; float:left; width:50px; line-height:22px;  height:22px; text-align:center; text-decoration:none;}
+.partbd ul li a{display:inline-block;}
+.partbd li a:link, .partbd li a:visited {display: inline-block; height: 17px;line-height: 17px;padding: 0 5px;text-decoration:none;}
+.partbd li a:hover{background: none repeat scroll 0 0 #30c8f7;color:#ffffff;text-decoration:none;}

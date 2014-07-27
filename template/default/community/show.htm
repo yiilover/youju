@@ -1,0 +1,188 @@
+	{template 'header'}
+<div class="m">	
+		<div class="bread">
+	您当前的位置：
+	<a target="_blank" href="{$MODULE[1][linkurl]}">首页</a>
+	&gt;&nbsp;<a href="{$MOD[linkurl]}">{$MOD[name]}</a>&nbsp;&gt;
+	{$title}</div>
+<div class="Atitle">
+	<h1>{$title}</h1>
+	<div class="subNav cf">
+		<form name="detailForm" id="detailForm" action="{$MODULE[2][linkurl]}favorite.php" method="post">
+<input type="hidden" name="action" value="add"/>
+<input type="hidden" name="title" value="{$title}"/>
+<input type="hidden" name="url" value="{$linkurl}"/>
+</form><A href="javascript:document.getElementById('detailForm').submit();" class="fr">收藏该小区</A>
+		
+		<ul class="cf">
+		<li><a class="on" href="{$linkurl}">小区概况</a></li>
+            <li><a href="{$MODULE[18][linkurl]}jiage.php?itemid={$itemid}">价格行情</a></li>
+            <li><a  href="{$MODULE[18][linkurl]}sale.php?itemid={$itemid}">出售房源</a></li>
+            <li><a href="{$MODULE[18][linkurl]}rent.php?itemid={$itemid}">出租房源</a></li>
+			<!--
+            <li><a href="{$MODULE[18][linkurl]}xiangce.php?itemid={$itemid}">小区相册</a></li>
+            <li><a href="{$MODULE[18][linkurl]}peitao.php?itemid={$itemid}">交通配套</a></li>
+            <li><a href="{$MODULE[18][linkurl]}xinxi.php?itemid={$itemid}">小区详情</a></li>-->
+		</ul>
+	</div>
+</div>
+	
+
+<div class="cf mt10">
+			<div class="fl w720">
+				<div class="intro">
+					<div class="focus-pic fl lh" id="tab1">
+												
+						<ul class="dd">
+						
+            <li>
+            <a target="_blank" href="{$linkurl}" title="{$alt}">
+                <img alt="{$alt}" src="{imgurl($t[thumb])}" />
+            </a>
+            <p><a href="{$linkurl}" title="{$t[alt]}" target="_blank">{$title}</a></p>
+        </li>	</ul></div>
+					<h5>{$title}</h5>
+					<p><span>出售均价：</span>
+						{if get_avg_price($itemid)}<strong>{get_avg_price($titemid)}</strong>元/㎡{else}<strong>待定</strong>{/if}  
+						同比{$lb}月<strong class="up2">{$percent_change}</strong><br>
+															
+											<span>所属区域：</span>
+						{area_pos($areaid, '')} <br>
+						<span>小区地址：</span>
+						{$address}<br>
+						<span>小区交通：</span>{$lp_bus}<br>
+						<span>物&nbsp;&nbsp;业&nbsp;&nbsp;费：</span>{$lp_costs}元/平方米·月<br>
+						<span></span></p><ul style="list-style: none outside none; margin: 4px 0px 0px; padding: 0px; height: 16px; width: 250px; overflow: hidden;" id="share"><li style="line-height:16px;float:left">小区分享：</li><li style="float:left"><a href="javascript:void(0)" style="width: 16px;overflow:hidden; height: 16px; display: block; margin:0 0 0 4px; padding: 0; background: transparent url('{AJ_SKIN}images/mod/share.gif') no-repeat 0 -0px" title="分享到人人网"></a></li><li style="float:left"><a href="javascript:void(0)" style="width: 16px;overflow:hidden; height: 16px; display: block; margin:0 0 0 4px; padding: 0; background: transparent url('{AJ_SKIN}images/mod/share.gif') no-repeat 0 -16px" title="分享到Qzone"></a></li><li style="float:left"><a href="javascript:void(0)" style="width: 16px;overflow:hidden; height: 16px; display: block; margin:0 0 0 4px; padding: 0; background: transparent url('{AJ_SKIN}images/mod/share.gif') no-repeat 0 -32px" title="分享到开心网"></a></li><li style="float:left"><a href="javascript:void(0)" style="width: 16px;overflow:hidden; height: 16px; display: block; margin:0 0 0 4px; padding: 0; background: transparent url('{AJ_SKIN}images/mod/share.gif') no-repeat 0 -48px" title="分享到新浪微薄"></a></li><li style="float:left"><a href="javascript:void(0)" style="width: 16px;overflow:hidden; height: 16px; display: block; margin:0 0 0 4px; padding: 0; background: transparent url('{AJ_SKIN}images/mod/share.gif') no-repeat 0 -64px" title="分享到飞信"></a></li><li style="float:left"><a href="javascript:void(0)" style="width: 16px;overflow:hidden; height: 16px; display: block; margin:0 0 0 4px; padding: 0; background: transparent url('{AJ_SKIN}images/mod/share.gif') no-repeat 0 -80px" title="分享到139说客"></a></li><li style="float:left"><a href="javascript:void(0)" style="width: 16px;overflow:hidden; height: 16px; display: block; margin:0 0 0 4px; padding: 0; background: transparent url('{AJ_SKIN}images/mod/share.gif') no-repeat 0 -96px" title="分享到i贴吧"></a></li><li style="float:left"><a href="javascript:void(0)" style="width: 16px;overflow:hidden; height: 16px; display: block; margin:0 0 0 4px; padding: 0; background: transparent url('{AJ_SKIN}images/mod/share.gif') no-repeat 0 -112px" title="分享到网易微博"></a></li><li style="float:left"><a href="javascript:void(0)" style="width: 16px;overflow:hidden; height: 16px; display: block; margin:0 0 0 4px; padding: 0; background: transparent url('{AJ_SKIN}images/mod/share.gif') no-repeat 0 -128px" title="分享到豆瓣"></a></li><li style="float:left"><a href="javascript:void(0)" style="width: 16px;overflow:hidden; height: 16px; display: block; margin:0 0 0 4px; padding: 0; background: transparent url('{AJ_SKIN}images/mod/share.gif') no-repeat 0 -144px" title="分享到qq微博"></a></li></ul>
+					<p></p>
+				</div>
+				<div class="modC mt10" id="tab2">
+					<h4 class="modBT tab">
+						<span class="on">出售</span>
+						<span>出租</span>
+					</h4>
+					<div class="tabli">
+						<span class="licon">本小区共有<b>{get_sale($itemid)}</b>套出售房源 <a href="{$MODULE[18][linkurl]}sale.php?itemid={$itemid}">更多</a></span>
+												<ul class="xqgkList xqgkList2 cf">
+												 <!--{loop $hsall_list $key $value}-->
+														<li>
+								<a href="{$MODULE[5][linkurl]}{$value[linkurl]}" title="{$value[title]}" target="_blank">
+									<img  data-src="{imgurl($value[thumb])}" alt="{$value[title]}">
+								</a>
+								<a href="{$MODULE[5][linkurl]}{$value[linkurl]}" target="_blank" title="{$value[title]}">{dsubstr($value[title], 16, $suffix = '')}</a>
+								<p>{area_pos($value[areaid], ' ')}</p>
+								<p>{$value[room]}居&nbsp;{$value[houseearm]}㎡</p>
+								{if $value[price]}<STRONG class=red>{$value[price]}</STRONG>万元{else}面议{/if} 							</li> <!--{/loop}-->
+													
+													</ul>
+											</div>
+					<div class="tabli" style="display:none">
+						<span class="licon">本小区共有<b>{get_rent($itemid)}</b>套出租房源 <a href="{$MODULE[18][linkurl]}rent.php?itemid={$itemid}">更多</a></span>
+												<ul class="xqgkList xqgkList2 cf">
+													 <!--{loop $hrent_list $key $value}-->
+														<li>
+								<a href="{$MODULE[5][linkurl]}{$value[linkurl]}" title="{$value[title]}" target="_blank">
+									<img  data-src="{imgurl($value[thumb])}" alt="{$value[title]}">
+								</a>
+								<a href="{$MODULE[5][linkurl]}{$value[linkurl]}" target="_blank" title="{$value[title]}">{dsubstr($value[title], 16, $suffix = '')}</a>
+								<p>{area_pos($value[areaid], ' ')}</p>
+								<p>{$value[room]}居&nbsp;{$value[houseearm]}㎡</p>
+								{if $value[price]}<STRONG class=red>{$value[price]}</STRONG>元/月{else}面议{/if} 													</li> <!--{/loop}-->
+													</ul>
+											</div>
+				</div>
+				<div class="modC">
+					<h4 class="modBT">
+						小区地图
+					</h4>
+					<div id="map" style="height:240px;"></div>
+				</div>
+				<div class="modC">
+					<h4 class="modBT">
+						<a href="#">更多</a>小区相册
+					</h4>
+										<div class="XqPhoto cf">
+										 <!--{php $tags=tag("moduleid=12&table=aijiacms_photo m,aijiacms_photo_item c&prefix=&condition=m.itemid=c.item  and m.houseid=$itemid&pagesize=4&order=m.itemid desc&template=null");}-->
+ {loop $tags $i $t}       <a href="{$t[linkurl]}" title="{$t[alt]} " target="_blank">
+                                        <img data-src="{$t[thumb]}" alt="{$t[alt]} " width="136" height="102" /></a> {/loop}		</div>
+									</div>
+				<div class="modC">
+					<h4 class="modBT">
+						<a href="#">更多</a>小区户型图
+					</h4>			<div class="XqPhoto cf">
+										 <!--{php $tags=tag("moduleid=12&table=aijiacms_photo m,aijiacms_photo_item c&prefix=&condition=m.itemid=c.item  and m.houseid=$itemid&catid=24&pagesize=4&order=m.itemid desc&template=null");}-->
+ {loop $tags $i $t}       <a href="{$t[linkurl]}" title="{$t[alt]} " target="_blank">
+                                        <img data-src="{$t[thumb]}" alt="{$t[alt]} " width="136" height="102" /></a> {/loop}		</div>
+									</div>
+				<div class="modC">
+					<h4 class="modBT">
+						看看周边的小区
+					</h4>
+										<ul class="xqgkList cf">
+											<!--{php $tags=tag("moduleid=18&condition=status=3&areaid=$areaid&length=22&pagesize=6&order=hits desc&target=_blank&template=null");}-->
+ {loop $tags $i $t}
+												<li>
+								<a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}"><img data-src="{imgurl($t[thumb])}" title="{$t[alt]}" alt="{$t[alt]}"></a>
+							<a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a>
+							<p>售<span>{get_sale($t[itemid])}</span>套租<span>{get_rent($t[itemid])}</span>套</p>
+							均价：{if get_avg_price($t[itemid])}<strong>{get_avg_price($t[itemid])}</strong>元/㎡{else}待定{/if}						</li>
+											{/loop}
+											</ul>
+									</div>
+			</div>
+			<div class="w230 fr">
+	<div class="modC">
+		<h4 class="modBT"><sub></sub>
+			热门小区
+		</h4>
+				<ul class="t3List">
+					<!--{php $tags=tag("moduleid=18&condition=status=3&areaid=$cityid&length=22&pagesize=6&order=hits desc&target=_blank&template=null");}-->
+ {loop $tags $i $t}
+						<li>
+				<span class="lettsub7"><a target="_blank" href="{$t[linkurl]}" title="{$t[title]}">{$t[title]}</a></span>
+				<span class="w2">{area_poss($t[areaid], '')}</span>
+				<span class="w3">{if get_avg_price($t[itemid])}{get_avg_price($t[itemid])}元/㎡{else}待定{/if}	</span>
+			</li>{/loop}
+					</ul>
+			</div>
+	<div class="modC">
+		<h4 class="modBT"><sub></sub>
+			周边二手房
+		</h4>
+				<ul class="t3List">
+					<!--{php $tags=tag("moduleid=5&condition=status=3&areaid=$areaid&length=22&pagesize=6&order=hits desc&target=_blank&template=null");}-->
+ {loop $tags $i $t}
+						<li>
+				<span class="lettsub7"><a target="_blank" href="{$t[linkurl]}" title="{$t[title]}">{$t[housename]}</a></span>
+				<span class="w2">{area_poss($t[areaid], '')}</span>
+				<span class="w3">{if $t[price]}{$t[price]}万{else}面议{/if}	</span>
+			</li>{/loop}
+					</ul>
+			</div>
+	<div class="modC">
+		<h4 class="modBT"><sub></sub>
+			周边出租房
+		</h4>
+				<ul class="t3List">
+					<!--{php $tags=tag("moduleid=7&condition=status=3&areaid=$areaid&length=22&pagesize=6&order=hits desc&target=_blank&template=null");}-->
+ {loop $tags $i $t}
+						<li>
+				<span class="lettsub7"><a target="_blank" href="{$t[linkurl]}" title="{$t[title]}">{$t[housename]}</a></span>
+				<span class="w2">{area_poss($t[areaid], '')}</span>
+				<span class="w3">{if $t[price]}{$t[price]}元/月{else}面议{/if}	</span>
+			</li>{/loop}
+					</ul>
+			</div>
+</div>		</div>
+{template 'footer'}
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=1.2"></script>
+<script type="text/javascript">
+seajs.use(["jquery","alert","snail-baiduaround","share","autab"],function($,alertM,snail){
+	$("#share").share({text:'小区分享：',liMargin:4});
+	$("#tab2").autab("h4 span","div.tabli");
+	$("#tab1").autab("i","li",4);
+		snail.drawMap(parseFloat("{$x}"),parseFloat("{$y}"),"{$title}","map");
+	snail.getMaps();
+})
+</script>
+
+</body></html>

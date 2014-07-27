@@ -1,0 +1,104 @@
+	{template 'header'}
+	<link rel="stylesheet" type="text/css" href="{AJ_SKIN}sale.css"/>
+<div class="m">		
+
+<div class="bread">
+			您当前的位置：<a href="{$MODULE[1][linkurl]}">{$AJ[sitename]}</a> &gt;
+			{$city_name}经纪人列表
+		</div>
+		<div class="modB">
+			<div class="conl1">
+				<div class="cf" style="padding:9px 0;">
+					<span class="a_name">区&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;域：</span>
+					<span><a href="{$MOD[linkurl]}list.php?&catid={$_GET['catid']}&areaid={$cityid}" class="{if $_GET['areaid']=='' or $_GET['areaid']==$cityid }c{/if}">全部</a>
+					 {php $mainarea = get_mainarea($cityid)}
+	   {loop $mainarea $k $v}     
+                                                       <a href="{$MOD[linkurl]}list.php?&catid={$_GET['catid']}&areaid={$v[areaid]}" class="{if $v[areaid]==$areaid}c{else}""{/if}">{$v[areaname]}</a>
+															{/loop} 	</span>
+															  <p><span class="a_name">类&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;型：</span><span>
+	  <a href="{$MOD[linkurl]}list.php?&areaid={$cityid}&g=" class="{if $_GET['g']=='' }c{else}{/if}">全部</a>
+	    {php $lx = array('经纪人', '中介');}
+{loop $lx $k $v}  <a href="{$MOD[linkurl]}list.php?areaid={$_GET['areaid']}&g=<?php echo $k+1;?>" class="{if $_GET['g']==($k+1)}c{else}""{/if}">{$v}</a>{/loop}</span></p>
+									</div>
+			</div>
+		</div>
+		<div class="cf">
+			<div class="w720 fl">
+				<div class="Tle2">
+					<form id="aijiacms_search" action="{$MODULE[4][linkurl]}search.php" onsubmit="return Dsearch();">
+<input type="hidden" name="spread" value="0" id="aijiacms_spread"/>
+						<input id="hname" type="text" name="kw" data-val="经纪人/中介" value="经纪人/中介" class="txt" autocomplete="off">
+						<input id="kwsearch" type="submit" name="" class="btn" value="">
+					</form>
+					<div class="s_list fr" id="s_list1">
+						<span>默认排序</span>
+						<ul>
+							<li>
+								<a href="">默认排序</a>
+							</li>
+							
+						</ul>
+					</div>
+					<span class="fr">共有 <b class="red">{$items}</b> 个经纪人满足您的条件</span>
+				</div>
+				<!--list-->
+								{if $page==1 && $kw}
+		{ad($moduleid,$catid,$kw,6)}
+		{load('m'.$moduleid.'_k'.urlencode($kw).'.htm')}
+		{/if}
+		{if $tags}
+		{template 'list-company', 'tag'}
+		{else}
+		{template 'noresult', 'message'}
+		{/if}
+									
+							</div>
+			<div class="w230 fr">
+				<div class="modC">
+					<h4 class="modBT"><sub></sub>
+						经纪人积分排行榜
+					</h4>
+										<ul class="top10">
+            										<!--{php $tags=tag("table=member&condition=groupid=6&areaid=$cityid&order=credit desc&pagesize=10&template=null");}-->
+ {loop $tags $i $t}
+						<li>
+				<span class="lettsub7"><a href="{userurl($t[username], '')}" target="_blank">{$t[truename]}</a></span>
+				<span class="w2">服务区域：{area_poss($t[areaid], '')}</span>
+				
+			</li>{/loop}
+											</ul>
+									</div>
+                <!--r二手房广告 经纪人列表页-右侧-->
+			</div>
+		</div>
+		{template 'footer'}	</div>
+<script type="text/javascript">
+seajs.use(["jquery"],function($){
+	$("#s_list1").add("tr").hover(function(){
+		$(this).addClass("h")
+	},function(){
+		$(this).removeClass("h")
+	})
+	var $hname=$("#hname");
+	var ht=$hname.attr("data-val");
+	$hname.on("focus",function(){
+		if($hname.val()==ht)
+			$hname.val("");
+	}).on("blur",function(){
+		if($hname.val()=="")
+			$hname.val(ht);
+	}).on("keydown",function(e){
+		if(e.which==13){
+			$("#kwsearch").click()
+			return false
+		}	
+	}).closest("form").submit(function(){
+		if($hname.val()==ht)
+			return false;
+	})
+	
+
+})
+</script>
+
+</body></html>

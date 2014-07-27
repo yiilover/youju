@@ -1,0 +1,436 @@
+<html>
+<head>
+<title>房屋费用估价器</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<style type="text/css">
+<!--
+a:link { font-family: 宋体;text-decoration: none }
+a:visited{ font-family: 宋体;text-decoration: none }
+a:hover{text-decoration: underline }
+.k1{font-size:14px;line-height:20px}
+.k2{font-size:12px;line-height:20px}
+.k3{font-size:12px;line-height:18px}
+
+a.js:link { font-size:12.8px;font-family: 宋体;color: #00000;text-decoration: none }
+a.js:visited{ font-size:12.8px;font-family: 宋体;color: #00000;text-decoration: none }
+a.js:hover{ font-size:12.8px;color: #FF0000; text-decoration: none }
+
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="00" topmargin="0">
+<table cellspacing=0 cellpadding=0 align=center border=0 width="500">
+  <tbody> 
+  <tr> 
+    <td valign=top colspan=2 width="610"></td>
+  </tr>
+  <tr> 
+    <td valign=top colspan=2 width="610"> 
+      <table cellspacing=0 bordercolordark=#ffffff cellpadding=0 width=500 
+            align=center bgcolor=#ffffff bordercolorlight=#ffffff border=1 class=k3>
+        <tbody> 
+        <tr class=aa> 
+          <td bordercolorlight=#000000 width="21%" bgcolor=#fffff4 
+                bordercolordark=#000000 height=25> 
+            <div align=right>所购房属于：</div>
+          </td>
+          <td bordercolorlight=#000000 width="79%" bgcolor=#fffff4 
+                bordercolordark=#000000 height="25"> 
+            <select name=s1>
+              <option value=1 selected>商 品 房</option>
+              <option 
+                    value=2>房改房或经济适用房</option>
+            </select>
+          </td>
+        </tr>
+        </tbody> 
+      </table>
+      <div align=center></div>
+      <table cellspacing=0 bordercolordark=#ffffff cellpadding=0 width=500 
+            bgcolor=#cccccc bordercolorlight=#000000 border=1 class=k3>
+          <tbody> 
+          <tr class=aa> 
+            <td width="21%"> 
+              <div align=right>单&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;价：</div>
+            </td>
+            <td width="32%" height=26> 
+              <input size=10 
+                  name=price1>
+              元/平方米 </td>   
+            <td width="9%" height=26>面积：</td>   
+            <td width="38%" height=26>    
+              <input size=10    
+                  name=area>   
+              平方米 </td>   
+          </tr>   
+          </tbody>    
+        </table>   
+        <table cellspacing=0 bordercolordark=#ffffff cellpadding=0 width=500    
+            bgcolor=#80aad5 bordercolorlight=#000000 border=1 class=k3>   
+          <tbody>    
+          <tr class=aa>    
+            <td width="21%" bgcolor=#fffff4 height=26>    
+              <div align=right>贷款方式：</div>   
+            </td>   
+            <td width="79%" bgcolor=#fffff4>    
+              <select language=javascript    
+                  onChange=s2_onchange() name=s2>   
+                <option value=4    
+                    selected>请选择</option>   
+                <option value=1>银行按揭贷款</option>   
+                <option value=2>公积金贷款</option>   
+                <option    
+                    value=3>公积金、银行按揭组合</option>   
+              </select>   
+            </td>   
+          </tr>   
+          </tbody>    
+        </table>   
+        <table cellspacing=0 bordercolordark=#ffffff cellpadding=0 width=500    
+            bordercolorlight=#000000 border=1 class=k3>   
+          <tbody>    
+          <tr bgcolor=#cccccc>    
+            <td width="126" height=25>银行按揭贷款比例：</td>   
+            <td width="368" colspan=3 height=25>   
+              <select    
+                  language=javascript onChange=s3_onchange() name=s3>   
+                <option    
+                    value=-- selected -->--</option>
+                <option 
+                    value=0.8>8成</option>
+                <option value=0.7>7成</option>
+                <option 
+                    value=0.6>6成</option>
+                <option value=0.5>5成</option>
+                <option 
+                    value=0.4>4成</option>
+                <option value=0.3>3成</option>
+                <option 
+                    value=0.2>2成</option>
+                <option value=0.1>1成</option>
+              </select>
+              （占房款总额） 年限：    
+              <select style="FONT-SIZE: 12px" name=select5>   
+                <option value=2 selected>2年(24期)</option>
+                <option 
+                    value=3>3年(36期)</option>
+                <option value=4>4年(48期)</option>
+                <option value=5>5年(60期)</option>
+                <option 
+                    value=6>6年(72期)</option>
+                <option value=7>7年(84期)</option>
+                <option value=8>8年(96期)</option>
+                <option 
+                    value=9>9年(108期)</option>
+                <option 
+                    value=10>10年(120期)</option>
+                <option 
+                    value=15>15年(180期)</option>
+                <option 
+                    value=20>20年(240期)</option>
+                <option 
+                    value=25>25年(300期)</option>
+                <option 
+                    value=30>30年(360期)</option>
+              </select>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <table cellspacing=0 bordercolordark=#ffffff cellpadding=0 width=500 
+            bgcolor=#80aad5 bordercolorlight=#000000 border=1 class=k3>
+          <tbody> 
+          <tr class=aa> 
+            <td width="126" bgcolor=#fffff4 height=27> 
+              <div align=right>
+                <p align="left">公积金贷款比例：</div>
+            </td>
+            <td width="368" bgcolor=#fffff4 colspan=4 height=27>
+              <select 
+                  language=javascript onChange=s4_onchange() name=s4>
+                <option 
+                    value=-- selected -->--</option>
+                <option 
+                    value=0.8>8成</option>
+                <option value=0.7>7成</option>
+                <option 
+                    value=0.6>6成</option>
+                <option value=0.5>5成</option>
+                <option 
+                    value=0.4>4成</option>
+                <option value=0.3>3成</option>
+                <option 
+                    value=0.2>2成</option>
+                <option value=0.1>1成</option>
+              </select>
+              （占房款总额） 年限：    
+              <select style="FONT-SIZE: 12px" name=select6>   
+                <option value=2 selected>2年(24期)</option>
+                <option 
+                    value=3>3年(36期)</option>
+                <option value=4>4年(48期)</option>
+                <option value=5>5年(60期)</option>
+                <option 
+                    value=6>6年(72期)</option>
+                <option value=7>7年(84期)</option>
+                <option value=8>8年(96期)</option>
+                <option 
+                    value=9>9年(108期)</option>
+                <option 
+                    value=10>10年(120期)</option>
+                <option 
+                    value=15>15年(180期)</option>
+                <option 
+                    value=20>20年(240期)</option>
+                <option 
+                    value=25>25年(300期)</option>
+                <option 
+                    value=30>30年(360期)</option>
+              </select>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <table cellspacing=0 bordercolordark=#ffffff cellpadding=0 width=500 
+            bordercolorlight=#000000 border=1 class=k3>
+          <tbody> 
+          <tr valign=center> 
+            <td bgcolor=#fffff4> 
+              <div align=center>
+                <input language=Javascript onClick="&#13;&#10;fk_sum.value= price1.value*area.value ;&#13;&#10;&#13;&#10;if (s2.value ==1 )&#13;&#10;{&#13;&#10;&#9;if (s3.value != '--')&#13;&#10;&#9;dk_total.value = parseInt(fk_sum.value * s3.value);&#13;&#10;&#9;else&#13;&#10;&#9;dk_total.value = s31.value;&#13;&#10;&#9;&#13;&#10;}&#13;&#10;&#13;&#10;if (s2.value == 2)&#13;&#10;{&#13;&#10;&#9;if (s4.value != '--')&#13;&#10;&#9;dk_total.value = parseInt(fk_sum.value * s4.value);&#13;&#10;&#9;else&#13;&#10;&#9;dk_total.value = s41.value;&#13;&#10;&#13;&#10;}&#13;&#10;&#13;&#10;if (s2.value ==3)  &#13;&#10;{&#13;&#10;&#9;if (s3.value != '--' &amp;&amp; s4.value != '--')&#13;&#10;&#9;dk_total.value =fk_sum.value * s3.value + fk_sum.value* s4.value;&#13;&#10;&#9;else&#13;&#10;&#9;dk_total.value = parseInt(s31.value) + parseInt(s41.value );&#13;&#10;&#9;&#13;&#10;}&#13;&#10;&#13;&#10;&#13;&#10;&#13;&#10;first_total.value = parseInt(fk_sum.value - dk_total.value);&#13;&#10;if (select5.value <=5 ) &#13;&#10;{&#9;t7.value=5.31;&#13;&#10;}&#13;&#10;else &#13;&#10;{&#9;t7.value=5.58;}&#13;&#10;&#13;&#10;if (select6.value <=5 ) &#13;&#10;{&#9;t8.value=4.14;}&#13;&#10;else &#13;&#10;{&#9;t8.value=4.59;}&#13;&#10;&#13;&#10;//购房时应缴纳的相关税&#13;&#10;if (area.value > 120)&#13;&#10;{qs.value = parseInt(fk_sum.value * 0.04+0.5)}&#13;&#10;else&#13;&#10;{qs.value = parseInt(fk_sum.value * 0.02+0.5)}&#13;&#10;if (area.value <= 120)&#13;&#10;{sxf.value = 1000}&#13;&#10;else if (area.value >120 &amp;&amp; area.value <= 5000)&#13;&#10;{sxf.value = 3000}&#13;&#10;else &#13;&#10;{sxf.value = 10000}&#13;&#10;&#13;&#10;yhs.value =parseInt(fk_sum.value * 0.0005+0.5);&#13;&#10;&#13;&#10;if (s1.value == 2)&#13;&#10;{crj.value = parseInt(fk_sum.value * 0.03+0.5)}&#13;&#10;else&#13;&#10;{crj.value = 0}&#13;&#10;&#13;&#10;sf_sum.value = parseInt(qs.value) + parseInt(sxf.value) + parseInt(yhs.value) + parseInt(crj.value);&#13;&#10;first_sum.value = parseInt(first_total.value) + parseInt(sf_sum.value);&#13;&#10;&#13;&#10;//----&#13;&#10;&#13;&#10;//银行按揭还款、公积金还款判断计算&#13;&#10;r1=t7.value*0.01/12;&#13;&#10;r2=t8.value*0.01/12;&#13;&#10;t1=select5.value*12;&#13;&#10;t2=select6.value*12;&#13;&#10;if (s2.value == 1)&#13;&#10;{&#13;&#10;tmp1=1+r1;&#13;&#10;for (var i=1 ;i<t1;i++)&#13;&#10;&#9;tmp1=tmp1*(1+r1);&#13;&#10;tmp11=tmp1*r1/(tmp1-1);&#13;&#10;return1.value=parseInt(tmp11*dk_total.value*100+0.5)/100;&#13;&#10;hk_total1.value = parseInt(return1.value * select5.value * 12*100+0.5)/100;&#13;&#10;fz1.value = parseInt((hk_total1.value - dk_total.value)*100+0.5)/100;&#13;&#10;}&#13;&#10;&#13;&#10;if (s2.value ==2)&#13;&#10;{&#13;&#10;tmp2=1+r2;&#13;&#10;for (var i=1 ;i<t2;i++)&#13;&#10;&#9;tmp2=tmp2*(1+r2);&#13;&#10;tmp21=tmp2*r2/(tmp2-1);&#13;&#10;return2.value=parseInt(tmp21*dk_total.value*100+0.5)/100;&#13;&#10;hk_total2.value = parseInt(return2.value * select6.value * 12*100+0.5)/100;&#13;&#10;fz2.value = parseInt((hk_total2.value - dk_total.value)*100+0.5)/100;&#13;&#10;}&#13;&#10;&#13;&#10;if (s2.value == 3)&#13;&#10;{&#13;&#10;temp= fk_sum.value * 0.8;&#13;&#10;if (temp >= dk_total.value)&#13;&#10;{&#13;&#10;tmp1=1+r1;&#13;&#10;for (var i=1 ;i<t1;i++)&#13;&#10;&#9;tmp1=tmp1*(1+r1);&#13;&#10;tmp11=tmp1*r1/(tmp1-1);&#13;&#10;return1.value=parseInt(tmp11*fk_sum.value*s3.value*100+0.5)/100;&#13;&#10;hk_total1.value = parseInt(return1.value * select5.value * 12*100+0.5)/100;&#13;&#10;fz1.value = parseInt((hk_total1.value - fk_sum.value*s3.value)*100+0.5)/100;&#13;&#10;&#13;&#10;tmp2=1+r2;&#13;&#10;for (var i=1 ;i<t2;i++)&#13;&#10;&#9;tmp2=tmp2*(1+r2);&#13;&#10;tmp21=tmp2*r2/(tmp2-1);&#13;&#10;return2.value=parseInt(tmp21*fk_sum.value*s4.value*100+0.5)/100;&#13;&#10;hk_total2.value = parseInt(return2.value * select6.value * 12*100+0.5)/100;&#13;&#10;fz2.value = parseInt((hk_total2.value - fk_sum.value*s4.value)*100+0.5)/100;&#13;&#10;}&#13;&#10;else &#13;&#10;{alert('银行贷款比例与公积金贷款比例之和不能大于8成!')}&#13;&#10;}&#13;&#10;&#13;&#10;" type=button value=开始计算 name=Button>
+                
+              <input type=reset value=重新输入 name=Submit22>
+              </div>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <table cellspacing=0 bordercolordark=#ffffff cellpadding=0 
+            width=500 bgcolor=#80aad5 bordercolorlight=#000000 border=1 class=k3>
+          <tbody> 
+          <tr> 
+            <td width=65 bgcolor=#fffff4> 
+              <div align=right>房款总额：</div>
+            </td>
+            <td width=98 bgcolor=#fffff4>
+              <input size=10 
+                  name=fk_sum>
+              元</td>
+            <td width=65 bgcolor=#fffff4>贷款总额：</td>
+            <td width=98 bgcolor=#fffff4>
+              <input size=10 
+                  name=dk_total>
+              元</td>
+            <td width=65 bgcolor=#fffff4>首期付款：</td>
+            <td width=116 bgcolor=#fffff4>
+              <input size=10 
+                  name=first_total>
+              元</td>
+          </tr>
+          </tbody>
+        </table>
+        <table cellspacing=0 bordercolordark=#ffffff cellpadding=0 
+            width=500 bordercolorlight=#000000 border=1 class=k3>
+          <tbody> 
+          <tr> 
+            <td width="49%" bgcolor=#cccccc> 
+              <div align=center>银行按揭</div>
+            </td>
+            <td width="51%" bgcolor=#f0f0f0> 
+              <div align=center>公积金</div>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <table cellspacing=0 bordercolordark=#ffffff cellpadding=0 width=500 
+            bordercolorlight=#000000 border=1 class=k3>
+          <tbody> 
+          <tr class=aa> 
+            <td width="13%" bgcolor=#cccccc> 
+              <div align=right>月均还款：</div>
+            </td>
+            <td width="36%" bgcolor=#cccccc>
+              <input 
+                  name=return1>
+              元</td>
+            <td width="16%" bgcolor=#f0f0f0> 
+              <div align=right>月均还款：</div>
+            </td>
+            <td width="35%" bgcolor=#f0f0f0>
+              <input 
+                  name=return2>
+              元</td>
+          </tr>
+          </tbody>
+        </table>
+        <table cellspacing=0 bordercolordark=#ffffff cellpadding=0 
+            width=500 bordercolorlight=#000000 border=1 class=k3>
+          <tbody> 
+          <tr> 
+            <td width="13%" bgcolor=#cccccc> 
+              <div align=right>贷款利率：</div>
+            </td>
+            <td width="36%" bgcolor=#cccccc>
+              <input name=t7>
+              %</td>  
+            <td width="16%" bgcolor=#f0f0f0>   
+              <div align=right>贷款利率：</div>  
+            </td>  
+            <td width="35%" bgcolor=#f0f0f0>  
+              <input name=t8>  
+              %</td>  
+          </tr>  
+          </tbody>  
+        </table>  
+        <table cellspacing=0 bordercolordark=#ffffff cellpadding=0   
+            width=500 bordercolorlight=#000000 border=1 class=k3>  
+          <tbody>   
+          <tr>   
+            <td width="13%" bgcolor=#cccccc>   
+              <div align=right>还款总额：</div>  
+            </td>  
+            <td width="36%" bgcolor=#cccccc>  
+              <input   
+                  name=hk_total1>  
+              元</td>  
+            <td width="16%" bgcolor=#f0f0f0>   
+              <div align=right>还款总额：</div>  
+            </td>  
+            <td width="35%" bgcolor=#f0f0f0>  
+              <input   
+                  name=hk_total2>  
+              元</td>  
+          </tr>  
+          </tbody>  
+        </table>  
+        <table cellspacing=0 bordercolordark=#ffffff cellpadding=0 width=500   
+            bordercolorlight=#000000 border=1 class=k3>  
+          <tbody>   
+          <tr class=aa>   
+            <td width="13%" bgcolor=#cccccc>   
+              <div align=right>息款负担：</div>  
+            </td>  
+            <td width="36%" bgcolor=#cccccc>  
+              <input name=fz1>  
+              元</td>  
+            <td width="16%" bgcolor=#f0f0f0>   
+              <div align=right>息款负担：</div>  
+            </td>  
+            <td width="35%" bgcolor=#f0f0f0><span   
+                  style="BACKGROUND-COLOR: #fffff4">  
+              <input name=fz2>  
+              元</span></td>  
+          </tr>  
+          </tbody>  
+        </table>  
+        <table height=1 cellspacing=0 bordercolordark=#ffffff cellpadding=0   
+            width=500 bordercolorlight=#000000 border=1 class=k3>  
+          <tbody>   
+          <tr class=aa bgcolor=#80aad5>   
+            <td bgcolor=#fffff4 height=1>   
+              <div align=left><font color=#000000><b><span   
+                  style="BACKGROUND-COLOR: #fffff4">购房时应缴纳的相关税费</span></b></font></div>  
+            </td>  
+          </tr>  
+          </tbody>  
+        </table>  
+        <table height=3 cellspacing=0 bordercolordark=#ffffff cellpadding=0   
+            width=500 bordercolorlight=#000000 border=1 class=k3>  
+          <tbody>   
+          <tr class=aa bgcolor=#cccccc>   
+            <td width="35%" bgcolor=#fffff4 height=3>   
+              <div align=right><span   
+                  style="BACKGROUND-COLOR: #fffff4">契税2%（120平米以上4%）：</span></div>  
+            </td>  
+            <td width="65%" bgcolor=#fffff4 height=3><span   
+                  style="BACKGROUND-COLOR: #fffff4">  
+              <input name=qs>  
+              元</span></td>  
+          </tr>  
+          </tbody>  
+        </table>  
+        <table height=1 cellspacing=0 bordercolordark=#ffffff cellpadding=0   
+            width=500 bordercolorlight=#000000 border=1>  
+          <tbody>   
+          <tr class=aa bgcolor=#cccccc>   
+            <td width="35%" bgcolor=#fffff4 height=1>   
+              <div align=right><span   
+                  style="BACKGROUND-COLOR: #fffff4">房屋买卖手续费：</span></div>  
+            </td>  
+            <td width="65%" bgcolor=#fffff4 height=1><span   
+                  style="BACKGROUND-COLOR: #fffff4">  
+              <input name=sxf>  
+              元</span></td>  
+          </tr>  
+          </tbody>  
+        </table>  
+        <table cellspacing=0 bordercolordark=#ffffff cellpadding=0   
+            width=500 bordercolorlight=#000000 border=1 class=k3>  
+          <tbody>   
+          <tr bgcolor=#cccccc>   
+            <td width="35%" bgcolor=#fffff4>   
+              <div align=right><span   
+                  style="BACKGROUND-COLOR: #fffff4">印花税0.05%：</span></div>  
+            </td>  
+            <td width="65%" bgcolor=#fffff4><span   
+                  style="BACKGROUND-COLOR: #fffff4">  
+              <input name=yhs>  
+              元</span></td>  
+          </tr>  
+          </tbody>  
+        </table>  
+        <table cellspacing=0 bordercolordark=#ffffff cellpadding=0 width=500   
+            bordercolorlight=#000000 border=1 class=k3>  
+          <tbody>   
+          <tr class=aa bgcolor=#cccccc>   
+            <td width="35%" bgcolor=#fffff4>   
+              <div align=right><span   
+                  style="BACKGROUND-COLOR: #fffff4">土地出让金3%：</span></div>  
+            </td>  
+            <td width="65%" bgcolor=#fffff4><span   
+                  style="BACKGROUND-COLOR: #fffff4">  
+              <input name=crj>  
+              元</span></td>  
+          </tr>  
+          </tbody>  
+        </table>  
+        <table height=121 cellspacing=0 bordercolordark=#ffffff   
+            cellpadding=0 width=500 bordercolorlight=#000000 border=1 class=k3>  
+          <tbody>   
+          <tr class=aa valign=center bgcolor=#cccccc>   
+            <td width="35%" bgcolor=#fffff4 height=1>   
+              <div align=right><span style="BACKGROUND-COLOR: #fffff4"><font   
+                  color=#000000>所有税费合计：</font> </span></div>  
+            </td>  
+            <td width="65%" bgcolor=#fffff4 height=1><span   
+                  style="BACKGROUND-COLOR: #fffff4">  
+              <input name=sf_sum>  
+              元</span></td>  
+          </tr>  
+          <tr class=k3 valign=center bgcolor=#cccccc>   
+            <td bgcolor=#fffff4 colspan=2 height=25>   
+              <div align=left><span   
+                  style="BACKGROUND-COLOR: #fffff4"><b>首期所需付费：</b>   
+                <input   
+                  name=first_sum>  
+                元</span></div>  
+            </td>  
+          </tr>  
+          <tr class=k3 valign=top bgcolor=#cccccc>   
+            <td bgcolor=#fffff4 colspan=2>   
+              <div align=left>   
+                <hr>  
+                <p><span   
+                  style="BACKGROUND-COLOR: #fffff4">声明：</span></p>  
+              </div>  
+              <p>&nbsp;&nbsp;&nbsp; 结果仅供参考 
+            </td> 
+          </tr> 
+          </tbody> 
+        </table> 
+    </td> 
+  </tr> 
+  </tbody> 
+</table> 
+</body> 
+</html> 

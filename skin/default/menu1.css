@@ -1,0 +1,29 @@
+/**--------------------------------------新闻导航---------------------------------------------**/
+
+.newsbg,.newsbg em,.newsbg .nav1 li.selected a,.newsbg .nav1 li.on a{ height:34px; background:url(images/news/newsnav_bg.gif) no-repeat scroll}/*租房背景*/
+.nav{ width:960px; background-position:0px -40px; background-repeat:repeat-x}
+.nav .lbg1{ padding-left:3px; background-position:0px 0px; float:left}
+.nav .rbg1{ padding-left:3px; background-position:-3px 0px; float:right}
+.nav .content{ width:940px;float:left; padding-left:14px;}
+.nav .nav1{float:left; }
+.nav .nav2{ float:right; padding-right:15px;}
+/*左导航*/
+.nav .nav1 li{ height:34px;display:inline-block; width:auto;float:left;}
+.nav .nav1 li.last{width:62px;}
+.nav .nav1 .lbg2{ padding-left:1px; background-position:-1px -80px; display:block; float:left}
+.nav .nav1 .rbg2{ padding-left:1px; background-position:0px -80px; display:block; float:left}
+.nav .nav1 li a{ padding:0px 15px;  line-height:34px; display:block; float:left; text-decoration:none;}
+.nav .nav1 li a:link,.nav .nav1 li a:visited{ font-size:14px; color:#FFF; font-weight:600}
+/*右小导航*/
+.nav .nav2 a{ height:34px; line-height:34px; padding:0 5px;}
+.nav .nav2 a:link,.nav .nav2 a:visited{ color:#FFF}
+/*当前效果*/
+.nav .nav1 li.selected{ height:34px;display:inline-block; width:auto;float:left;}
+.nav .nav1 li.selected .lbg2{ padding-left:5px; background-position:0px -160px; display:block; float:left}
+.nav .nav1 li.selected .rbg2{ padding-left:5px; background-position:0px -200px; display:block; float:left}
+.nav .nav1 li.selected a{ padding:0px 11px;  line-height:34px; background-position:0px -120px; background-repeat:repeat-x; display:block; float:left}
+/*划过效果*/
+.nav .nav1 li.on{ height:34px;display:inline-block; width:auto;float:left;}
+.nav .nav1 li.on .lbg2{ padding-left:5px; background-position:0px -280px; display:block; float:left}
+.nav .nav1 li.on .rbg2{ padding-left:5px; background-position:0px -320px; display:block; float:left}
+.nav .nav1 li.on a{ padding:0px 11px;  line-height:34px; background-position:0px -240px; background-repeat:repeat-x; display:block; float:left}

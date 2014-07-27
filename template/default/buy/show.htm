@@ -1,0 +1,82 @@
+  {template 'header'}
+<div class="m">	
+
+<link rel="stylesheet" type="text/css" href="{AJ_SKIN}a.css" />
+   <!--位置-->
+    <div class="add">您当前的位置：<a href="{$MODULE[1][linkurl]}">{$AJ[sitename]}</a>&nbsp;&gt;&nbsp;<a href="{$MOD[linkurl]}">{$MOD[name]}    </a>&nbsp;&gt;&nbsp;{cat_pos($CAT, ' &raquo; ')}</div>
+    <!--列表开始-->
+    <div>
+    	<div class="fl wd720">
+          <!--基本信息-->
+           <div class="box detailinfo">
+             <h4><span class="title">{$title}</span><span class="date">更新时间：{$editdate}  浏览<span id="hits">{$hits}</span>次</span><div class="clear"></div></h4>
+             <table border="0" cellpadding="0" width="670">
+             	<tbody><tr><td class="ll">价格：</td><td class="lr"><font class="price">{$price}</font></td></tr>
+                <tr><td class="ll">面积：</td><td class="lr">{$houseearm}</td></tr>
+                				<tr>
+					<td class="ll">类型：</td>
+					<td class="lr">{cat_pos($CAT, ' &raquo; ')}</td>
+                </tr>
+				                <tr><td class="ll">户型：</td><td class="lr">{$room}室{$hall}厅{$toilet}卫{$balcony}</td></tr>
+                <tr>
+                <td class="ll">位置：</td>
+                <td class="lr">{area_pos($areaid, '')}</td>
+                </tr>
+               
+             </tbody></table>
+         
+                 
+                   <div class="clear"></div>
+           </div>
+          <!--详细信息-->
+           <div class="box mt10"><h3><b>详细信息</b></h3>
+             <div class="wantedinfo">
+               <p>{$content}</p>             </div> 
+           </div>
+          <!--最新求购信息-->
+    	   <div class="box nobor_botm mt10"><h3><b>最新求购信息</b></h3>
+				<div class="boxlist officelist">
+					<!--{php $tags=tag("moduleid=16&condition=status=3&areaid=$cityid&length=22&pagesize=5&order=hits desc&target=_blank&template=null");}-->
+ {loop $tags $i $t}
+           						           		<p class="hbor">
+           			<span class="w1"><a href="{$t[linkurl]}" target="_blank">{$t[title]}</a>{area_poss($t[areaid], '')}</span>
+           			<span class="w2"><b class="red">{if $t[room]}{$t[room]}室{/if}{if $t[hall]}{$t[hall]}厅{/if}</b></span>
+           			<span class="w3">{if $t[price]}<b class="red">{$t[price]}</b>元{else}面议{/if}</span>
+					<span class="w4"><b class="red">{$t[houseearm]}</b>㎡</span>
+           			<span class="w5">{timetodate($t[edittime], 3)}</span>
+           		</p>{/loop}
+           		           	
+           										</div>
+           </div>
+        </div>
+        <!--右侧-->
+        <div class="fr wd230">
+          <!--联系人-->
+          <div class="box contact">
+            <span>联系人：{$truename}<font class="green"></font></span>
+            <span class="tel">{$mobile}</span>
+          </div>
+          <!--发布新的求购信息-->
+          <div class="issue mt10">
+            <a class="blue" href="{$MODULE[2][linkurl]}{$AJ[file_my]}?mid={$moduleid}&action=add&catid={$catid}">发布一条房屋求购信息&gt;&gt;</a>
+          </div>
+          <!--经纪人排行-->
+          <div class="box mt10">
+            	<h3><b>相关二手房出售房源</b></h3>
+                <ul class="fy_list">	<!--{php $tags=tag("moduleid=5&condition=status=3&areaid=$cityid&length=22&pagesize=10&order=hits desc&target=_blank&template=null");}-->
+ {loop $tags $i $t} <li><span class="name"><a href="{$t[linkurl]}" target="_blank">{area_poss($t[areaid], '')}</a></span><span class="district"></span><span class="area">{$t[houseearm]}㎡</span><span class="price">{if $t[price]}{$t[price]}万元{else}面议{/if}</span><div class="clear"></div></li>
+											{/loop}
+									                </ul>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+　　<!--尾部开始-->
+    <div style="clear:both"></div>
+<div style="padding-bottom:20px;" id="foot">
+  {template 'footer'}
+</div>
+ <!--尾部结束-->
+</div>
+</div>
+</body></html>

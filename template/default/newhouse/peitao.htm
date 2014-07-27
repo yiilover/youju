@@ -1,0 +1,169 @@
+{template 'header'}
+<div class="m">	
+
+ <!--q新房广告 新房详情页-导航下通栏1-->
+ <form name="detailForm" id="detailForm" action="{$MODULE[2][linkurl]}favorite.php" method="post">	
+<input type="hidden" name="action" value="add"/>
+<input type="hidden" name="title" value="{$title}"/>
+<input type="hidden" name="url" value="{$linkurl}"/>
+</form>
+    <div class="bread">
+	<div class="fr">
+		访问：<strong>{$hits}</strong>人次 | <a href="javascript:document.getElementById('detailForm').submit();">收藏</a>
+		<span>{$editdate}更新</span>
+	 </div>
+	您当前的位置：<a href="{$MODULE[1][linkurl]}" title="{$AJ[sitename]}">{$AJ[sitename]}</a> &gt; <a href="{$MOD[linkurl]}">{$MOD[name]}    </a> &gt; <a href="{$MOD[linkurl]}list.php?areaid={$areaid}">{area_poss($areaid, ' ')}</a> &gt;  {$title} 
+	</div>
+<div class="name cf">
+	<div class="qr fr">{twoCode($EXT[wap_url],$moduleid,$itemid)}</div>
+	<div class="fl">
+		<div class="name_top">
+		<h2><a href="{$linkurl}" title="{$title}">{$title}</a></h2>
+				<div class="name_icon name_icon1">{$TYPE[$typeid]}</div>		</div>
+		
+	</div>
+</div>
+<div class="navcon">
+<div class="navbox">
+	<ul>
+		{php $menu = array('xinxi'=>'详细', 'jiage'=>'房价', 'xiangce'=>'相册','huxing'=>'户型', 'zixun'=>'导购', 'peitao'=>'地图交通',  'dianping'=>'点评', 'wenfang'=>'问房');}
+<li><a href="{$linkurl}"  >主页</a></li>{loop $menu $k $v} 
+<li><a href="{$MODULE[6][linkurl]}{$k}.php?itemid={$itemid}" {if peitao==$k}class='on'{else}{/if} >{$v}</a></li>
+{/loop}
+       {if $bbsurl}<li><a href="{$bbsurl}">论坛</a></li>{/if}
+		<li><a href="{$linkurl}#iwantgroupbuy">团购报名</a></li>
+        	    	</ul>
+</div>	
+</div>			<div class="cf">
+			<p class="address cf">
+				楼盘地址：{$address}			</p>
+            			<div class="mapicon cf" id="mapicon">
+				<p class="gj" name="">公交</p>
+				<p class="cy" name="">餐饮</p>
+				<p class="yh" name="">银行</p>
+				<p class="xx" name="">学校</p>
+				<p class="yy" name="">医院</p>
+				<p class="jyz" name="">加油站</p>
+				<a href="{$MODULE[1][linkurl]}map/newhouse.php#l1=38.009613&l2=114.481115&l3=16&keyword={$title}" class="seeB" style="margin-left:199px">在大地图上查看</a>
+				<span class="reset" id="resetSearch">重置地图</span>
+				<span class="print" onClick="window.print();">打印本页</span>
+			</div>
+			<div class="border cf mapindex">
+				<div id="map" style="width:720px;height:435px;" class="fl">
+				</div>
+				<div class="fr maplist" id="map_traffic_search_box">
+	                <dl>
+	                    <dt><a href="{$linkurl}" target="_blank">{$title}</a></dt>
+	                    <dd>{$address}</dd>
+	                </dl>
+	                <h4 name="type">楼盘</h4>
+	                <ul name="result_list"></ul>
+	            </div>
+			</div>
+            			<div class="w670 fl mt10">
+				<div class="modA">
+					<h4> <sub class="l"></sub>
+						{$title}交通状况
+					</h4>
+					<p class="jianjie bor_bottom">{$lp_bus}</p>
+					<h4> <sub class="l"></sub>
+						{$title}周边配套
+					</h4>
+					<p class="jianjie bor_bottom">
+医疗：{$lp_hospital}   
+学校：{$lp_edu}   
+银行：{$lp_bank}
+</p><h4>
+						<sub class="l"></sub>
+						{$title}项目介绍
+					</h4>
+					<p class="jianjie">&nbsp; &nbsp; {$content}</p>
+				</div>
+                				<div class="modA">
+					<h4 class="modBT">
+						<sub class="l"></sub>
+						{$title}周边配套
+						<a href="{$MODULE[6][linkurl]}peitao.php?itemid={$itemid}" target="_blank" class="more">更多&gt;&gt;</a>
+					</h4>
+					<div class="modBC">
+						<ul class="imgList">
+										   <!--{php $tags=tag("moduleid=12&table=aijiacms_photo m,aijiacms_photo_item c&prefix=&condition=m.itemid=c.item  and m.houseid=$itemid&catid=27&pagesize=4&order=m.itemid desc&template=null");}-->
+ {loop $tags $i $t}           <li><a href="{$t[linkurl]}" title="{$title}" target="_blank"><img width="136" height="102" src="{$t[thumb]}"  /></a><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></li>{/loop}
+                            						</ul>
+					</div>
+				</div>
+                			</div>
+			<div class="w280 fr">
+				<div class="modB mt10">
+    <h4>
+        <sub></sub>
+       <a href="{$MODULE[6][linkurl]}xinxi.php?itemid={$itemid}" target="_blank">{$title}楼盘详情</a>
+    </h4>
+    <ul class="smInfo cf">
+        <li>
+            <span>参考售价：</span>
+            <p class="price">{if $price}{$price}元/平米{else}待定{/if}</p>
+        </li>
+        <li>
+            <span>物业类型：</span>
+            <p>{search_cats($catid, '6')}</p>
+        </li>
+        <li>
+            <span>所属商圈：</span>
+            <p>{area_pos($areaid, ' ')}</p>
+        </li>
+        <li>
+            <span>楼盘地址：</span>
+            <p>{$address}</p>
+            <div class="clear"></div>
+        </li>
+        <li>
+            <span>售楼热线：</span>
+            <p class="red">{$telephone}</p>
+        </li>
+    </ul>
+</div>				<div class="modB">
+					<h4 class="modBT">
+						<sub></sub>
+						{$title}周边楼盘
+						<a href="{$MODULE[6][linkurl]}list.php" class="more">更多&gt;&gt;</a>
+					</h4>
+					<ul class="t3List">
+                              <!--{tag("moduleid=6&condition=status=3 and itemid!=$itemid and isnew=1&areaid=$areaid&pagesize=8&order=hits desc&template=lp-right")}--></ul>
+				</div>
+				<div class="modB">
+    <h4 class="modBT">
+        <sub></sub>
+        <a href="{$MODULE[6][linkurl]}list.php" target="_blank" >{$city_name}热门楼盘</a>
+        <a href="{$MODULE[6][linkurl]}list.php" class="more">更多&gt;&gt;</a>
+    </h4>
+    <ul class="t3List">
+                    <!--{tag("moduleid=6&condition=status=3 and itemid!=$itemid  and isnew=1&areaid=$cityid&pagesize=8&order=hits desc&template=lp-right")}-->
+            </ul>
+</div>
+			</div>
+		</div>
+		{template 'footer'}</div>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=1.2"></script>
+<script type="text/javascript">
+seajs.use(["jquery","snail-baiduaround"],function($,snail){	
+	snail.setURL('{$MODULE[6][linkurl]}');
+		snail.drawMap(parseFloat("{$x}"),parseFloat("{$y}"),"{$title}","map");
+	snail.getMaps();
+	$('#mapicon p').click(function(){
+		snail.setKEY($(this).text());
+		if($(this).attr('name') == 'house'){
+			snail.setH(true);
+		}else{
+			snail.setH(false);
+		}
+		snail.getMaps();
+	})
+	$("#resetSearch").click(function(){
+		snail.setH(true);
+		snail.getMaps();
+	})
+	})
+</script>
+</body>
+</html>

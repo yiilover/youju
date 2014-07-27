@@ -1,0 +1,207 @@
+	{template 'header'}
+<div class="m">	
+<div class="bread">
+	您当前的位置：
+	<a target="_blank" href="{$MODULE[1][linkurl]}">首页</a>
+	&gt;&nbsp;<a href="{$MOD[linkurl]}">{$MOD[name]}</a>&nbsp;&gt;
+	{$title}</div>
+<div class="Atitle">
+	<h1>{$title}</h1>
+	<div class="subNav cf">
+		<form name="detailForm" id="detailForm" action="{$MODULE[2][linkurl]}favorite.php" method="post">
+<input type="hidden" name="action" value="add"/>
+<input type="hidden" name="title" value="{$title}"/>
+<input type="hidden" name="url" value="{$linkurl}"/>
+</form><A href="javascript:document.getElementById('detailForm').submit();" class="fr">收藏该小区</A>
+		
+		<ul class="cf">
+			<li><a href="{$linkurl}">小区概况</a></li>
+            <li><a href="{$MODULE[18][linkurl]}jiage.php?itemid={$itemid}">价格行情</a></li>
+            <li><a  href="{$MODULE[18][linkurl]}sale.php?itemid={$itemid}">出售房源</a></li>
+            <li><a class="on" href="{$MODULE[18][linkurl]}rent.php?itemid={$itemid}">出租房源</a></li><!--
+            <li><a href="{$MODULE[18][linkurl]}xiangce.php?itemid={$itemid}">小区相册</a></li>
+            <li><a href="{$MODULE[18][linkurl]}peitao.php?itemid={$itemid}">交通配套</a></li>
+            <li><a href="{$MODULE[18][linkurl]}xinxi.php?itemid={$itemid}">小区详情</a></li>-->
+		</ul>
+	</div>
+</div>
+	<div class="">
+<div class="conl1" id="conl1">
+	
+		<div class="cf" style="padding-top:9px;">
+			<span class="a_name">价格：</span>
+			<span>
+			
+				                            <a href="{$MOD[linkurl]}rent.php?itemid={$itemid}&a={$_GET['a']}&r={$_GET['r']}&typeid={$_GET['typeid']}&p=" class="{if $_GET['p']==''}c{/if}">不限</a>
+ {php $price = array('200元以下', '200-500元', '500-1000元', '1000-1500元', '1500-2000元', '2000-3000元','3000元以上');}
+ {loop $price $k $v}  <a href='{$MOD[linkurl]}rent.php?itemid={$itemid}&a={$_GET['a']}&r={$_GET['r']}&typeid={$_GET['typeid']}&p=<?php echo $k+1;?>' class='{if $_GET['p']==($k+1)}c{else}{/if}'>{$v}</a>&nbsp;{/loop}
+                    
+			</span>
+		</div>
+		<div class="cf">
+			<span class="a_name">面积：</span>
+			<span>
+				<A  
+href="{$MOD[linkurl]}rent.php?itemid={$itemid}&r={$_GET['r']}&p={$_GET['p']}&typeid={$_GET['typeid']}&a=" class="{if $_GET['a']==''}c{/if}">不限</A> <A 
+href="{$MOD[linkurl]}rent.php?itemid={$itemid}&r={$_GET['r']}&p={$_GET['p']}&typeid={$_GET['typeid']}&a=1" class="{if $_GET['a']==1}c{/if}">40平米以下</A> <A 
+href="{$MOD[linkurl]}rent.php?itemid={$itemid}&r={$_GET['r']}&p={$_GET['p']}&typeid={$_GET['typeid']}&a=2" class="{if $_GET['a']==2}c{/if}">40-60平米</A> <A 
+href="{$MOD[linkurl]}rent.php?itemid={$itemid}&r={$_GET['r']}&p={$_GET['p']}&typeid={$_GET['typeid']}&a=3" class="{if $_GET['a']==3}c{/if}">60-80平米</A> <A 
+href="{$MOD[linkurl]}rent.php?itemid={$itemid}&r={$_GET['r']}&p={$_GET['p']}&typeid={$_GET['typeid']}&a=4" class="{if $_GET['a']==4}c{/if}">80-100平米</A> <A 
+href="{$MOD[linkurl]}rent.php?itemid={$itemid}&r={$_GET['r']}&p={$_GET['p']}&typeid={$_GET['typeid']}&a=5" class="{if $_GET['a']==5}c{/if}">100-120平米</A> <A 
+href="{$MOD[linkurl]}rent.php?itemid={$itemid}&r={$_GET['r']}&p={$_GET['p']}&typeid={$_GET['typeid']}&a=3" class="{if $_GET['a']==6}c{/if}">120-150平米</A> <A 6
+href="{$MOD[linkurl]}rent.php?itemid={$itemid}&r={$_GET['r']}&p={$_GET['p']}&typeid={$_GET['typeid']}&a=7" class="{if $_GET['a']==7}c{/if}">150平米以上</A>
+                                           
+			</span>
+		</div>
+		<div class="cf">
+			<span class="a_name">户型：</span>
+			<span>
+				<A 
+href="{$MOD[linkurl]}rent.php?itemid={$itemid}&a={$_GET['a']}&p={$_GET['p']}&typeid={$_GET['typeid']}&r=" class="{if $_GET['r']==''}c{/if}">不限</A> <A 
+href="{$MOD[linkurl]}rent.php?itemid={$itemid}&a={$_GET['a']}&p={$_GET['p']}&typeid={$_GET['typeid']}&r=1" class="{if $_GET['r']==1}c{/if}">一室</A> <A 
+href="{$MOD[linkurl]}rent.php?itemid={$itemid}&a={$_GET['a']}&p={$_GET['p']}&typeid={$_GET['typeid']}&r=2" class="{if $_GET['r']==2}c{/if}">二室</A> <A 
+href="{$MOD[linkurl]}rent.php?itemid={$itemid}&a={$_GET['a']}&p={$_GET['p']}&typeid={$_GET['typeid']}&r=3" class="{if $_GET['r']==3}c{/if}">三室</A> <A 
+href="{$MOD[linkurl]}rent.php?itemid={$itemid}&a={$_GET['a']}&p={$_GET['p']}&typeid={$_GET['typeid']}&r=4" class="{if $_GET['r']==4}c{/if}">四室</A> <A 
+href="{$MOD[linkurl]}rent.php?itemid={$itemid}&a={$_GET['a']}&p={$_GET['p']}&typeid={$_GET['typeid']}&r=5" class="{if $_GET['r']==5}c{/if}">其它</A> 
+                                			</span>
+		</div>
+		<div class="cf b conl2" id="conl2">
+			<span class="a_name">继续筛选：</span>
+			<form id="aijiacms_search" action="{$MODULE[7][linkurl]}search.php" onsubmit="return Dsearch();">
+
+				<input id="hname" name="kw" data-val="请输入关键字" value="请输入关键字" type="text">
+				<input name="cid" value="6" type="hidden">
+				<button type="submit"></button>
+			</form>
+			
+			
+			
+		</div>
+	</div>
+</div>		<div class="cf mt10">
+			<div class="fl xqsList">
+				<div class="xqsT cf">
+					<div class="fr">
+						<!--默认排序-->
+						<div class="t_molist" id="t_molist">
+							选择排序方式							<ul>
+							<li><A href="?itemid={$itemid}">默认排序</A> </li>
+							<li><A href="?itemid={$itemid}&order=ed">按发布时间从新到旧</A></li>
+							<li> <A href="?itemid={$itemid}&order=ea">按发布时间从旧到新</A></li>
+							 <li><A href="?itemid={$itemid}&order=hd">按面积从大到小排序</A></li>
+							 <li> <A href="?itemid={$itemid}&order=ha">按面积从小到大排序</A></li>
+							 <li> <A href="?itemid={$itemid}&order=dd">按单价从高到低排序</A></li>
+							 <li> <A href="?itemid={$itemid}&order=da">按单价从低到高排序</A></li>
+							 <li> <A href="?itemid={$itemid}&order=pd">按总价从高到低排序</A></li>
+							 <li> <A href="?itemid={$itemid}&order=pa">按总价从低到高排序</A></li> 
+							
+							</ul>
+						</div>
+						
+					</div>
+					<h4>
+						共有 <b>{$itemsale}</b>
+						个符合要求的房源
+					</h4>
+				</div>
+								<table class="FyList">
+										<tbody>
+										{if $tags}{template 'list-crent', 'tag'}{/if}
+									</tbody></table>
+				<div class="pagination">
+					{$pages}	</div>
+						</div>
+		<div class="w230 fr">
+	<div class="modC">
+		<h4 class="modBT"><sub></sub>
+			热门小区
+		</h4>
+				<ul class="t3List">
+					<!--{php $tags=tag("moduleid=18&condition=status=3&areaid=$cityid&length=22&pagesize=6&order=hits desc&target=_blank&template=null");}-->
+ {loop $tags $i $t}
+						<li>
+				<span class="lettsub7"><a target="_blank" href="{$t[linkurl]}" title="{$t[title]}">{$t[title]}</a></span>
+				<span class="w2">{area_poss($t[areaid], '')}</span>
+				<span class="w3">{if get_avg_price($t[itemid])}{get_avg_price($t[itemid])}元/㎡{else}待定{/if}	</span>
+			</li>{/loop}
+					</ul>
+			</div>
+	<div class="modC">
+		<h4 class="modBT"><sub></sub>
+			周边二手房
+		</h4>
+				<ul class="t3List">
+					<!--{php $tags=tag("moduleid=5&condition=status=3&areaid=$areaid&length=22&pagesize=6&order=hits desc&target=_blank&template=null");}-->
+ {loop $tags $i $t}
+						<li>
+				<span class="lettsub7"><a target="_blank" href="{$t[linkurl]}" title="{$t[title]}">{$t[housename]}</a></span>
+				<span class="w2">{area_poss($t[areaid], '')}</span>
+				<span class="w3">{if $t[price]}{$t[price]}万{else}面议{/if}	</span>
+			</li>{/loop}
+					</ul>
+			</div>
+	<div class="modC">
+		<h4 class="modBT"><sub></sub>
+			周边出租房
+		</h4>
+				<ul class="t3List">
+					<!--{php $tags=tag("moduleid=7&condition=status=3&areaid=$areaid&length=22&pagesize=6&order=hits desc&target=_blank&template=null");}-->
+ {loop $tags $i $t}
+						<li>
+				<span class="lettsub7"><a target="_blank" href="{$t[linkurl]}" title="{$t[title]}">{$t[housename]}</a></span>
+				<span class="w2">{area_poss($t[areaid], '')}</span>
+				<span class="w3">{if $t[price]}{$t[price]}元/月{else}面议{/if}	</span>
+			</li>{/loop}
+					</ul>
+			</div>
+</div>	</div>
+	<div class="esfhouse_detail">
+	<h2>
+		<b>您可能感兴趣的小区</b>
+	</h2>
+	<div class="esfhouse_con cf bor">
+		<!--{php $tags=tag("moduleid=18&condition=status=3&areaid=$areaid&length=22&pagesize=5&order=addtime desc&target=_blank&template=null");}-->
+ {loop $tags $i $t}
+			<div class="info_Img">
+			<a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}"><img data-src="{imgurl($t[thumb])}" title="{$t[alt]}" alt="{$t[alt]}"></a>
+			<span>
+				<a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a>
+			</span>
+			<span>
+				售：<b class="red">{get_sale($t[itemid])}</b>套 租：
+				<b class="red">{get_rent($t[itemid])}</b>套
+			</span>
+			<span>均价：{if get_avg_price($t[itemid])}<b class="red">{get_avg_price($t[itemid])}</b></strong>元/平米{else}<b class="red">待定</b>{/if}	
+							</span>
+		</div>
+		{/loop}
+			
+		</div>
+</div>
+	{template 'footer'}</div><ul id="autoc" class="autopop"></ul>
+<script type="text/javascript">
+seajs.use(["jquery","alert","autofh"],function($,alertM){
+	var $hname=$("#hname");
+	var ht=$hname.attr("data-val");
+	$hname.on("focus",function(){
+		if($hname.val()==ht)
+			$hname.val("");
+	}).on("blur",function(){
+		if($hname.val()=="")
+			$hname.val(ht);
+	}).closest("form").submit(function(){
+		if($hname.val()==ht){
+			$hname.focus()
+			return false;
+		}
+	})
+	$("#conl2 div,#t_molist").hover(function(){
+		$(this).addClass("on");
+	},function(){
+		$(this).removeClass("on");
+	})
+	$("#conl1 div.autoF").autofh();
+})
+</script>
+
+</body></html>

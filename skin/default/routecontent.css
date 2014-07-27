@@ -1,0 +1,1056 @@
+body {
+	margin: 0px; padding: 0px;
+}
+ol {
+	margin: 0px; padding: 0px;
+}
+ul {
+	margin: 0px; padding: 0px;
+}
+h1 {
+	margin: 0px; padding: 0px;
+}
+h2 {
+	margin: 0px; padding: 0px;
+}
+h3 {
+	margin: 0px; padding: 0px;
+}
+h4 {
+	margin: 0px; padding: 0px;
+}
+h5 {
+	margin: 0px; padding: 0px;
+}
+h6 {
+	margin: 0px; padding: 0px;
+}
+p {
+	margin: 0px; padding: 0px;
+}
+th {
+	margin: 0px; padding: 0px;
+}
+td {
+	margin: 0px; padding: 0px;
+}
+dl {
+	margin: 0px; padding: 0px;
+}
+dd {
+	margin: 0px; padding: 0px;
+}
+form {
+	margin: 0px; padding: 0px;
+}
+fieldset {
+	margin: 0px; padding: 0px;
+}
+legend {
+	margin: 0px; padding: 0px;
+}
+input {
+	margin: 0px; padding: 0px;
+}
+textarea {
+	margin: 0px; padding: 0px;
+}
+select {
+	margin: 0px; padding: 0px;
+}
+body {
+	background: rgb(255, 255, 255); font: 12px/normal "ËÎÌå", "Arial Narrow", HELVETICA; font-size-adjust: none; font-stretch: normal; -webkit-text-size-adjust: 100%;
+}
+a {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+em {
+	font-style: normal;
+}
+li {
+	list-style: none;
+}
+img {
+	border: 0px currentColor; vertical-align: middle;
+}
+table {
+	border-collapse: collapse; border-spacing: 0;
+}
+p {
+	word-wrap: break-word;
+}
+.undis {
+	display: none;
+}
+.dis {
+	display: block;
+}
+.ind {
+	text-indent: 2em;
+}
+.Q-red a {
+	color: rgb(189, 10, 1);
+}
+a.Q-red {
+	color: rgb(189, 10, 1);
+}
+.Q-black a {
+	color: rgb(0, 0, 0);
+}
+a.Q-black {
+	color: rgb(0, 0, 0);
+}
+.layout::after {
+	clear: both; display: table; content: "";
+}
+.hd::after {
+	clear: both; display: table; content: "";
+}
+.bd::after {
+	clear: both; display: table; content: "";
+}
+.ft::after {
+	clear: both; display: table; content: "";
+}
+.cf::after {
+	clear: both; display: table; content: "";
+}
+.Q-tList::after {
+	clear: both; display: table; content: "";
+}
+.Q-tList ul::after {
+	clear: both; display: table; content: "";
+}
+.Q-tList ol::after {
+	clear: both; display: table; content: "";
+}
+.Q-pList::after {
+	clear: both; display: table; content: "";
+}
+.Q-pList ul::after {
+	clear: both; display: table; content: "";
+}
+.Q-tpList::after {
+	clear: both; display: table; content: "";
+}
+.Q-tpList ul::after {
+	clear: both; display: table; content: "";
+}
+.Q-tpWrap::after {
+	clear: both; display: table; content: "";
+}
+.layout {
+	
+}
+.hd {
+	
+}
+.bd {
+	
+}
+.ft {
+	
+}
+.cf {
+	
+}
+.Q-tList {
+	
+}
+.Q-tList ul {
+	
+}
+.Q-tList ol {
+	
+}
+.Q-pList {
+	
+}
+.Q-pList ul {
+	
+}
+.Q-tpList {
+	
+}
+.Q-tpList ul {
+	
+}
+.Q-tpWrap {
+	
+}
+.fl {
+	float: left; display: inline;
+}
+.layout .fl {
+	float: left; display: inline;
+}
+.chief {
+	float: left; display: inline;
+}
+.fr {
+	float: right; display: inline;
+}
+.layout .fr {
+	float: right; display: inline;
+}
+.extra {
+	float: right; display: inline;
+}
+.layout {
+	margin: 0px auto; width: 960px;
+}
+.Q-g4 .chief {
+	width: 780px;
+}
+.Q-g4 .extra {
+	width: 170px;
+}
+.Q-g8 .chief {
+	width: 637px;
+}
+.Q-g8 .main {
+	width: 313px;
+}
+.Q-g8 .extra {
+	width: 313px;
+}
+.Q-g8 .sub {
+	width: 314px;
+}
+.Q-g12 .chief {
+	width: 475px;
+}
+.Q-g12 .extra {
+	width: 475px;
+}
+.Q-g14 .chief {
+	width: 570px;
+}
+.Q-g14 .extra {
+	width: 380px;
+}
+.Q-g16 .chief {
+	width: 640px;
+}
+.Q-g16 .main {
+	width: 380px;
+}
+.Q-g16 .sub {
+	width: 250px;
+}
+.Q-g16 .extra {
+	width: 310px;
+}
+.Q-g17a .chief {
+	width: 700px;
+}
+.Q-g17b .chief {
+	width: 700px;
+}
+.Q-g17c .chief {
+	width: 700px;
+}
+.Q-g17a .main {
+	width: 380px;
+}
+.Q-g17a .sub {
+	width: 310px;
+}
+.Q-g17a .extra {
+	width: 250px;
+}
+.Q-g17b .extra {
+	width: 250px;
+}
+.Q-g17c .extra {
+	width: 250px;
+}
+.Q-g17b .main {
+	width: 345px;
+}
+.Q-g17b .sub {
+	width: 345px;
+}
+.Q-g17c .main {
+	width: 440px;
+}
+.Q-g17c .sub {
+	width: 250px;
+}
+.Q-g24 .chief {
+	width: 960px;
+}
+.hd h2 {
+	float: left; display: inline;
+}
+.hd h3 {
+	float: left; display: inline;
+}
+.f12 {
+	font-size: 12px;
+}
+.f14 {
+	font-size: 14px;
+}
+.f16 {
+	font-size: 16px;
+}
+.f18 {
+	font-size: 18px;
+}
+.f20 {
+	font-size: 20px;
+}
+.l16 {
+	line-height: 16px;
+}
+.l17 {
+	line-height: 17px;
+}
+.l18 {
+	line-height: 18px;
+}
+.l19 {
+	line-height: 19px;
+}
+.l20 {
+	line-height: 20px;
+}
+.l21 {
+	line-height: 21px;
+}
+.l22 {
+	line-height: 22px;
+}
+.l23 {
+	line-height: 23px;
+}
+.l24 {
+	line-height: 24px;
+}
+.l25 {
+	line-height: 25px;
+}
+.l26 {
+	line-height: 26px;
+}
+.l27 {
+	line-height: 27px;
+}
+.l28 {
+	line-height: 28px;
+}
+.l29 {
+	line-height: 29px;
+}
+.l30 {
+	line-height: 30px;
+}
+.Q-hot {
+	margin: 0px 10px;
+}
+.Q-tList {
+	margin: 0px 10px;
+}
+.Q-hot h2 {
+	font: 18px/28px simhei; text-align: center; font-size-adjust: none; font-stretch: normal;
+}
+.Q-hot h2.l30 {
+	font-size: 20px;
+}
+.Q-tList span {
+	float: right;
+}
+.Q-tpList li span {
+	float: right;
+}
+.Q-pList li {
+	text-align: center; float: left; display: inline;
+}
+.Q-pList a {
+	display: block;
+}
+.Q-pList p a {
+	display: inline;
+}
+.Q-tpList em {
+	font-weight: bold;
+}
+.Q-tpList .pic {
+	text-align: center; overflow: hidden; margin-right: 10px; float: left; display: inline;
+}
+.Q-tpList .pic img {
+	border: 1px solid rgb(203, 203, 203); display: block;
+}
+.Q-vBg {
+	background: rgba(0, 0, 0, 0.6); font: 12px/21px "ËÎÌå", "Arial Narrow", HELVETICA; width: 100%; height: 21px; text-align: right; margin-top: -21px; filter: progid:DXImageTransform.Microsoft.gradient( Q-gradientType = 0, startColorstr = '#80000000', endColorstr = '#80000000') \9; position: relative; cursor: pointer; font-size-adjust: none; font-stretch: normal;
+}
+.Q-vBg b {
+	left: 0px; top: 0px; width: 21px; height: 21px; display: block; position: absolute; cursor: pointer;
+}
+.Q-vBg span {
+	padding: 0px 5px; color: rgb(255, 255, 255); cursor: pointer;
+}
+.Q-line {
+	font: 0px/0 Arial; height: 0px; overflow: hidden; clear: both; border-bottom-color: rgb(204, 204, 204); border-bottom-width: 1px; border-bottom-style: dashed; font-size-adjust: none; font-stretch: normal;
+}
+.Q-iDot li {
+	background: url("images/tuan/i.png") no-repeat;
+}
+.Q-iDotBlue li {
+	background: url("images/tuan/i.png") no-repeat;
+}
+.Q-iDotGray li {
+	background: url("images/tuan/i.png") no-repeat;
+}
+.Q-iTqq li {
+	background: url("images/tuan/i.png") no-repeat;
+}
+.Q-iVideo li {
+	background: url("images/tuan/i.png") no-repeat;
+}
+.Q-iVideoBlue li {
+	background: url("images/tuan/i.png") no-repeat;
+}
+.Q-iVideoDeep li {
+	background: url("images/tuan/i.png") no-repeat;
+}
+.Q-iVideoGreen li {
+	background: url("images/tuan/i.png") no-repeat;
+}
+.Q-iDotBlue li {
+	background-position: 0px -30px;
+}
+.Q-iTqq li {
+	background-position: 0px -60px;
+}
+.Q-iVideo li {
+	background-position: 0px -90px;
+}
+.Q-iVideoBlue li {
+	background-position: 0px -120px;
+}
+.Q-iVideoDeep li {
+	background-position: 0px -210px;
+}
+.Q-iDotGray li {
+	background-position: 0px -180px;
+}
+.Q-iVideoGreen li {
+	background-position: 0px -240px;
+}
+.mt10 {
+	margin-top: 10px;
+}
+.mb10 {
+	margin-bottom: 10px;
+}
+.layout {
+	margin: 0px auto; width: 1000px;
+}
+h1 {
+	font-size: 14px; font-weight: normal;
+}
+h2 {
+	font-size: 14px; font-weight: normal;
+}
+h3 {
+	font-size: 14px; font-weight: normal;
+}
+h4 {
+	font-size: 14px; font-weight: normal;
+}
+a {
+	color: rgb(51, 51, 51);
+}
+a:hover {
+	color: rgb(189, 10, 1);
+}
+a:active {
+	color: rgb(189, 10, 1);
+}
+body {
+	color: rgb(34, 34, 34); line-height: 22px;
+}
+.bold {
+	font-weight: bold;
+}
+.normal {
+	font-weight: normal;
+}
+.center {
+	text-align: center;
+}
+.idt0 {
+	text-indent: -9999px;
+}
+.mt5 {
+	margin-top: 5px;
+}
+.mt10 {
+	margin-top: 10px;
+}
+.mt20 {
+	margin-top: 20px;
+}
+.mb10 {
+	margin-bottom: 10px;
+}
+.mb15 {
+	margin-bottom: 15px;
+}
+.mb20 {
+	margin-bottom: 20px;
+}
+.hide {
+	display: none;
+}
+.icons {
+	background: url("images/tuan/icons.png") no-repeat;
+}
+.page {
+	background: url("images/tuan/pageBg.png") repeat-x top;
+}
+.wrap {
+	margin: 0px auto; width: 1000px;
+}
+.miniNav {
+	height: 32px; color: rgb(187, 187, 187); line-height: 30px;
+}
+.miniNav a {
+	color: rgb(91, 91, 91);
+}
+.miniNav a:hover {
+	color: rgb(45, 55, 75); text-decoration: none;
+}
+.miniNav .loginBtn {
+	width: 59px; height: 20px; text-align: center; color: rgb(105, 148, 193); line-height: 20px; display: inline-block;
+}
+.miniNav .loginBtn:hover {
+	background-position: -60px 0px; color: rgb(255, 255, 255);
+}
+.header {
+	height: 90px;
+}
+.header .telBox {
+	background-position: -690px 5px; width: 215px; padding-left: 55px; margin-top: 20px;
+}
+.header .telBox h2 {
+	font: bold 22px/30px "Î¢ÈíÑÅºÚ"; color: rgb(80, 80, 80); font-size-adjust: none; font-stretch: normal;
+}
+.header .telBox p {
+	font: bold 18px/22px "Î¢ÈíÑÅºÚ"; color: rgb(238, 95, 0); font-size-adjust: none; font-stretch: normal;
+}
+.header .telBox p span {
+	padding: 0px 5px; color: rgb(136, 136, 136);
+}
+.header .selCity {
+	margin: 34px 0px 0px 13px; border: 1px solid rgb(194, 194, 194); width: 53px; height: 21px; text-align: center; line-height: 21px;
+}
+.header .selCity em {
+	background-position: -560px -140px; width: 5px; height: 3px; line-height: 0; font-size: 0px; margin-left: 3px; vertical-align: middle; display: inline-block;
+}
+.mainNav {
+	height: 6px; overflow: hidden;
+}
+.mainWrap .main {
+	width: 745px; float: left;
+}
+.mainWrap .side {
+	width: 240px; float: right;
+}
+.hotBox {
+	border: 1px solid rgb(212, 212, 212);
+}
+.linkBox {
+	border: 1px solid rgb(212, 212, 212);
+}
+.mainTop .con {
+	border: 1px solid rgb(212, 212, 212);
+}
+.mainSo .con {
+	border: 1px solid rgb(212, 212, 212);
+}
+.rankBox .rank {
+	border: 1px solid rgb(212, 212, 212);
+}
+.mainList .con {
+	border: 1px solid rgb(212, 212, 212);
+}
+.mainMap .con {
+	border: 1px solid rgb(212, 212, 212);
+}
+.mainWb .con {
+	border: 1px solid rgb(212, 212, 212);
+}
+.hisFocus {
+	border: 1px solid rgb(212, 212, 212);
+}
+.mainTop .shareBox .ico-qqspace {
+	background: url("images/tuan/route_pic_css_sprite_1.png") no-repeat;
+}
+.mainTop .shareBox .ico-qqwb {
+	background: url("images/tuan/route_pic_css_sprite_1.png") no-repeat;
+}
+.mainTop .shareBox .ico-qqpengyou {
+	background: url("images/tuan/route_pic_css_sprite_1.png") no-repeat;
+}
+.mainTop .shareBox .ico-qqmail {
+	background: url("images/tuan/route_pic_css_sprite_1.png") no-repeat;
+}
+.mainTop .txtBox .btnBm {
+	background: url("images/tuan/route_pic_css_sprite_1.png") no-repeat;
+}
+.mainTop .txtBox .btnBmed {
+	background: url("images/tuan/route_pic_css_sprite_1.png") no-repeat;
+}
+.mainList .con .list .scoreBox .score a {
+	background: url("images/tuan/route_pic_css_sprite_1.png") no-repeat;
+}
+.mainList .t1.tit span {
+	background: url("images/tuan/route_pic_css_sprite_1.png") no-repeat;
+}
+.mainMap .t2.tit span {
+	background: url("images/tuan/route_pic_css_sprite_1.png") no-repeat;
+}
+.mainWb .t3.tit span {
+	background: url("images/tuan/route_pic_css_sprite_1.png") no-repeat;
+}
+.mainWb .ico {
+	background: url("images/tuan/route_pic_css_sprite_1.png") no-repeat;
+}
+.mainTop .tit {
+	background-position: 0px -170px; padding: 0px 6px 0px 0px; height: 50px; line-height: 50px; font-size: 14px; position: relative;
+}
+.mainSo .tit {
+	background-position: 0px -170px; padding: 0px 6px 0px 0px; height: 50px; line-height: 50px; font-size: 14px; position: relative;
+}
+.mainTop .tit h2 {
+	font: 20px/22px "Î¢ÈíÑÅºÚ"; color: rgb(51, 51, 51); font-size-adjust: none; font-stretch: normal;
+}
+.mainSo .tit h2 {
+	font: 20px/22px "Î¢ÈíÑÅºÚ"; color: rgb(51, 51, 51); font-size-adjust: none; font-stretch: normal;
+}
+.mainTop .con {
+	border-top-color: rgb(142, 159, 225); border-top-width: 2px; border-top-style: solid;
+}
+.mainTop .item {
+	padding: 20px;
+}
+.mainTop .itemBg {
+	background: rgb(248, 248, 248);
+}
+.mainTop .txtBox {
+	width: 300px; color: rgb(80, 80, 80); line-height: 24px; font-size: 14px;
+}
+.mainTop .picBox {
+	width: 370px;
+}
+.mainTop .txtBox .bd {
+	padding: 7px 0px 0px;
+}
+.mainTop .txtBox .line {
+	padding: 0px 5px; color: rgb(152, 152, 152);
+}
+.mainTop .detail .line {
+	padding: 0px 5px; color: rgb(152, 152, 152);
+}
+.mainTop .titleBox {
+	margin-bottom: 10px;
+}
+.mainTop .titleBox h3 {
+	font: bold 22px/32px "Î¢ÈíÑÅºÚ"; color: rgb(51, 51, 51); font-size-adjust: none; font-stretch: normal;
+}
+.mainTop .titleBox h3 a {
+	font: bold 22px/32px "Î¢ÈíÑÅºÚ"; color: rgb(51, 51, 51); font-size-adjust: none; font-stretch: normal;
+}
+.mainTop .titleBox .day {
+	color: rgb(30, 62, 159);
+}
+.mainTop .shareBox {
+	margin-top: 10px;
+}
+.mainTop .shareBox span {
+	display: inline-block;
+}
+.mainTop .shareBox .ico-title {
+	
+}
+.mainTop .shareBox .ico-qqspace {
+	background-position: -174px 0px; width: 30px; height: 16px; cursor: pointer;
+}
+.mainTop .shareBox .ico-qqwb {
+	background-position: -174px -38px; width: 30px; height: 16px; cursor: pointer;
+}
+.mainTop .shareBox .ico-qqpengyou {
+	background-position: -174px -79px; width: 30px; height: 16px; cursor: pointer;
+}
+.mainTop .shareBox .ico-qqmail {
+	background-position: -174px -115px; width: 30px; height: 16px; cursor: pointer;
+}
+.mainTop .txtBox h3 a {
+	font: bold 20px/30px "Î¢ÈíÑÅºÚ"; color: rgb(51, 51, 51); font-size-adjust: none; font-stretch: normal;
+}
+.mainTop .txtBox p {
+	font: bold 15px/22px "Î¢ÈíÑÅºÚ"; color: rgb(51, 51, 51); font-size-adjust: none; font-stretch: normal;
+}
+.mainTop .txtBox .num {
+	font: bold 14px/31px Arial; padding: 0px 5px; color: rgb(238, 95, 0); font-size-adjust: none; font-stretch: normal;
+}
+.mainTop .txtBox .list {
+	padding: 15px 0px; color: rgb(34, 34, 34); line-height: 28px; margin-top: 10px; border-top-color: rgb(200, 200, 200); border-top-width: 1px; border-top-style: dotted;
+}
+.mainTop .txtBox .list li span {
+	color: rgb(102, 102, 102);
+}
+.mainTop .txtBox .list li span.bold {
+	color: rgb(238, 95, 0);
+}
+.mainTop .txtBox .btn {
+	margin: 0px auto; width: 106px; height: 33px; text-align: center; line-height: 33px; font-weight: bold; float: left; display: block;
+}
+.mainTop .txtBox .btnBm {
+	width: 108px; height: 35px; text-align: left; text-indent: -999em;
+}
+.mainTop .txtBox .btnBmed {
+	background-position: -1px -50px; width: 108px; height: 35px; text-align: left; text-indent: -999em;
+}
+.mainTop .txtBox .btnRes {
+	background-position: -230px -30px; font: 16px/26px "Î¢ÈíÑÅºÚ"; margin: 5px 0px 0px 20px; color: rgb(128, 128, 128); cursor: auto; font-size-adjust: none; font-stretch: normal;
+}
+.mainTop .txtBox .btnTxt {
+	color: rgb(238, 95, 0);
+}
+.mainTop .lineList {
+	background-position: 0px -240px; width: 100%; margin-top: 14px;
+}
+.mainTop .lineList .iconDot {
+	background-position: -600px 0px; margin: 0px auto; width: 17px; height: 17px; display: block; position: relative;
+}
+.mainTop .lineList .detail {
+	background: rgb(255, 255, 255); padding: 16px 17px 0px; border: 3px solid rgb(173, 185, 232); left: -166px; top: -183px; width: 309px; height: 152px; display: none; position: absolute;
+}
+.mainTop .lineList .detail em {
+	background-position: -560px -120px; left: 50%; top: 171px; width: 11px; height: 7px; margin-left: -5px; display: block; position: absolute;
+}
+.mainTop .lineList .txtBox2 {
+	line-height: 24px; padding-left: 153px;
+}
+.mainTop .lineList .num {
+	font: bold 14px/31px Arial; color: rgb(238, 95, 0); padding-right: 3px; font-size-adjust: none; font-stretch: normal;
+}
+.mainTop .lineList .tese {
+	padding: 12px 0px 0px;
+}
+.mainTop .lineList .current .detail {
+	display: block;
+}
+.mainTop .lineList .current .iconDot {
+	background-position: -600px -20px;
+}
+.mainList {
+	border-top-color: currentColor; border-top-width: medium; border-top-style: none;
+}
+.mainList .t1.tit {
+	background: url("images/tuan/t1.jpg") no-repeat 20px 0px rgb(56, 86, 182); width: 100%; height: 36px; line-height: 36px; text-indent: -999px;
+}
+.mainList .con .list {
+	margin: 0px auto; width: 700px; height: 250px; border-bottom-color: rgb(199, 199, 199); border-bottom-width: 1px; border-bottom-style: dashed;
+}
+.mainList .con .nobr.list {
+	margin: 0px auto; border: currentColor;
+}
+.mainList .con .list .picBox {
+	margin-top: 25px;
+}
+.mainList .con .list .txtBox {
+	margin: 25px 0px 0px 20px;
+}
+.mainList .con .list .txtBox .title {
+	font: 16px/26px "Î¢ÈíÑÅºÚ"; color: rgb(56, 86, 182); margin-right: 10px; font-size-adjust: none; font-stretch: normal;
+}
+.mainList .con .list .txtBox .txtlist p {
+	width: 272px; height: 25px; overflow: hidden;
+}
+.mainList .con .list .txtBox .txtlist p span {
+	font: 18px/25px "Arial"; margin: 0px 5px; color: rgb(238, 95, 0); font-size-adjust: none; font-stretch: normal;
+}
+.mainList .con .list .scoreBox {
+	width: 200px; margin-top: 25px;
+}
+.mainList .con .list .scoreBox .score {
+	color: rgb(165, 165, 165);
+}
+.mainList .con .list .scoreBox .score span {
+	font: 18px/25px "Î¢ÈíÑÅºÚ"; margin: 0px 5px; color: rgb(238, 95, 0); font-size-adjust: none; font-stretch: normal;
+}
+.mainList .con .list .scoreBox .score a {
+	background-position: -1px -303px; width: 38px; height: 21px; text-indent: -999em; display: block;
+}
+.mainList .con .list .scoreBox .score .btn {
+	margin-top: 2px;
+}
+.mainList .con .list .scoreBox .impress {
+	margin-top: 10px;
+}
+.mainList .con .list .scoreBox .impress .tag {
+	width: 177px; margin-top: 5px;
+}
+.mainList .con .list .scoreBox .impress .tag .lt {
+	width: 88px; height: 29px; text-align: center; color: rgb(139, 35, 35); line-height: 29px; font-weight: bold; margin-bottom: 1px; background-color: rgb(242, 242, 242);
+}
+.mainList .con .list .scoreBox .impress .tag .rt {
+	width: 88px; height: 29px; text-align: center; color: rgb(139, 35, 35); line-height: 29px; font-weight: bold; background-color: rgb(234, 234, 234);
+}
+.mainList .con .list .scoreBox .impress .tag .lb {
+	width: 88px; height: 29px; text-align: center; color: rgb(139, 94, 35); line-height: 29px; font-weight: bold; margin-bottom: 1px; background-color: rgb(234, 234, 234);
+}
+.mainList .con .list .scoreBox .impress .tag .rb {
+	width: 88px; height: 29px; text-align: center; color: rgb(139, 94, 35); line-height: 29px; font-weight: bold; background-color: rgb(242, 242, 242);
+}
+.mainList .con .list .scoreBox .comments {
+	margin-top: 10px;
+}
+.mainList .con .list .scoreBox .comments a.good {
+	color: rgb(0, 72, 118);
+}
+.mainList .con .list .scoreBox .comments a.bad {
+	color: rgb(36, 119, 0);
+}
+.mainMap {
+	border-top-color: currentColor; border-top-width: medium; border-top-style: none;
+}
+.mainMap .t2.tit {
+	background: url("images/tuan/t2.jpg") no-repeat 20px 0px rgb(56, 86, 182); width: 100%; height: 36px; line-height: 36px; text-indent: -999px;
+}
+.mainMap .con {
+	height: 498px;
+}
+.mainWb {
+	border-top-color: currentColor; border-top-width: medium; border-top-style: none; position: relative;
+}
+.mainWb .t3.tit {
+	background: url("images/tuan/t3.jpg") no-repeat 20px 0px rgb(56, 86, 182); width: 100%; height: 36px; line-height: 36px; text-indent: -999px;
+}
+.mainWb .ico {
+	background: url("images/tuan/t4.jpg") no-repeat; left: 50px; top: 36px; width: 11px; height: 6px; position: absolute;
+}
+.mainWb .con {
+	height: 960px;
+}
+.mainWb .more {
+	top: 7px; right: 15px; color: rgb(255, 255, 255); position: absolute;
+}
+.side .userBox {
+	border: 1px solid rgb(212, 218, 240);
+}
+.side .userBox .hd {
+	background: rgb(237, 242, 250); padding: 14px 10px 10px; height: 65px; text-align: center; color: rgb(175, 175, 175); border-bottom-color: rgb(190, 202, 238); border-bottom-width: 1px; border-bottom-style: dotted;
+}
+.side .userBox .hd a {
+	color: rgb(80, 80, 80);
+}
+.side .userBox .login {
+	padding: 5px 10px 10px; height: auto; text-align: left; color: rgb(80, 80, 80); line-height: 23px;
+}
+.side .userBox .login sup {
+	color: rgb(238, 95, 0); font-family: Arial; font-weight: bold;
+}
+.side .userBox .login .num {
+	color: rgb(109, 126, 188);
+}
+.side .userBox .login .date {
+	color: rgb(136, 136, 136);
+}
+.side .userBox .tuanList {
+	padding: 5px 0px; margin-top: 5px; border-top-color: rgb(190, 202, 238); border-top-width: 1px; border-top-style: dotted;
+}
+.side .userBox .myList {
+	padding-bottom: 5px;
+}
+.side .userBox .loginOut {
+	cursor: pointer;
+}
+.side .userBox .userLogin {
+	background-position: -180px -70px; margin: 0px auto 5px; width: 153px; height: 37px; text-indent: -9999px; display: block; cursor: pointer;
+}
+.side .userBox .bd {
+	padding: 5px 10px; color: rgb(136, 136, 136);
+}
+.side .userBox .bd h3 {
+	padding-bottom: 5px;
+}
+.side .userBox .bd a {
+	color: rgb(34, 34, 34);
+}
+.side .userBox .bd .num {
+	color: rgb(238, 95, 0); font-family: Arial; font-weight: bold;
+}
+.side .userBox .bd ul {
+	padding: 5px 0px;
+}
+.actinfo .title {
+	font: bold 16px/26px "Î¢ÈíÑÅºÚ"; color: rgb(80, 80, 80); padding-bottom: 5px; border-bottom-color: rgb(188, 195, 210); border-bottom-width: 1px; border-bottom-style: solid; font-size-adjust: none; font-stretch: normal;
+}
+.actinfo .con {
+	color: rgb(80, 80, 80); padding-top: 5px;
+}
+.actinfo .con h3 {
+	font: bold 12px/24px "ËÎÌå"; margin-top: 20px; font-size-adjust: none; font-stretch: normal;
+}
+.state .title {
+	font: bold 16px/26px "Î¢ÈíÑÅºÚ"; color: rgb(80, 80, 80); padding-bottom: 5px; border-bottom-color: rgb(188, 195, 210); border-bottom-width: 1px; border-bottom-style: solid; font-size-adjust: none; font-stretch: normal;
+}
+.state .con {
+	color: rgb(134, 134, 134); padding-top: 5px;
+}
+.state .con p {
+	text-indent: 24px; margin-top: 10px;
+}
+.mapLayer .ft .btn {
+	border: currentColor; width: 53px; height: 20px; text-align: center; color: rgb(255, 255, 255); line-height: 20px; text-decoration: none; display: inline-block; cursor: pointer;
+}
+.mapLayer .ft .scBtn {
+	background-position: -190px 0px;
+}
+.mapLayer .ft .ztBtn {
+	background-position: -130px 0px;
+}
+.mapLayer {
+	padding: 15px; width: 436px; height: 262px;
+}
+.mapLayer .hd {
+	padding-bottom: 14px;
+}
+.mapLayer .hd em {
+	background-position: -600px -70px; margin: 4px 0px 0px 15px; width: 40px; height: 15px; float: left; display: inline-block;
+}
+.mapLayer .hd .shou_ing {
+	background-position: -600px -70px;
+}
+.mapLayer .hd .shou_wait {
+	background-position: -600px -120px;
+}
+.mapLayer .hd .shou_end {
+	background-position: -650px -70px;
+}
+.mapLayer .hd .btnClose {
+	background-position: -620px -50px; width: 16px; height: 17px; display: inline-block; cursor: pointer;
+}
+.mapLayer .bd {
+	padding: 5px; color: rgb(80, 80, 80); line-height: 28px; border-top-color: rgb(230, 232, 237); border-top-width: 1px; border-top-style: solid; position: relative;
+}
+.mapLayer .picBox {
+	top: 13px; width: 126px; height: 120px; right: 0px; color: rgb(178, 190, 229); position: absolute;
+}
+.mapLayer .picBox img {
+	padding: 2px; border: 1px solid rgb(221, 221, 221);
+}
+.mapLayer a {
+	color: rgb(90, 115, 200);
+}
+.mapLayer .ft {
+	padding: 10px 5px 0px; color: rgb(178, 190, 229);
+}
+.bmResMod {
+	background: rgb(255, 255, 255); margin: -237px 0px 0px -370px; padding: 20px; border: 1px solid rgb(196, 196, 196); left: 50%; top: 50%; width: 700px; height: 195px; position: fixed; z-index: 9999; _position: absolute;
+}
+.bmResMod .resList {
+	display: block;
+}
+.bmResMod .hd {
+	height: 220px;
+}
+.bmResMod .hd .btnClose {
+	background-position: -620px -50px; width: 16px; height: 17px; display: inline-block; cursor: pointer;
+}
+.bmResMod .hd h2 {
+	font: 28px/40px "Î¢ÈíÑÅºÚ", "ºÚÌå"; padding: 20px 0px 10px; color: rgb(238, 95, 0); float: none; display: block; font-size-adjust: none; font-stretch: normal;
+}
+.bmResMod .hd h3 {
+	font: 17px/32px "Î¢ÈíÑÅºÚ", "ºÚÌå"; color: rgb(34, 34, 34); float: none; display: block; font-size-adjust: none; font-stretch: normal;
+}
+.bmResMod .hd h3 a:hover {
+	color: rgb(48, 73, 156); text-decoration: none;
+}
+.bmResMod .hd h3 em {
+	color: rgb(48, 73, 156);
+}
+.bmResMod .hd .btnBox {
+	padding: 20px 0px 0px;
+}
+.bmResMod .hd .btn {
+	border: 1px solid rgb(216, 216, 216); width: 96px; height: 29px; text-align: center; color: rgb(34, 34, 34); line-height: 29px; display: inline-block;
+}
+.bmResMod .bd {
+	width: 700px; overflow: hidden;
+}
+.bmResMod .hd .btn:hover {
+	text-decoration: none;
+}
+.bmResMod .bd {
+	padding-top: 10px; border-top-color: rgb(199, 199, 199); border-top-width: 1px; border-top-style: dotted;
+}
+.bmResMod .bd h3 {
+	font: 16px/30px "Î¢ÈíÑÅºÚ", "ºÚÌå"; color: rgb(34, 34, 34); font-size-adjust: none; font-stretch: normal;
+}
+.bmResMod .bd h3 a {
+	color: rgb(110, 132, 208);
+}
+.bmResMod .bd .resList {
+	width: 728px;
+}
+.bmResMod .bd .resList .item {
+	margin: 9px 12px 9px 0px;
+}
+.resgInfo {
+	background: rgb(255, 255, 255); margin: -200px 0px 0px -265px; padding: 20px 25px; border: 1px solid rgb(196, 196, 196); left: 50%; top: 50%; width: 477px; height: 355px; position: fixed; z-index: 9999; _position: absolute;
+}
+.resgInfo .hd h2 {
+	font: 22px/30px "Î¢ÈíÑÅºÚ", "ºÚÌå"; color: rgb(141, 152, 186); font-size-adjust: none; font-stretch: normal;
+}
+.resgInfo .hd h2 span {
+	color: rgb(34, 34, 34); font-size: 12px;
+}
+.resgInfo .hd h2 em {
+	padding: 0px 2px; color: rgb(238, 95, 0);
+}
+.resgInfo .hd .btnClose {
+	background-position: -620px -50px; width: 16px; height: 17px; display: inline-block; cursor: pointer;
+}
+.resgInfo .bd {
+	padding: 18px 0px 0px 80px; line-height: 40px; border-top-color: rgb(240, 240, 240); border-top-width: 1px; border-top-style: solid;
+}
+.resgInfo .bd div {
+	height: 40px; line-height: 40px;
+}
+.resgInfo .bd a {
+	color: rgb(117, 139, 216);
+}
+.resgInfo .bd .name {
+	width: 70px; text-align: right; display: inline-block;
+}
+.resgInfo .bd .name em {
+	color: rgb(238, 95, 0); padding-right: 4px;
+}
+.resgInfo .bd .txt {
+	background-position: 0px -210px; border: 1px solid rgb(173, 184, 192); width: 201px; height: 27px; line-height: 27px;
+}
+.resgInfo .bd .yzmBox {
+	padding-top: 5px;
+}
+.resgInfo .bd .yzmBox .name {
+	line-height: 27px;
+}
+.resgInfo .bd .txtYzm {
+	width: 119px; margin-right: 6px;
+}
+.resgInfo .bd .picYzm {
+	margin-top: 0px;
+}
+.resgInfo .bd .submit {
+	background-position: -210px -205px; border: currentColor; width: 107px; height: 35px; text-indent: -9999px; cursor: pointer;
+}

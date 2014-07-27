@@ -1,0 +1,174 @@
+.top {
+	WIDTH: 960px; FLOAT: left
+}
+.f1 {
+	TEXT-ALIGN: left; FLOAT: left
+}
+.f1 .logininput {
+	BORDER-BOTTOM: #cccccc 1px solid; TEXT-ALIGN: left; BORDER-LEFT: #cccccc 1px solid; LINE-HEIGHT: 18px; WIDTH: 54px; HEIGHT: 18px; VERTICAL-ALIGN: middle; BORDER-TOP: #cccccc 1px solid; BORDER-RIGHT: #cccccc 1px solid
+}
+.f2 {
+	LINE-HEIGHT: 34px; FLOAT: right
+}
+.f2 A {
+	COLOR: #333
+}
+.f2 A:link {
+	COLOR: #333
+}
+.f2 A:visited {
+	COLOR: #333
+}
+.f2 A:hover {
+	COLOR: #ff7700
+}
+.f2 A.desk {
+	PADDING-LEFT: 20px; BACKGROUND: url(../image/sell/desk.gif) no-repeat left center; PADDING-TOP: 2px
+}
+.f2 A.phone {
+	PADDING-LEFT: 20px; BACKGROUND: url(../image/sell/phones.gif) no-repeat left center; MARGIN-LEFT: 15px; PADDING-TOP: 4px
+}
+.f2 .desk:link {
+	COLOR: #06f
+}
+.f2 .desk:visited {
+	COLOR: #06f
+}
+.f2 .phone:link {
+	COLOR: #06f
+}
+.f2 .phone:visited {
+	COLOR: #06f
+}
+.f2 .desk:hover {
+	COLOR: #f60
+}
+.f2 .desk:active {
+	COLOR: #f60
+}
+.f2 .phone:hover {
+	COLOR: #f60
+}
+.f2 .phone:active {
+	COLOR: #f60
+}
+.f1 STRONG {
+	FONT-FAMILY: "Î¢ÈíÑÅºÚ", "ºÚÌå"; COLOR: #f70
+}
+.a_menu {
+	BORDER-BOTTOM: #ef1010 3px solid; MARGIN-TOP: 15px; PADDING-RIGHT: 100px; HEIGHT: 65px
+}
+.a_menu .logo {
+	FLOAT: left
+}
+.a_menu .nav {
+	MARGIN-TOP: 31px; PADDING-LEFT: 32px; WIDTH: auto; DISPLAY: block; BACKGROUND: url(../image/sell/header11.gif) no-repeat 0px 0px; FLOAT: right; HEIGHT: 34px
+}
+.header_line {
+	
+}
+.a_menu .nav .nav_content {
+	PADDING-LEFT: 6px; DISPLAY: block; FLOAT: left
+}
+.a_menu .nav .nav_content .a_sellmap {
+	POSITION: relative
+}
+.a_menu .nav .nav_content .a_sellmapnew {
+	POSITION: absolute; TOP: -3px
+}
+.a_menu .nav .nav_right {
+	WIDTH: 32px; DISPLAY: block; BACKGROUND: url(../image/sell/header11.gif) no-repeat right 0px; FLOAT: left; HEIGHT: 34px
+}
+.a_menu .nav .nav_content A {
+	TEXT-ALIGN: center; LINE-HEIGHT: 31px; WIDTH: 73px; PADDING-RIGHT: 2px; DISPLAY: block; BACKGROUND: url(../image/sell/header4.gif) no-repeat right bottom; FLOAT: left; HEIGHT: 31px; MARGIN-LEFT: -2px; PADDING-TOP: 3px
+}
+.a_menu .nav .nav_content A.nobg {
+	BACKGROUND: none transparent scroll repeat 0% 0%
+}
+.a_menu .nav .nav_content A:link {
+	COLOR: #000
+}
+.a_menu .nav .nav_content A:visited {
+	COLOR: #000
+}
+.a_menu .nav .nav_content A:hover {
+	TEXT-ALIGN: center; LINE-HEIGHT: 31px; WIDTH: 73px; BACKGROUND: url(../image/sell/header2.gif) no-repeat left top; HEIGHT: 31px; TEXT-DECORATION: none; PADDING-TOP: 3px
+}
+.a_menu .nav .nav_content A:active {
+	TEXT-ALIGN: center; LINE-HEIGHT: 31px; WIDTH: 73px; BACKGROUND: url(../image/sell/header2.gif) no-repeat left top; HEIGHT: 31px; TEXT-DECORATION: none; PADDING-TOP: 3px
+}
+.a_menu .nav .nav_content A.current:link {
+	TEXT-ALIGN: center; PADDING-BOTTOM: 0px; LINE-HEIGHT: 34px; MARGIN-TOP: 0px; PADDING-LEFT: 0px; WIDTH: 73px; PADDING-RIGHT: 0px; BACKGROUND: url(../image/sell/headerbg.gif) no-repeat left top; HEIGHT: 34px; COLOR: #fff; FONT-WEIGHT: 600; PADDING-TOP: 0px
+}
+.a_menu .nav .nav_content A.current:visited {
+	TEXT-ALIGN: center; PADDING-BOTTOM: 0px; LINE-HEIGHT: 34px; MARGIN-TOP: 0px; PADDING-LEFT: 0px; WIDTH: 73px; PADDING-RIGHT: 0px; BACKGROUND: url(../image/sell/headerbg.gif) no-repeat left top; HEIGHT: 34px; COLOR: #fff; FONT-WEIGHT: 600; PADDING-TOP: 0px
+}
+.a_menu .nav .nav_content A.current:hover {
+	TEXT-ALIGN: center; PADDING-BOTTOM: 0px; LINE-HEIGHT: 34px; MARGIN-TOP: 0px; PADDING-LEFT: 0px; WIDTH: 73px; PADDING-RIGHT: 0px; BACKGROUND: url(../image/sell/headerbg.gif) no-repeat left top; HEIGHT: 34px; COLOR: #fff; FONT-WEIGHT: 600; PADDING-TOP: 0px
+}
+.a_menu .nav .nav_content A.current:active {
+	TEXT-ALIGN: center; PADDING-BOTTOM: 0px; LINE-HEIGHT: 34px; MARGIN-TOP: 0px; PADDING-LEFT: 0px; WIDTH: 73px; PADDING-RIGHT: 0px; BACKGROUND: url(../image/sell/headerbg.gif) no-repeat left top; HEIGHT: 34px; COLOR: #fff; FONT-WEIGHT: 600; PADDING-TOP: 0px
+}
+.header_search {
+	Z-INDEX: 1; BORDER-BOTTOM: #ebebeb 1px solid; POSITION: relative; BORDER-LEFT: #ebebeb 1px solid; BACKGROUND: url(../image/sell/header5.gif) repeat-x; HEIGHT: 36px; BORDER-TOP: #ebebeb 0px solid; BORDER-RIGHT: #ebebeb 1px solid
+}
+.header_search SPAN {
+	LINE-HEIGHT: 36px; PADDING-LEFT: 50px; PADDING-RIGHT: 10px; DISPLAY: block; BACKGROUND: url(../image/sell/headerbg2.gif) no-repeat right center; FLOAT: left; COLOR: #c00; FONT-SIZE: 14px
+}
+.header_search FORM {
+	PADDING-LEFT: 20px; FLOAT: left
+}
+.header_search FORM .text {
+	BORDER-BOTTOM: #cecece 1px solid; BORDER-LEFT: #cecece 1px solid; PADDING-BOTTOM: 2px; LINE-HEIGHT: 19px; MARGIN-TOP: 5px; PADDING-LEFT: 2px; WIDTH: 300px; PADDING-RIGHT: 2px; HEIGHT: 19px; BORDER-TOP: #cecece 1px solid; BORDER-RIGHT: #cecece 1px solid; PADDING-TOP: 2px
+}
+.header_search FORM .button {
+	BACKGROUND-IMAGE: url(../image/sell/search1.gif); BORDER-BOTTOM-STYLE: none; BORDER-RIGHT-STYLE: none; BACKGROUND-COLOR: transparent; MARGIN: 5px 0px 0px 8px; WIDTH: 61px; BORDER-TOP-STYLE: none; HEIGHT: 26px; BORDER-LEFT-STYLE: none; CURSOR: pointer
+}
+.header_search P {
+	TEXT-ALIGN: right; PADDING-LEFT: 30px; FLOAT: left; COLOR: #777777; PADDING-TOP: 12px
+}
+* HTML .header_search P SPAN.s2 {
+	MARGIN-TOP: 2px; DISPLAY: block
+}
+.header_search P SPAN {
+	LINE-HEIGHT: normal; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FLOAT: left; COLOR: #333; FONT-SIZE: 12px
+}
+.header_search P SPAN.s1 {
+	BACKGROUND: none transparent scroll repeat 0% 0%
+}
+.header_search P SPAN.s2 {
+	TEXT-ALIGN: left; WIDTH: 390px; BACKGROUND: url(../../images/common/loading_p.gif) no-repeat left center; HEIGHT: 14px; FONT-SIZE: 12px; OVERFLOW: hidden
+}
+.header_search P SPAN.s2 A FONT {
+	FONT-SIZE: 12px
+}
+.header_search P A {
+	PADDING-LEFT: 5px; PADDING-RIGHT: 5px
+}
+.header_search P A:link {
+	COLOR: #777
+}
+.header_search P A:visited {
+	COLOR: #777
+}
+.header_search P A:hover {
+	COLOR: #ff7700
+}
+.header_search P A:active {
+	COLOR: #ff7700
+}
+.header_search .down_menu {
+	Z-INDEX: 200; BORDER-BOTTOM: #ccc 1px solid; POSITION: absolute; BORDER-LEFT: #ccc 1px solid; PADDING-BOTTOM: 5px; WIDTH: 80px; DISPLAY: none; BACKGROUND: #fff; BORDER-TOP: #ccc 1px solid; TOP: 30px; BORDER-RIGHT: #ccc 1px solid; PADDING-TOP: 5px; LEFT: 30px
+}
+.header_search .down_menu A {
+	BORDER-BOTTOM: #eee 1px dashed; TEXT-ALIGN: center; LINE-HEIGHT: 28px; WIDTH: 80px; DISPLAY: block
+}
+.down_menu A:hover {
+	BACKGROUND: #eee
+}
+.down_menu A:active {
+	BACKGROUND: #eee
+}
+.loadingbg {
+	BACKGROUND: url(../../images/common/loading_p.gif) no-repeat left center
+}

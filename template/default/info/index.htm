@@ -1,0 +1,149 @@
+{template 'top', 'info'}
+{if $moduleid>4}<link rel="stylesheet" type="text/css" href="{AJ_SKIN}{$module}.css"/>{/if}
+<div class="imain1">
+  <div class="limit_w">
+    <div id="picBox">
+      <ul id="show_pic" style="left: 0px; width: 4800px; ">
+    <li><img height="290px" src="{AJ_SKIN}images/zx/home1.jpg" usemap="#Map0" width="950px">
+          <map id="Map0" name="Map0">
+            <area coords="0,0,950,290" href="{$MODULE[13][linkurl]}list-56.html" shape="rect" target="_blank">
+          </map>
+        </li>
+      </ul>
+      <ul id="icon_num">
+        <li class="on"></li>
+        <li class=""></li>
+        <li class=""></li>
+      </ul>
+    </div>
+    <p class="box_bg"></p>
+    <div class="iapply_box" id="iapply_box1">
+      <div class="apply">
+        <p class="tit"> <b class="a">免费获得3份不同</b><br>
+          <b class="b">户型设计和预算方案</b> </p><br>
+         <p class="tit">
+          <a href="{$MODULE[2][linkurl]}my.php?mid=13&action=add" target="_blank"><img src="{AJ_SKIN}images/zx/fabu1.jpg"></a>
+        </p>
+        <ul>  <!--{php $tags=tag("moduleid=13&condition=status=3&areaid=$cityid&showcat=1&length=22&pagesize=1&order=addtime desc&target=_blank&template=null");}-->
+{loop $tags $i $t}
+           <li><strong>{$t[catname]}</strong><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}" >{$t[title]}</a></li>
+		   {/loop}
+          </ul>
+      </div>
+      <div class="txtBox_six">
+        <ul id="show_txt_six" style="left: -245px; width: 490px; ">
+          <li><span><a class="s1" hidefocus="" href="{$MODULE[13][linkurl]}list-56.html" target="_blank">免费验房</a></span><span><a class="s2" hidefocus="" href="{$MODULE[13][linkurl]}list-56.html" target="_blank">免费量房</a></span><span><a class="s3" hidefocus="" href="{$MODULE[13][linkurl]}list-56.html" target="_blank">免费设计</a></span></li>
+          <li><span><a class="s4" hidefocus="" href="{$MODULE[13][linkurl]}list-56.html" target="_blank">免费报价</a></span><span><a class="s5" hidefocus="" href="{$MODULE[13][linkurl]}list-56.html" target="_blank">3套方案PK</a></span><span><a class="s7" hidefocus="" href="{$MODULE[13][linkurl]}list-56.html" target="_blank">消费者保障</a></span></li>
+        </ul>
+        <ul id="icon_num_s">
+          <li class=""></li>
+          <li class="on"></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="gyxh_" style="height:345px;">
+ <div class="bxh_" style="height:310px; top:20px; left:166px;"></div>
+  <div class="bxh_" style="height:310px; top:20px; left:686px;"></div>
+  <div class="l_lgd">
+    <dl class="zxdx_">
+        <dt> <img src="{AJ_SKIN}images/zx/hot_14.gif"> </dt>
+		{php $maincat = get_maincat(60,8)}
+		{loop $maincat $k $v} <dd> <a href='{$MODULE[8][linkurl]}list.php?catid={$v[catid]} '>{$v[catname]}</a> </dd> {/loop} 
+     
+    </dl>
+</div>
+ <div class="c_cgd" style="left:177px;">
+    <div class="dxat_">
+	 <!--{php $tags=tag("moduleid=8&condition=status=3 and thumb!=''&areaid=$cityid&length=36&order=addtime desc&pagesize=1&target=_blank&template=null");}-->
+		{loop $tags $t}
+        <div class="tup_">
+        <div><a href="{$t[linkurl]}" target="_blank"><img src="{imgurl($t[thumb])}" alt="{$t[title]}" width="95px" height="70px"></a>
+		</div>
+      </div>
+      <div class="wzjs_">
+        <h2><a  href="{$t[linkurl]}" title="{$t[title]}" target="_blank">{$t[title]}</a></h2>
+        <div><a href="{$t[linkurl]}" target="_blank">{dsubstr($t[introduce], 102, $suffix = '..')}</a></div>
+      </div>
+	  {/loop}
+      </div>
+ <div class="wzlb_">
+ {php $maincat = get_maincat(60,8)}
+		{loop $maincat $k $v}
+ <dl>
+     <dt><em><a href='{$MODULE[8][linkurl]}list.php?catid={$v[catid]} '>{$v[catname]}</a> </em></dt>
+          <!--{php $tags=tag("moduleid=8&catid=".$v[catid]."&condition=status=3&areaid=$cityid&length=26&pagesize=2&order=addtime desc&target=_blank&template=null");}-->
+ {loop $tags $i $t}     <dd><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}" >{$t[title]}</a></dd>
+                  {/loop}
+          </dl>
+		  {/loop}
+
+ </div>
+  </div>
+  <div class="r_rgd">
+    <div class="zxpm_p wli_">
+      <div class="title"><img src="{AJ_SKIN}images/zx/hot_12.gif"><a href="{$MODULE[13][linkurl]}list-63.html" target="_blank">更多&gt;&gt;</a></div>
+  <ul>
+                 <!--{php $tags=tag("moduleid=8&condition=status=3&areaid=$cityid&catid=63&length=36&pagesize=11&order=addtime desc&target=_blank&template=null");}-->
+ {loop $tags $i $t} <li><em class="cto">图</em>
+<div><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></div> </li>{/loop}
+                     
+                  </ul>
+    </div>
+  </div>
+</div>
+<div class="abct_">
+<div class="c1_">已有<b>115</b>人申请</div>
+<div class="c2_">已有<b>22</b>人申请</div>
+<div class="c3_">已有<b>65</b>人申请</div>
+<div class="c4_"><a href="{$MODULE[2][linkurl]}my.php?mid=13&action=add" target="_blank">点击免费申请</a>至今已帮<b>500</b>家业主服务</div>
+</div>
+<div class="gyxh_">
+  <div class="l_lgd">
+    <div class="zbl_"> <img src="{AJ_SKIN}images/zx/hot_03.gif"> <b>我们能为你做什么？</b>
+      <p>免费发布装修供应信息，完全免费！</p>
+      <div class="zxpm_p s_span">
+      <div class="title"><img src="{AJ_SKIN}images/zx/hot_jiajuj.gif"><a href="{$MODULE[13][linkurl]}list-59.html">更多&gt;&gt;</a></div>
+      <ul>
+                <!--{php $tags=tag("moduleid=8&condition=status=3&areaid=$cityid&catid=59&length=22&pagesize=10&order=addtime desc&target=_blank&template=null");}-->
+ {loop $tags $i $t} <li>
+<div><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></div></li>
+   {/loop}
+      </ul>
+    </div> 
+   </div>
+  </div>
+  <div class="bxh_" style="height:470px; top:20px; left:166px;"></div>
+  <div class="bxh_" style="height:470px; top:20px; left:686px;"></div>
+  <div class="c_cgd">
+  <div class="zbzjt_">
+  <div class="titl_">
+  <p>免费发布装修服务市场信息</p><a href="{$MODULE[2][linkurl]}my.php?mid=13&action=add" target="_blank">我要发供应信息&gt;&gt;</a></div>
+    <ul class="fw_h" style="padding:17px 0 0">
+  <li><div class="xm">所属区域</div><div class="gs">信息标题</div><div class="sj">发布时间</div></li>
+  </ul>
+  <ul> <!--{php $tags=tag("moduleid=13&condition=status=3&areaid=$cityid&catid=56&length=36&pagesize=12&order=addtime desc&target=_blank&template=null");}-->
+ {loop $tags $i $t}
+       <li><div class="xm">{area_poss($t[areaid], ' ')}</div>
+    <div class="gs"><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></div><div class="sj">{timetodate($t[addtime], 3)}</div></li>
+	 {/loop}
+    
+   </ul>
+  </div>
+  </div>
+  <div class="r_rgd">
+  <div class="zxpm_p s_span">
+      <div class="title"><img src="{AJ_SKIN}images/zx/hot_07.gif"><a href="{$MODULE[13][linkurl]}list-58.html">更多&gt;&gt;</a></div>
+      <ul>
+             <!--{php $tags=tag("moduleid=8&condition=status=3&areaid=$cityid&catid=58&length=32&pagesize=8&order=addtime desc&target=_blank&template=null");}-->
+ {loop $tags $i $t} <li>
+<div>·<a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></div><span>{area_poss($t[areaid], ' ')}</span> </li>
+           {/loop}
+      </ul>
+    </div> 
+  <div class="youzb_"><a href="{$MODULE[2][linkurl]}my.php?mid=13&action=add"><img src="{AJ_SKIN}images/zx/gg_03.jpg"></a></div> 
+  </div>
+</div>
+<div style="height:7px; overflow:hidden;"></div>
+{template 'foot', 'info'}

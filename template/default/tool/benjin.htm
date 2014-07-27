@@ -1,0 +1,190 @@
+{template 'header'}
+<div class="m">	
+   <link href="{AJ_SKIN}xinfang_jisuanqi.css" rel="stylesheet" type="text/css"/>
+ 	<div id="content">
+<!--计算器-->
+			<div class="b_cal mt10 cf">
+				<div class="b_cal_box b_cal_line fl">
+					<div class="b_cal_bg1"></div>
+					<a class="b_cal_box_bg1" href="{$MODULE[1][linkurl]}tool/"></a>
+				</div>
+				<div class="b_cal_box b_cal_line fl ">
+					<div class="b_cal_bg2 "></div>
+					<a class="b_cal_box_bg2" href="{$MODULE[1][linkurl]}tool/benxi.php"></a>
+					<a class="b_cal_box_red3" href="{$MODULE[1][linkurl]}tool/benjin.php"></a>
+					<a class="b_cal_box_bg4" href="{$MODULE[1][linkurl]}tool/gjj.php"></a>
+				</div>
+				<div class="b_cal_box fl">
+					<div class="b_cal_bg3"></div>
+					<a class="b_cal_box_bg5" href="{$MODULE[1][linkurl]}tool/tqhd.php"></a>
+					<a class="b_cal_box_bg6" href="{$MODULE[1][linkurl]}tool/sf.php"></a>
+				</div>
+			</div>
+<!--内容区-->
+			<div class="b_cal mt10">				
+				<script src="{AJ_SKIN}js/jisuanqi2.js" type="text/javascript"></script>
+				<div class="b_cal_bg cf">
+					<form name="calc2" action="calc_win.php" method="post">
+						<div class="b_cal_left fl">
+							<div class="b_cal_left_top">
+								<div class="b_cal_bg6 "></div>
+							</div>
+							<div class="b_cal_left_conn">
+								<ul class="b_cal_l">
+									<li>
+										<span>贷款类别:</span>
+										<select onChange="exc_zuhe(this.form,this.value);" name="type">
+											<option value="1" selected="">商业贷款</option>
+											<option value="2">公积金</option>
+											<option value="3">组合型</option>
+										</select>
+									</li>
+									<li id="calc2_js_div1">
+										<span>计算方式：</span>
+										<input id="calc2_radio1" onClick="exc_js(this.form,1);" class="radio" type="radio" checked="" value="1" name="jisuan_radio">
+										根据面积、单价计算
+										<br>
+										<span></span>
+										单价：
+										<input maxlength="8" size="8" name="price">
+										&nbsp;元
+										<br>
+										<span></span>
+										面积：
+										<input maxlength="7" size="8" name="sqm">
+										&nbsp;平米
+										<br>
+										<span></span>
+										按揭年数：
+										<select size="1" name="anjie">
+											<option value="9">9成</option>
+											<option value="8">8成</option>
+											<option value="7" selected="">7成</option>
+											<option value="6">6成</option>
+											<option value="5">5成</option>
+											<option value="4">4成</option>
+											<option value="3">3成</option>
+											<option value="2">2成</option>
+										</select>
+										<br>
+										<span id="calc2_zuhe" style="DISPLAY: none">
+											组合比例：
+											<br>
+											商业性：
+											<input maxlength="8" size="8" name="total_sy">
+											元
+											<br>
+											公积金：
+											<input maxlength="8" size="8" name="total_gjj">
+											元
+											<br></span>
+										<span></span>
+										<input id="calc2_radio2" class="radio" onClick="exc_js(this.form,2);" type="radio" value="2" name="jisuan_radio" style="border: 0pt none;">
+										根据贷款总额计算
+										<br></li>
+									<li id="calc2_js_div2" style="DISPLAY: none">
+										<span>贷款总额：</span>
+										<input maxlength="8" size="10" name="daikuan_total000">元</li>
+									<li>
+										<span>按揭年数：</span>
+										<select id="years" size="1" name="years">
+											<option value="1">1年（12期）</option>
+											<option value="2">2年（24期）</option>
+											<option value="3">3年（36期）</option>
+											<option value="4">4年（48期）</option>
+											<option value="5">5年（60期）</option>
+											<option value="6">6年（72期）</option>
+											<option value="7">7年（84期）</option>
+											<option value="8">8年（96期）</option>
+											<option value="9">9年（108期）</option>
+											<option value="10">10年（120期）</option>
+											<option value="11">11年（132期）</option>
+											<option value="12">12年（144期）</option>
+											<option value="13">13年（156期）</option>
+											<option value="14">14年（168期）</option>
+											<option value="15">15年（180期）</option>
+											<option value="16">16年（192期）</option>
+											<option value="17">17年（204期）</option>
+											<option value="18">18年（216期）</option>
+											<option value="19">19年（228期）</option>
+											<option value="20" selected="true">20年（240期）</option>
+											<option value="25">25年（300期）</option>
+											<option value="30">30年（360期）</option>
+										</select>
+									</li>
+									<li>
+										<span>利   率：</span>
+										<select id="lilv" name="lilv">
+											<option value="49">10年10月20日利率上限(1.1倍)</option>
+											<option value="48">10年10月20日基准利率</option>
+											<option selected="" value="47">10年10月20日利率下限(85折)</option>
+											<option value="46">10年10月20日利率下限(7折)</option>
+											<option value="45">08年12月23日第二套房(1.1倍)</option>
+											<option value="44">08年12月23日利率基准</option>
+											<option value="43">08年12月23日利率上限(1.1倍)</option>
+											<option value="42">08年12月23日利率下限(85折)</option>
+											<option value="41">08年12月23日利率下限(7折)</option>
+											<option value="40">08年11月27日第二套房</option>
+											<option value="39">08年11月27日利率基准</option>
+											<option value="38">08年11月27日利率上限</option>
+											<option value="37">08年11月27日利率下限</option>
+										</select>
+									</li>
+									<li class="cbt">
+										<input name="" onClick="ext_total(this.form);" type="button" class="sbmt">
+										<input name="" onClick="formReset(this.form);" type="reset" class="tbmt" value=""></li>
+								</ul>
+							</div>
+						</div>
+						<div class="b_cal_right fr">
+							<h2>查看结果</h2>
+							<ul>
+								<li>
+									<span>房款总额：</span>
+									<input class="p9" name="fangkuan_total2" size="8">（元）
+								</li>
+								<li>
+									<span>贷款总额：</span>
+									<input class="p9" name="daikuan_total2" size="8">（元）
+								</li>
+								<li>
+									<span>还款总额：</span>
+									<input class="p9" name="all_total2" size="8">（元）
+								</li>
+								<li>
+									<span>支付利息：</span>
+									<input class="p9" name="accrual2" size="8">（元）
+								</li>
+								<li>
+									<span>首期付款：</span>
+									<input class="p9" name="money_first2" size="8">（元）
+								</li>
+								<li>
+									<span>贷款月数：</span>
+									<input class="p9" name="month2" size="8">（元）
+								</li>
+								<li style="width:476px;height:auto">
+									<span>月均还款：</span>
+									<textarea style="width:360px;height:99px" id="month_money2" name="month_money2"></textarea>
+								</li>
+								<input type="hidden" name="fangkuan_total1">
+								<input type="hidden" name="daikuan_total1">
+								<input type="hidden" name="all_total1">
+								<input type="hidden" name="accrual1">
+								<input type="hidden" name="money_first1">
+								<input type="hidden" name="month1">
+								<input type="hidden" name="month_money1">
+								<div class="clear"></div>
+							</ul>
+							<span class="tip">以上结果仅供参考</span>
+							<h1>等额本息还款方式</h1>
+							<p>
+								是将本金每月等额偿还，然后根据剩余本金计算利息，所以初期由于本金较多，将支付较多的利息，从而使还款额在初期较多，而在随后的时间每月递减，这种方式的好处是，由于在初期偿还较大款项而减少利息的支出，比较适合还款能力较强的家庭
+							</p>
+						</div>
+					</form>
+				</div>			</div>
+		</div>
+		{template 'footer'}</div>
+</body>
+</html>

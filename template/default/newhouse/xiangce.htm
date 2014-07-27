@@ -1,0 +1,79 @@
+{template 'header'}
+<div class="m">	
+
+ <!--q新房广告 新房详情页-导航下通栏1-->
+ <form name="detailForm" id="detailForm" action="{$MODULE[2][linkurl]}favorite.php" method="post">	
+<input type="hidden" name="action" value="add"/>
+<input type="hidden" name="title" value="{$title}"/>
+<input type="hidden" name="url" value="{$linkurl}"/>
+</form>
+    <div class="bread">
+	<div class="fr">
+		访问：<strong>{$hits}</strong>人次 | <a href="javascript:document.getElementById('detailForm').submit();">收藏</a>
+		<span>{$editdate}更新</span>
+	 </div>
+	您当前的位置：<a href="{$MODULE[1][linkurl]}" title="{$AJ[sitename]}">{$AJ[sitename]}</a> &gt; <a href="{$MOD[linkurl]}">{$MOD[name]}    </a> &gt; <a href="{$MOD[linkurl]}list.php?areaid={$areaid}">{area_poss($areaid, ' ')}</a> &gt;  {$title} 
+	</div>
+<div class="name cf">
+	<div class="qr fr">{twoCode($EXT[wap_url],$moduleid,$itemid)}</div>
+	<div class="fl">
+		<div class="name_top">
+		<h2><a href="{$linkurl}" title="{$title}">{$title}</a></h2>
+				<div class="name_icon name_icon1">{$TYPE[$typeid]}</div>		</div>
+		
+	</div>
+</div>
+<div class="navcon">
+<div class="navbox">
+	<ul>
+		{php $menu = array('xinxi'=>'详细', 'jiage'=>'房价', 'xiangce'=>'相册','huxing'=>'户型', 'zixun'=>'导购', 'peitao'=>'地图交通',  'dianping'=>'点评', 'wenfang'=>'问房');}
+<li><a href="{$linkurl}"  >主页</a></li>{loop $menu $k $v} 
+<li><a href="{$MODULE[6][linkurl]}{$k}.php?itemid={$itemid}" {if xiangce==$k}class='on'{else}{/if} >{$v}</a></li>
+{/loop}
+       {if $bbsurl}<li><a href="{$bbsurl}">论坛</a></li>{/if}
+		<li><a href="{$linkurl}#iwantgroupbuy">团购报名</a></li>
+        	    	</ul>
+</div>	
+</div>		<!--主体左右分区-->
+		<div class="mt10 cf">
+			<div class="br_listA">
+				<a class="{if $_GET['c']==''}red{else}{/if}" href="{$MODULE[6][linkurl]}xiangce.php?itemid={$itemid}">全部图片({$zong})</a>|
+ {php $maincat = get_maincat(0,12)}
+			  {loop $maincat $k $v}{if get_categorynum($itemid,$v[catid])}<a class="{if $_GET['catid']==$v[catid]}red{else}{/if}" href="{if $v[catid]==24}{$MODULE[6][linkurl]}huxing.php?itemid={$itemid}{else}{$MODULE[6][linkurl]}xiangce.php?itemid={$itemid}&catid={$v[catid]}{/if}">{$v[catname]}({get_categorynum($itemid,$v[catid])})</a>|{/if}{/loop}                                    			</div>
+			<!--左侧-->
+			<div class="fl w750 border">
+				<!--相册-->
+				<h3 class="br_title">
+					{$title}全部图片					<span>({$items}张)</span>
+				</h3>
+				<ul class="info_imgList cf">
+				<!--{loop $pic_lists $key $value}--> 
+    <li>
+                            <a class="va" title="{$value[title]}" href="{$MODULE[6][linkurl]}tupian.php?houseid={$itemid}&p={$value[itemid]}" target="_blank"><img src="{$value[thumb]}" title="{$value[title]} " alt="{$value[title]} " /></a>
+                            <span><a href="{$MODULE[6][linkurl]}tupian.php?houseid={$itemid}&p={$value[itemid]}" target="_blank">{$value[title]}</a></span>                            {date('Y年m月d日', $value[addtime])}上传
+                        </li>
+						
+						{/loop}
+               </ul>
+			<div class="pagination" >{$pages} </div>
+			</div>
+			<!--右侧-->
+			<div class="fr w200">
+				<!--户型图库-->
+				<div class="modB">
+					<h4>{$title}户型图库</h4>
+                                              <ul class="modimgList">
+											   <!--{php $tags=tag("moduleid=12&&condition=houseid=$itemid&catid=24&pagesize=4&order=itemid desc&template=null");}-->
+{loop $tags $k $t} 
+              <li>  <a href="{$MODULE[6][linkurl]}tupian.php?houseid={$itemid}&p={$t[itemid]}" title="{$t[title]}" target="_blank"> <img src="{if $t[thumb]}{$t[thumb]}{else}{AJ_SKIN}image/nopic60.gif{/if}" width="160" height="120">    </a>
+                            </li>{/loop}
+                               <li>
+    <a class="blue" href="{$MODULE[6][linkurl]}huxing.php?itemid={$itemid}">查看所有楼盘户型图库>></a>
+                            </li>
+                        </ul>
+                    				</div>
+			</div>
+		</div>
+		{template 'footer'}</div>
+</body>
+</html>

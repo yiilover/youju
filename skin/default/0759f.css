@@ -1,0 +1,24 @@
+﻿.hengfu {
+margin-left:auto;
+margin-right:auto;
+width:998px;
+margin-top:10px;
+margin-bottom:10px;
+border:1px solid #CCCCCC;
+height:130px;
+padding-top:10px;
+padding-bottom:10px;
+}
+.h_left{
+margin-left:9px; float:left; width:140px;
+}
+.h_cn{
+margin-left:9px; float:left; width:680px;
+}
+.cnews_up{width:680px; height:25px; line-height:25px;}
+.cnews_up li{width:170px;float:left; text-align:center}
+.cnews_down{width:680px; height:25px; line-height:25px;}
+.cnews_down li{width:170px;float:left; text-align:center}
+.h_right{
+margin-left:9px;float:left; width:140px;
+}

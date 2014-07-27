@@ -1,0 +1,24 @@
+ 	{loop $tags $k $t}
+	<div class="cf hotBox">
+					<h3><a href="{$t[linkurl]}" title="{$t[alt]}" target="_blank">{$t[title]}</a> <em class="salesstatus2"></em>	</h3>
+		<a class="pic_mid" href="{$t[linkurl]}" title="{$t[alt]}" target="_blank">{if $t[level]>0}<sub></sub>{else}{/if}	<img src="{imgurl($t[thumb])}" alt="{$t[alt]}">
+					</a>
+					<ul class="boxText">
+					<li>
+                        <span>状态：</span>  <a class="ts" style="background:#33cbcc;" href="{$MOD[linkurl]}list.php?typeid={$t[typeid]}" target="_blank">{$TYPE[$t[typeid]]}</a>
+                     </li>
+					<li><span>地址：</span>[{area_pos($t[areaid], '')}]&nbsp;&nbsp;{$t[address]}<a href="{$MOD[linkurl]}peitao.php?itemid={$t[itemid]}" class="map" target="_blank">查看地图</a>						</li>
+						<li><span>电话：</span><b>{$t[telephone]} </b>
+						</li>
+												<li><span>特点：</span>{dsubstr($t[tedian], 42, '')}</li>
+												<li><span>类型：</span>{search_cats($t[catid], '6')}<span class="ml">装修：</span>{$t[zhuangxiu]}</li>
+						<li>
+							<a href="{$MOD[linkurl]}jiage.php?itemid={$t[itemid]}" target="_blank">价格</a><a href="{$MOD[linkurl]}zixun.php?itemid={$t[itemid]}" target="_blank">动态</a><a href="{$MOD[linkurl]}xiangce.php?itemid={$t[itemid]}"   target="_blank">相册</a><a href="{$MOD[linkurl]}dianping.php?itemid={$t[itemid]}" target="_blank">评论</a><a class="iconE" href="{$t[linkurl]}#iwantgroupbuy" target="_blank">团购</a><a href="{$MOD[linkurl]}xinxi.php?itemid={$t[itemid]}"  target="_blank">详情</a>
+						</li>
+					</ul>
+					<p class="price">{if $t[price]}<b>{$t[price]}</b>元/平米{else}<b>待定</b>{/if}
+               <a href="javascript:void(0)"  data-val="{$t[itemid]}" data-url="{$t[linkurl]}" data-name="{$t[alt]}" /></a>
+					</p>
+				</div>
+
+{/loop}

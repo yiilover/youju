@@ -1,0 +1,60 @@
+.links {
+	BORDER-BOTTOM: #ddd 1px solid; BORDER-LEFT: #ddd 1px solid; PADDING-BOTTOM: 0px; MARGIN-TOP: 10px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; BACKGROUND: #f7f7f7; BORDER-TOP: #ddd 1px solid; BORDER-RIGHT: #ddd 1px solid; PADDING-TOP: 0px
+}
+.links SPAN {
+	MARGIN: 10px 0px; WIDTH: 65px; FLOAT: left; FONT-WEIGHT: 600
+}
+.links P {
+	MARGIN: 10px 0px; WIDTH: 873px; FLOAT: left; COLOR: #606060
+}
+.links P EM {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 7px; PADDING-RIGHT: 7px; PADDING-TOP: 0px
+}
+.links P A {
+	WHITE-SPACE: nowrap; COLOR: #606060
+}
+.links P A:visited {
+	COLOR: #606060
+}
+#foot .footer {
+	MARGIN-TOP: 10px; BORDER-TOP: #ddd 1px solid; PADDING-TOP: 10px
+}
+#foot .footer IMG {
+	MARGIN: 0px 10px; PADDING-RIGHT: 10px; FLOAT: left; BORDER-RIGHT: #cccccc 1px solid
+}
+#foot .footer P {
+	TEXT-ALIGN: center; LINE-HEIGHT: 26px; FONT-SIZE: 12px
+}
+#foot .footer P A {
+	PADDING-LEFT: 5px; PADDING-RIGHT: 5px; COLOR: #353535
+}
+#foot .footer P A:visited {
+	COLOR: #353535
+}
+#foot .footer P A:hover {
+	COLOR: #f70
+}
+.links P A:hover {
+	COLOR: #f70
+}
+.linkbox {
+	BORDER-BOTTOM: #ddd 1px solid; BORDER-LEFT: #ddd 1px solid; MARGIN: 10px auto; WIDTH: 958px; BORDER-TOP: medium none; BORDER-RIGHT: #ddd 1px solid
+}
+.linktitA {
+	BACKGROUND: url(../image/agent/link_tle_bg.gif) repeat-x; HEIGHT: 29px
+}
+.linktab01ULA {
+	PADDING-LEFT: 41px; BACKGROUND: url(../image/agent/New_icon1.gif) no-repeat left center; HEIGHT: 29px
+}
+.linktab01ULA LI {
+	TEXT-ALIGN: center; LINE-HEIGHT: 29px; WIDTH: 72px; FLOAT: left; HEIGHT: 29px; CURSOR: pointer
+}
+.linktitA LI.tab01activeD {
+	LINE-HEIGHT: 29px; BACKGROUND: url(../image/agent/box_left_tle.gif) no-repeat left bottom; COLOR: #333333; FONT-WEIGHT: bold
+}
+.BoxConten {
+	PADDING-BOTTOM: 10px; PADDING-LEFT: 12px; PADDING-RIGHT: 0px; HEIGHT: 1%; PADDING-TOP: 10px
+}
+.BoxConten A {
+	PADDING-BOTTOM: 0px; LINE-HEIGHT: 21px; MARGIN: 0px 10px 0px 0px; PADDING-LEFT: 0px; WIDTH: 90px; PADDING-RIGHT: 0px; FLOAT: left; HEIGHT: 21px; OVERFLOW: hidden; PADDING-TOP: 0px
+}

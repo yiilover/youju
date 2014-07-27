@@ -1,0 +1,322 @@
+{template 'header'}
+<div class="m">	
+ <!--q新房广告 新房详情页-导航下通栏1-->
+ <form name="detailForm" id="detailForm" action="{$MODULE[2][linkurl]}favorite.php" method="post">	
+<input type="hidden" name="action" value="add"/>
+<input type="hidden" name="title" value="{$title}"/>
+<input type="hidden" name="url" value="{$linkurl}"/>
+</form>
+    <div class="bread">
+	<div class="fr">
+		访问：<strong>{$hits}</strong>人次 | <a href="javascript:document.getElementById('detailForm').submit();">收藏</a>
+		<span>{$editdate}更新</span>
+	 </div>
+	您当前的位置：<a href="{$MODULE[1][linkurl]}" title="{$AJ[sitename]}">{$AJ[sitename]}</a> &gt; <a href="{$MOD[linkurl]}">{$MOD[name]}    </a> &gt; <a href="{$MOD[linkurl]}list.php?areaid={$areaid}">{area_poss($areaid, ' ')}</a> &gt;  {$title} 
+	</div>
+<div class="name cf">
+	<div class="qr fr">{twoCode($EXT[wap_url],$moduleid,$itemid)}</div>
+	<div class="fl">
+		<div class="name_top">
+		<h2><a href="{$linkurl}" title="{$title}">{$title}</a></h2>
+				<div class="name_icon name_icon1">{$TYPE[$typeid]}</div>		</div>
+		
+	</div>
+</div>
+<div class="navcon">
+<div class="navbox">
+	<ul>
+		{php $menu = array('xinxi'=>'详细', 'jiage'=>'房价', 'xiangce'=>'相册','huxing'=>'户型', 'zixun'=>'导购', 'peitao'=>'地图交通',  'dianping'=>'点评', 'wenfang'=>'问房');}
+<li><a href="{$linkurl}" class='on' >主页</a></li>{loop $menu $k $v} 
+<li><a href="{$MODULE[6][linkurl]}{$k}.php?itemid={$itemid}"  >{$v}</a></li>
+{/loop}
+       {if $bbsurl}<li><a href="{$bbsurl}">论坛</a></li>{/if}
+		<li><a href="{$linkurl}#iwantgroupbuy">团购报名</a></li>
+        	    	</ul>
+</div>	
+</div>	
+
+<div class="houseInfo cf border">
+
+			<div class="fl">
+			
+			<div class="xmfouce border" id="xmF">
+					<ul class="xmimgList">
+                        {if $picitems==0}     <li>
+                                   <img  title="{$t[title]} " alt="{$t[alt]} " data-src="{imgurl240($thumb, 1)}" > </li>{else}   <!--{php $tags=tag("moduleid=12&&condition=houseid=$itemid&pagesize=4&order=itemid desc&template=null");}-->
+{loop $tags $k $t}                                                        <li>
+                                    <a target="_blank" href="{$MODULE[6][linkurl]}tupian.php?houseid={$itemid}&p={$t[itemid]}" title="{$t[title]} "><img  title="{$t[title]} " alt="{$t[alt]} " data-src="{$t[thumb]}" ></a>
+                                </li>{/loop}{/if}
+                                                   	</ul>
+					<ul class="xmimgInfoList"> <!--{php $tags=tag("moduleid=12&&condition=houseid=$itemid&showcat=1&pagesize=4&order=itemid desc&template=null");}-->
+{loop $tags $k $t}  <li class="{if $k==0}on{else}{/if}">{$t[catname]}</li>{/loop}
+                                                						</ul>
+				</div>
+				<div class="xmtool cf border">
+					<div id="highcharts" style="WIDTH: 426px; HEIGHT: 142px"></div>
+				</div>
+               
+			</div>
+			<div class="fr">
+				<ul class="houseInfoTxt cf">
+					<li>开盘日期：{$selltime}</li>
+					<li>交房日期：{$completion}</li>
+					<li>销售状态：{$TYPE[$typeid]}</li>
+					
+					<li>项目类别：{search_cats($catid, '6')}</li>
+					<li>装修状况：{$fitment}</li>
+					<li>容&nbsp;&nbsp;积&nbsp;&nbsp;率：{$lp_volume}</li>
+					<li>绿&nbsp;&nbsp;化&nbsp;&nbsp;率：{$lp_green}%</li>
+				</ul>
+				<ul class="houseInfoTxt cf">
+					<li>所在区域：{area_pos($areaid, ' ')}</li>
+					
+					<li class="l">
+						地理位置：{$address}<a href="{$MODULE[1][linkurl]}map/newhouse.php" target="_blank" class="icon2">查看地图</a>					</li>
+					<li class="l">交通状况：{$lp_bus} </li>
+					<li class="l">售楼地址：{$sell_address}</li>
+					<li class="l">
+						开&nbsp;&nbsp;发&nbsp;&nbsp;商：
+						{$kfs}</li>
+				</ul>
+				<ul class="houseInfoTxt cf">
+					<li class="l">
+						项目均价： <b class="red">{if $price}{$price}元/平方米{else}待定{/if}</b>
+						<a href="{$MODULE[6][linkurl]}jiage.php?itemid={$itemid}" class="icon3" target="_blank">价格行情</a>
+						<a href="{$MODULE[1][linkurl]}tool/" class="icon4" target="_blank">贷款计算器</a>
+					</li>
+					
+					<li class="l" style="height:auto">
+						<ul class="photoCon">
+							<li>售楼处咨询电话&nbsp;<sm class="gray9">（联系时请告知是从{if $city_sitename}{$city_sitename}{else}{$AJ[sitename]}{/if}看到的,谢谢。）</sm>
+							</li>
+							<li>
+								<b class="red">{$telephone}</b>
+							</li>
+						</ul>
+					</li>
+					<li class="l" style="padding:0 0 0 48px;width:240px">
+						想要获得更多优惠？立即点击
+						<a class="blue nobgimg red" id="tgggg" href="{$linkurl}#iwantgroupbuy">团购报名</a>
+					</li>
+				</ul>
+				<h4 class="houseInfoNews">
+					<a href="{$MODULE[6][linkurl]}zixun.php?itemid={$itemid}" target="_blank">{$title}最新动态</a>
+					<a class="more" href="{$MODULE[6][linkurl]}zixun.php?itemid={$itemid}" target="_blank">更多&gt;&gt;</a>
+				</h4>
+				<div id="other_news">	<ul>
+ <!--{php $tags=tag("moduleid=8&condition=houseid=$itemid&length=42&pagesize=2&order=itemid desc&template=null");}-->
+ {loop $tags $i $t}     				<li><span>{date('Y-m-d', $t[addtime])}</span><a href="{$t[linkurl]}" target="_blank" title="{$t[title]}">&bull;&nbsp;{$t[title]}</a></li>{/loop}
+</ul>
+
+                    				</div>
+			</div>
+		</div>
+		<div class="cf">
+			<div class="w670 fl mt10">
+				<div class="modA" id="tab3">
+					<h4 class="modBT">
+						<a href="{$linkurl}" target="_blank">{$title}详细信息</a>
+						<ul class="modTab">
+							<li class="on">项目介绍</li>
+							<li>项目配套</li>
+							<li>建材装修</li>
+							<li>车位信息</li>
+							<li>相关信息</li>
+						</ul>
+					</h4>
+					<div class="modBC hinfoCon">
+						<div class="hinfoDiv"><p>{$content}</p>
+<p>开发商：{$kfs}</p></div>
+						<div class="hinfoDiv" style="display:none;">周边配套：【教育】{$lp_edu}<br/><br/>【医疗】{$lp_hospital}<br/><br/>【银行】{$lp_bank}</div>
+						<div class="hinfoDiv" style="display:none;">{$fitment}</div>
+						<div class="hinfoDiv" style="display:none;">{$lp_car}</div>
+						<div class="hinfoDiv" style="display:none;">占地面积:{$lp_totalarea}平方米<br/><br/>　　建筑面积:{$lp_area}平方米<br/><br/>　　开盘时间:{$selltime}<br/><br/>　　交房时间:{$completion}<br/><br/>　　开发商:{$kfs}<br/><br/>　　物业管理公司:{$lp_company}<br/><br/>　　物业费:{$lp_costs}<br/><br/>　　产权年限:{$lp_year}<br/><br/>　　户&nbsp;数:总户数{$lp_number}户</div>
+					</div>
+				</div>
+				
+				<div class="modA">
+					<h4 class="modBT">
+						<a href="{$MODULE[6][linkurl]}huxing.php?itemid={$itemid}" target="_blank">{$title}户型图</a>
+						<ul class="modBLA">
+                            						</ul>
+					</h4>
+					<div class="modBC">
+						<ul class="imgList"> 
+						   <!--{php $tags=tag("moduleid=12&&condition=houseid=$itemid and catid=24&pagesize=4&order=itemid desc&template=null");}-->
+ {loop $tags $i $t}         <li>  <a href="{$MODULE[6][linkurl]}tupian.php?houseid={$itemid}&p={$t[itemid]}" title="{$t[alt]} " target="_blank">
+                                        <img data-src="{$t[thumb]}" alt="{$t[alt]} " width="136" height="102" /></a> </li>{/loop}</ul>
+					</div>
+				</div>
+                				<div class="modA">
+					<h4 class="modBT">
+						<a href="{$MODULE[6][linkurl]}xiangce.php?itemid={$itemid}" target="_blank">{$title}楼盘相册</a></h4>
+					<div class="modBC">
+						<ul class="imgList"> 
+						    <!--{php $tags=tag("moduleid=12&&condition=houseid=$itemid and catid!=24&pagesize=4&order=itemid desc&template=null");}-->
+ {loop $tags $i $t}         <li>  <a href="{$MODULE[6][linkurl]}tupian.php?houseid={$itemid}&p={$t[itemid]}" title="{$t[alt]} " target="_blank">
+                                        <img data-src="{$t[thumb]}" alt="{$t[alt]} " width="136" height="102" /></a> </li>{/loop}</ul>
+					</div>
+				</div>
+                				<div class="modA">
+					<h4 class="modBT"><a href="{$MODULE[6][linkurl]}peitao.php?itemid={$itemid}" target="_blank">{$title}配套交通</a></h4>
+					<div class="modBC">
+						<div class="mapicon cf" id="mapicon">
+							<p class="gj" name="">公交</p>
+							<p class="cy" name="">餐饮</p>
+							<p class="yh" name="">银行</p>
+							<p class="xx" name="">学校</p>
+							<p class="yy" name="">医院</p>
+							<p class="jyz" name="">加油站</p>
+							<a href="{$MODULE[1][linkurl]}map/newhouse.php#l1=38.060658&l2=114.553866&l3=16&keyword={$title}" class="seeB" target="_blank">在大地图上查看</a>
+						</div>
+						<div class="border mapindex" id="map" style="width:646px;height:252px">
+						</div>
+					</div>
+				</div>
+				<div class="modA">
+					<h4 class="modBT"><a name="iwantgroupbuy" ></a><a href="#iwantgroupbuy">{$title}团购报名</a></h4>
+					<div class="modBC">
+					
+					<form method="post" action="{$MOD[linkurl]}inquiry.php?itemid={$itemid}" id="dform" onsubmit="return groupbuy();" >
+				<input type="hidden" name="forward" value="{$forward}"/>
+				<input type="hidden" name="itemids" value="{$itemid}"/>
+				<input type="hidden" name="title" value="{$title}" size="60" id="title" class="pd3"/> 
+						<table class="tuangou" >
+							<tr>
+								<td colspan="2">带<span class="red">*</span>号为必填项，请详细填写以下信息：</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="red">*</span>
+									姓名：<input type="text" class="txt" id="usernameGB" name="truename" value="{$_truename}"></td>
+								<td>性别：<label><input type="radio" value="先生" name="sex" checked="checked">先生</label>
+									<label><input type="radio" value="女士" name="sex">女士（我们会为您保密）</label></td>
+							</tr>
+							<tr>
+								<td>
+									<span class="red">*</span>手机：<input type="text" class="txt" id="mobile" name="telephone" value="{$telephones}"></td>
+								<td>邮箱：<input type="text" class="txt" name="email" value="{$_email}"></td></tr>
+							<tr>
+								<td colspan="2" style="text-align:center">
+								<input type="submit" name="submit" value="" style="background:url({AJ_SKIN}images/xinfang/tuanbutton.gif) no-repeat; width:138px; height:30px;cursor: pointer; border:0; margin-top:5px"  />
+									已有
+									<b class="red">{$buynum}</b>
+									人参加团购
+								</td>
+							</tr>
+							</form>
+						</table>
+					</div>
+				</div>
+				<script type="text/javascript">
+				function groupbuy() {
+				if(document.getElementById('usernameGB').value == ''){
+		alert('请填写你的用户名！');
+		return false;}  
+		if(document.getElementById('mobile').value == ''){
+		alert('请填写你的手机号码！');
+		return false;}    
+		   
+				
+				
+				}
+				</script>
+				{template 'wenfang', 'chip'}
+			</div>
+			<div class="w280 fr">
+				<div class="calculator">
+					<p>
+						<a href="{$MODULE[1][linkurl]}tool" class="cal_1" target="_blank"></a>
+					</p>
+					<p>
+						<a href="{$MODULE[1][linkurl]}tool" class="cal_2" target="_blank"></a>
+				<a href="{$MODULE[1][linkurl]}tool/tqhd.php" class="cal_3" target="_blank"></a>
+					</p>
+					<p>
+						<a href="{$MODULE[1][linkurl]}tool/sf.php" class="cal_4" target="_blank"></a>
+						<a href="{$MODULE[1][linkurl]}tool/gjj.php" class="cal_5" target="_blank"></a>
+					</p>
+				</div>
+				<div class="modB" id="tab1">
+					<ul class="modTab">
+						<li class="on">同价位楼盘</li>
+						<li>同区域楼盘</li>
+					</ul>
+					<ul class="t3List">
+                             <!--{tag("moduleid=6&condition=status=3 and itemid!=$itemid and price between $pricea and $priceb  and isnew=1&areaid=$cityid&pagesize=8&order=addtime desc&template=lp-right")}-->	</ul>
+					<ul class="t3List" style="display: none;">
+                             <!--{tag("moduleid=6&condition=status=3 and itemid!=$itemid and isnew=1&areaid=$areaid&pagesize=8&order=hits desc&template=lp-right")}-->
+                                                    					</ul>
+				</div>
+				
+				<div class="modB" id="tab2">
+					<ul class="modTab">
+						<li class="on">{$city_name}最新楼盘</li>
+						<li>{$city_name}热点楼盘</li>
+					</ul>
+					<ul class="t3List">
+						       <!--{tag("moduleid=6&condition=status=3 and isnew=1&areaid=$cityid&pagesize=8&order=addtime desc&template=lp-right")}-->
+                                                    					</ul>
+					<ul class="t3List" style="display: none;">
+						             <!--{tag("moduleid=6&condition=status=3 and isnew=1&areaid=$cityid&pagesize=8&order=hits desc&template=lp-right")}-->			</ul>
+				</div>
+                <!--新房二手房广告 新房详情页-画中画1-->
+				<div class="modB">
+					<h4 class="modBT">
+						{$city_name}近期开盘
+						<a href="{$MODULE[6][linkurl]}list.php" class="more" target="_blank">更多&gt;&gt;</a>
+					</h4>
+					<ul class="t3List">
+                            <!--{tag("moduleid=6&condition=status=3 and isnew=1&areaid=$cityid&pagesize=8&order=hits desc&template=lp-right")}-->				</ul>
+				</div>
+                				<div class="modB">
+					<h4 class="modBT">
+						团购排行
+						<a href="{$MODULE[6][linkurl]}list.php" class="more" target="_blank">更多&gt;&gt;</a>
+					</h4>
+					<ul class="top10">
+                               <!--{tag("moduleid=6&condition=status=3 and isnew=1&areaid=$cityid&pagesize=8&order=hits desc&template=lp-right")}-->
+                       					</ul>
+				</div>
+                			</div>
+		</div>
+	
+		<div class="mzsm">免责声明：本网站所刊载的"新房"所有资料及图表仅供参考使用，不声明或保证其内容之正确性或可靠性。刊载这些文档不视为{$title}已取得商品房预售许可证或达到可以销售的标准，且不构成对任何楼盘的购买的邀约或意图。参阅本网站上所刊的文档的人士，应被视为已确认得悉上述立场。购房者依据本网站提供的信息、资料及图表进行房屋交易做造成的任何后果与本网站无关。本网站有权但无此义务，改善或更正资料及图表任何部分之错误或疏忽。以上信息仅供参考，所有信息以开发商提供为准！</div>
+ {template 'footer'}     
+	</div>
+<!--新房二手房广告 新房详情页-对联-->
+<!--q新房广告 新房详情页-右下-浮窗-->
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=1.2"></script>
+<script type="text/javascript">
+seajs.use(["jquery","alert","highcharts","snail-baiduaround","autab"],function($,alertM,highcharts,snail){
+	$("#tab1,#tab2").autab("ul.modTab li","ul.t3List");
+	$("#tab3").autab("ul.modTab li","div.hinfoDiv");
+	$("#xmF").autab("ul.xmimgInfoList li","ul.xmimgList li",4);
+	
+	
+	snail.setURL('');
+	snail.drawMap(parseFloat("{$x}"),parseFloat("{$y}"),"{$title}","map");
+	snail.getMaps();
+	$('#mapicon p').click(function(){
+		snail.setKEY($(this).text());
+		if($(this).attr('name') == 'house'){
+			snail.setH(true);
+		}else{
+			snail.setH(false);
+		}
+		snail.getMaps();
+	})
+	
+	$("#mpal").on("click",function(){
+		mobile("{$title}","","")
+	})
+	
+	$("#tgggg").click(function(){
+		$('html,body').animate({scrollTop: $("#groupbuy").offset().top-99})
+	})
+	
+	  {if $lineprice}	highcharts('highcharts',"{$title}",[{$linedate}],[{$lineprice}],'元/平米');
+	{else} 	$("#highcharts").append("<img src='{AJ_SKIN}image/nodata_sell_big.gif' width='426' height='140' />");{/if}})
+</script>
+</body>
+</html>

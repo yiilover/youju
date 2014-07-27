@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="X-UA-Compatible" content="IE=7"><link rel="shortcut icon" type="image/x-icon" href="{AJ_PATH}favicon.ico"/>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>用户登录</title>
+<link href="{AJ_SKIN}member/need_login.css" rel="stylesheet" type="text/css" />
+<link href="{AJ_SKIN}member/public.css" type="text/css" rel="stylesheet" />
+</head>
+{if !AJ_DEBUG}<script type="text/javascript">window.onerror=function(){return true;}</script>{/if}
+<script type="text/javascript" src="{AJ_STATIC}lang/{AJ_LANG}/lang.js"></script>
+<script type="text/javascript" src="{AJ_STATIC}file/script/config.js"></script>
+<script type="text/javascript" src="{AJ_STATIC}file/script/jquery.js"></script>
+<script type="text/javascript" src="{AJ_STATIC}file/script/common.js"></script>
+<script type="text/javascript" src="{AJ_STATIC}file/script/page.js"></script>
+<script src="{AJ_SKIN}js/sea.js" type="text/javascript"></script>
+{if $lazy}<script type="text/javascript" src="{AJ_STATIC}file/script/jquery.lazyload.js"></script>{/if}
+{if $JS}
+{loop $JS $js}
+<script type="text/javascript" src="{AJ_STATIC}file/script/{$js}.js"></script>
+{/loop}
+{/if}
+{php $searchid = ($moduleid > 3 && $MODULE[$moduleid]['ismenu'] && !$MODULE[$moduleid]['islink']) ? $moduleid : 5;}
+{php $searchids = array(5,16,6,4,21,22);}
+{if !in_array($searchid, $searchids)}
+	{php $searchids[] = $searchid;}
+{/if}
+<script type="text/javascript">
+{if $moduleid==1 && $EXT[wap_enable] && $EXT[wap_goto]}
+GoMobile('{$EXT[wap_url]}');
+{/if}
+var searchid = {$searchid};
+{if $itemid && $AJ[anticopy]}
+document.oncontextmenu=function(e){return false;};
+document.onselectstart=function(e){return false;};
+{/if}
+</script>
+
+<body onload="focus()">
+
+<div id="top" class="topbg">
+ <div class="top">
+  <div class="topleft">
+	<span><a href="{$MODULE[1][linkurl]}">{$AJ[sitename]}</a></span>
+	<span><a href="{$MODULE[8][linkurl]}" title="房产新闻" target="_blank">新闻资讯</a></span>
+	<span><a href="{$MODULE[6][linkurl]}" title="新房" target="_blank">新房</a></span>
+		
+	<span class="gray5"><a href="{$MODULE[2][linkurl]}{$AJ[file_register]}" target="_blank" ref="nofollow" title="发布房屋信息">登录</a></span> 
+	<span class="gray5"><a href="{$AJ[file_register]}?forward={urlencode($forward)}" target="_blank" ref="nofollow" title="免费注册">注册</a></span>
+  </div>
+  <div class="topright">
+   <ul class="gray5">
+	
+	<li class="fabu">
+	 <div class="fabu-a" onmouseover="this.className='fabu-b'" onmouseout="this.className='fabu-a'">
+		<span><em class="release"><i>我要发布</i><b></b></em></span>
+		<p><a href="{$MODULE[2][linkurl]}my.php?mid=7&action=add" ref="nofollow">发布出租</a></p>
+		<p><a href="{$MODULE[2][linkurl]}my.php?mid=5&action=add" ref="nofollow">发布出售</a></p>
+		<p><a href="{$MODULE[2][linkurl]}my.php?mid=16&action=add" ref="nofollow">发布求租</a></p>
+		<p><a href="{$MODULE[2][linkurl]}my.php?mid=16&action=add" ref="nofollow">发布求购</a></p>
+		<div class="clr"></div>
+	 </div>
+	</li>
+	<li><a href="{$MODULE[5][linkurl]}" target="_blank" ref="nofollow">二手房</a></li>
+	<li><a href="{$MODULE[7][linkurl]}" ref="nofollow">出租房</a></li>
+	<li>{if $EXT[wap_enable]} <a   class=nofollow  href="{$EXT[wap_url]}">手机爱家</a>{/if}</li>
+   </ul>
+  </div>
+ </div>
+</div>
+<div id="container2">
+<!--login头部-->
+  <div id="topnav">
+<!--logo&city-->  	
+    <div class="logo"><a href="{$MODULE[1][linkurl]}" target="_blank"><img src="{if $MODULE[$moduleid][logo]}{AJ_SKIN}image/logo_{$moduleid}.gif{elseif $AJ[logo]}{$AJ[logo]}{else}{AJ_SKIN}image/logo.gif{/if}" width="260px" height="60px"></a></div>   
+<!--login菜单-->    
+    <div class="login-menu fonts14">
+    	<h1 class="gray6">您好，欢迎来到{$AJ[sitename]}！&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h1>
+    </div>
+       
+  </div>
+  <div class="clr"></div> 
+<!--need-login-->    
+  <div class="need-login">
+  	<div class="login-box boxGrays">
+  <form method="post" action="{$AJ[file_login]}"  onsubmit="return Dcheck();">
+		<input name="forward" type="hidden" id="forward" value="{$forward}">
+  		<div class="login-inner">
+  			<h1 class="bold-s">会员登录</h1>
+  			<p class="login-cue" style="display:none"><b class="cue-icon"></b><span></span></p>
+  			<p class="login-input"><span>帐&nbsp;&nbsp;号</span><input name="username" id="username" value="{$username}" class="login17426 bold" type="text"></p>
+  			<p class="login-input"><span>密&nbsp;&nbsp;码</span><input name="password" id="password"  value="{$password}" class="login17426" type="password"></p>
+			{if $MOD[captcha_login]}
+			<p class="login-input"><span>验证码</span>{template 'captchal', 'chip'}</p>
+			{/if}
+  			<p class="login-auto gray"><label for="bind1" class="cur" hidefocus="true">
+  			<input name="cookietime" class="login-checkbox cur" value="2592000" id="cookietime"{if $MOD[login_remember]} checked{/if} type="checkbox"><em>一个月内自动登录</em></label>
+			<input type="checkbox" name="goto" value="1" id="goto"{if $MOD[login_goto]} checked{/if}/><label for="goto">进入会员中心</label></p>
+  			<p class="login-btn"><input type="submit" name="submit" value="登录" class="login-submit white bold-s"/><span><a href="send.php" class="gray9">忘记密码？</a></span><span><a href="{$AJ[file_register]}?forward={urlencode($forward)}" class="blue">立即注册</a></span></p>
+  			<p class="login-line-gray"></p>
+  			<p class="login-line-white"></p>{if $oa}
+  			<p class="company-telephone gray5">其他登录：{loop $OAUTH $k $v}
+		{if $v[enable]}<a href="{AJ_PATH}api/oauth/{$k}/connect.php" title="{$v[name]}"><img src="{AJ_PATH}api/oauth/{$k}/ico.png" alt="{$v[name]}"/></a> &nbsp;{/if}
+		{/loop}</p> {/if}
+  		</div>
+  		</form>
+  	</div>
+  </div>
+  <div class="clr"></div>
+  <div class="gray-line"></div>
+<!--login底部-->  
+<script type="text/javascript">
+if(Dd('username').value == '') {
+	Dd('username').focus();
+} else {
+	Dd('password').focus();
+}
+function Dcheck() {
+	if(Dd('username').value == '') {
+		confirm('请输入登录名称');
+		Dd('username').focus();
+		return false;
+	}
+	if(Dd('password').value == '') {
+		confirm('请输入密码');
+		Dd('password').focus();
+		return false;
+	}
+{if $MOD[captcha_login]}
+	if(!is_captcha(Dd('captcha').value)) {
+		confirm('请填写验证码');
+		Dd('captcha').focus();
+		return false;
+	}
+{/if}
+}
+</script>
+  <div class="clr"></div>
+  <div class="footer">
+	<p class="gray5"><span><a rel="nofllow" target="_blank" href="{$MODULE[1][linkurl]}">首页</a><font>┊</font></span>
+		<span><a target="_blank" href="{$MODULE[1][linkurl]}about/index.html">关于我们</a><font>┊</font></span>
+		<span><a target="_blank" href="{$MODULE[1][linkurl]}about/contact.html">联系方式</a><font>┊</font></span>
+		<span><a target="_blank" href="{$MODULE[1][linkurl]}about/agreement.html">使用协议</a><font>┊</font></span>
+		{if $EXT[ad_enable]}<span><a target="_blank" href="{$EXT[ad_url]}">广告服务</a><font>┊</font></span>{/if}
+		{if $EXT[guestbook_enable]}<span><a target="_blank" href="{$EXT[guestbook_url]}">网站留言</a><font>┊</font></span>{/if}
+		<span><a target="_blank" href="{$MODULE[1][linkurl]}sitemap/">网站地图</a><font>┊</font></span>
+		{if $EXT[feed_enable]}<span><a target="_blank" href="{$EXT[feed_url]}">RSS订阅</a></span></p>{/if}
+	<p class="gray5">服务时间：8:30AM - 17:00PM {$city_name}运营中心电话：{$AJ[telephone]}</p>
+	<p class="gray5 tongji">{if $AJ[icpno]} <a href="http://www.miibeian.gov.cn" target="_blank">{$AJ[icpno]}</a>{/if}&nbsp;&nbsp;{$AJ[copyright]}
+		
+	</p>
+  </div>
+</div>
+
+</body></html>

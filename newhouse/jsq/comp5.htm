@@ -1,0 +1,247 @@
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>税费计算器</title>
+</head>
+
+<style TYPE="text/css">
+<!--
+a:link { font-family: 宋体;text-decoration: none }
+a:visited{ font-family: 宋体;text-decoration: none }
+a:hover{color: #FF0000;text-decoration: underline }
+.k1{font-size:12px;color:#0000f2;line-height:20px}
+.k2{font-size:12.8px;line-height:20px}
+.k3{font-size:12px;line-height:18px}
+.k4{font-size:12px;color:#ffffff;line-height:18px}
+.k5{font-size:12px;line-height:18px;text-decoration: underline}
+
+a:link.js { font-size:12px;font-family: 宋体;color: #000080;}
+a:visited.js{ font-size:12px;font-family: 宋体;color: #000080;}
+a:hover.js{ font-size:12px;color: #FF0000;}
+
+-->
+</style>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+
+
+<table width="760" border="0" align="center"  height=400 cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr> 
+    <td><SCRIPT language=javascript>
+function isEmpty(str)
+{
+ if(str==null) 
+ return true;
+ else
+ if(str.length ==0)
+ return true;
+ else
+ return false;
+}
+
+function Calculate_Fee()
+{
+ var fee_form = document.fee_form;
+ 
+ var house_price = fee_form.house_price.value;
+
+ if(isEmpty(house_price))
+ {
+ alert("请输入总房价");
+ return;
+ }
+ if(isNaN(house_price))
+ {
+ alert("总房价必须为数字");
+ return;
+ }
+
+ if(house_price <= 0)
+ {
+ alert("总房价必须大于0");
+ return;
+ }
+
+ var govenment_fee_rate,hand_fee_rate,bond_fee_rate,favourable_govenment_fee_rate;
+ var govenment_fee,hand_fee,bond_fee,favourable_govenment_fee;
+ govenment_fee_rate = 0.015;
+ hand_fee_rate = 0.0004;
+ bond_fee_rate = 0.0003;
+ favourable_govenment_fee_rate=0.0075;
+// house_price = fee_form.house_price.value;
+ 
+ govenment_fee = parseInt(house_price * govenment_fee_rate * 100)/100;
+ hand_fee = parseInt(house_price * hand_fee_rate * 100)/100;
+ bond_fee = parseInt(house_price * bond_fee_rate * 100)/100;
+ favourable_govenment_fee=parseInt(house_price * favourable_govenment_fee_rate * 100)/100;
+ 
+ fee_form.govenment_fee.value = govenment_fee;
+ fee_form.hand_fee.value = hand_fee;
+ fee_form.bond_fee.value = bond_fee;
+ fee_form.sum_fee.value = govenment_fee + hand_fee + bond_fee + 100 + 5;
+ 
+ fee_form.favourable_govenment_fee.value = favourable_govenment_fee;
+ fee_form.favourable_sum_fee.value = favourable_govenment_fee + hand_fee + bond_fee + 100 + 5;
+
+ fee_form.favourable_sum_fee2.value = hand_fee + bond_fee + 100 + 5;
+
+}
+
+function Reset_Fee_Form()
+{
+ document.fee_form.house_price.value = "";
+ document.fee_form.govenment_fee.value = "";
+ document.fee_form.hand_fee.value = "";
+ document.fee_form.bond_fee.value = "";
+ document.fee_form.sum_fee.value = "";
+ document.fee_form.favourable_govenment_fee.value = "";
+ document.fee_form.favourable_sum_fee.value = "";
+
+ document.fee_form.favourable_sum_fee2.value = ""; 
+}
+    </SCRIPT>
+<form name=fee_form>
+  <p>　</p>
+  <table cellspacing=1 cellpadding=2 width=450 align=center   bgcolor=#000000 border=0 class=k3>
+    <tbody> 
+    <tr bgcolor=#f1e1d5> 
+      <td colspan=2 height=24> 
+        <div align=center>税费计算器</div>
+      </td>
+    </tr>
+    <tr bgcolor=#ffffff> 
+      <td colspan=2 height=24><br>
+        <table width="95%" align=center border=0 class=k3>
+          <tbody> 
+          <tr> 
+            <td width="17%">房屋总价：</td>
+            <td width="83%">
+              <input class=line1 size=12 
+                        name=house_price>
+              元 </td>
+          </tr>
+          </tbody>
+        </table>
+        <br>
+      </td>
+    </tr>
+    <tr bgcolor=#ffffff> 
+      <td bgcolor=#FFFFFF colspan=2 height=24> 
+        <div align=center><br>
+          <input class=unnamed1 id=button1 onClick=Calculate_Fee() type=button value=计算开始 name=button1>
+          <input class=unnamed1 id=button1 onClick=Reset_Fee_Form() type=button value=重新计算 name=button12>
+          <br>
+          <br>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <table cellspacing=1 cellpadding=2 width=450 align=center 
+            bgcolor=#000000 border=0>
+    <tbody> 
+    <tr bgcolor=#f1e1d5> 
+      <td bgcolor=#FFFFFF height=24> 
+        <table width="95%" align=center border=0 class=k3>
+          <tbody> 
+          <tr bgcolor="#FFFFFF"> 
+            <td width="18%"> 
+              <div align=center>税费名称</div>
+            </td>
+            <td>　　　　　　税费　　　　　　　　　　　　　收费单位</td>
+          </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+    <tr bgcolor=#ffffff> 
+      <td height=24><br>
+        <table width="95%" align=center border=0 class=k3>
+          <tbody> 
+          <tr> 
+            <td width="18%">契税：</td>
+            <td>
+              <input class=line1 readOnly name=govenment_fee size="20">
+              元 (房价1.5%) 财政部门</td>
+          </tr>
+          <tr> 
+            <td width="18%">交易手续费：</td>
+            <td>
+              <input class=line1 readOnly name=hand_fee size="20">
+              元　　　　　　房屋交易管理机构</td>
+          </tr>
+          <tr> 
+            <td width="18%">合同印花税：</td>
+            <td>
+              <input class=line1 readOnly name=bond_fee size="20">
+              元　　　　　　税务局</td>
+          </tr>
+          <tr> 
+            <td width="18%">登记费：</td>
+            <td>
+              <input class=line1 readOnly value=100 name=100 size="20">
+              元/件　　　　 房屋交易管理机构</td>
+          </tr>
+          <tr> 
+            <td width="18%">权证印花税：</td>
+            <td>
+              <input class=line1 readOnly value=5 name=5 size="20">
+              元/件 　　　　房屋交易管理机构</td>
+          </tr>
+          <tr> 
+            <td width="18%">总共费用：</td>
+            <td>
+              <input class=line1 readOnly name=sum_fee size="20">
+              元</td>
+          </tr>
+          </tbody>
+        </table>
+        <br>
+      </td>
+    </tr>
+    <tr bgcolor=#ffffff> 
+      <td bgcolor=#F1E1D5 height=24 class=k3>　优惠契税 </td>
+    </tr>
+    <tr bgcolor=#ffffff> 
+      <td bgcolor=#ffffff height=24><br>
+        <table width="95%" align=center border=0 class=k3>
+          <tbody> 
+          <tr> 
+            <td width="24%">1.优惠后契税：</td>
+            <td width="76%">
+              <input class=line1 readOnly 
+                        name=favourable_govenment_fee size="20">
+              元　1999.8.1以后购买商品房</td>
+          </tr>
+          <tr> 
+            <td width="24%">优惠后总共费用：</td>
+            <td width="76%">
+              <input class=line1 readOnly 
+                        name=favourable_sum_fee size="20">
+              元</td>
+          </tr>
+          <tr> 
+            <td width="24%" height=24>2.免征契税：</td>
+            <td width="76%">　　　　　　　　　　　　1999.8.1以前建成的空置商品房</td>
+          </tr>
+          <tr> 
+            <td width="24%">优惠后总共费用：</td>
+            <td width="76%">
+              <input class=line1 readOnly 
+                        name=favourable_sum_fee2 size="20">
+              元</td>
+          </tr>
+          </tbody>
+        </table>
+        <br>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</form>　</td>
+</table> 
+
+
+</body>
+</html>

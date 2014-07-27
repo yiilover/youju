@@ -1,0 +1,338 @@
+{template 'header'}
+<div class="m">	
+<div class="xfindex">
+    <!--新房二手房广告 新房首页-导航下通栏1-->
+		<div class="mt10 cf">
+			<!--楼盘导购-->
+			<div class="fl boxA">
+				<h3>区域楼盘</h3>
+				<p>
+					<a href="{$MODULE[6][linkurl]}list.php">全部</a>
+																									{loop $mainarea $k $v}<a href='{$MODULE[6][linkurl]}list.php?areaid={$v[areaid]}'>{$v[areaname]}</a>               {/loop}
+																																																																																																				</p>
+				<h3>价格区间</h3>
+				<p>
+			{php $jiage = array('4000以下','4000-5000元', '5000-6000元', '6000-7000元', '7000-8000元', '8000-9000元', '9000-10000元','10000元以上');}
+{loop $jiage $k $v} <a href="{$MOD[linkurl]}list.php?p=<?php echo $k+1;?>">{$v}</a>{/loop}    	                				</p>
+				<h3>
+					物业状态
+				</h3>
+				<p>
+							{loop $TYPE $k $v} <a href='{$MOD[linkurl]}list.php?typeid={$k} '>{$v}</a>	 {/loop}                 		                
+		                	                				</p>
+				<h3>项目类型</h3>
+				<p>{php $maincat = get_maincat(0,6)}
+ {loop $maincat $k $v} <a href='{$MODULE[6][linkurl]}list.php?catid={$v[catid]} '>{$v[catname]}</a>   {/loop}     </p>
+				<p class="more">
+					<a href="{$MODULE[6][linkurl]}list.php">
+						更多筛选方式 <em></em>
+					</a>
+				</p>
+			</div>
+			<div class="w730 fr">
+				<div class="w375 fl border">
+						<div class="focus-pic" id="tab1">
+    <div class="dt">
+        <i class="on">1</i><i>2</i><i>3</i><i>4</i><i>5</i>
+    </div>
+    <ul class="dd">
+	<!--{php $tags=tag("moduleid=8&condition=status=3  and thumb!=''&areaid=$cityid&order=addtime desc&pagesize=5&target=_blank&template=null");}-->
+	{loop $tags $k $t}
+            <li {if $k==""}{else}style="display:none;"{/if}>
+            <a target="_blank" href="{$t[linkurl]}" title="{$t[alt]}">
+                <img alt="{$t[alt]}" src="{$t[thumb]}" />
+            </a>
+            <p><a href="{$t[linkurl]}" title="{$t[alt]}" target="_blank">{$t[title]}</a></p>
+        </li>
+		{/loop}
+            
+        </ul>
+</div><!--f新房首页 焦点图-->
+						<ul class="news news_jiantou mt5 news_noline">
+         <!--{php $tags=tag("moduleid=8&condition=status=3&areaid=$cityid&catid=28&length=42&pagesize=7&order=addtime desc&target=_blank&template=null");}-->
+ {loop $tags $i $t}
+<LI><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></LI>
+  {/loop}
+          
+    </ul><!--f新房首页 一屏中间-推荐列表-->
+				</div>
+				<!--新闻资讯-->
+				<div class="w345 fr border">
+						<div class="tit">
+    <span>本地咨询</span><a href="{$MODULE[8][linkurl]}" target="_blank">更多</a>
+</div>
+<ul class="news_jiantou">
+             <!--{php $tags=tag("moduleid=8&condition=status=3&areaid=$cityid&catid=28&length=42&pagesize=7&order=addtime desc&target=_blank&template=null");}-->
+ {loop $tags $i $t}
+<LI><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></LI>
+  {/loop}
+    </ul><!--f新房首页 一屏右侧-栏目1-->
+						<div class="tit tit2 mt5">
+    <span>楼盘优惠</span><a href="{$MODULE[8][linkurl]}list-33.html" target="_blank">更多</a>
+</div>
+<ul class="news_jiantou news_noline">
+             <!--{php $tags=tag("moduleid=8&condition=status=3&areaid=$cityid&catid=33&length=42&pagesize=7&order=addtime desc&target=_blank&template=null");}-->
+ {loop $tags $i $t}
+<LI><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></LI>
+  {/loop}
+    </ul><!--f新房首页 一屏右侧-栏目2-->
+					</div>
+			</div>
+		</div>
+        <!--q新房广告 新房首页-通栏1-->
+		<div class="mt10 cf">
+			<div class="w220 fl">
+				<div class="border">
+					<h3>
+						<a class="fr" href="{$MODULE[6][linkurl]}list.php" target="_blank">更多</a>
+						{$city_name}最新楼盘
+					</h3>
+					<ul><!--{php $tags=tag("moduleid=6&condition=status=3 and isnew=1 &areaid=$cityid&length=12&pagesize=9&order=addtime desc&template=null");}-->
+								{loop $tags $k $t}
+						<li>
+							<a href="{$MODULE[6][linkurl]}list.php?areaid={$t[areaid]}" class="a1">{area_poss($t[areaid], ' ')}</a>
+							<a href="{$t[linkurl]}">{$t[title]}</a>
+							<span class="a3">{search_catss($t[catid], '6')}</span>
+						</li>{/loop}
+					</ul>
+				</div>
+				<!--热点楼盘-->
+				<div class="border mt10">
+					<h3 class="pdlr10 bg_fcfcfc border_xuxian_bottom">
+						<a class="fr" href="{$MODULE[6][linkurl]}list.php" target="_blank">更多</a>
+						{$city_name}热点楼盘
+					</h3>
+					<ul>
+					       <!--{php $tags=tag("moduleid=6&condition=status=3 and isnew=1 &areaid=$cityid&length=12&pagesize=9&order=hits desc&template=null");}-->
+								{loop $tags $k $t}
+						<li>
+							<a href="{$MODULE[6][linkurl]}list.php?areaid={$t[areaid]}" class="a1">{area_poss($t[areaid], ' ')}</a>
+							<a href="{$t[linkurl]}">{$t[title]}</a>
+							<span class="a3">{search_catss($t[catid], '6')}</span>
+						</li>{/loop}
+																</ul>
+				</div>
+				<!--一周关注楼盘-->
+				<div class="border mt10">
+					<h3 class="pdlr10 bg_fcfcfc border_xuxian_bottom">
+						<a class="fr" href="{$MODULE[6][linkurl]}list.php" target="_blank">更多</a>本周搜索排行</h3>
+					<div class="cf pdb10">
+					<ul>
+					  <!--{php $tags=tag("moduleid=$moduleid&table=keyword&condition=moduleid=$moduleid and status=3 and updatetime>$today_endtime-86400*7&pagesize=6&order=week_search desc&key=week_search&template=null");}-->
+								{loop $tags $k $t}
+	                <li><span  class="num{if $k<3}1{else}{/if}"><?php echo $k+1;?></span><a href="{$MODULE[$moduleid][linkurl]}{rewrite('search.php?kw='.urlencode($t['word']))}"{if $target} target="{$target}"{/if}>{$t[word]}</a><span class="a3">{$t[items]}条</span>
+							</li>{/loop}																													                    </ul>
+										</div>
+				</div>
+				<!--团购排行-->
+				<div class="border mt10">
+					<h3 class="pdlr10 bg_fcfcfc border_xuxian_bottom">
+						<a class="fr" href="{$MODULE[6][linkurl]}list.php" target="_blank">更多</a>本月搜索排行</h3>
+					<div class="pdb10">
+					<ul>
+					  <!--{php $tags=tag("moduleid=$moduleid&table=keyword&condition=moduleid=$moduleid and status=3 and updatetime>$today_endtime-86400*30&pagesize=6&order=week_search desc&key=week_search&template=null");}-->
+								{loop $tags $k $t}
+	                <li><span  class="num{if $k<3}1{else}{/if}"><?php echo $k+1;?></span><a href="{$MODULE[$moduleid][linkurl]}{rewrite('search.php?kw='.urlencode($t['word']))}"{if $target} target="{$target}"{/if}>{$t[word]}</a><span class="a3">{$t[items]}条</span>
+							</li>{/loop}																													                    </ul>
+										</div>
+				</div>
+			</div>
+			<div class="w730 fr">
+				<!--新房价格查询-->
+				<div class="border w728 cf" id="tab2">
+					<div class="titl cf">
+						<b>{$city_name}新房价格查询</b>
+						<ul>{php $prices = array('4000元以下','4000-5000元', '5000-6000元', '6000-7000元', '7000-8000元', '8000-9000元');}
+				{loop $prices $k $v}
+	              <li  class="{if $k==0}on{else}{/if}">
+			 <a href="{$MOD[linkurl]}list.php?p=<?php echo $k+1;?> 
+" target="_blank">{$v}</a></li>{/loop}
+							<li>
+				<span><a href="{$MODULE[6][linkurl]}list.php" target="_blank">更多</a></span>
+							</li>
+						</ul>
+					</div>
+					 
+                <div class="housetxt cf" style="display:block">
+					<ul class="rightimg">
+				    <!--{tag("moduleid=6&condition=status=3 and isnew=1  and  price<4000&areaid=$cityid&length=12&pagesize=4&order=addtime desc&template=lp-indeximg")}-->
+    				</ul>
+					<ul class="houselist">
+				   <!--{tag("moduleid=6&condition=status=3 and isnew=1  and  price<4000&areaid=$cityid&length=12&pagesize=24&order=hits desc&template=lp-indextext")}-->
+					</ul>
+				</div>
+				
+				 <div class="housetxt cf">
+					<ul class="rightimg">
+				    <!--{tag("moduleid=6&condition=status=3 and isnew=1  and  price>=4000  AND price<5000&areaid=$cityid&length=12&pagesize=4&order=hits desc&template=lp-indeximg")}-->
+    				</ul>
+					<ul class="houselist">
+				   <!--{tag("moduleid=6&condition=status=3 and isnew=1  and  price>=4000  AND price<5000&areaid=$cityid&length=12&pagesize=24&order=hits desc&template=lp-indextext")}-->
+					</ul>
+				</div>
+				
+				 <div class="housetxt cf" >
+					<ul class="rightimg">
+				    <!--{tag("moduleid=6&condition=status=3 and isnew=1  and  price>=5000  AND price<6000&areaid=$cityid&length=12&pagesize=4&order=hits desc&template=lp-indeximg")}-->
+    				</ul>
+					<ul class="houselist">
+				   <!--{tag("moduleid=6&condition=status=3 and isnew=1  and  price>=5000  AND price<6000&areaid=$cityid&length=12&pagesize=24&order=hits desc&template=lp-indextext")}-->
+					</ul>
+				</div>
+				
+				 <div class="housetxt cf" >
+					<ul class="rightimg">
+				    <!--{tag("moduleid=6&condition=status=3 and isnew=1  and  price>=6000  AND price<7000&areaid=$cityid&length=12&pagesize=4&order=hits desc&template=lp-indeximg")}-->
+    				</ul>
+					<ul class="houselist">
+				   <!--{tag("moduleid=6&condition=status=3 and isnew=1  and  price>=6000  AND price<7000&areaid=$cityid&length=12&pagesize=24&order=hits desc&template=lp-indextext")}-->
+					</ul>
+				</div>
+				
+				 <div class="housetxt cf" >
+					<ul class="rightimg">
+				    <!--{tag("moduleid=6&condition=status=3 and isnew=1  and  price>=7000  AND price<8000&areaid=$cityid&length=12&pagesize=4&order=hits desc&template=lp-indeximg")}-->
+    				</ul>
+					<ul class="houselist">
+				   <!--{tag("moduleid=6&condition=status=3 and isnew=1  and  price>=7000  AND price<8000&areaid=$cityid&length=12&pagesize=24&order=hits desc&template=lp-indextext")}-->
+					</ul>
+				</div>
+				
+				 <div class="housetxt cf" >
+					<ul class="rightimg">
+				    <!--{tag("moduleid=6&condition=status=3 and isnew=1  and  price>=8000  AND price<9000&areaid=$cityid&length=12&pagesize=4&order=hits desc&template=lp-indeximg")}-->
+    				</ul>
+					<ul class="houselist">
+				   <!--{tag("moduleid=6&condition=status=3 and isnew=1  and  price>=8000  AND price<9000&areaid=$cityid&length=12&pagesize=24&order=hits desc&template=lp-indextext")}-->
+					</ul>
+				</div>
+				
+					
+									
+			</div>
+				<!--<div class="mt10">
+<a href="http://www.aijiacms.com/special/gfzt/11yxptj_20121026/" target="_blank"><img width="730" src=""></a>
+</div><!--q新房广告 新房首页-旗帜1-->
+				<!--新房区域查询-->
+				<div class="border mt10 w728 cf" id="tab3">
+					<div class="titl">
+						<b>{$city_name}新房区域查询</b>
+						<ul class="w70">
+					 {loop $xiqoqu $k $v} 
+	              <li  class="{if $k==""}on{else}{/if}">
+			 <a href="{$MODULE[6][linkurl]}list.php?areaid={$v[areaid]}" target="_blank">{$v[areaname]}</a></li>{/loop}												              										                <li><span><a href="{$MODULE[6][linkurl]}list.php" target="_blank">更多</a></span>
+					</li>
+						</ul>
+					</div>
+					  {loop $xiqoqu $k $v} 
+                     <div class="housetxt cf" {if $k==""}style="display:block"{else}{/if}>
+					 <ul class="rightimg">
+				    <!--{tag("moduleid=6&condition=status=3 and isnew=1&areaid=".$v[areaid]."&length=12&pagesize=4&order=addtime desc&template=lp-indeximg")}-->
+    				</ul>
+					<ul class="houselist">
+				   <!--{tag("moduleid=6&condition=status=3 and isnew=1&areaid=".$v[areaid]."&length=12&pagesize=24&order=hits desc&template=lp-indextext")}-->
+					</ul>
+					 
+							 </div>{/loop}
+														</div>
+				<div class="mt10">
+ {ad(45)}
+</div><!--q新房广告 新房首页-旗帜2-->
+				<!--按项目类型查询-->
+				<div class="border mt10 w728 cf" id="tab4">
+					<div class="titl">
+						<b>按项目类型查询</b>
+						{php $maincats = get_maincats(0,6)}
+						<ul>{loop $maincats $k $v} 
+	              <li  class="{if $k==""}on{else}{/if}">
+			 <a href="{$MODULE[6][linkurl]}list.php?catid={$v[catid]}" target="_blank">{$v[catname]}</a></li>{/loop}												              										                <li><span><a href="{$MODULE[6][linkurl]}list.php" target="_blank">更多</a></span>
+					</li>
+						</ul>
+					</div>
+					  {loop $maincats $k $v} 
+                     <div class="housetxt cf" {if $k==""}style="display:block"{else}{/if}>
+					 <ul class="rightimg">
+				    <!--{tag("moduleid=6&condition=status=3 and FIND_IN_SET(".$v[catid].",`catid`) and isnew=1&areaid=$cityid&length=12&pagesize=4&order=addtime desc&template=lp-indeximg")}-->
+    				</ul>
+					<ul class="houselist">
+				   <!--{tag("moduleid=6&condition=status=3 and FIND_IN_SET(".$v[catid].",`catid`) and isnew=1&areaid=$cityid&length=12&pagesize=24&order=hits desc&template=lp-indextext")}-->
+					</ul>
+					 
+							 </div>{/loop}
+														</div>
+			</div>
+		</div>
+        
+<!--q新房广告 新房首页-通栏2-->
+		<div class="mt10 cf">
+			<div class="w313 fl border mr10">
+    <h3>
+        <a class="fr" href="{$MODULE[8][linkurl]}list.php?catid=32" target="_blank">更多</a>
+        <b class="line">新房导购</b>
+    </h3>
+	 <!--{php $tags=tag("moduleid=8&condition=status=3&areaid=$cityid&level>0&catid=32&length=42&pagesize=1&order=addtime desc&target=_blank&template=null");}-->
+ {loop $tags $i $t}
+    <div class="imgtxtB cf">
+                          <a href="{$t[linkurl]}" class="fl" target="_blank"><img src="{$t[thumb]}" width="80" height="60" /></a>
+                  <p><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}" >{$t[title]}</a></p>
+            </div>{/loop} 
+    <ul><!--{php $tags=tag("moduleid=8&condition=status=3&areaid=$cityid&catid=32&length=42&pagesize=4&order=addtime desc&target=_blank&template=null");}-->
+ {loop $tags $i $t}
+                <li><span>{date('m-d', $t[addtime])}</span><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}" >{$t[title]}</a></li>{/loop}
+                
+            </ul>
+</div><!--f新房首页 三屏左侧-栏目1-->
+			<div class="w313 fl border">
+    <h3>
+        <a class="fr" href="{$MODULE[8][linkurl]}list.php?catid=34" target="_blank">更多</a>
+        <b class="line">楼盘活动</b>
+    </h3>
+   <!--{php $tags=tag("moduleid=8&condition=status=3&areaid=$cityid&level>0&catid=34&length=42&pagesize=1&order=addtime desc&target=_blank&template=null");}-->
+ {loop $tags $i $t}
+    <div class="imgtxtB cf">
+                          <a href="{$t[linkurl]}" class="fl" target="_blank"><img src="{$t[thumb]}" width="80" height="60" /></a>
+                  <p><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}" >{$t[title]}</a></p>
+            </div>{/loop} 
+    <ul><!--{php $tags=tag("moduleid=8&condition=status=3&areaid=$cityid&catid=34&length=42&pagesize=4&order=addtime desc&target=_blank&template=null");}-->
+ {loop $tags $i $t}
+                <li><span>{date('m-d', $t[addtime])}</span><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}" >{$t[title]}</a></li>{/loop}
+    </ul>
+</div><!--f新房首页 三屏中间-栏目1-->
+			<div class="w313 fr border">
+    <h3>
+        <a class="fr" href="{$MODULE[8][linkurl]}list.php?catid=35" target="_blank">更多</a>
+        <b class="line">项目动态</b>
+    </h3>
+    <ul><!--{php $tags=tag("moduleid=8&condition=status=3&areaid=$cityid&catid=35&length=32&showcat=1&pagesize=8&order=addtime desc&target=_blank&template=null");}-->
+ {loop $tags $i $t}
+                <li><a href="{$t[caturl]}">[{$t[catname]}]</A><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}" >{$t[title]}</a></li>{/loop}
+            </ul>
+</div><!--f新房首页 三屏右侧-栏目1-->
+		</div>
+        
+<!--q新房广告 新房首页-通栏3-->
+	<!--f新房首页 专题-->
+	
+	
+		
+		<!-- 友情链接 -->
+		
+				
+</div>
+</div>
+<script type="text/javascript">
+seajs.use(["jquery","autab"],function($){
+	$("#tab1").autab("i","li",4);
+	$("#tab2,#tab3,#tab4").autab("div.titl li:not(:has(span))","div.housetxt");
+	$("#gfzt").on("mouseover","li,div",function(){
+		$(this).find(".pic_pop").stop().animate({top:0});
+	}).on("mouseout","li,div",function(){
+		$(this).find(".pic_pop").stop().animate({top:"100%"});
+	})
+	$("#tree").on("click","span",function(){
+		var $t=$(this);
+		window.open($t.attr("url") ? $t.attr("url") : ("" + $t.attr("href")));
+	})
+})
+</script>
+{template 'footer'}

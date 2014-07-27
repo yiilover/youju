@@ -1,0 +1,5 @@
+<?php
+define('AJ_VERSION', '6.1');
+define('AJ_RELEASE', '20131029');
+define('AJ_LICENSE', '3B3DB7556B484D16C202D9C09B2E94C9');
+?>

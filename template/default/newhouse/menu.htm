@@ -1,0 +1,14 @@
+
+<!--导航 begin -->
+<div class="nav">
+<ul class="link1">
+<li class="link2"><a href="{$MODULE[6][linkurl]}">新房首页</a></li>
+<li class="aa"><a href="{$MODULE[6][linkurl]}list.php">楼盘超市</a></li>
+{php $maincat = get_maincat(0,8)}
+{loop $maincat $k $v}
+<li  class="{if $v[catid]==$catid}link2{else}aa{/if}">
+<a  href="{$MOD[linkurl]}{$v[linkurl]}">{$v[catname]}</a>
+</li>{/loop}
+
+<li class="this"><a href="{$linkurl}">楼盘主页</a></li><li><a href="{$MODULE[6][linkurl]}xinxi.php?itemid={$itemid}">详细信息</a></li><li><a href="{$MODULE[6][linkurl]}huxing.php?itemid={$itemid}">户型</a></li><li><a href="{$MODULE[6][linkurl]}dongtai.php?itemid={$itemid}">销售动态</a></li><li><a href="{$MODULE[6][linkurl]}jiage.php?itemid={$itemid}">价格明细</a></li><li><a href="{$MODULE[6][linkurl]}peitao.php?itemid={$itemid}">地图配套</a></li><li><a href="{$MODULE[6][linkurl]}xiangce.php?itemid={$itemid}">图片相册</a></li><li><a href="{$MODULE[6][linkurl]}zixun.php?itemid={$itemid}">相关资讯</a></li><li><a href="{$MODULE[6][linkurl]}wenfang.php?itemid={$itemid}">问房</a></li>
+

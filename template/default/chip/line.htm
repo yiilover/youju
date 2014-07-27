@@ -1,0 +1,25 @@
+var aijiacms_userid = {$_userid};
+var aijiacms_username = '{$_username}';
+var aijiacms_message = {$_message};
+var aijiacms_chat = {$_chat};
+var aijiacms_cart = substr_count(get_cookie('cart'), ',');
+var aijiacms_member = '';
+{if $_userid}
+aijiacms_member += '<span class="f_b" title="{$MG[groupname]}">{$_truename}</span> <a href="{$MODULE[2][linkurl]}line.php" title="{if $_online}在线，点击隐身{else}隐身，点击上线{/if}"><img src="{AJ_SKIN}image/user_{if $_online}on{else}off{/if}line.png" width="10" height="10" align="absmiddle"/></a> | <a href="{$MODULE[2][linkurl]}">会员中心</a> | <a href="{$MODULE[2][linkurl]}message.php">站内信(<span class="head_t" id="aijiacms_message">{if $_message}<strong>{$_message}</strong>{if $_sound}'+sound('message_{$_sound}')+'{/if}{else}0{/if}</span>)</a>{if $AJ[im_web]} | <a href="{$MODULE[2][linkurl]}chat.php">新对话(<span class="head_t" id="aijiacms_chat">{if $_chat}<strong>{$_chat}</strong>'+sound('chat_new')+'{else}0{/if}</span>)</a>{/if} | <a href="{$MODULE[2][linkurl]}logout.php">退出</a>';
+{else}
+	{if $EXT[oauth]}
+	var oauth_site = '{get_cookie('oauth_site')}';
+	var oauth_user = '{get_cookie('oauth_user')}';
+	aijiacms_member += (oauth_user && oauth_site) ? '<img src="{AJ_PATH}api/oauth/'+oauth_site+'/ico.png" align="absmiddle"/> 欢迎，<strong>'+oauth_user+'</strong> | <a href="{AJ_PATH}api/oauth/'+oauth_site+'/index.php?time={$AJ_TIME}">绑定帐号</a> | <a href="javascript:" onclick="oauth_logout();">注销登录</a>' : '欢迎，<span class="f_red">客人</span> | <a href="{$MODULE[2][linkurl]}{$AJ[file_login]}">请登录</a> | <a href="{$MODULE[2][linkurl]}{$AJ[file_register]}">免费注册</a> | <a href="{$MODULE[2][linkurl]}send.php">忘记密码?</a>';
+	{else}
+	aijiacms_member += '欢迎，<span class="f_red">客人</span> | <a href="{$MODULE[2][linkurl]}{$AJ[file_login]}">请登录</a> | <a href="{$MODULE[2][linkurl]}{$AJ[file_register]}">免费注册</a> | <a href="{$MODULE[2][linkurl]}send.php">忘记密码?</a>';
+	{/if}
+{/if}
+$('#aijiacms_member').html(aijiacms_member);
+{if $AJ[city]}
+$('#aijiacms_city').html('{$city_name}');
+{/if}
+{if isset($MODULE[16])}
+$('#aijiacms_cart').html(aijiacms_cart ? '<strong>'+aijiacms_cart+'</strong>' : 0);
+{/if}
+{if $_userid && $AJ[pushtime]}window.setInterval('PushNew()',{$AJ[pushtime]}*1000);{/if}

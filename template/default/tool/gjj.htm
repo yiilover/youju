@@ -1,0 +1,102 @@
+{template 'header'}
+<div class="m">	
+   <link href="{AJ_SKIN}xinfang_jisuanqi.css" rel="stylesheet" type="text/css"/>
+  <div id="content">
+<!--计算器-->
+			<div class="b_cal mt10 cf">
+				<div class="b_cal_box b_cal_line fl">
+					<div class="b_cal_bg1"></div>
+					<a class="b_cal_box_bg1" href="{$MODULE[1][linkurl]}tool/"></a>
+				</div>
+				<div class="b_cal_box b_cal_line fl ">
+					<div class="b_cal_bg2 "></div>
+					<a class="b_cal_box_bg2" href="{$MODULE[1][linkurl]}tool/benxi.php"></a>
+					<a class="b_cal_box_bg3" href="{$MODULE[1][linkurl]}tool/benjin.php"></a>
+					<a class="b_cal_box_red4" href="{$MODULE[1][linkurl]}tool/gjj.php"></a>
+				</div>
+				<div class="b_cal_box fl">
+					<div class="b_cal_bg3"></div>
+					<a class="b_cal_box_bg5" href="{$MODULE[1][linkurl]}tool/tqhd.php"></a>
+					<a class="b_cal_box_bg6" href="{$MODULE[1][linkurl]}tool/sf.php"></a>
+				</div>
+			</div>
+<!--内容区-->
+			<div class="b_cal mt10">				
+						<form method="post" action="" name="formt2">
+				<div class="b_cal_bg cf">
+					<div class="b_cal_left fl">
+						<div class="b_cal_left_top">
+							<div class="b_cal_bg9 "></div>
+						</div>
+							<div class="b_cal_left_conn">
+								<ul class="b_cal_l">
+									<li>
+										<span>您所需要的贷款额度：</span>
+										<input size="5" name="need" class="jsq"> 万元</li>
+									<li>
+										<span>贷款申请年限：</span>
+										<input size="10" class="jsq" name="mount10"> 年</li>
+									<li><span> </span>（注：不得超过30年。 ）</li>
+									<li>
+										<span>请选择还款方式：</span>
+										<select name="select" class="jsq">
+
+											<option value="1">等额均还</option>
+											<option value="2">等额本金</option>
+											<option value="3" selected="">自由还款</option>
+										</select>
+									</li>
+									<li class="cbt">
+										<input name="" type="button" class="sbmt" onClick="gjjloan2(this.form)">
+										<input name="" type="reset" value="" class="tbmt"></li>
+								</ul>
+							</div>
+					</div>
+					<div class="b_cal_right fr">
+						<h2>查看结果</h2>
+						<ul>
+							<li style="width:476px">等额还款</li>
+							<li>
+								<span>月均还款额：</span>
+								<input size="8" name="ze22" class="jsq">（元）</li>
+							<li>
+								<span>本息合计：</span>
+								<input size="8" name="lx2" class="jsq">
+								<input type="hidden" name="yj2" class="jsq">（元）</li>
+							<li style="width:476px">等额还款</li>
+							<li>
+								<span>首月还款：</span>
+								<input size="8" name="sfk2" class="jsq">（元）</li>
+							<li>
+								<span>本息合计：</span>
+								<input size="8" name="lx3" class="jsq">（元）</li>
+							<li style="width:476px">自由还款</li>
+							<li>
+								<span>最低还款：</span>
+								<input name="sfksan" class="jsq" size="8">（元）</li>
+							<li>
+								<span>最后利息：</span>
+								<input name="lx4" class="jsq" size="8">（元）</li>
+							<li>
+								<span>最后本金：</span>
+								<input name="lx5" class="jsq" size="8">（元）</li>
+							<li>
+								<span>总偿利息：</span>
+								<input name="lx6" class="jsq" size="8">（元）</li>
+					</ul>
+					<h2>公积金</h2>
+					<p>
+						公积金最大贷款年龄65岁，月收入低于800元，没有还款能力，不能贷款 月收入不变情况下：35岁以内为同一个贷款额，35-65岁随年龄增加贷款额和年限减少 年龄不变情况下：800-1700元随收入增加贷款额增加，收入1700元以上为同一贷款额
+					</p>
+				</div>
+			</div>
+		</form>
+<script language=JavaScript>
+var l1_5 = 0.0405;
+var l6_30 = 0.0459;
+</script>
+<script src="{AJ_SKIN}js/jisuanqi4.js" type="text/javascript"></script>			</div>
+		</div>
+		{template 'footer'}</div>
+</body>
+</html>

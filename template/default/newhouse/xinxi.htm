@@ -1,0 +1,226 @@
+{template 'header'}
+<div class="m">	
+
+ <!--q新房广告 新房详情页-导航下通栏1-->
+ <form name="detailForm" id="detailForm" action="{$MODULE[2][linkurl]}favorite.php" method="post">	
+<input type="hidden" name="action" value="add"/>
+<input type="hidden" name="title" value="{$title}"/>
+<input type="hidden" name="url" value="{$linkurl}"/>
+</form>
+    <div class="bread">
+	<div class="fr">
+		访问：<strong>{$hits}</strong>人次 | <a href="javascript:document.getElementById('detailForm').submit();">收藏</a>
+		<span>{$editdate}更新</span>
+	 </div>
+	您当前的位置：<a href="{$MODULE[1][linkurl]}" title="{$AJ[sitename]}">{$AJ[sitename]}</a> &gt; <a href="{$MOD[linkurl]}">{$MOD[name]}    </a> &gt; <a href="{$MOD[linkurl]}list.php?areaid={$areaid}">{area_poss($areaid, ' ')}</a> &gt;  {$title} 
+	</div>
+<div class="name cf">
+	<div class="qr fr">{twoCode($EXT[wap_url],$moduleid,$itemid)}</div>
+	<div class="fl">
+		<div class="name_top">
+		<h2><a href="{$linkurl}" title="{$title}">{$title}</a></h2>
+				<div class="name_icon name_icon1">{$TYPE[$typeid]}</div>		</div>
+		
+	</div>
+</div>
+<div class="navcon">
+<div class="navbox">
+	<ul>
+		{php $menu = array('xinxi'=>'详细', 'jiage'=>'房价', 'xiangce'=>'相册','huxing'=>'户型', 'zixun'=>'导购', 'peitao'=>'地图交通',  'dianping'=>'点评', 'wenfang'=>'问房');}
+<li><a href="{$linkurl}"  >主页</a></li>{loop $menu $k $v} 
+<li><a href="{$MODULE[6][linkurl]}{$k}.php?itemid={$itemid}" {if xinxi==$k}class='on'{else}{/if} >{$v}</a></li>
+{/loop}
+       {if $bbsurl}<li><a href="{$bbsurl}">论坛</a></li>{/if}
+		<li><a href="{$linkurl}#iwantgroupbuy">团购报名</a></li>
+        	    	</ul>
+</div>	
+</div>			<div class="cf">
+			<div class="w670 fl mt10 modA infoleft">
+				<div class="info">
+					<h4> <sub class="l"></sub>
+						{$title}基本信息
+					</h4>
+					<table width="668" cellspacing="0" cellpadding="0" border="0">
+						<tbody>
+							<tr>
+								<td width="118" class="graybg">地区/商圈</td>
+								<td width="551">{area_pos($areaid, ' ')} </td>
+							</tr>
+							<tr>
+								<td class="graybg">售楼地址</td>
+								<td>{$sell_address}</td>
+							</tr>
+							<tr>
+								<td class="graybg">售楼电话</td>
+								<td><font color="red"><strong>{$telephone}</strong></font>
+                                </td>
+							</tr>
+							<tr>
+								<td class="graybg">价格</td>
+								<td> {if $price}{$price}元/平方米{else}待定{/if} &nbsp;[
+				<a href="{$MODULE[1][linkurl]}tool/" target="_blank">房贷计算器</a>]&nbsp;[<a href="{$MODULE[6][linkurl]}jiage.php?itemid={$itemid}" target="_blank">房价走势</a>]
+								</td>
+							</tr>
+							
+							<tr>
+								<td class="graybg">规划户数</td>
+								<td>{$lp_number}户</td>
+							</tr>
+							<tr>
+								<td class="graybg">开盘时间</td>
+								<td>{$selltime}</td>
+							</tr>
+							<tr>
+								<td class="graybg">交房时间</td>
+								<td>{$completion}</td>
+							</tr>
+							<tr>
+								<td class="graybg">销售状态</td>
+								<td>{$TYPE[$typeid]}</td>
+							</tr>
+							<tr>
+								<td class="graybg">开发商</td>
+								<td>
+									{$kfs}								</td>
+							</tr>
+						</tbody>
+					</table>
+					<h4> <sub class="l"></sub>
+						{$title}建筑信息
+					</h4>
+					<table width="668" cellspacing="0" cellpadding="0" border="0">
+						<tbody>
+							<tr>
+								<td width="118" class="graybg">产权</td>
+								<td width="551">{$lp_year}</td>
+							</tr>
+							<tr>
+								<td class="graybg">停车位</td>
+								<td>{$lp_car}</td>
+							</tr>
+							<tr>
+								<td class="graybg">规划面积</td>
+								<td>{$lp_totalarea}㎡</td>
+							</tr>
+							<tr>
+								<td class="graybg">建筑面积</td>
+								<td>{$lp_area}㎡</td>
+							</tr>
+							<tr>
+								<td class="graybg">项目类型</td>
+								<td>{search_cats($catid, '6')}</td>
+							</tr>
+							<tr>
+								<td class="graybg">建筑类型</td>
+								<td>{$buildtype}</td>
+							</tr>
+							<tr>
+								<td class="graybg">建筑特色</td>
+								<td>{$tedian}</td>
+							</tr>
+							<tr>
+								<td class="graybg">装修状况</td>
+								<td>{$fitment}</td>
+							</tr>
+							
+						</tbody>
+					</table>
+					<h4>
+						<sub class="l"></sub>
+						{$title}物业信息
+					</h4>
+					<table width="668" cellspacing="0" cellpadding="0" border="0">
+						<tbody>
+							<tr>
+								<td width="118" class="graybg">物业类别</td>
+								<td width="551">{search_cats($catid, '6')}</td>
+							</tr>
+							<tr>
+								<td class="graybg">容积率</td>
+								<td>{$lp_volume}</td>
+							</tr>
+							<tr>
+								<td class="graybg">绿化率</td>
+								<td>{$lp_green}%</td>
+							</tr>
+							<tr>
+								<td class="graybg">物业费</td>
+								<td>{$lp_costs}元/㎡/月</td>
+							</tr>
+							<tr>
+								<td class="graybg">物业公司</td>
+								<td>{$lp_company}</td>
+							</tr>
+						</tbody>
+					</table>
+					<h4>
+						<sub class="l"></sub>
+						{$title}区域交通配套
+					</h4>
+					<table width="668" cellspacing="0" cellpadding="0" border="0">
+						<tbody>
+							<tr>
+								<td width="118" class="graybg">医疗</td>
+								<td width="551">{$lp_hospital}</td>
+							</tr>
+                            <tr>
+								<td width="118" class="graybg">银行</td>
+								<td width="551">{$lp_bank}</td>
+							</tr>
+							<tr>
+								<td class="graybg">公共设施</td>
+								<td>{$lp_edu}</td>
+							</tr>
+							<tr>
+								<td class="graybg">交通状况</td>
+								<td>{$lp_bus}</td>
+							</tr>
+						</tbody>
+					</table>
+					<h4>
+						<sub class="l"></sub>
+						{$title}简介
+					</h4>
+					<div class="jianjie">{$content}</div>
+					</div>
+				</div>
+				<div class="w280 fr">
+					<div class="modAC" ></div>
+				<div class="modB">
+    <h4 class="modBT">
+        <sub></sub>
+        <a  href="{$MODULE[6][linkurl]}list.php" target="_blank" >{$city_name}最新楼盘</a>
+        <a href="{$MODULE[6][linkurl]}list.php" class="more">更多&gt;&gt;</a>
+    </h4>
+    <ul class="t3List">
+                            <!--{tag("moduleid=6&condition=status=3 and isnew=1&areaid=$cityid&pagesize=8&order=addtime desc&template=lp-right")}-->
+                    </ul>
+</div>
+					<div class="modB">
+    <h4 class="modBT">
+        <sub></sub>
+        <a href="{$MODULE[6][linkurl]}list.php" target="_blank" >{$city_name}热门楼盘</a>
+        <a href="{$MODULE[6][linkurl]}list.php" class="more">更多&gt;&gt;</a>
+    </h4>
+    <ul class="t3List">
+                    <!--{tag("moduleid=6&condition=status=3 and isnew=1&areaid=$cityid&pagesize=8&order=hits desc&template=lp-right")}-->
+            </ul>
+</div>
+					<div class="modB">
+    <h4><sub></sub>
+        <a href="{$MODULE[1][linkurl]}/tool/" class="more">购房工具</a>
+    </h4>
+    <div class="Tools cf">
+        <a href="{$MODULE[1][linkurl]}tool/benxi.php" class="fdjs" target="_blank">房贷计算</a>
+        <a href="{$MODULE[1][linkurl]}tool/" class="mlpg" target="_blank">购房能力评估</a>
+        <a href="{$MODULE[1][linkurl]}tool/gjj.php" class="gjjdk" target="_blank">公积金贷款</a>
+        <a href="{$MODULE[1][linkurl]}tool/tqhd.php" class="tqhd" target="_blank">提前还款</a>
+        <a href="{$MODULE[1][linkurl]}tool/sf.php" class="gfsf" target="_blank">购房税费</a>
+        <a href="{$MODULE[1][linkurl]}list.php" class="lpsc" target="_blank">楼盘速查</a>
+        <div class="clear"></div>
+    </div>
+</div>				</div>
+			</div>
+			{template 'footer'}	</div>
+</body>
+</html>

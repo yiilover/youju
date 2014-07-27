@@ -1,0 +1,10 @@
+{loop $tags $i $t}
+	<li>
+	    <div class="img"><a href="{$t[linkurl]}" title=" {$t[alt]} ({$t[items]})" target="_blank"><img class="scrollLoading" src="{imgurl($t[thumb])}" alt=" {$t[alt]} ({$t[items]})" width="134px" height="156px"></a>
+	    </div>
+		<dl class="infos">
+		  <dd> <strong><a href="{$MODULE[6][linkurl]}show.php?itemid={$t[houseid]}"  target="_blank">{$t[housename]}</a></strong> 
+		  </dd>
+		  <dd>{$t[title]}</dd><dd>{timetodate($t[addtime], $datetype)}</dd>
+		 </dl>
+	</li>{/loop}

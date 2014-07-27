@@ -1,0 +1,137 @@
+{template 'header'}
+<div class="m">	
+
+
+ <!--q新房广告 新房详情页-导航下通栏1-->
+ <form name="detailForm" id="detailForm" action="{$MODULE[2][linkurl]}favorite.php" method="post">	
+<input type="hidden" name="action" value="add"/>
+<input type="hidden" name="title" value="{$title}"/>
+<input type="hidden" name="url" value="{$linkurl}"/>
+</form>
+    <div class="bread">
+	<div class="fr">
+		访问：<strong>{$hits}</strong>人次 | <a href="javascript:document.getElementById('detailForm').submit();">收藏</a>
+		<span>{$editdate}更新</span>
+	 </div>
+	您当前的位置：<a href="{$MODULE[1][linkurl]}" title="{$AJ[sitename]}">{$AJ[sitename]}</a> &gt; <a href="{$MOD[linkurl]}">{$MOD[name]}    </a> &gt; <a href="{$MOD[linkurl]}list.php?areaid={$areaid}">{area_poss($areaid, ' ')}</a> &gt;  {$title} 
+	</div>
+<div class="name cf">
+	<div class="qr fr">{twoCode($EXT[wap_url],$moduleid,$itemid)}</div>
+	<div class="fl">
+		<div class="name_top">
+		<h2><a href="{$linkurl}" title="{$title}">{$title}</a></h2>
+				<div class="name_icon name_icon1">{$TYPE[$typeid]}</div>		</div>
+		
+	</div>
+</div>
+<div class="navcon">
+<div class="navbox">
+	<ul>
+		{php $menu = array('xinxi'=>'详细', 'jiage'=>'房价', 'xiangce'=>'相册','huxing'=>'户型', 'zixun'=>'导购', 'peitao'=>'地图交通',  'dianping'=>'点评', 'wenfang'=>'问房');}
+<li><a href="{$linkurl}"  >主页</a></li>{loop $menu $k $v} 
+<li><a href="{$MODULE[6][linkurl]}{$k}.php?itemid={$itemid}" {if tupian==$k}class='on'{else}{/if} >{$v}</a></li>
+{/loop}
+       {if $bbsurl}<li><a href="{$bbsurl}">论坛</a></li>{/if}
+		<li><a href="{$linkurl}#iwantgroupbuy">团购报名</a></li>
+        	    	</ul>
+</div>	
+</div>		<!--主体左右分区-->
+		<div class="cf mt10">
+			<div class="albumbg fl w750 border">
+            	<a name="pic"></a>
+				<h3>
+					{$title}图
+					<span>
+						(共{$zong}张)
+					</span>
+				</h3>
+				<p class="album-txt">
+					<span class="fr">上传于　{$P[adddate]}&nbsp;&nbsp;&nbsp;[<a href="{$P[src]}" target="_blank" class="gray9" >查看原图</a>]</span>      			</p>
+				<div class="album-box">
+					<img id="imgI" src="{$P[src]}" data-pre="{$prev_photo}" data-next="{$next_photo}">
+				</div>
+				<!--小图左右切-->		
+				<div class="bigpic_cnt" id="albumlist">
+					<a class="prev" href="javascript:void(0)"></a>
+					<a class="next" href="javascript:void(0)"></a>
+					<div class="albumlist">
+						<ul class="cf">
+                              <!--{php $tags=tag("moduleid=12&&condition=houseid=$houseid&showcat=1&order=itemid asc&template=null");}-->
+{loop $tags $k $t} 
+									<li {if $_GET['p']==$t[itemid]}class="checked"{else}{/if}>
+		<a href="{$MODULE[6][linkurl]}tupian.php?houseid={$houseid}&p={$t[itemid]}"><img src="{$t[thumb]}" width="100" height="75" title="{$v[introduce]}" alt="" /></a>
+		</li>
+		{/loop}               
+                                                     						</ul>
+					</div>
+				</div>
+			</div>
+			<!--右侧-->
+			<div class="fr w200">
+				<!--销售节点图库-->
+				<div class="modB">
+					<h4>{$title}楼盘图库</h4>
+                                              <ul class="modimgList">
+												   <!--{php $tags=tag("moduleid=12&&condition=houseid=$itemid&catid!=24&pagesize=4&order=itemid desc&template=null");}-->
+{loop $tags $k $t} 
+              <li>  <a href="{$MODULE[6][linkurl]}tupian.php?houseid={$itemid}&p={$t[itemid]}" title="{$t[title]}" target="_blank"> <img data-src="{if $t[thumb]}{$t[thumb]}{else}{AJ_SKIN}image/nopic60.gif{/if}" width="160" height="120">    </a>
+                            </li>{/loop}
+                               <li>
+    <a class="blue" href="{$MODULE[6][linkurl]}xiangce.php?itemid={$itemid}">查看所有楼盘图库>></a>
+                            </li>
+                        </ul>
+                    				</div>
+			</div>
+		</div>
+		{template 'footer'}</div>
+</body>
+<script type="text/javascript">
+	seajs.use(["jquery","alert"],function($,alertM){
+		var $pl=$("#albumlist ul");
+		var pllength =  $pl.find("li").length;
+		var cIndex = $pl.find("li.checked").index();
+		var plindex = parseInt(cIndex/5);
+		$pl.animate({left:0-plindex*655});
+		$pl.width(pllength*144+9);
+		pllength=Math.ceil(pllength/5);
+		$("#albumlist").on("click","a.prev",function(){
+			plindex--;
+			if(plindex<0)
+				plindex=pllength-1;
+			$pl.animate({left:0-plindex*655}); 
+		}).on("click","a.next",function(){
+			plindex++;
+			if(plindex>=pllength)
+				plindex=0;
+			$pl.animate({left:0-plindex*655}); 
+		})
+		
+		var $img=$("#imgI");
+		var imgMi=$img.offset().left+$img.width()/2;
+		var pre=function(){
+			if($img.attr("data-pre")!=""){
+			 	window.location.href = $img.attr("data-pre");
+			}else
+				alertM("已经到第一张了",{cName:"error",btnY:0})
+		}
+		var next=function(){
+			if($img.attr("data-next")!=""){
+			 	window.location.href = $img.attr("data-next");
+			}else
+				alertM("已经到最后一张了",{cName:"error",btnY:0})
+		}
+		$img.on("mousemove",function(e){
+			if(e.pageX<imgMi)
+				$img.css("cursor",'url("{AJ_SKIN}images/mod/mouse_left.cur"),auto')
+			else
+				$img.css("cursor",'url("{AJ_SKIN}images/mod/mouse_right.cur"),auto')
+		}).on("click",function(e){
+			if(e.pageX<imgMi)
+				pre();
+			else
+				next();
+		})
+	})
+</script>
+
+</html>

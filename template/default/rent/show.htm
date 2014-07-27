@@ -1,0 +1,237 @@
+	{template 'header'}	
+	<div class="m">
+	<div class="bread">
+			<span class="fr"></span>
+			您当前的位置：<a href="{$MODULE[1][linkurl]}">首页</a>&nbsp;&gt;&nbsp; <a href="{$MOD[linkurl]}">{$MOD[name]}</a>&nbsp;&gt;&nbsp;{cat_pos($CAT, ' &raquo; ')}&nbsp;&gt;&nbsp;{$title}</div>
+			<div class="mb5"></div>
+		<div class="infoMain cf">
+			<div class="de_info cf">
+								<h1>
+					{$title}									</h1>
+				<!--左侧图片轮换-->
+				<div class="pic_left">
+					<div id="preview" class="preview">
+										
+ <img src="{imgurl($t[thumb])}" width="308" height="237" border="0" class='big' />
+
+						<ul class="cf">
+			{if $thumb}<li  class="on" data-bigurl="{$thumb}"><img src="{$thumb}"/></li>{else} {/if}
+			{if $thumb1}<li  data-bigurl="{$thumb1}"><img src="{$thumb1}"/></li>{else} {/if}
+			{if $thumb2}<li   data-bigurl="{$thumb2}"><img src="{$thumb2}"/></li>{else} {/if}
+			{if $thumb3}<li  data-bigurl="{$thumb3}"><img src="{$thumb3}"/></li>{else} {/if}
+			{if $thumb4}<li   data-bigurl="{$thumb4}"><img src="{$thumb4}"/></li>{else} {/if}												
+													</ul>
+											</div>
+					<p style="text-align:center" class="mt5">
+						<a href="#photo">房源照片，查看全部&gt;&gt;</a>
+					</p>
+					<ul id="bdshare"></ul>
+				</div>
+				<!--房源信息-->
+				<div class="house_info">
+					<table>
+						<tbody>
+							<tr>
+								<td width="40">租金：</td>
+								<td colspan="3">
+									{if $price}
+	<EM style="FONT-FAMILY: tahoma; COLOR: #f60; FONT-SIZE: 24px">{$price}</EM><B 
+      class="yellow font16">元/月</B>　{else}<EM style="FONT-FAMILY: tahoma; COLOR: #f60; FONT-SIZE: 24px">面议</EM>{/if}&nbsp;&nbsp;{if $paytype}押{$paytype}付{$paytype2}{/if}&nbsp;&nbsp;{if $renttype==2}合租{/if}									</span>
+																
+								</td>
+							</tr>
+							<tr>
+								<td width="40">面积：</td>
+								<td width="140">{$houseearm}平米</td>
+								<td width="40">户型：</td>
+								<td width="140">{if $room}{$room}室{/if}{if $hall}{$hall}厅{/if}{if $toilet}{$toilet}卫{/if}{if $balcony}{$balcony}阳台{/if}</td>
+							</tr>
+							<tr>
+								<td width="40">装修：</td>
+								<td width="140">{$zhuanxiu}</td>
+								<td>楼层：</td>
+								<td>第{$floor1}层/总{$floor2}层</td>
+							</tr>
+						</tbody>
+					</table>
+					<div class="tel">
+						<p> <b class="font24">{$telephone}</b>
+						</p>
+						<p>联系我时请告知是从{$AJ[sitename]}看到的,谢谢。</p>
+						<div class="extend cf">
+						<a style="cursor:pointer;" onclick="Go('{$MODULE[5][linkurl]}{rewrite('inquiry.php?itemid='.$itemid)}');" >我要意向登记</a>
+						<a href="javascript:document.getElementById('detailForm').submit();" class="favor">收藏房源信息</a>
+<form name="detailForm" id="detailForm" action="{$MODULE[2][linkurl]}favorite.php" method="post">
+<input type="hidden" name="action" value="add"/>
+<input type="hidden" name="title" value="{$title}"/>
+<input type="hidden" name="url" value="{$linkurl}"/>
+</form>
+						</div>
+					</div>
+					<table>
+						<tbody>
+							<tr>
+								<td width="40">小区：</td>
+								<td colspan="3"><A href="{$MODULE[18][linkurl]}show.php?itemid={$houseid}" 
+      target=_blank>{$housename}</A>　(<A 
+      href="{$MODULE[18][linkurl]}show.php?itemid={$houseid}" 
+      target=_blank>房源</A>　<A 
+      href="{$MODULE[18][linkurl]}show.php?itemid={$houseid}" 
+      target=_blank>相册</A>　<A 
+      href="{$MODULE[18][linkurl]}show.php?itemid={$houseid}" 
+      target=_blank>房价</A>)</td>
+							</tr>
+							<tr>
+								<td width="40">地址：</td>
+								<td colspan="3">{$address}(<a href="#maparea">地图</a>)								</td>
+							</tr>
+							<tr>
+								<td width="40">区域：</td>
+								<td>{area_pos($areaid, ' ')}</td>
+								<td width="40">类型：</td>
+								<td width="140">{cat_pos($CAT, ' &raquo; ')}</td>
+							</tr>
+							<tr>
+								<td width="40">房龄：</td>
+								<td>{$houseyear}年</td>
+								<td>朝向：</td>
+								<td width="140">{$toward}&nbsp;</td>
+							</tr>
+							<tr>
+								<td style="border-bottom:none;" width="40">配套：</td>
+								<td colspan="3" style="border-bottom:none;">{$peitao}																											</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<!--右侧经纪人信息-->
+			<DIV  id="contact">{template 'contactfs', 'chip'}</DIV>
+		<div class="a_fangyuan">
+			<div class="Title">
+				<span class="fr gray9">{$editdate}更新</span>
+				<ul>
+					<li class="select">房源总览</li>
+					<li>
+						<a href="#photo">房源照片</a>
+					</li>
+					<li>
+						<a href="#xiaoqu">小区信息</a>
+					</li>
+				</ul>
+			</div>
+			<div class="FangyuanCon">
+				{$content}</div>
+		</div>
+				<div class="esfhouse_detail" id="photo">
+			<h2>
+				<a href="#" class="goTop">返回顶部</a>
+				<b>房源图片</b>
+			</h2>
+			<div class="esfhouse_con">
+				<div class="Img1">
+				{if $thumb}<img data-src="{$thumb}" alt="{$title}" /><br>{else} {/if}
+				{if $thumb1}<img data-src="{$thumb1}" alt="{$title}" /><br>{else} {/if}
+				{if $thumb2}<img data-src="{$thumb2}" alt="{$title}" /><br>{else} {/if}
+				{if $thumb3}<img data-src="{$thumb3}" alt="{$title}" /><br>{else} {/if}
+				{if $thumb4}<img data-src="{$thumb4}" alt="{$title}" /><br>{else} {/if}
+				
+        			        			
+        							</div>
+			</div>
+		</div>
+						<div id="maparea" class="esfhouse_detail cf">
+			<h2>
+				<a href="#" class="goTop">返回顶部</a>
+				<b>小区地图</b>
+			</h2>
+			<div class="esfhouse_con cf">
+							<DIV style="WIDTH:680px; FLOAT: left; HEIGHT: 230px" id=map_container> {php $map_height = 230; }
+	{php @include AJ_ROOT.'/api/map/baidu/show.inc.php';}</DIV>
+	        				<ul class="mapDetail">
+					<li>小区：<A href="{$MODULE[18][linkurl]}show.php?itemid={$houseid}" 
+      target=_blank>{$housename}</A>
+					</li>
+					<li>地址：{$address}</li>
+					<li>公交：{$bus}</li>
+										<li>
+						<input type="button" name="" onclick="window.open('{$MODULE[1][linkurl]}map', '_blank')" class="mapBtn">
+						<!-- &nbsp;
+						<a href="#" target="_blank">纠错地图位置&gt;&gt;</a> -->
+					</li>
+									</ul>
+			</div>
+		</div>
+					
+    	    			<div class="esfhouse_detail cf" id="xiaoqu">
+			<h2>
+				<a href="#" class="goTop">返回顶部</a>
+				<b>小区信息</b>
+			</h2>
+			<div class="esfhouse_conA">
+				<div class="charts" id="charts"></div>
+				<div class="detail">
+					<p>
+						本月均价：{if get_avg_price($houseid)}<b class="red">{get_avg_price($houseid)}</b>元/平米{else}<b class="red">-</b>{/if}，
+	                	比上月上涨：<b class="red">{get_percent_change($houseid)}%</b>
+						<a class="Aicon1" target="_blank" href="{$MODULE[18][linkurl]}price.php?itemid={$houseid}">看历史价格</a>
+					
+						<br>
+						{$housename}有二手房：
+						<a target="_blank" href="{$MODULE[18][linkurl]}sale.php?itemid={$houseid}">
+							<b>{get_sale($houseid)}</b>
+							套
+						</a>
+						<br>
+						{$housename}有出租房：
+						<a target="_blank" href="{$MODULE[18][linkurl]}rent.php?itemid={$houseid}">
+							<b>{get_rent($houseid)}</b>
+							套
+						</a>
+					</p>
+					<span class="exp">
+						<a href="{$MODULE[18][linkurl]}show.php?itemid={$houseid}" target="_blank">查看小区详细信息</a>
+					</span>
+				</div>
+			</div>
+		</div>
+						<div class="esfhouse_detail cf">
+			<h2>
+				<a href="#" class="goTop">返回顶部</a>
+				<b>您还可以看看本小区的其他租房房源</b>
+			</h2>
+			<div class="esfhouse_con">
+			<!--{php $tags=tag("moduleid=7&condition=status=3 and houseid=$houseid&areaid=$cityid&length=22&pagesize=5&order=hits desc&target=_blank&template=null");}-->
+ {loop $tags $i $t}
+					        	<div class="info_Img">
+
+<a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}"><img class="scrollLoading" data-src="{imgurl($t[thumb])}" title="{$t[alt]}" alt="{$t[alt]}" width="160" height="120"></a>
+	        		
+	        	<span><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></span><span><em>{if $t[price]}{$t[price]}元/月{else}面议{/if}</em></span><span>{if $t[room]}{$t[room]}室{/if}{if $t[hall]}{$t[hall]}厅{/if}{if $t[toilet]}{$t[toilet]}卫{/if}{$t[houseearm]}平米</span>
+	           	</div>{/loop}
+	        				</div>
+		</div>
+						{template 'footer'}</div>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=1.2"></script>
+	<script type="text/javascript">
+	seajs.use(["jquery","alert","highcharts","alertlist","share"],function($,alertM,highcharts,al){
+	$("#bdshare").share();
+	
+	highcharts('charts',"{$housename}",[{get_linedate($houseid)}],[{get_lineprice($houseid)}],'元/平米');
+	var $pli=$("#preview li")
+	var $pimg=$("#preview img").eq(0);
+	$("#preview").on("click","li",function(){
+		$pli.removeClass("on")
+		$pimg.attr("src",$(this).addClass("on").attr("data-bigurl"))
+	}).find("li:eq(0)").click();
+
+
+	
+	$("a.goTop").click(function(){
+		$('html,body').animate({scrollTop: 0})
+		return false
+	})
+})
+</script>
+</body>
+</html>

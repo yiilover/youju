@@ -1,0 +1,248 @@
+{template 'header'}
+<div class="m">	
+   <link href="{AJ_SKIN}xinfang_jisuanqi.css" rel="stylesheet" type="text/css"/>
+  <div id="content">
+<!--计算器-->
+			<div class="b_cal mt10 cf">
+				<div class="b_cal_box b_cal_line fl">
+					<div class="b_cal_bg1"></div>
+					<a class="b_cal_box_bg1" href="{$MODULE[1][linkurl]}tool/"></a>
+				</div>
+				<div class="b_cal_box b_cal_line fl ">
+					<div class="b_cal_bg2 "></div>
+					<a class="b_cal_box_bg2" href="{$MODULE[1][linkurl]}tool/benxi.php"></a>
+					<a class="b_cal_box_bg3" href="{$MODULE[1][linkurl]}tool/benjin.php"></a>
+					<a class="b_cal_box_bg4" href="{$MODULE[1][linkurl]}tool/gjj.php"></a>
+				</div>
+				<div class="b_cal_box fl">
+					<div class="b_cal_bg3"></div>
+					<a class="b_cal_box_red5" href="{$MODULE[1][linkurl]}tool/tqhd.php"></a>
+					<a class="b_cal_box_bg6" href="{$MODULE[1][linkurl]}tool/sf.php"></a>
+				</div>
+			</div>
+<!--内容区-->
+			<div class="b_cal mt10">				
+				<script src="{AJ_SKIN}js/jisuanqi5.js" type="text/javascript"></script>
+			<form name="tqhdjsq">
+				<div class="b_cal_bg cf">
+					<div class="b_cal_left fl">
+						<div class="b_cal_left_top">
+							<div class="b_cal_bg5 "></div>
+						</div>
+							<div class="b_cal_left_conn">
+								<ul class="b_cal_l sllongl">
+									<li>
+										<span>还款类型：</span>
+										<input type="radio" class="radio" checked="" name="dklx">
+										公积金贷款
+										<input type="radio" class="radio" name="dklx">商业性贷款</li>
+									<li>
+										<span>原贷款金额：</span>
+										<input size="10" name="dkzws">&nbsp;万元</li>
+									<li>
+										<span>原贷款年限：</span>
+										<select size="1" name="yhkqs">
+											<option value="24">2年(24期)</option>
+											<option value="36">3年(36期)</option>
+											<option value="48">4年(48期)</option>
+											<option value="60">5年(60期)</option>
+											<option value="72">6年(72期)</option>
+											<option value="84">7年(84期)</option>
+											<option value="96">8年(96期)</option>
+											<option value="108">9年(108期)</option>
+											<option value="120">10年(120期)</option>
+											<option value="132">11年(132期)</option>
+											<option value="144">12年(144期)</option>
+											<option value="156">13年(156期)</option>
+											<option value="168">14年(168期)</option>
+											<option value="180" selected="">15年(180期)</option>
+											<option value="240">20年(240期)</option>
+											<option value="300">25年(300期)</option>
+											<option value="360">30年(360期)</option>
+										</select>
+									</li>
+									<li>
+										<span>贷款利率：</span>
+										<select id="lilv" name="dklv_class" style="width:200px">
+											<option value="45">08年12月23日第二套房(1.1倍)</option>
+											<option value="44">08年12月23日利率基准</option>
+											<option value="43">08年12月23日利率上限(1.1倍)</option>
+											<option value="42" selected="">08年12月23日利率下限(85折)</option>
+											<option value="41" selected="">08年12月23日利率下限(7折)</option>
+											<option value="40">08年11月27日第二套房</option>
+											<option value="39">08年11月27日利率基准</option>
+											<option value="38">08年11月27日利率上限</option>
+											<option value="37">08年11月27日利率下限</option>
+										</select>
+									</li>
+									<li>
+										<span>第一次还款时间：</span>
+										<select name="yhksjn">
+											<option value="1997">1997</option>
+											<option value="1998">1998</option>
+											<option value="1999">1999</option>
+											<option value="2000">2000</option>
+											<option value="2001">2001</option>
+											<option value="2002">2002</option>
+											<option value="2003">2003</option>
+											<option value="2004">2004</option>
+											<option value="2005">2005</option>
+											<option value="2006">2006</option>
+											<option value="2007">2007</option>
+											<option value="2008">2008</option>
+											<option value="2009" selected="">2009</option>
+										</select>
+										&nbsp;年
+									</li>
+									<li><span> </span>
+										<select name="yhksjy">
+											<option value="1">1</option>
+											<option value="2">2</option>
+											<option value="3">3</option>
+											<option value="4">4</option>
+											<option value="5">5</option>
+											<option value="6">6</option>
+											<option value="7">7</option>
+											<option value="8" selected="">8</option>
+											<option value="9">9</option>
+											<option value="10">10</option>
+											<option value="11">11</option>
+											<option value="12">12</option>
+										</select>
+										&nbsp;月
+									</li>
+									<li>
+										<span>预计提前还款时间：</span>
+										<select name="tqhksjn">
+											<option value="2002">2002</option>
+											<option value="2003">2003</option>
+											<option value="2004">2004</option>
+											<option value="2005">2005</option>
+											<option value="2006">2006</option>
+
+											<option value="2007">2007</option>
+											<option value="2008">2008</option>
+											<option value="2009" selected="">2009</option>
+											<option value="2010">2010</option>
+											<option value="2011">2011</option>
+											<option value="2012">2012</option>
+
+											<option value="2013">2013</option>
+											<option value="2014">2014</option>
+											<option value="2015">2015</option>
+											<option value="2016">2016</option>
+											<option value="2017">2017</option>
+											<option value="2018">2018</option>
+
+											<option value="2019">2019</option>
+											<option value="2020">2020</option>
+											<option value="2021">2021</option>
+											<option value="2022">2022</option>
+											<option value="2023">2023</option>
+											<option value="2024">2024</option>
+
+											<option value="2025">2025</option>
+											<option value="2026">2026</option>
+											<option value="2027">2027</option>
+											<option value="2028">2028</option>
+											<option value="2029">2029</option>
+											<option value="2030">2030</option>
+
+											<option value="2031">2031</option>
+											<option value="2032">2032</option>
+											<option value="2033">2033</option>
+											<option value="2034">2034</option>
+										</select>
+										&nbsp;年
+									</li>
+									<li><span> </span>
+										<select name="tqhksjy">
+											<option value="1">1</option>
+											<option value="2">2</option>
+											<option value="3">3</option>
+											<option value="4">4</option>
+											<option value="5">5</option>
+											<option value="6">6</option>
+											<option value="7">7</option>
+											<option value="8" selected="">8</option>
+											<option value="9">9</option>
+											<option value="10">10</option>
+											<option value="11">11</option>
+											<option value="12">12</option>
+										</select>
+										&nbsp;月
+									</li>
+									<li>
+										<span>提前还款方式：</span>
+										<input type="radio" class="radio" checked="" name="tqhkfs" style="border: 0pt none;">
+										一次提前还清
+										<br>
+										<span>&nbsp;</span>
+										<input type="radio" class="radio" style="border: 0pt none;" value="" name="tqhkfs">
+										部分提前还款
+										<input size="6" name="tqhkws">&nbsp;万元</li>
+									<li>
+										<span>处理方式：</span>
+										<input type="radio" class="radio" checked="" name="clfs" style="border: 0pt none;">
+										缩短还款年限，月还款额基本不变
+										<br>
+										<span>&nbsp;</span>
+										<input type="radio" class="radio" name="clfs" style="border: 0pt none;">减少月还款额，还款期不变</li>
+									<li class="cbt">
+										<input name="" type="button" class="sbmt" onClick="play()">
+										<input name="" onClick="formReset(this.form);" type="reset" class="tbmt" value=""></li>
+								</ul>
+							</div>
+					</div>
+					<div class="b_cal_right fr sllong">
+						<h2>查看结果</h2>
+						<ul>
+							<li>
+								<span>原月还款额：</span>
+								<input name="ykhke" size="6">（元）</li>
+							<li>
+								<span>该月一次还款额：</span>
+
+								<input name="gyyihke" size="6">（元）</li>
+							<li>
+								<span>原最后还款期：</span>
+
+								<input name="yzhhkq" size="6">（元）</li>
+							<li>
+								<span>下月起月还款额：</span>
+
+								<input name="xyqyhke" size="6">（元）</li>
+							<li>
+								<span>已还款总额：</span>
+								<input name="yhkze" size="6">（元）</li>
+							<li>
+								<span>节省利息支出：</span>
+
+								<input name="jslxzc" size="6">（元）</li>
+							<li>
+								<span>已还利息额：</span>
+								<input name="yhlxe" size="6">（元）</li>
+							<li>
+								<span>新的最后还款期：</span>
+
+								<input name="xdzhhkq" size="6">（元）</li>
+							<li>
+								<span>计算结果提示：</span>
+
+								<input name="jsjgts" size="6"></li>
+
+						</ul>
+						<span class="tip">以上结果仅供参考</span>
+						<h2>提前还款方式</h2>
+						<p>
+							1. 北京公积金贷款最高额度为80万元人民币左右；
+							<br>
+							2. 对已贷款购买一套住房但人均面积低于当地平均水平，再申请购买第二套普通自住房的居民，比照执行首次贷款购买普通自住房的优惠政策。
+						</p>
+					</div>
+				</div>
+                </form>			</div>
+		</div>
+		{template 'footer'}	</div>
+</body>
+</html>

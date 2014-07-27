@@ -1,0 +1,11 @@
+{loop $tags $k $t}
+    		<p class="hbor">
+           			<span class="w1"><a href="{$t[linkurl]}" target="_blank">{$t[title]}</a> {area_poss($t[areaid], '', 1)}</span>
+           			           			<span class="w2">{if $t[room]}{$t[room]} “{/if}{if $t[hall]}{$t[hall]}Ã¸{/if}{if $t[toilet]}{$t[toilet]}Œ¿{/if}</span>
+           			           			<span class="w3">{if $t[price]}<b class="red">{$t[price]}</b>‘™{else}√Ê“È{/if}</span>
+           			<span class="w4"><b class="red">{$t[houseearm]}</b>©O</span>
+           			<span class="w5">{timetodate($t[edittime], 3)}</span>
+           		</p>
+
+{/loop}		
+{if $showpage && $pages}<div class="pages">{$pages}</div>{/if}

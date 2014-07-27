@@ -1,0 +1,422 @@
+<html>
+<head>
+<title>提前还贷计算器</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<style type="text/css">
+<!--
+a:link { font-family: 宋体;text-decoration: none }
+a:visited{ font-family: 宋体;text-decoration: none }
+a:hover{text-decoration: underline }
+.k1{font-size:14px;line-height:20px}
+.k2{font-size:12px;line-height:20px}
+.k3{font-size:12px;line-height:18px}
+
+a.js:link { font-size:12.8px;font-family: 宋体;color: #00000;text-decoration: none }
+a.js:visited{ font-size:12.8px;font-family: 宋体;color: #00000;text-decoration: none }
+a.js:hover{ font-size:12.8px;color: #FF0000; text-decoration: none }
+
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0">
+<script language=javascript>
+function play(){
+
+  if (document.myform.dkze.value=='') 
+
+  	{
+
+  	alert('请填入贷款总额');
+
+  	return false;
+
+  	}
+
+  else
+
+  	sm=parseFloat(document.myform.dkze.value)*10000;
+
+  if(document.myform.hklx[1].checked)
+
+  {
+
+  	if(document.myform.hklxje.value=='')
+
+    		{
+
+    		alert('请填入部分提前还款额度');
+
+    		return false;
+
+    		}
+
+    }
+
+  stime=parseInt(document.myform.ydkqx.options[document.myform.ydkqx.selectedIndex].value);
+
+  if(document.myform.dklx[0].checked && stime<=60) srate=0.003;
+
+  if(document.myform.dklx[0].checked && stime>60) srate=0.003375;
+
+  if(document.myform.dklx[1].checked && stime<=60) srate=0.003975;
+
+  if(document.myform.dklx[1].checked && stime>60) srate=0.0042;
+
+  md=(parseInt(document.myform.yjtqhksjn.options[document.myform.yjtqhksjn.selectedIndex].value)-parseInt(document.myform.dychksjn.options[document.myform.dychksjn.selectedIndex].value))*12 + (parseInt(document.myform.yjtqhksjy.options[document.myform.yjtqhksjy.selectedIndex].value)-parseInt(document.myform.dychksjy.options[document.myform.dychksjy.selectedIndex].value));
+
+  if(md<0 || md>stime)
+
+  {
+
+  	alert('预计提前还款时间与第一次还款时间有矛盾，请查实');
+
+  	return false;
+
+  	}
+
+  yhk=sm*(srate*Math.pow((1+srate),stime))/(Math.pow((1+srate),stime)-1);
+
+  lrq=(parseInt(document.myform.dychksjn.options[document.myform.dychksjn.selectedIndex].value)+Math.floor((stime+parseInt(document.myform.dychksjy.options[document.myform.dychksjy.selectedIndex].value)-2)/12))+'年'+((stime+parseInt(document.myform.dychksjy.options[document.myform.dychksjy.selectedIndex].value)-2) % 12+1)+'月';
+
+  pol=yhk*md;
+
+  rsd=0;
+
+  uir=0;
+
+  for(i=1;i<=md;i++){
+
+    rsd=rsd+(sm-uir)*srate;
+
+    uir=uir+yhk-(sm-uir)*srate;
+
+  }
+
+  remark='';
+
+  if(document.myform.hklx[1].checked){
+
+    ert=document.myform.hklxje.value*10000;
+
+    if(ert+yhk>=yhk*(1/srate-1/(srate*Math.pow((1+srate),(stime-md))))){
+
+      remark='您的提前还款额已经可以一次还清所有未还款项！';
+
+    }else{
+
+      if(document.myform.clfs[0].checked){
+
+        wer=0;
+
+        qwa=0;
+
+        for(j=sm-uir-yhk-ert;j>=0;j=j-qwa){
+
+          qwa=yhk/Math.pow((1+srate),wer);
+
+          wer++;
+
+        }
+
+        vbr=(sm-uir-yhk-ert)*(srate*Math.pow((1+srate),wer))/(Math.pow((1+srate),wer)-1);
+
+        bnf=yhk+ert;
+
+        thx=yhk*stime-pol-bnf-vbr*wer;
+
+        bncc=(parseInt(document.myform.dychksjn.options[document.myform.dychksjn.selectedIndex].value)+Math.floor((wer+md+parseInt(document.myform.dychksjy.options[document.myform.dychksjy.selectedIndex].value)-2)/12))+'年'+((wer+md+parseInt(document.myform.dychksjy.options[document.myform.dychksjy.selectedIndex].value)-2) % 12+1)+'月';
+
+      }else{
+
+        vbr=(sm-uir-yhk-ert)*(srate*Math.pow((1+srate),(stime-md)))/(Math.pow((1+srate),(stime-md))-1);
+
+        bnf=yhk+ert;
+
+        thx=yhk*stime-pol-bnf-vbr*(stime-md);
+        bncc=lrq;
+
+      }
+
+    }
+
+  }
+
+  if(document.myform.hklx[0].checked || remark!=''){
+
+    bnf=(sm-uir)*(1+srate);
+
+    vbr=0;
+
+    thx=yhk*stime-pol-bnf;
+
+    bncc=document.myform.yjtqhksjn.options[document.myform.yjtqhksjn.selectedIndex].value+'年'+document.myform.yjtqhksjy.options[document.myform.yjtqhksjy.selectedIndex].value+'月';
+
+  }
+
+  document.myform.ykhke.value=chgnum(yhk);
+
+  document.myform.yzhhkq.value=lrq;
+
+  document.myform.yhkze.value=chgnum(pol);
+
+  document.myform.yhlxe.value=chgnum(rsd);
+
+  document.myform.gyyihke.value=chgnum(bnf);
+
+  document.myform.xyqyhke.value=chgnum(vbr);
+
+  document.myform.jslxzc.value=chgnum(thx);
+
+  document.myform.xdzhhkq.value=bncc;
+
+  document.myform.jsjgts.value=remark;
+
+}
+
+function chgnum(sum){
+
+  return Math.round(sum*100)/100;
+
+}
+</script>
+<form name=myform>
+  <table border=0 cellpadding=0 cellspacing=0 width=400 align="center">
+    <tr valign=top> 
+      <td align=middle> 
+        <table border=0 cellpadding=0 cellspacing=1 width="100%" bgcolor="#666666" class=k3>
+          <tr> 
+            <td height=20 bgcolor="#97D5FF" align="center"><a name=#5></a>提前还贷计算器</td>
+          </tr>
+          <tr> 
+            <td height=30 bgcolor="cfefff">贷款总额： 
+              <input name=dkze size=10>
+              万元原贷款期限： 
+              <select name=ydkqx size=1>
+                <option 
+                    value=24>2年(24期)</option>
+                <option 
+                    value=36>3年(36期)</option>
+                <option 
+                    value=48>4年(48期)</option>
+                <option 
+                    value=60>5年(60期)</option>
+                <option 
+                    value=72>6年(72期)</option>
+                <option 
+                    value=84>7年(84期)</option>
+                <option 
+                    value=96>8年(96期)</option>
+                <option 
+                    value=108>9年(108期)</option>
+                <option 
+                    value=120>10年(120期)</option>
+                <option 
+                    value=132>11年(132期)</option>
+                <option 
+                    value=144>12年(144期)</option>
+                <option 
+                    value=156>13年(156期)</option>
+                <option 
+                    value=168>14年(168期)</option>
+                <option selected 
+                    value=180>15年(180期)</option>
+                <option 
+                    value=240>20年(240期)</option>
+                <option 
+                    value=300>25年(300期)</option>
+                <option 
+                    value=360>30年(360期)</option>
+              </select>
+            </td>
+          </tr>
+          <tr> 
+            <td height=30 bgcolor="cfefff">第一次还款时间：　 
+              <select name=dychksjn>
+                <option 
+                    selected value=1997>1997 
+                <option value=1998>1998 
+                <option 
+                    value=1999>1999 
+                <option value=2000>2000 
+                <option 
+                    value=2001>2001 
+                <option value=2002>2002</option>
+              </select>
+              年 
+              <select name=dychksjy>
+                <option selected value=1>1 
+                <option 
+                    value=2>2 
+                <option value=3>3 
+                <option value=4>4 
+                <option 
+                    value=5>5 
+                <option value=6>6 
+                <option value=7>7 
+                <option 
+                    value=8>8 
+                <option value=9>9 
+                <option value=10>10 
+                <option 
+                    value=11>11 
+                <option value=12>12</option>
+              </select>
+              月 <br>
+              <br>
+              预计提前还款时间： 
+              <select name=yjtqhksjn>
+                <option selected 
+                    value=2001>2001 
+                <option value=2002>2002 
+                <option 
+                    value=2003>2003 
+                <option value=2004>2004 
+                <option 
+                    value=2005>2005 
+                <option value=2006>2006 
+                <option 
+                    value=2007>2007 
+                <option value=2008>2008 
+                <option 
+                    value=2009>2009 
+                <option value=2010>2010 
+                <option 
+                    value=2011>2011 
+                <option value=2012>2012 
+                <option 
+                    value=2013>2013 
+                <option value=2014>2014 
+                <option 
+                    value=2015>2015 
+                <option value=2016>2016 
+                <option 
+                    value=2017>2017 
+                <option value=2018>2018 
+                <option 
+                    value=2019>2019 
+                <option value=2020>2020 
+                <option 
+                    value=2021>2021 
+                <option value=2022>2022 
+                <option 
+                    value=2023>2023 
+                <option value=2024>2024 
+                <option 
+                    value=2025>2025 
+                <option value=2026>2026 
+                <option 
+                    value=2027>2027 
+                <option value=2028>2028 
+                <option 
+                    value=2029>2029 
+                <option value=2030>2030 
+                <option 
+                    value=2031>2031 
+                <option value=2032>2032</option>
+              </select>
+              <select name=yjtqhksjy>
+                <option selected value=1>1 
+                <option 
+                    value=2>2 
+                <option value=3>3 
+                <option value=4>4 
+                <option 
+                    value=5>5 
+                <option value=6>6 
+                <option value=7>7 
+                <option 
+                    value=8>8 
+                <option value=9>9 
+                <option value=10>10 
+                <option 
+                    value=11>11 
+                <option value=12>12</option>
+              </select>
+              月</td>
+          </tr>
+          <tr> 
+            <td height=30 bgcolor="cfefff">贷款类型： 
+              <input CHECKED name=dklx type=radio>
+              公积金贷款 
+              <input name=dklx type=radio>
+              商业性贷款</td>
+          </tr>
+          <tr> 
+            <td height=30 bgcolor="cfefff"> 　　　　　 
+              <input CHECKED name=hklx type=radio>
+              一次提前还清 
+              <input name=hklx type=radio>
+              部分提前还款 <br>
+              　　　　　 
+              <input name=hklxje size=6>
+              万元（不含当月应还款额）</td>
+          </tr>
+          <tr> 
+            <td height=30 bgcolor="cfefff">处理方式： 
+              <input CHECKED name=clfs type=radio>
+              缩短还款年限，月还款额基本不变 <br>
+              　　　　　 
+              <input name=clfs type=radio>
+              减少月还款额，还款期不变</td>
+          </tr>
+          <tr> 
+            <td height=25 bgcolor="cfefff" align="center"> 
+              <input onClick=play() style="font-size:12px;" type=button value=开始计算 name="button" class="box">
+               
+              <input type=reset style="font-size:12px;" value=清除 name="reset" class="box">
+            </td>
+          </tr>
+        </table>
+        <table border=0 cellpadding=0 cellspacing=1 width=100% bgcolor="#666666" class=k3>
+          <tr> 
+            <td height=20 bgcolor="#97D5FF" align="center">计算结果</td>
+          </tr>
+          <tr> 
+            <td height=30 bgcolor="cfefff">原月还款额： 
+              <input name=ykhke size=12>
+              元原最后还款期： 
+              <input name=yzhhkq size=10>
+            </td>
+          </tr>
+          <tr> 
+            <td height=30 bgcolor="cfefff">已还款总额： 
+              <input name=yhkze size=12>
+              元已还利息额： 
+              <input name=yhlxe size=10>
+              元</td>
+          </tr>
+          <tr> 
+            <td height=30 bgcolor="cfefff">该月一次还款额： 
+              <input name=gyyihke size=12>
+              元<br>
+              下月起月还款额： 
+              <input name=xyqyhke size=12>
+              元</td>
+          </tr>
+          <tr> 
+            <td height=30 bgcolor="cfefff">节省利息支出： 
+              <input name=jslxzc size=12>
+              元</td>
+          </tr>
+          <tr> 
+            <td height=30 bgcolor="cfefff">新的最后还款期： 
+              <input name=xdzhhkq size=12>
+            </td>
+          </tr>
+          <tr> 
+            <td height=30 bgcolor="cfefff">计算结果提示： 
+              <input name=jsjgts size=40>
+            </td>
+          </tr>
+          <tr> 
+            <td></td>
+          </tr>
+        </table>
+      </td>
+      <td width=1><br>
+      </td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>

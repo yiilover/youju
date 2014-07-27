@@ -1,0 +1,181 @@
+html, body, div, span,object, iframe, h1, h2, h3, h4, h5, h6, p,a, em, img, strong, sub, sup, dl, dt, dd, ol, ul, li, form, label, embed{margin: 0;padding: 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;}
+body{font: 12px/2em Arial,Helvetica, SimSun,sans-serif; color:#333;background:#fff;}
+:focus {outline: 0;}
+ol, ul {list-style: none;}
+table {border-collapse: collapse;border-spacing: 0;}
+.cf:before,
+.cf:after {content: " ";display: table;}
+.cf:after{clear: both;}
+.cf{*zoom: 1;}
+a{color:#333;text-decoration:none;}
+a:hover{color:#f00;text-decoration:underline;}
+.fl{float:left;}
+.fr{float:right;}
+.mt5{margin-top:5px;}
+.mb5{margin-bottom: 5px;}
+.mb10{margin-bottom:10px;}
+.mt10{margin-top:10px;}
+.mt2{margin-top:2px;}
+.border{border:1px #ddd solid;border-radius: 3px}
+.hide{display:none;}
+.block{display:block;}
+.red,a.red{color:#C71202;}
+.blue,a.blue{color:blue;}
+.black{color: #000;}
+.gray6{color:#666;}
+.gray9{color:#999;}
+.f14{font-size:14px;}
+.f16{font-size:16px;}
+#main{width:960px;margin:0 auto}
+input[type="text"],textarea{box-shadow: 0 1px 3px #ddd inset}
+input[type="text"]:focus,textarea:focus{box-shadow: 0 1px 3px #ccc inset}
+textarea{overflow: auto;}
+#topBar{height:30px;border:1px solid #e8e8e8;}
+.headerLeft{
+	width: 370px;
+	height:30px;
+	line-height: 30px;
+	color: #666;
+	padding: 0 0 0 9px;
+	position: relative;
+}
+.headerLeft a{color: #014BBB;display: inline-block;margin: 0 0 0 9px;}
+.logBtn,.regBtn{
+	width: 47px;
+	height: 20px;
+	background-image: url(images/header/header.gif);
+	border: none;
+	position:absolute;
+	left: 160px;
+	top: 5px;
+}
+.regBtn{
+	left: 215px;
+	background-position: 0 -24px;
+}
+.qqBtn{
+	width: 47px;
+	height: 20px;
+	
+	border: none;
+	position:absolute;
+	left: 270px;
+	top: 5px;
+}
+#user-ed{
+	width: 550px;
+	padding-right: 10px;
+}
+#user-ed li{
+	float: right;
+	position: relative;
+	height: 28px;
+	line-height: 28px;
+	border: 1px #fff solid;
+	padding: 0 9px;
+}
+#user-ed .lines {
+	background: #E0E0E0;
+	display: block;
+	float: right;
+	height: 12px;
+	margin: 8px 0 0;
+	width: 1px;
+	padding: 0;
+}
+#user-ed div{
+	display: none
+}
+.tl_down{
+	width: 0px;
+	height: 0px;
+	overflow: hidden;
+	border: 4px #fff solid;
+	border-top: 4px #666 solid;
+	border-bottom: 0;
+	position: absolute;
+	right: 5px;
+	top: 12px;
+}
+#user-ed .tl_more{
+	padding-right: 16px;
+}
+#user-ed .hover{
+	border: 1px #ddd solid;
+	border-bottom: 1px #fff solid;
+	z-index: 99;
+}
+#user-ed .hover .tl_down{
+	border-bottom: 4px #666 solid;
+	border-top: 0;
+}
+#user-ed .hover div{
+	display: block;
+}
+.zhuomian {
+	padding-left: 16px;
+	background: url(images/header/header.gif) no-repeat 0 -73px;
+	height: 28px;
+	line-height: 28px;
+	display: inline-block;
+}
+#user-ed .more_list,#user-ed .more_navlist{
+	position: absolute;
+	top: 28px;
+	right: -1px;
+	_right: -2px;
+	width: 97px;
+	border: 1px #ddd solid;
+	border-top: 0;
+	background:#fff;
+}
+#user-ed .more_list a{
+	display: block;
+	text-align: left;
+	padding: 0 16px 0 9px;
+	border-top: 1px #eee solid
+}
+#user-ed .more_navlist{
+	width: 250px;
+	padding: 0 6px;
+	border-top: 1px #ddd solid;
+	line-height: 18px;
+}
+.more_navlist p{
+	border-bottom: 1px #eee solid
+}
+#user-ed .more_navlist .title{
+	font-weight: bold;
+	color: #057BD2;
+	margin: 8px 2px 0;
+}
+#user-ed .more_navlist a{
+	margin: 2px;
+	display: inline-block;
+}
+#no_top_bor{
+	position: absolute;
+	top: 28px;
+	right: 0;
+	_right:-1px;
+	width: 73px;
+	height: 1px;
+	background:#fff;
+	overflow: hidden; 
+}
+#footer{
+	border-top: #DDD 1px solid;
+	padding-top: 10px;
+	margin-top: 10px;
+	line-height: 26px;
+	text-align: center;
+}
+#footer a{
+	color: #353535;
+	padding: 0 5px;
+}
+/*LOGO+ËÑË÷*/
+.logo_br{float:left;padding:12px 20px   0 10px !important;}
+.city{ margin: 30px 0 10px 0;position: relative !important;}
+.city h3{font-family: "Î¢ÈíÑÅºÚ","ºÚÌå";font-size: 16px; height:25px; line-height:35px; background:url(images/index/xiala.gif) no-repeat right 12px; !important;}
+.city a:link,.city a:visited{ color:#666  }

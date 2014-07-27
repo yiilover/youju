@@ -1,0 +1,9 @@
+{loop $tags $k $t}	
+ <li><a href="{$t[linkurl]}" target="_blank"><img src="{imgurl($t[thumb])}"  width="108" height="81"></a>
+          <p><a href="{$t[linkurl]}" target="_blank">{dsubstr($t[title], 12, $suffix = '')}</a><br/>
+            {if $t[price]}{$t[price]}元/㎡{else}一房一价{/if}<br/>
+            {area_poss($t[areaid], ' ')}<br/>
+            {if $t[typeid]==0}住宅{elseif $t[typeid]==1}商铺{elseif $t[typeid]==2}公寓{elseif $t[typeid]==3}写字楼{elseif $t[typeid]==4}别墅{elseif $t[typeid]==5}经济房{/if}</p>
+          </li>{/loop}	
+		  
+		 

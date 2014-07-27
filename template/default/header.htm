@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset={AJ_CHARSET}"/>
+<title>{if $seo_title}{$seo_title}{else}{if $head_title}{$head_title}{$AJ[seo_delimiter]}{/if}{if $city_sitename}{$city_sitename}{else}{$AJ[sitename]}{/if}{/if}</title>
+{if $head_keywords}
+<meta name="keywords" content="{$head_keywords}"/>
+{/if}
+{if $head_description}
+<meta name="description" content="{$head_description}"/>
+{/if}
+<meta name="generator" content="AIJIACMS  - www.aijiacms.com"/>
+<link rel="shortcut icon" type="image/x-icon" href="{AJ_STATIC}favicon.ico"/>
+<link rel="bookmark" type="image/x-icon" href="{AJ_STATIC}favicon.ico"/>
+{if $head_canonical}
+<link rel="canonical" href="{$head_canonical}"/>
+{/if}
+{if $EXT[archiver_enable]}
+<link rel="archives" title="{$AJ[sitename]}" href="{$EXT[archiver_url]}"/>
+{/if}
+<link rel="stylesheet" type="text/css" href="{AJ_SKIN}reset.css"/>
+<link rel="stylesheet" type="text/css" href="{AJ_SKIN}style.css"/>
+{if $moduleid>4}<link rel="stylesheet" type="text/css" href="{AJ_SKIN}{$module}.css"/>{/if}
+
+{if $CSS}
+{loop $CSS $css}
+<link rel="stylesheet" type="text/css" href="{AJ_SKIN}{$css}.css"/>
+{/loop}
+{/if}
+<!--[if lte IE 6]>
+<link rel="stylesheet" type="text/css" href="{AJ_SKIN}ie6.css"/>
+<![endif]-->
+{if !AJ_DEBUG}<script type="text/javascript">window.onerror=function(){return true;}</script>{/if}
+<script type="text/javascript" src="{AJ_STATIC}lang/{AJ_LANG}/lang.js"></script>
+<script type="text/javascript" src="{AJ_STATIC}file/script/config.js"></script>
+<script type="text/javascript" src="{AJ_STATIC}file/script/jquery.js"></script>
+<script type="text/javascript" src="{AJ_STATIC}file/script/common.js"></script>
+<script type="text/javascript" src="{AJ_STATIC}file/script/page.js"></script>
+<script src="{AJ_SKIN}js/sea.js" type="text/javascript"></script>
+{if $lazy}<script type="text/javascript" src="{AJ_STATIC}file/script/jquery.lazyload.js"></script>{/if}
+{if $JS}
+{loop $JS $js}
+<script type="text/javascript" src="{AJ_STATIC}file/script/{$js}.js"></script>
+{/loop}
+{/if}
+{php $searchid = ($moduleid > 3 && $MODULE[$moduleid]['ismenu'] && !$MODULE[$moduleid]['islink']) ? $moduleid : 5;}
+{php $searchids = array(5,16,6,4,21,22);}
+{if !in_array($searchid, $searchids)}
+	{php $searchids[] = $searchid;}
+{/if}
+<script type="text/javascript">
+{if $moduleid==1 && $EXT[wap_enable] && $EXT[wap_goto]}
+GoMobile('{$EXT[wap_url]}');
+{/if}
+var searchid = {$searchid};
+{if $itemid && $AJ[anticopy]}
+document.oncontextmenu=function(e){return false;};
+document.onselectstart=function(e){return false;};
+{/if}
+</script>
+<!--[以上为系统关键代码，除非您明确其含义，否则请勿修改或删除，否则会导致系统错误]-->
+<!--[模板中所有带id的元素，请勿修改或删除，否则会导致部分JS代码无法运行]-->
+<!--[以上类似的注释，在编译模板时，系统会自动移除，不会显示在实际的页面中]-->
+</head>
+<body>
+<div class="head" id="head">
+	<div class="head_m">
+		<div class="f_r" id="aijiacms_member"></div>
+		<div class="head_l">
+			<ul>
+			{if $AJ[city]}<li class="h_city">[<span id="aijiacms_city">{$city_name}</span>] <a href="{AJ_PATH}api/city.php" title="点击切换城市" rel="nofollow">切换</a></li>{/if}
+			<li class="h_fav"><script type="text/javascript">addFav('收藏本页');</script></li>
+			{if $EXT[wap_enable]}<li class="h_wap"><a href="{$EXT[wap_url]}mobile.php">手机版</a>&nbsp;</li>{/if}
+			
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="m head_s" id="aijiacms_space"></div>
+<div class="m"><div id="search_tips" style="display:none;"></div></div>
+<div class="m">
+	<div id="search_module" style="display:none;" onmouseout="Dh('search_module');" onmouseover="Ds('search_module');">
+	{loop $MODULE $m}{if $m[ismenu] && !$m[islink]}<a href="javascript:void(0);" onclick="setModule('{$m[moduleid]}','{$m[name]}')">{$m[name]}</a>{/if}{/loop}
+	</div>
+</div>
+<div class="m">
+	<div class="logo f_l"><a href="{$MODULE[1][linkurl]}"><img src="{if $MODULE[$moduleid][logo]}{AJ_SKIN}image/logo_{$moduleid}.gif{elseif $AJ[logo]}{$AJ[logo]}{else}{AJ_SKIN}image/logo.gif{/if}" alt="{$AJ[sitename]}"/></a></div>
+	<form id="aijiacms_search" action="{$MODULE[$searchid][linkurl]}search.php" onsubmit="return Dsearch();">
+	<input type="hidden" name="moduleid" value="{$searchid}" id="aijiacms_moduleid"/>
+	<div class="head_search" onmouseover="this.className='head_search_on';" onmouseout="this.className='head_search';">
+		<div>
+			<input name="kw" id="aijiacms_kw" type="text" class="search_i" value="{if $kw}{$kw}{else}请输入关键词{/if}" onfocus="if(this.value=='请输入关键词') this.value='';"{if $AJ[search_tips]} onkeyup="STip(this.value);" autocomplete="off"{/if} x-webkit-speech speech/><input type="text" id="aijiacms_select" class="search_m" value="{$MODULE[$searchid][name]}" readonly onfocus="this.blur();" onclick="$('#search_module').fadeIn('fast');"/><input type="submit" value=" " class="search_s"/>
+		</div>
+		 
+	</div>
+	</form>
+	<div class="head_search_kw f_l">
+	<!-- Baidu Button BEGIN -->
+<div id="bdshare" class="bdshare_b" style="line-height: 12px;">
+<img src="http://bdimg.share.baidu.com/static/images/type-button-1.jpg?cdnversion=20120831" />
+</div>
+<script type="text/javascript" id="bdshare_js" data="type=button&amp;uid=0" ></script>
+<script type="text/javascript" id="bdshell_js"></script>
+<script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000);
+</script>
+<!-- Baidu Button END -->
+	</div>
+	
+	<p class="search_hot"><span class="orange">热搜词:</span><span id="aijiacms_word"><!--{tag("moduleid=$searchid&table=keyword&condition=moduleid=$searchid and status=3&pagesize=10&order=total_search desc&template=list-search_kw")}--></span></p>
+	
+</div>
+
+	<div class="nav20120416">
+    <dl>
+        
+        <dd style="width: 72px" {if $moduleid<4} class="li_on"{/if}>
+            <a href="{$MODULE[1][linkurl]}"><span>首 页</span> </a>
+        </dd>
+		{loop $MODULE $m}{if $m[ismenu]}
+        <dd {if $m[moduleid]==5} style="width: 75px"{/if}  {if $m[moduleid]==$moduleid} class="li_on"{/if}>
+            <a href="{$m[linkurl]}"{if $m[isblank]} target="_blank"{/if}>
+                <span>{$m[name]}&nbsp;</span> </a>
+        </dd>
+		{/if}
+		{/loop}
+        
+        
+        <dt><a href="{$MODULE[1][linkurl]}map" target="_blank">地图找房</a>
+		 <a href="{$MODULE[5][linkurl]}list.php?catid=10"  target="_blank">商铺</a>
+			 {if $EXT[wap_enable]}<a href="{$EXT[wap_url]}mobile.php">手机版</a>{/if}
+        </dt>
+    </dl>
+</div>
+<div class="mt10"></div>

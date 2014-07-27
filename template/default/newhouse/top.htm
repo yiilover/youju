@@ -1,0 +1,198 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312"/>
+<title>{if $seo_title}{$seo_title}{else}{if $head_title}{$head_title}{$AJ[seo_delimiter]}{/if}{if $city_sitename}{$city_sitename}{else}{$AJ[sitename]}{/if}{/if}</title>
+<meta http-equiv="X-UA-Compatible" content="IE=7">
+{if $head_keywords}
+<meta name="keywords" content="{$head_keywords}"/>
+{/if}
+{if $head_description}
+<meta name="description" content="{$head_description}"/>
+{/if}
+<link href="{AJ_SKIN}reset.css" rel="stylesheet" type="text/css"/>
+    
+{if !AJ_DEBUG}<script type="text/javascript">window.onerror=function(){return true;}</script>{/if}
+{if $itemid && $AJ[anticopy]}
+<script type="text/javascript">
+document.oncontextmenu=function(e){return false;};
+document.onselectstart=function(e){return false;};
+
+</script>
+{/if}
+<script src="{AJ_STATIC}file/script/commfunction.js" type="text/javascript"></script>
+<script type="text/javascript" src="{AJ_PATH}lang/{AJ_LANG}/lang.js"></script>
+<script type="text/javascript" src="{AJ_STATIC}file/script/config.js"></script>
+<script type="text/javascript" src="{AJ_STATIC}file/script/common.js"></script>
+<script type="text/javascript" src="{AJ_STATIC}file/script/page.js"></script>
+<script src="{AJ_SKIN}js/sea.js" type="text/javascript"></script>
+</head>
+<body>
+<!--主体-->
+<!--头部--><!--头部开始-->
+<!--q新房广告 新房详情页-全屏-->
+	<div id="main" >
+        <div id="header">
+	<div id="topBar">
+	<div  id="aijiacms_member"></div>
+		<ul class="fr" id="user-ed">
+			<li><a href="{$MODULE[3][linkurl]}shortcut.php" class="zhuomian">保存为桌面</a></li>
+				{if $EXT[wap_enable]}<li><a href="{$EXT[wap_url]}" target="_blank" class="ablue">手机版</a></li>{/if}
+			<li class="lines"></li>
+			<li class="tl_more">
+			<a href="javascript:void(0)">网站导航</a><b class="tl_down"></b>
+			<div class="more_navlist">
+			<a class="title" target="_blank" href="{$MODULE[2][linkurl]}">新房</a>
+			<p>
+			<a target="_blank" href="{$MODULE[2][linkurl]}list.php">楼盘搜索</a>
+			<a target="_blank" href="{$MODULE[8][linkurl]}list-35.html">楼盘动态</a>
+			<a target="_blank" href="{$MODULE[8][linkurl]}list-33.html">楼盘优惠</a>
+			<a target="_blank" href="{$MODULE[8][linkurl]}list-32.html">新房导购</a>
+			<a target="_blank" href="{$MODULE[1][linkurl]}map/newhouse.php">地图找房</a>
+			<a target="_blank" href="{$MODULE[12][linkurl]}">楼盘户型</a>
+			<a target="_blank" href="{$MODULE[1][linkurl]}tool">房贷计算器</a>
+			</p>
+			<a class="title" target="_blank" href="{$MODULE[5][linkurl]}">二手房</a>
+			<p>
+			<a target="_blank" href="{$MODULE[5][linkurl]}list.php?typeid=1">经纪人房源</a>
+			<a target="_blank" href="{$MODULE[5][linkurl]}list.php?typeid=0">个人房源</a>
+			<a target="_blank" href="{$MODULE[18][linkurl]}list.php">小区找房</a>
+			<a target="_blank" href="{$MODULE[1][linkurl]}map/newhouse.php">地图找房</a>
+			<a target="_blank" href="{$MODULE[16][linkurl]}">求购</a>
+			<a target="_blank" href="{$MODULE[4][linkurl]}list.php?g=1">经纪人</a>
+			</p>
+			<a class="title" target="_blank" href="{$MODULE[7][linkurl]}">出租房</a>
+			<p>
+			<a target="_blank" href="{$MODULE[7][linkurl]}list.php?typeid=1">经纪人房源</a>
+			<a target="_blank" href="{$MODULE[7][linkurl]}list.php?typeid=0">个人房源</a>
+			<a target="_blank" href="{$MODULE[18][linkurl]}list.php">小区找房</a>
+			<a target="_blank" href="{$MODULE[7][linkurl]}map.php">地图找房</a>
+			<a target="_blank" href="{$MODULE[5][linkurl]}list.php?typeid=1">求租</a>
+			</p>
+			
+			<a class="title" target="_blank" href="{$MODULE[8][linkurl]}">资讯</a>
+			<p>
+			
+			</div><b id="no_top_bor"></b></li><li class="lines"></li><li class="tl_more">
+                <a href="javascript:void(0)">我的管理中心</a>
+                <b class="tl_down"></b>
+                <div class="more_list"><a target="_blank" href="{$MODULE[2][linkurl]}">会员中心</a>
+                        <a target="_blank" href="{$MODULE[2][linkurl]}">房源管理</a>
+                        <a target="_blank" href="{$MODULE[2][linkurl]}">找房助手</a>
+                        <a target="_blank" href="{$MODULE[2][linkurl]}">积分记录</a></div>
+            </li>
+            <li class="lines"></li><li class="tl_more"><a href="javascript:void(0)">免费发布房源</a>
+			<b class="tl_down"></b>
+			<div class="more_list">
+			<a target="_blank" href="{$MODULE[2][linkurl]}">发布出租</a>
+			<a target="_blank" href="{$MODULE[2][linkurl]}">发布出售</a>
+			<a target="_blank" href="{$MODULE[2][linkurl]}">发布求租</a>
+			<a target="_blank" href="{$MODULE[2][linkurl]}">发布求购</a>
+			</div>
+			</li>
+			<li class="lines"></li>
+			<li><a class="red" href="{$MODULE[1][linkurl]}">首页</a></li>
+			</ul>
+					<script>
+            seajs.use("jquery",function($){
+                $("#user-ed li.tl_more").hover(function(){
+                    $(this).addClass("hover")
+                },function(){
+                    $(this).removeClass("hover")
+                })
+            })
+        </script>
+</div>    <!--q新房广告 登陆栏下通栏1-->
+<!--头部结束-->
+<link href="{AJ_SKIN}xinfang.css" rel="stylesheet" type="text/css" />
+
+<div class="logo_br">
+		<a href="{$MODULE[1][linkurl]}"><img src="{if $MODULE[$moduleid][logo]}{AJ_SKIN}image/logo_{$moduleid}.gif{elseif $AJ[logo]}{$AJ[logo]}{else}{AJ_SKIN}image/logo.gif{/if}"  alt="{$AJ[sitename]}"/></a> 
+</div>
+  {if $AJ[city]}  <div class="city"><h3>{$city_name}</h3><a href="{$MODULE[1][linkurl]}city.php">[切换城市]</a></div>
+  {else} <div class="city"><h3>{$AJ[city_sitename]}</h3><a href="#">[切换城市]</a></div>
+	  {/if}
+	<div id="Search">
+		<ul class="searchURL">
+			{php $searchid = ($moduleid > 3 && $MODULE[$moduleid]['ismenu'] && !$MODULE[$moduleid]['islink']) ? 6 : 6;}
+	{php $searchids = array(6,5,7,8,);}
+	{if !in_array($searchid, $searchids)}
+		{php $searchids[] = $searchid;}
+	{/if}{loop $searchids $s}
+			<li {if $searchid == $s} class="on"{/if}><a href="{$MODULE[$s][linkurl]}" target="_blank">{$MODULE[$s][name]}</a></li>{/loop}
+		</ul>
+		<a href="{$MODULE[1][linkurl]}map/newhouse.php" target="_blank" class="mapS">地图找房</a>
+		<div id="qy">
+			<span>区域/街道</span>
+			<div>
+				<a href="javascript:void(0)" data-val="">全部区县</a>
+				   {php $mainarea = get_mainarea($cityid)}
+						     {loop $mainarea $k $v}    
+						 	<a href="javascript:void(0)" data-val="areaid={$v[areaid]}&">{$v[areaname]}</a>{/loop}
+			</div>
+		</div>
+		<div id="wy">
+			<span>项目类型</span>
+			<div>
+				<a href="javascript:void(0)" data-val="">全部</a>
+				{loop $maincat $k $v}
+		<a href="javascript:void(0)" data-val="catid={$v[catid]}&">{$v[catname]}</a>{/loop}
+												</div>
+		</div>
+		<div id="jg">
+			<span>价格范围</span>
+			<div>
+				<a href="javascript:void(0)" data-val="">全部</a>
+				{php $jiage = array('4000以下','4000-5000元', '5000-6000元', '6000-7000元', '7000-8000元', '8000-9000元', '9000-10000元','10000元以上');}
+{loop $jiage $k $v}
+		<a href="javascript:void(0)" data-val="p=<?php echo $k+1;?>&">{$v}</a>{/loop}
+												</div>
+		</div>
+		<input type="text" value="请输入关键字（楼盘名/地名、开发商等）">
+		<button> </button>
+	</div> </form>
+	<div id="indexMenu"> 
+		<em class="r2"></em>
+		<div class="menuR">
+			<a href="{$MODULE[5][linkurl]}" target="_blank">二手房网</a>
+			<a href="{$MODULE[7][linkurl]}" target="_blank">租房网</a>
+			<a href="{$MODULE[5][linkurl]}list.php?catid=11" target="_blank">写字楼网</a>
+			<a class="noborder" href="{$MODULE[5][linkurl]}list.php?catid=10" target="_blank">商铺网</a>
+		</div>
+		<em class="l2"></em>
+		<ul class="menuL">
+			<li >
+				<a href="{$MODULE[6][linkurl]}" target="_self" >首页<em></em></a>
+			</li>
+			<li >
+				<a href="{$MODULE[6][linkurl]}list.php" target="_self" >搜索楼盘<em></em></a>
+            </li>
+			<li >
+				<a href="{$MODULE[1][linkurl]}map/newhouse.php" target="_blank" >地图找房<em></em></a>
+			</li>
+			<li >
+				<a href="{$MODULE[15][linkurl]}" target="_self" >团购<em></em></a>
+			</li>
+			<li>
+				<a href="{$MODULE[8][linkurl]}list-32.html" target="_blank">导购<em></em></a>
+			</li>
+			<li>
+				<a href="{$MODULE[8][linkurl]}list-33.html" target="_blank">优惠<em></em></a>
+			</li>
+			<li>
+				<a href="{$MODULE[8][linkurl]}list-34.html" target="_blank">看房日记<em></em></a>
+			</li>
+			<li >
+				<a href="{$MODULE[12][linkurl]}" target="_self" >户型图<em></em></a>
+			</li>
+			<li  >
+				<a href="{$MODULE[1][linkurl]}tool" target="_self" >工具</a>
+			</li>
+		</ul>
+	</div>
+</div>
+<script type="text/javascript">
+	seajs.use(["jquery","hsearch"],function($){
+		$("#Search").hSearch("{$MODULE[6][linkurl]}","")
+	})
+</script>    <!--新房二手房广告 新房首页-导航下通栏1-->

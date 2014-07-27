@@ -1,0 +1,78 @@
+.b_cal{border:1px solid #dbdbdb;background:#fff url(images/xinfang/b_cal_bg.gif) repeat-x 0px -850px;;overflow:hidden}.b_cal_bg{background:url(images/xinfang/b_cal_bg.gif) no-repeat 480px 2px;padding:20px 0px 10px}
+.b_cal_line{border-right:1px solid #eee}
+.b_cal_box{width:298px;padding:10px;height:220px}
+.b_cal_bg1,.b_cal_bg2,.b_cal_bg3{
+	background-image:url(images/xinfang/bicon_calculator.gif);
+	width: 130px;
+	height: 70px;
+}
+.b_cal_bg input,.b_cal_bg select{
+	background:#fff;border:1px solid #ddd;line-height:24px;height:24px;padding: 0 3px;border-radius: 3px;
+	box-shadow:0px 1px 3px #ccc inset;width:64px;vertical-align: middle;
+}
+.b_cal_bg input.radio{
+	width: auto;
+	height: auto;
+	border: 0;
+	box-shadow: none
+}
+.b_cal_bg1{background-position:-7px -340px;}
+.b_cal_bg2{background-position:-133px -340px;}
+.b_cal_bg3{background-position:-263px -340px;}
+.b_cal_box a{background:url(images/xinfang/bicon_calculator.gif) no-repeat;height:38px;border:none; display: block;height: 38px;width:170px;margin-left:70px}
+a.b_cal_box_bg1,a.b_cal_box_red1{background-position:0px 0px;margin-top:50px;}
+a.b_cal_box_bg2,a.b_cal_box_red2{background-position:0px -54px;}
+a.b_cal_box_bg3,a.b_cal_box_red3{background-position:0px -106px;margin-top:10px;}
+a.b_cal_box_bg4,a.b_cal_box_red4{background-position:0px -159px;margin-top:10px;width:222px;}
+a.b_cal_box_bg5,a.b_cal_box_red5{background-position:0px -210px;margin-top:30px;}
+a.b_cal_box_bg6,a.b_cal_box_red6{background-position:0px -262px;margin-top:10px;}
+a:hover{text-decoration:none}
+.b_cal_box_bg1:hover,a.b_cal_box_red1{background-position:-300px 0px;}
+.b_cal_box_bg2:hover,a.b_cal_box_red2{background-position:-300px -54px;}
+.b_cal_box_bg3:hover,a.b_cal_box_red3{background-position:-300px -106px;}
+.b_cal_box_bg4:hover,a.b_cal_box_red4{background-position:-300px -159px;}
+.b_cal_box_bg5:hover,a.b_cal_box_red5{background-position:-300px -210px;}
+.b_cal_box_bg6:hover,a.b_cal_box_red6{background-position:-300px -262px;}
+.b_cal_left{width:420px;padding:10px 0 0 20px}
+.b_cal_left_top{padding:0px 0px 10px;border-bottom:1px solid #efefef}
+.b_cal_bg4{background:url(images/xinfang/bicon_calculator.gif) no-repeat 20px -681px;width:340px;height:40px;padding:0px 0px 10px 0px}
+.b_cal_left_conn{padding:10px 0px 0px 0px}
+.b_cal_left_conn .blue{color: #036;}
+.b_cal_left_conn li{color:#777}
+.b_cal_left_conn input{margin:5px 0;width: 99px}
+.b_cal_left_conn select{margin:5px 0;width: 108px;padding: 0}
+.b_cal_left_conn input[radio]{ border: none;}
+.b_cal_left_conn ul li span{width:140px;text-align:right;display:inline-block}
+.b_cal_left_conn li.cbt{margin:20px 10px 0px 70px;background:#fff}
+.b_cal_left_conn li .sbmt{background:url(images/xinfang/bicon_calculator.gif) no-repeat -22px -432px;width:88px;border:none;height:25px; cursor: pointer;}
+.b_cal_left_conn a:hover .sbmt{background:#fff url(images/xinfang/bicon_calculator.gif) no-repeat -252px -432px;width:88px;border:none}
+.b_cal_left_conn li .tbmt{background:url(images/xinfang/bicon_calculator.gif) no-repeat -140px -432px;width:88px;border:none;height:25px; cursor: pointer;}
+.b_cal_left_conn a:hover .tbmt{background:#fff url(images/xinfang/bicon_calculator.gif) no-repeat -370px -432px;width:88px;border:none;height:25px}
+.b_cal_right{padding:25px 20px 10px 0;color:#777;width:480px;font-family:'ËÎÌו',Simsun}
+.b_cal_right h2{font-size:14px;font-weight:bold;color:#d30009;clear:both;margin: 0 0 24px 0;}
+.b_cal_right li{color:#d30009;border-bottom:1px  dashed #e1e1e1;width:238px;float:left;padding: 8px 0;height: 24px;line-height: 24px;}
+.b_cal_right span{color: #333;width: 72px;display: inline-block;vertical-align: top;}
+.b_cal_right ul h2{color:#d30009;font-weight:bold;display:block;clear:both}
+.b_cal_right span.tip{clear:both;text-align:right;color:#333;width:400px;text-align:right;display:block;padding:10px 0px 10px 0px}
+.b_cal_right p{padding:5px 0px 0px 0px;line-height:30px}
+.b_cal_l{margin-left:30px}
+.btnBox{ padding-left: 65px; padding-top: 20px;}
+.b_cal_bg5,.b_cal_bg6,.b_cal_bg7,.b_cal_bg8,.b_cal_bg9{
+	background-image:url(images/xinfang/bicon_calculator.gif);
+	width:340px;height:25px;padding:0px 0px 13px 0px
+}
+.b_cal_bg5{background-position:20px -635px;height:35px;}
+.b_cal_bg6{background-position:20px -560px;}
+.b_cal_bg7{background-position:20px -520px;}
+.b_cal_bg8{background-position:20px -485px;height:20px;}
+.b_cal_bg9{background-position:20px -601px;}
+
+.sllong li{
+	width: 476px;
+}
+.sllong li span{
+	width: 140px;
+}
+.sllongl select{
+	width: 120px;
+}

@@ -1,0 +1,262 @@
+{template 'header'}
+<div class="m">	
+ 
+		<div class="bread">
+			您当前的位置：
+			<a href="{$MODULE[1][linkurl]}" title="{$AJ[sitename]}">{$AJ[sitename]}</a> &gt; <a href="{$MOD[linkurl]}">{$MOD[name]}    </a> &gt; <a href="{$MOD[linkurl]}list.php?areaid={$cityid}">{area_poss($cityid, ' ')}</a> &gt; 楼盘搜索
+		</div>
+		<div class="modA">
+			<h4>
+				<ul class="modTab seal">
+					<li class="on"><a href="{$MOD[linkurl]}list.php">全部房源</a></li>
+					<li><a href="{$MODULE[1][linkurl]}map" target="_blank">地图找房</a></li>
+				</ul>
+			</h4>
+				<div class="conl1">
+            					<div class="cf" style="padding-top:9px;">
+					<span class="a_name">区&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;域：</span>
+					<span>
+                    	<a  {if $_GET['areaid']==$cityid or $_GET['areaid'] =='' }class="c"{else}{/if} href="{$MOD[linkurl]}list.php?l={$_GET['l']}&p={$_GET['p']}&typeid={$_GET['typeid']}&catid={$_GET['catid']}&buildtype={$_GET['buildtype']}&areaid={$cityid}">不限</a>
+					{loop $mainarea $k $v}
+              <a  {if $v[areaid]==$areaid}class='c'{else}{/if} href="{$MOD[linkurl]}list.php?l={$_GET['l']}&p={$_GET['p']}&typeid={$_GET['typeid']}&catid={$_GET['catid']}&buildtype={$_GET['buildtype']}&areaid={$v[areaid]}">{$v[areaname]}</a> {/loop}
+                                                    					</span>
+																		{if $_GET['areaid']!='' && $_GET['areaid']!=$cityid } <span class="i">
+                  
+			{loop $mainareas $k $v}
+             <a  {if $v[areaid]==$areaid}class='c'{else}{/if} href="{$MOD[linkurl]}list.php?l={$_GET['l']}&p={$_GET['p']}&typeid={$_GET['typeid']}&catid={$_GET['catid']}&buildtype={$_GET['buildtype']}&areaid={$v[areaid]}">{$v[areaname]}</a> {/loop} 
+                                            </span>{/if}
+                    				</div>
+                				<div class="cf">
+					<span class="a_name">售&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;价：</span>
+					<span>
+                    	<a class="{if $_GET['p']=='' }c{else}{/if}" href="{$MOD[linkurl]}list.php?l={$_GET['l']}&areaid={$_GET['areaid']}&typeid={$_GET['typeid']}&buildtype={$_GET['buildtype']}&catid={$_GET['catid']}&p=">不限</a>
+						{php $jiage = array('4000元以下','4000-5000元', '5000-6000元', '6000-7000元', '7000-8000元', '8000-9000元', '9000-10000元','10000元以上');}
+{loop $jiage $k $v}<a class="{if $_GET['p']==($k+1)}c{else}{/if}"  href="{$MOD[linkurl]}list.php?l={$_GET['l']}&p={$_GET['p']}&areaid={$_GET['areaid']}&typeid={$_GET['typeid']}&buildtype={$_GET['buildtype']}&catid={$_GET['catid']}&p=<?php echo $k+1;?>">{$v}</a> {/loop}
+                 	</span>
+				</div>
+				<div class="cf">
+					<span class="a_name">项目类型：</span>
+					<span>
+                       <a  class="{if $_GET['catid'] =='' }c{else}{/if}" href="{$MOD[linkurl]}list.php?l={$_GET['l']}&p={$_GET['p']}&areaid={$_GET['areaid']}&typeid={$_GET['typeid']}&buildtype={$_GET['buildtype']}&catid=" >不限</a> 
+                                                       {php $maincat = get_maincat(0,6)}
+{loop $maincat $k $v}     <a  class="{if $v[catid]==$catid}c{else}{/if}" href="{$MOD[linkurl]}list.php?l={$_GET['l']}&p={$_GET['p']}&typeid={$_GET['typeid']}&areaid={$_GET['areaid']}&buildtype={$_GET['buildtype']}&catid={$v[catid]}">{$v[catname]}</a>{/loop}
+                                                   					</span>
+				</div>
+				<div class="cf">
+					<span class="a_name">销售状态：</span>
+					<span>
+						<a  class="{if $_GET['typeid']==''}c{else}{/if}" href="{$MOD[linkurl]}list.php?l={$_GET['l']}&p={$_GET['p']}&areaid={$_GET['areaid']}&buildtype={$_GET['buildtype']}&catid={$_GET['catid']}&typeid=" >不限</a> 
+                                                      {loop $TYPE $k $v} 
+													  <a class="{if $typeid==$k}c{else}{/if}" href='{$MOD[linkurl]}list.php?l={$_GET['l']}&p={$_GET['p']}&areaid={$_GET['areaid']}&catid={$_GET['catid']}&buildtype={$_GET['buildtype']}&typeid={$k} '>{$v}</a>{/loop}
+                                                   					</span>
+				</div>
+				<div class="cf">
+					<span class="a_name">建筑类型：</span>
+					<span>
+                       <a class="c" href="{$MOD[linkurl]}list.php?catid={$_GET['catid']}&p={$_GET['p']}&areaid={$_GET['areaid']}&typeid={$_GET['typeid']}&buildtype=">不限</a>   <a  href="{$MOD[linkurl]}list.php?catid={$_GET['catid']}&p={$_GET['p']}&areaid={$_GET['areaid']}&typeid={$_GET['typeid']}&buildtype=多层">多层</a>
+                                                             <a  href="{$MOD[linkurl]}list.php?catid={$_GET['catid']}&p={$_GET['p']}&areaid={$_GET['areaid']}&typeid={$_GET['typeid']}&buildtype=高层">高层</a>
+
+                                                   					</span>
+				</div>
+				<div class="cf">
+					<span class="a_name">首&nbsp;&nbsp;字&nbsp;&nbsp;母：</span>
+					<span class="Letter">
+                        <a class="{if $_GET['l'] ==''}n c{else}n{/if}" href="{$MOD[linkurl]}list.php?catid={$_GET['catid']}&p={$_GET['p']}&areaid={$_GET['areaid']}&typeid={$_GET['typeid']}&buildtype={$_GET['buildtype']}&l=" >不限</a>
+                                    {php $l = array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z');}
+{loop $l $k $v}<a class="{if $_GET['l']==$v}n c{else}{/if}" href="{$MOD[linkurl]}list.php?catid={$_GET['catid']}&p={$_GET['p']}&typeid={$_GET['typeid']}&areaid={$_GET['areaid']}&buildtype={$_GET['buildtype']}&l={$v}">{$v}</a>
+                                                   					{/loop}</span>
+				</div>
+				<div class="cf b" style="padding-bottom:9px;">
+					<span class="a_name">楼盘名称：</span>
+					<span>
+						<form id="aijiacms_search" action="{$MODULE[6][linkurl]}search.php" onsubmit="return Dsearch();">
+<input type="hidden" name="spread" value="0" id="aijiacms_spread"/>
+							<input type="text" id="hname" name='kw' value="请输入关键字（楼盘名/地址）">
+							<button></button>
+						</form>
+					</span>
+				</div>
+				
+                			</div>
+		</div>
+		<!--列表开始-->
+		<div class="cf mt10">
+			<div class="fl sflist modA" id="FyList">
+				<div class="modBT">
+					<div class="fr">
+						<!--默认排序-->
+						<div class="t_molist" id="t_molist">
+							默认排序							<ul>
+                                <li><a href="{$MOD[linkurl]}list.php?catid={$_GET['catid']}&p={$_GET['p']}&typeid={$_GET['typeid']}&areaid={$_GET['areaid']}&l={$_GET['l']}&order=0">默认排序</a></li>
+                                                                                                            <li><a  href="{$MOD[linkurl]}list.php?catid={$_GET['catid']}&p={$_GET['p']}&typeid={$_GET['typeid']}&areaid={$_GET['areaid']}&l={$_GET['l']}&order=2">售价从高到低</a></li>
+                                                                             <li><a  href="{$MOD[linkurl]}list.php?catid={$_GET['catid']}&p={$_GET['p']}&typeid={$_GET['typeid']}&areaid={$_GET['areaid']}&l={$_GET['l']}&order=3">售价从低到高</a></li>
+                                                                             <li><a  href="{$MOD[linkurl]}list.php?catid={$_GET['catid']}&p={$_GET['p']}&typeid={$_GET['typeid']}&areaid={$_GET['areaid']}&l={$_GET['l']}&order=6">开盘时间由近到远</a></li>
+                                                                             <li><a  href="{$MOD[linkurl]}list.php?catid={$_GET['catid']}&p={$_GET['p']}&typeid={$_GET['typeid']}&areaid={$_GET['areaid']}&l={$_GET['l']}&order=7">开盘时间由远到近</a></li>
+                                                                   							</ul>
+						</div>
+						<div class="tle_page">
+					{if $_GET['order']=="2"}<a    class="shoubtnA"  href="{$MOD[linkurl]}list.php?catid={$_GET['catid']}&p={$_GET['p']}&typeid={$_GET['typeid']}&areaid={$_GET['areaid']}&l={$_GET['l']}&order=3" >售价</a>{else}
+					<a    class="shoubtnB"  href="{$MOD[linkurl]}list.php?catid={$_GET['catid']}&p={$_GET['p']}&typeid={$_GET['typeid']}&areaid={$_GET['areaid']}&l={$_GET['l']}&order=2" >售价</a>
+					{/if}
+						{if $_GET['order']=="6"}<a    class="opanbtnA"  href="{$MOD[linkurl]}list.php?catid={$_GET['catid']}&p={$_GET['p']}&typeid={$_GET['typeid']}&areaid={$_GET['areaid']}&l={$_GET['l']}&order=7" >开盘时间</a>{else}
+					<a    class="opanbtnB"  href="{$MOD[linkurl]}list.php?catid={$_GET['catid']}&p={$_GET['p']}&typeid={$_GET['typeid']}&areaid={$_GET['areaid']}&l={$_GET['l']}&order=6" >开盘时间</a>
+					{/if}
+						
+                                                     
+                            						</div>
+					</div>
+                    <h4>共有 <b>{$items}</b>
+					个符合要求的新房楼盘</h4>
+				</div>{if $page==1 && $kw}
+		{ad($moduleid,$catid,$kw,6)}
+		{load('m'.$moduleid.'_k'.urlencode($kw).'.htm')}
+		{/if}
+                            			
+              			{if $tags}
+
+{if $page == 1}{load('ad_m'.$moduleid.'_c'.$catid.'.htm')}{/if}
+		{if $tags}{template 'list-'.$module, 'tag'}{/if}
+		
+		
+       
+		
+                {if $showpage && $pages}            				<!--分页-->
+				<div class="pagination">
+					<div class="pagination-inner">{$pages}</div>
+				</div>{/if}
+				{else}
+				{template 'noresult', 'message'}
+		{/if}
+			</div>
+			<!--右侧-->
+			<div class="fr wd230">
+				<!--最新楼盘-->
+				<div class="modB">
+    <h4 class="modBT">
+        <sub></sub>
+        <a  href="{$MODULE[6][linkurl]}list.php" target="_blank" >{$city_name}最新楼盘</a>
+        <a href="{$MODULE[6][linkurl]}list.php" class="more">更多&gt;&gt;</a>
+    </h4>
+    <ul class="t3List">
+                        <!--{tag("moduleid=6&condition=status=3 and isnew=1&areaid=$cityid&pagesize=8&order=addtime desc&template=lp-right")}-->
+                    </ul>
+</div>
+				<!--浏览记录-->
+                	
+                                <!--q新房广告 列表页-画中画1-->
+				<!--近期开盘-->
+                				<div class="modB">
+                	<h4><sub></sub>
+						<a href="{$MODULE[6][linkurl]}list.php" target="_blank">{$city_name}近期开盘</a>
+					</h4>
+                    <ul class="t3List">
+                              <!--{tag("moduleid=6&condition=status=3 and isnew=1&areaid=$cityid&pagesize=8&order=selltime desc&template=lp-right")}-->
+                                            </ul>
+				</div>
+                				<!--本月团购排行-->
+                				<div class="modB">
+					<h4><sub></sub>
+						<a href="{$MODULE[6][linkurl]}list.php" target="_blank">本月团购排行</a>
+					</h4>
+					<div class="list_content">
+						<ul class="top10"><!--{tag("moduleid=6&condition=status=3 and isnew=1&areaid=$cityid&pagesize=8&order=hits desc&template=lp-right")}-->
+                                   
+                            						</ul>
+					</div>
+				</div>
+                				<!--购房工具-->
+                <div class="modB">
+    <h4><sub></sub>
+        <a href="{$MODULE[1][linkurl]}tool/" class="more">购房工具</a>
+    </h4>
+    <div class="Tools cf">
+        <a href="{$MODULE[1][linkurl]}tool/benxi.php" class="fdjs" target="_blank">房贷计算</a>
+        <a href="{$MODULE[1][linkurl]}tool/" class="mlpg" target="_blank">购房能力评估</a>
+        <a href="{$MODULE[1][linkurl]}tool/gjj.php" class="gjjdk" target="_blank">公积金贷款</a>
+        <a href="{$MODULE[1][linkurl]}tool/tqhd.php" class="tqhd" target="_blank">提前还款</a>
+        <a href="{$MODULE[1][linkurl]}tool/sf.php" class="gfsf" target="_blank">购房税费</a>
+        <a href="{$MODULE[1][linkurl]}list.php" class="lpsc" target="_blank">楼盘速查</a>
+        <div class="clear"></div>
+    </div>
+</div>            <!--q新房广告 列表页-画中画2-->
+			</div>
+		</div>
+		<!--热点搜索-->
+		<div class="area">
+			<!--热门小区-->
+            		
+            			<!--相关信息-->
+			<div class="hot cf">
+				<span class="hot_fenlei">{$city_name}新房相关信息:</span>
+				<p class="hot_link">
+                    <a href="{$MODULE[6][linkurl]}/" target="_blank">{$city_name}楼盘</a>
+                    <a href="{$MODULE[1][linkurl]}map/newhouse.php" target="_blank">{$city_name}楼市地图</a>
+                    <a href="{$MODULE[6][linkurl]}" target="_blank">{$city_name}房价</a>
+                    <a href="{$MODULE[12][linkurl]}" target="_blank">{$city_name}楼盘户型图</a>
+                    <a href="{$MODULE[6][linkurl]}" target="_blank">{$city_name}楼盘风云榜</a>
+                    <a href="{$MODULE[1][linkurl]}tool/" target="_blank">贷款计算器</a>
+                    <a href="{$MODULE[8][linkurl]}" target="_blank">购房专题</a>
+				</p>
+			</div>
+			<!--本月开盘-->
+            	
+            			
+            			<!--abc-->
+			
+			<div class="clear"></div>
+		</div>
+	</div>
+	{template 'footer'}
+<script type="text/javascript">
+	seajs.use(["jquery","alert","autoc","cookie","pk"],function($,alertM){
+		$("#conl2 div,#t_molist").hover(function(){
+			$(this).addClass("on");
+		},function(){
+			$(this).removeClass("on");
+		})
+		var $h=$("#hname").on("focus",function(){
+			if($h.val()=="请输入关键字（楼盘名/地址）")
+				$h.val("");
+		}).on("blur",function(){
+			if($h.val()=="")
+				$h.val("请输入关键字（楼盘名/地址）");
+		})
+		var $hotarea=$("#hotarea");
+		$hotarea.on("mouseover","dt",function(){
+			$hotarea.find("dd").hide().end().find("dt").removeClass("s");
+			$(this).addClass("s").next().show();
+		})
+		var $hname=$("#hname").autoC("");
+		$("#serach_kw_form").submit(function(){
+			var kw = $hname.val();
+			kw = kw == "请输入关键字（楼盘名/地址）" ? "" : kw;
+			var kw_encode = encodeURIComponent(kw);
+			var goto = '';
+			if(kw == ""){
+				$hname.focus();
+				return false;
+			}
+			window.location.href = "" + kw_encode + ".html";
+			return false;
+		});
+		
+		$("#saveSearch").click(function(){
+			$.ajax({
+				url:"",
+				dataType:'json',
+				data:{
+					url:$(this).attr("data-url"),
+					condition:$(this).attr("data-condition")
+				}
+			}).done(function(data){
+				if(data.suc){
+					alertM(data.alert)
+				}else
+					alertM(data.alert);
+			}).fail(function(){ alertM("保存请求结果失败，请检查网络连接是否已断开"); });
+		})
+		$("#FyList p.price a").pk(3,"compare.php?");
+	})
+</script>
+</body>
+</html>

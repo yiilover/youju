@@ -1,0 +1,18 @@
+.pagination {
+	TEXT-ALIGN: center; PADDING-BOTTOM: 10px; LINE-HEIGHT: 23px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 10px
+}
+.pagination A {
+	BORDER-BOTTOM: #e3e3e3 1px solid; BORDER-LEFT: #e3e3e3 1px solid; PADDING-BOTTOM: 4px; PADDING-LEFT: 8px; PADDING-RIGHT: 8px; BACKGROUND: #fff; COLOR: #333; BORDER-TOP: #e3e3e3 1px solid; BORDER-RIGHT: #e3e3e3 1px solid; PADDING-TOP: 4px
+}
+.pagination .rect {
+	PADDING-BOTTOM: 4px; PADDING-LEFT: 8px; PADDING-RIGHT: 8px; PADDING-TOP: 6px
+}
+.pagination A:hover {
+	BACKGROUND: #f1f1f1; COLOR: #f70
+}
+.pagination A:visited {
+	COLOR: #333
+}
+.pagination SPAN {
+	BORDER-BOTTOM: #5a85b2 1px solid; BORDER-LEFT: #5a85b2 1px solid; PADDING-BOTTOM: 5px; PADDING-LEFT: 8px; PADDING-RIGHT: 8px; BACKGROUND: #5a85b2; COLOR: #fff; BORDER-TOP: #5a85b2 1px solid; FONT-WEIGHT: bold; BORDER-RIGHT: #5a85b2 1px solid; PADDING-TOP: 4px
+}

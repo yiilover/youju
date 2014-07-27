@@ -1,0 +1,11 @@
+<?php
+$names = array (
+  'compare' => 'Â¥ÅÌ±È½Ï',
+  'dianping' => 'dianping',
+  'index' => 'Ê×Ò³',
+  'inquiry' => 'Ñ¯ÅÌÒ³',
+  'list' => 'ÁÐ±íÒ³',
+  'search' => 'ËÑË÷Ò³',
+  'show' => 'ÄÚÈÝÒ³',
+);
+?>

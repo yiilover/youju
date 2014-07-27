@@ -1,0 +1,22 @@
+﻿/*#foot{text-align:left; width: 980px;}空间页影响*/
+.links{ border:1px #ddd solid; background:#f7f7f7; padding:0px 10px;margin-top:10px;}
+.links span{ float:left; width:65px; font-weight:600; margin:10px 0px;}
+.links p{ float:left; width:873px; color:#606060;margin:10px 0px; }
+.links p em{ padding:0px 7px;}
+.links p a{white-space:nowrap; color:#606060;}
+.links p a:visited{color:#606060}
+
+#foot .footer{border-top: #ddd 1px solid; padding-top:10px;margin-top:10px;}
+#foot .footer img{margin: 0px 10px; padding-right: 10px; float: left; border-right: #cccccc 1px solid}
+#foot .footer p {text-align: center; line-height: 26px; font-size: 12px}
+#foot .footer p a {color: #353535; padding-left:5px; padding-right:5px;}
+#foot .footer p a:visited {color: #353535}
+#foot .footer p a:hover, .links p a:hover{color: #f70}
+/*--------------tab 友情链接---------------*/
+.linkbox{ width:978px; margin:10px auto;border:1px #ddd solid; border-top:none;}
+.linktitA{background:url(../image/sell/link_tle_bg.gif) repeat-x ; height:29px;}
+.linktab01ULA{ background:url(../image/sell/New_icon1.gif) no-repeat left center; height:29px; padding-left:41px;}
+.linktab01ULA li{ float:left; height:29px; width:72px; line-height:29px; text-align:center; cursor:pointer}
+.linktitA li.tab01activeD {background: url(../image/sell/box_left_tle.gif) no-repeat left bottom ;color: #333333; font-weight: bold;line-height: 29px;}
+.BoxConten {height: 1%;padding: 10px 0 10px 12px;}
+.BoxConten a{float: left;height: 21px;line-height: 21px;margin: 0 10px 0 0; overflow: hidden;padding: 0; width: 90px;}

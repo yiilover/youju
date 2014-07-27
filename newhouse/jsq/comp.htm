@@ -1,0 +1,168 @@
+<html><head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=GB2312">
+<script language="JavaScript">
+<!--
+function MM_reloadPage(init) {  //reloads the window if Nav4 resized
+if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
+document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
+else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+}
+MM_reloadPage(true);
+//-->
+</script>
+<script language="JavaScript">
+<!--
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v4.0
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && document.getElementById) x=document.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</script>
+<title>按揭贷款</title>
+</head>
+
+<body onkeydown="if(event.keyCode==78&amp;&amp;event.ctrlKey)return false;" oncontextmenu="self.event.returnValue=false;">
+<script language="JavaScript">
+<!--
+function count_anjie() {
+var dwdj,mj,ajcs,year,yearRate,temp1,temp2;
+  dwdj = MM_findObj("dwdj").value;
+  mj= MM_findObj("mj").value;
+  ajcs = 10-MM_findObj("ajcs").value;
+  year =  MM_findObj("year").value;
+   var total = MM_findObj("total"); 
+   if (total) total.value = dwdj*mj;
+   var first = MM_findObj("first"); 
+   if (first) first.value = Math.round(dwdj*mj*ajcs*0.1*100)/100;
+   var dtotal = MM_findObj("dtotal"); 
+   if (dtotal) dtotal.value = dwdj*mj-dwdj*mj*ajcs*0.1;
+   if (year<=5) {yearRate=5.31*0.01;} else {yearRate=5.58*0.01;}
+   temp1=dwdj*mj-dwdj*mj*ajcs*0.1;  //贷款总额
+   temp2 = Math.pow((1+yearRate/12),year*12);
+   temp3=temp1*((yearRate/12)*temp2)/(temp2-1);//每月付款
+   var monthf = MM_findObj("monthf"); 
+   if (monthf) monthf.value = Math.round(temp3*100)/100;
+   temp4=temp3*year*12-temp1;   //总还款利息
+   var ztotal = MM_findObj("ztotal"); 
+   if (ztotal) ztotal.value = Math.round(temp4*100)/100;
+   temp5 =temp3*year*12 ;//还款总额
+  var htotal = MM_findObj("htotal"); 
+   if (htotal) htotal.value = Math.round(temp5*100)/100;
+ if((dwdj*mj)>500000){   diyaRate=0.006} else{ diyaRate=0.008}
+var diya = MM_findObj("diya"); 
+   if (diya) diya.value = dwdj*mj*diyaRate;
+var baoxian = MM_findObj("baoxian"); 
+   if (baoxian) baoxian.value = dwdj*mj*0.001*year;
+var danbao = MM_findObj("danbao"); 
+temp9=(dwdj*mj-dwdj*mj*ajcs*0.1)*0.008;
+if(temp9<500) {temp9=500;}
+if (danbao) danbao.value = Math.round(temp9*100)/100;
+}
+//-->
+</script>
+<form name="anjie" method="post">
+<div align="center">
+  <center>
+  <table style="border-collapse: collapse; border: 1px dotted rgb(192, 192, 192);" id="AutoNumber1" border="1" bordercolor="#111111" cellpadding="2" cellspacing="0" width="500">
+    <tbody><tr>
+      <td width="100%">
+      <table style="border-collapse: collapse;" id="AutoNumber2" border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tbody><tr>
+          <td colspan="3" bgcolor="#FFFFFF" height="60" width="99%">
+          <p align="center"><b><font color="#000080">按揭贷款计算器</font></b></p></td>
+        </tr>
+        <tr>
+          <td bgcolor="#FFFFFF" height="20" width="37%">
+          <span style="font-size: 9pt">&nbsp;&nbsp;单&nbsp;&nbsp;&nbsp; 价：<input name="dwdj" size="6" style="border: 1px groove rgb(192, 192, 192); height: 16px;" maxlength="6" type="text"> 
+          元/M<sup>2</sup></span></td>
+          <td bgcolor="#FFFFFF" height="20" width="30%">
+          <span style="font-size: 9pt">房款总额：<input name="total" size="8" style="border: 1px groove rgb(192, 192, 192); height: 16px;" readonly="readonly" type="text"> 
+          元</span></td>
+          <td bgcolor="#FFFFFF" height="20" width="32%">
+          <span style="font-size: 9pt">&nbsp;支付息款：<input name="ztotal" size="8" style="border: 1px groove rgb(192, 192, 192); height: 16px;" readonly="readonly" type="text">
+          元</span></td>
+        </tr>
+        <tr>
+          <td bgcolor="#FFFFFF" height="20" width="37%">
+          <span style="font-size: 9pt">&nbsp;&nbsp;面&nbsp;&nbsp;&nbsp; 积：<input name="mj" size="6" style="border: 1px groove rgb(192, 192, 192); height: 16px;" maxlength="6" type="text"> 
+          M<sup>2</sup></span></td>
+          <td bgcolor="#FFFFFF" height="20" width="30%">
+          <span style="font-size: 9pt">贷款总额：<input name="dtotal" size="8" style="border: 1px groove rgb(192, 192, 192); height: 16px;" readonly="readonly" type="text">
+          元</span></td>
+          <td bgcolor="#FFFFFF" height="20" width="32%">
+          <span style="font-size: 9pt">&nbsp;抵押登记：<input name="diya" size="8" style="border: 1px groove rgb(192, 192, 192); height: 16px;" readonly="readonly" type="text">
+          元</span></td>
+        </tr>
+        <tr>
+          <td bgcolor="#FFFFFF" height="20" width="37%">
+          <span style="font-size: 9pt">&nbsp;&nbsp;按揭成数：</span><select size="1" name="ajcs" style="border: 1px groove #C0C0C0; height: 16"> <option value="8" selected="selected">8成</option> <option value="7">7成</option> <option value="6">6成</option> <option value="5">5成</option> <option value="4">4成</option> <option value="3">3成</option> <option value="2">2成</option></select></td>
+          <td bgcolor="#FFFFFF" height="20" width="30%">
+          <span style="font-size: 9pt">首期付款：<input name="first" size="8" style="border: 1px groove rgb(192, 192, 192); height: 16px;" readonly="readonly" type="text"> 
+          元</span></td>
+          <td bgcolor="#FFFFFF" height="20" width="32%">
+          <span style="font-size: 9pt">&nbsp;房屋保险：<input name="baoxian" size="8" style="border: 1px groove rgb(192, 192, 192); height: 16px;" readonly="readonly" type="text">
+          元</span></td>
+        </tr>
+        <tr>
+          <td bgcolor="#FFFFFF" height="20" width="37%">
+          <span style="font-size: 9pt">&nbsp;&nbsp;按揭年数：</span><select size="1" name="year"> <option value="2">2年(24期)</option> <option value="3">3年(36期)</option> <option value="4">4年(48期)</option> <option value="5">5年(60期)</option> <option value="6">6年(72期)</option> <option value="7">7年(84期)</option> <option value="8">8年(96期)</option> <option value="9">9年(108期)</option> <option value="10">10年(120期)</option> <option value="15" selected="selected">15年(180期)</option> 
+        <option value="20">20年(240期)</option> <option value="25">25年(300期)</option> 
+        <option value="30">30年(360期)</option></select></td>
+          <td bgcolor="#FFFFFF" height="20" width="30%">
+          <span style="font-size: 9pt">月均还款：<input name="monthf" size="8" style="border: 1px groove rgb(192, 192, 192); height: 16px;" readonly="readonly" type="text"> 
+          元</span></td>
+          <td bgcolor="#FFFFFF" height="20" width="32%">
+          <span style="font-size: 9pt">&nbsp;二手房按揭贷款担保：</span></td>
+        </tr>
+        <tr>
+          <td rowspan="2" bgcolor="#FFFFFF" height="40" width="37%">
+          <p align="left">&nbsp;&nbsp;<input onclick="count_anjie()" value=" 计 算 " name="math1" style="border: 1px ridge rgb(192, 192, 192);" type="button">&nbsp; 
+<input class="p10" value=" 清 空 " name="reset" style="border: 1px ridge rgb(192, 192, 192);" type="reset"></p></td>
+          <td bgcolor="#FFFFFF" height="20" width="30%">
+          <span style="font-size: 9pt">还款总额：<input name="htotal" size="8" style="border: 1px groove rgb(192, 192, 192); height: 16px;" readonly="readonly" type="text">
+          元</span></td>
+          <td bgcolor="#FFFFFF" height="20" width="32%">
+          <p align="right"><span style="font-size: 9pt">
+          <input name="danbao" size="8" style="border: 1px groove rgb(192, 192, 192); height: 16px;" readonly="readonly" type="text">
+          元&nbsp; </span></p></td>
+        </tr>
+        <tr>
+          <td colspan="2" bgcolor="#FFFFFF" height="20" width="62%">
+          <p align="center"><span style="font-size: 9pt">用于初步计算，并非最后正式交易金额，仅供参考。</span></p></td>
+        </tr>
+        <tr>
+          <td colspan="3" bgcolor="#FFFFFF" height="8" width="99%">
+          <p align="right">
+         </p></td>
+        </tr>
+        </tbody></table>
+      </td>
+    </tr>
+  </tbody></table>
+  </center>
+</div>
+</form>
+
+
+</body></html>

@@ -1,0 +1,121 @@
+	{template 'header'}
+<div class="m">	
+<div class="bread">
+	您当前的位置：
+	<a target="_blank" href="{$MODULE[1][linkurl]}">首页</a>
+	&gt;&nbsp;<a href="{$MOD[linkurl]}">{$MOD[name]}</a>&nbsp;&gt;
+	{$title}</div>
+<div class="Atitle">
+	<h1>{$title}</h1>
+	<div class="subNav cf">
+		<form name="detailForm" id="detailForm" action="{$MODULE[2][linkurl]}favorite.php" method="post">
+<input type="hidden" name="action" value="add"/>
+<input type="hidden" name="title" value="{$title}"/>
+<input type="hidden" name="url" value="{$linkurl}"/>
+</form><A href="javascript:document.getElementById('detailForm').submit();" class="fr">收藏该小区</A>
+		
+		<ul class="cf">
+			<li><a href="{$linkurl}">小区概况</a></li>
+            <li><a class="on" href="{$MODULE[18][linkurl]}jiage.php?itemid={$itemid}">价格行情</a></li>
+            <li><a  href="{$MODULE[18][linkurl]}sale.php?itemid={$itemid}">出售房源</a></li>
+            <li><a  href="{$MODULE[18][linkurl]}rent.php?itemid={$itemid}">出租房源</a></li><!--
+            <li><a href="{$MODULE[18][linkurl]}xiangce.php?itemid={$itemid}">小区相册</a></li>
+            <li><a href="{$MODULE[18][linkurl]}peitao.php?itemid={$itemid}">交通配套</a></li>
+            <li><a href="{$MODULE[18][linkurl]}xinxi.php?itemid={$itemid}">小区详情</a></li>-->
+		</ul>
+	</div>
+</div>
+	<div class="">
+
+</div>		<div class="cf mt10">
+<div class="fl w720">
+				<div class="border">
+					<div class="Ptitile">
+						本月均价： {if get_avg_price($itemid)}<strong>{get_avg_price($itemid)}</strong></strong>元/平米{else}<strong>待定</strong>{/if}	
+										 
+												上月均价：
+												{if get_avg_priceb($itemid)}<strong>{get_avg_priceb($itemid)}</strong></strong>元/平米{else}<strong>待定</strong>{/if}
+												
+					</div>
+					<div id="hcList" class="hcList"><div style="width: 690px; height: 280px;margin:9px" id="highcharts"></div>
+					</div>
+					</div></div>
+		
+		<div class="w230 fr">
+	<div class="modC">
+		<h4 class="modBT"><sub></sub>
+			热门小区
+		</h4>
+				<ul class="t3List">
+					<!--{php $tags=tag("moduleid=18&condition=status=3&areaid=$cityid&length=22&pagesize=6&order=hits desc&target=_blank&template=null");}-->
+ {loop $tags $i $t}
+						<li>
+				<span class="lettsub7"><a target="_blank" href="{$t[linkurl]}" title="{$t[title]}">{$t[title]}</a></span>
+				<span class="w2">{area_poss($t[areaid], '')}</span>
+				<span class="w3">{if get_avg_price($t[itemid])}{get_avg_price($t[itemid])}元/平米{else}待定{/if}	</span>
+			</li>{/loop}
+					</ul>
+			</div>
+	<div class="modC">
+		<h4 class="modBT"><sub></sub>
+			周边二手房
+		</h4>
+				<ul class="t3List">
+					<!--{php $tags=tag("moduleid=5&condition=status=3&areaid=$areaid&length=22&pagesize=6&order=hits desc&target=_blank&template=null");}-->
+ {loop $tags $i $t}
+						<li>
+				<span class="lettsub7"><a target="_blank" href="{$t[linkurl]}" title="{$t[title]}">{$t[housename]}</a></span>
+				<span class="w2">{area_poss($t[areaid], '')}</span>
+				<span class="w3">{if $t[price]}{$t[price]}万{else}面议{/if}	</span>
+			</li>{/loop}
+					</ul>
+			</div>
+	<div class="modC">
+		<h4 class="modBT"><sub></sub>
+			周边出租房
+		</h4>
+				<ul class="t3List">
+					<!--{php $tags=tag("moduleid=7&condition=status=3&areaid=$areaid&length=22&pagesize=6&order=hits desc&target=_blank&template=null");}-->
+ {loop $tags $i $t}
+						<li>
+				<span class="lettsub7"><a target="_blank" href="{$t[linkurl]}" title="{$t[title]}">{$t[housename]}</a></span>
+				<span class="w2">{area_poss($t[areaid], '')}</span>
+				<span class="w3">{if $t[price]}{$t[price]}元/月{else}面议{/if}	</span>
+			</li>{/loop}
+					</ul>
+			</div>
+</div>	</div>
+	<div class="esfhouse_detail">
+	<h2>
+		<b>您可能感兴趣的小区</b>
+	</h2>
+	<div class="esfhouse_con cf bor">
+		<!--{php $tags=tag("moduleid=18&condition=status=3&areaid=$areaid&length=22&pagesize=5&order=addtime desc&target=_blank&template=null");}-->
+ {loop $tags $i $t}
+			<div class="info_Img">
+			<a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}"><img data-src="{imgurl($t[thumb])}" title="{$t[alt]}" alt="{$t[alt]}"></a>
+			<span>
+				<a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a>
+			</span>
+			<span>
+				售：<b class="red">{get_sale($t[itemid])}</b>套 租：
+				<b class="red">{get_rent($t[itemid])}</b>套
+			</span>
+			<span>均价：{if get_avg_price($t[itemid])}<b class="red">{get_avg_price($t[itemid])}</b></strong>元/平米{else}<b class="red">待定</b>{/if}	
+							</span>
+		</div>
+		{/loop}
+			
+		</div>
+</div>
+	{template 'footer'}</div><ul id="autoc" class="autopop"></ul>
+<script type="text/javascript">
+seajs.use(["jquery","highcharts"],function($,highcharts){
+{if $lineprice}	highcharts('highcharts',"{$title}",[{get_linedate(linedate)}],[{get_linedate(lineprice)}],'元/平米');
+{else} 
+		$("#highcharts").append("<img src='{AJ_SKIN}image/nodata_sell_big.gif' width='650' height='270' />");
+		{/if}
+	})
+</script>
+
+</body></html>

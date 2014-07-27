@@ -1,0 +1,8 @@
+	{loop $tags $k $t}
+	     	<li>
+                        <span class="lettsub7"><a href="{$t[linkurl]}" title="{$t[alt]}" target="_blank">{$t[title]}</a></span>
+                        <span class="w2">{if $t[price]}{$t[price]}Ôª/©O{else}´ý¶¨{/if}</span>
+                        <span class="w3">{area_poss($t[areaid], ' ')}</span>
+                    </li>
+  {/loop} 
+			

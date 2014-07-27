@@ -1,0 +1,97 @@
+<link href="{AJ_SKIN}esf.css" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" type="text/css" href="{AJ_SKIN}{$module}.css"/>
+<link href="{AJ_SKIN}style.css" rel="stylesheet" type="text/css"/>
+
+<div class="logo_br">
+		<a href="{$MODULE[1][linkurl]}"><img src="{if $MODULE[$moduleid][logo]}{AJ_SKIN}image/logo_{$moduleid}.gif{elseif $AJ[logo]}{$AJ[logo]}{else}{AJ_SKIN}image/logo.gif{/if}"  alt="{$AJ[sitename]}"/></a> 
+</div>
+  {if $AJ[city]}  <div class="city"><h3>{$city_name}</h3><a href="{$MODULE[1][linkurl]}city.php">[切换城市]</a></div>
+	  {/if}
+  
+	<div id="Search">
+		<ul class="searchURL">
+		<li><a href="{$MODULE[6][linkurl]}" target="_blank">新房</a></li>
+			<li ><a href="{$MODULE[5][linkurl]}" target="_blank">二手房</a></li>
+			<li class="on"><a href="{$MODULE[7][linkurl]}" target="_blank">出租房</a></li>
+			<li><a href="{$MODULE[8][linkurl]}" target="_blank">资讯</a></li>
+			</ul>
+		<a href="{$MODULE[1][linkurl]}map" class="mapS" target="_blank">地图找房</a>
+		<div id="qy">
+			<span>区域/街道</span>
+			<div>
+				<a data-val="" href="javascript:void(0)">全部区县</a>
+				    {php $mainarea = get_mainarea($cityid)}
+						    {loop $mainarea $k $v}    
+						 	<a href="javascript:void(0)" data-val="areaid={$v[areaid]}&">{$v[areaname]}</a>{/loop}
+														
+												</div>
+		</div>
+		<div id="wy">
+			<span>住宅</span>
+			<div>
+				<a data-val="" href="javascript:void(0)">全部</a>
+				 	{loop $maincat $k $v}
+		<a href="javascript:void(0)" data-val="catid={$v[catid]}&">{$v[catname]}</a>{/loop}
+												</div>
+		</div>
+		<div id="jg">
+			<span>面积范围</span>
+			<div>
+				<a data-val="" href="javascript:void(0)">全部</a>
+				{php $mianji = array('40平米以下', '40-60平米', '60-80平米', '80-100平米', '100-120平米', '120-150平米','150平米以上');}
+				{loop $mianji $k $v}<a href="javascript:void(0)" data-val="a=<?php echo $k+1;?>&">{$v}</a>{/loop}
+												</div>
+		</div>
+		<div id="shx">
+			<span>户型</span>
+			<div>
+				<a data-val="" href="javascript:void(0)">全部</a>
+														{php $huxing = array('一室', '二室', '三室', '四室', '五室以上');}
+{loop $huxing $k $v} <a href="javascript:void(0)" data-val="r=<?php echo $k+1;?>&">{$v}</a>{/loop}
+												</div>
+		</div>
+		<input type="text" value="请输入关键字（楼盘名或地名）">
+		<button> </button>
+	</div>
+	<div id="indexMenu"> 
+		<em class="r2"></em>
+		<div class="menuR">
+			<a href="{$MODULE[6][linkurl]}" target="_blank">新房网</a>
+			<a href="{$MODULE[7][linkurl]}" target="_blank">租房网</a>
+			<a href="{$MODULE[5][linkurl]}list.php?catid=11" target="_blank">写字楼网</a>
+			<a class="noborder" href="{$MODULE[5][linkurl]}list.php?catid=10" target="_blank">商铺网</a>
+		</div>
+		<em class="l2"></em>
+
+		<ul class="menuL">
+			<li class="s">
+				<a href="{$MODULE[1][linkurl]}">首页<em></em></a>
+			</li>
+			<li >
+				<a href="{$MODULE[7][linkurl]}list.php">出租房源<em></em></a>
+			<li >
+				<a href="{$MODULE[7][linkurl]}list.php?typeid=0">个人房源<em></em></a>
+			</li>
+			<li>
+				<a href="{$MODULE[7][linkurl]}map.php" target="_blank">地图找房<em></em></a>
+			</li>
+			<li >
+				<a href="{$MODULE[18][linkurl]}list.php">小区找房<em></em></a>
+			</li>
+			<li >
+				<a href="{$MODULE[4][linkurl]}list.php?g=1">经纪人<em></em></a>
+			</li>
+			<li >
+				<a href="{$MODULE[16][linkurl]}list.php">求购<em></em></a>
+			</li>
+			<li>
+				<a href="{$MODULE[8][linkurl]}" target="_blank">资讯<em></em></a>
+			</li>
+		</ul>
+	</div>
+</div>
+<script type="text/javascript">
+	seajs.use(["jquery","hsearch"],function($){
+		$("#Search").hSearch("","")
+	})
+</script>     

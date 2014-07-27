@@ -1,0 +1,27 @@
+<table class="FyList jjrSearch" id="FyList">
+										<tbody>
+{loop $tags $k $t}
+<tr class="">
+						<td class="pic">
+							<a href="{$t[linkurl]}" target="_blank">
+								<img src="{useravatar($t[username], 'large')}"></a>
+						</td>
+						<td class="infos">
+							<h5>
+								<a href="{$t[linkurl]}" target="_blank">{$t[company]}</a>{if $t[vip]}<img src="{AJ_SKIN}image/vip.gif"/> <img src="{AJ_SKIN}image/vip_{$t[vip]}.gif"/>{/if}
+							</h5>
+							<p>
+								所属公司：<a href="{userurl($t[usernames], '')}" target="_blank">{$t[company]}</a> 								<br>
+								{area_pos($t[areaid], '')}    &nbsp;手    机：{$t[telephone]}							<br>
+										</p>
+						</td>
+							
+						<td class="price">
+							<a class="dp" href="{$t[linkurl]}" target="_blank">进入店铺</a>
+						</td>
+					</tr>
+{/loop}	
+</tbody></table>{if $showpage && $pages}
+				<div class="pagination">
+				{$pages}			</div>{/if}
+

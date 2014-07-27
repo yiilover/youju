@@ -1,0 +1,31 @@
+
+<div class="de_pople">
+	{if $member}						<div class="ImgPhoto">
+					<a href="{userurl($member[username], '')}"  target="_blank">
+						<img src="{useravatar($username, 'large')} "></a>
+				</div>
+				<a href="{userurl($member[username], '')}" class="btn_style1"></a>
+				<a href="{$MODULE[2][linkurl]}message.php?action=send&touser={$member[username]}" class="btn_style2" id="leaveMG"></a>
+				<div class="mt5">{if $member[validated] || $member[vcompany] || $member[vtruename] || $member[vbank] || $member[vmobile] || $member[vemail]}
+	
+	{if $member[vcompany]}&nbsp;<img src="{$MODULE[2][linkurl]}image/v_company.gif" width="16" height="16" align="absmiddle" title="通过工商认证"/>{/if}
+	{if $member[vtruename]}&nbsp;<img src="{$MODULE[2][linkurl]}image/v_truename.gif" width="16" height="16" align="absmiddle" title="通过实名认证"/>{/if}
+	{if $member[vmobile]}&nbsp;<img src="{$MODULE[2][linkurl]}image/v_mobile.gif" width="16" height="16" align="absmiddle" title="通过手机认证"/>{/if}
+	{if $member[vemail]}&nbsp;<img src="{$MODULE[2][linkurl]}image/v_email.gif" width="16" height="16" align="absmiddle" title="通过邮件认证"/>{/if}
+	{if $member[validated]}&nbsp;<img src="{AJ_SKIN}image/check_right.gif" align="absmiddle"/> 通过{$member[validator]}认证{/if}
+	{/if}
+				</div>
+				<p>
+					姓名：{$member[truename]}					<br>
+					电话： <strong class="red">{$member[mobile]}</strong>
+					<br>
+					Q&nbsp;&nbsp;Q： <strong>{if $member[qq] && $AJ[im_qq]}{im_qq($member[qq])}&nbsp;{/if}</strong> 
+					<br>
+					服务：{area_pos($areaid, ' ')}					<br>
+					公司：<a href="{userurl($member[username], '')}" target="_blank">{$member[company]}</a>               			<br></p>
+						</div>
+						{else}
+		<div class="ImgPhoto"><img src="{AJ_SKIN}image/sell/nophoto_180x180.gif">
+			<p>        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;游客			<br>
+	</div></div>{/if}
+		</div>

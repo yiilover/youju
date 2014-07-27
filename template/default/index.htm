@@ -1,0 +1,850 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<HTML xmlns="http://www.w3.org/1999/xhtml"><HEAD><title>{if $seo_title}{$seo_title}{else}{if $head_title}{$head_title}{$AJ[seo_delimiter]}{/if}{/if}</title>
+{if $head_keywords}
+<meta name="keywords" content="{$head_keywords}"/>
+{/if}
+{if $head_description}
+<meta name="description" content="{$head_description}"/>
+{/if}
+<metahttp-equivmetahttp-equiv="x-ua-compatible"content="IE=7"/>
+<link rel="stylesheet" type="text/css" href="{AJ_SKIN}default.css">
+<link rel="stylesheet" type="text/css" href="{AJ_SKIN}resetindex.css">
+<link rel="stylesheet" type="text/css" href="{AJ_SKIN}index.css">
+{if !AJ_DEBUG}<script type="text/javascript">window.onerror=function(){return true;}</script>{/if}
+{if $itemid && $AJ[anticopy]}
+<script type="text/javascript">
+document.oncontextmenu=function(e){return false;};
+document.onselectstart=function(e){return false;};
+</script>
+{/if}
+<script type="text/javascript" src="{AJ_SKIN}js/jquery55.js"></script>
+<script type="text/javascript" src="{AJ_SKIN}js/rotation.js"></script>
+<script type="text/javascript" src="{AJ_PATH}file/script/config.js"></script>
+<script type="text/javascript" src="{AJ_PATH}file/script/common.js"></script>
+<script type="text/javascript" src="{AJ_PATH}file/script/page.js"></script>
+<script language="javascript" type="text/javascript" src="{AJ_SKIN}js/home_search.js"></script>
+<script language="javascript" type="text/javascript" src="{AJ_SKIN}js/function.js"></script>
+<script language="javascript" type="text/javascript" src="{AJ_SKIN}js/marquee.js"></script><!--底部滚动js-->
+<script src="{AJ_SKIN}js/sea.js" type="text/javascript"></script>
+<script type="text/javascript">
+var xf_url = "{$MODULE[6][linkurl]}";
+var app_url = "{$MODULE[1][linkurl]}";
+var esf_url = "{$MODULE[5][linkurl]}";
+var rent_url = "{$MODULE[7][linkurl]}";
+var news_url = "{$MODULE[8][linkurl]}";
+</script>
+
+<style type="text/css">
+/*reset*/
+
+
+q:before,q:after{content:''}
+abbr,acronym{border:0;font-variant:normal}
+sup{vertical-align:baseline}
+sub{vertical-align:baseline}
+legend{color:#000}
+.clearfix:after {content: '\0020'; display:block;height:0;clear:both;visibility:hidden;}
+*html .clearfix {zoom:1;}
+a{cursor:pointer;}
+a:link{text-decoration:none;}
+a:visited{text-decoration:none;}
+a:hover{text-decoration:underline;}
+
+</style>
+
+</head>
+<body>
+
+<!-- 广告位： 	首页顶部横幅TOP1 -->
+<div class="col_l">{ad(11)}<!-- 首页顶部横幅TOP1--> </div>
+<div class="mt5"></div>
+<div id="wrap">
+<div id="header">
+<div id="topBar">
+
+<div class="headerLeft fl"><div  id="aijiacms_member"></div></div>
+<ul class="fr" id="user-ed">
+<li class="tl_more">
+                <a href="javascript:void(0)" style="color:#FF0000">网络联盟</a>
+                <b class="tl_down"></b>
+                <div class="more_navlist"><a class="title" target="_blank" href="{$MODULE[1][linkurl]}">{$AJ[sitename]}</a>
+</div>
+            </li>
+<li class="lines"></li>
+<li><a href="{$MODULE[3][linkurl]}shortcut.php" class="zhuomian">保存为桌面</a></li>
+<li><a href="{$EXT[wap_url]}" target="_blank" class="ablue">手机版</a></li>
+            <li class="lines"></li>
+</li>
+</ul>
+<script>
+            seajs.use("jquery",function($){
+                $("#user-ed li.tl_more").hover(function(){
+                    $(this).addClass("hover")
+                },function(){
+                    $(this).removeClass("hover")
+                })
+            })
+        </script>
+</div>   
+
+<!--头部结束-->
+
+<div class="logo_br">
+<a href="{$MODULE[1][linkurl]}"><img src="{if $MODULE[$moduleid][logo]}{AJ_SKIN}image/logo_{$moduleid}.gif{elseif $AJ[logo]}{$AJ[logo]}{else}{AJ_SKIN}image/logo.gif{/if}"  alt="{$AJ[sitename]}"/></a> 
+</div>
+   {if $AJ[city]}  <div class="city"><h3>{$city_name}</h3><a href="{$MODULE[1][linkurl]}city.php">[切换城市]</a></div>
+  {else} <div class="city"><h3>{$AJ[city_sitename]}</h3><a href="#">[切换城市]</a></div>
+	  {/if}
+<div id="Search">
+		<ul class="searchURL">
+			{php $searchid = ($moduleid > 3 && $MODULE[$moduleid]['ismenu'] && !$MODULE[$moduleid]['islink']) ? 6 : 6;}
+	{php $searchids = array(6,5,7,8,);}
+	{if !in_array($searchid, $searchids)}
+		{php $searchids[] = $searchid;}
+	{/if}{loop $searchids $s}
+			<li {if $searchid == $s} class="on"{/if}><a href="{$MODULE[$s][linkurl]}" target="_blank">{$MODULE[$s][name]}</a></li>{/loop}
+		</ul>
+		<a href="{$MODULE[1][linkurl]}map" target="_blank" class="mapS">地图找房</a>
+		<div id="qy">
+			<span>区域/街道</span>
+			<div>
+				<a href="javascript:void(0)" data-val="">全部区县</a>
+				   {php $mainarea = get_mainarea($cityid)}
+						     {loop $mainarea $k $v}    
+						 	<a href="javascript:void(0)" data-val="areaid={$v[areaid]}&">{$v[areaname]}</a>{/loop}
+			</div>
+		</div>
+		<div id="wy">
+			<span>项目类型</span>
+			<div>
+				<a href="javascript:void(0)" data-val="">全部</a>
+				  {php $maincat = get_maincat(0,6)}
+				{loop $maincat $k $v}
+		<a href="javascript:void(0)" data-val="catid={$v[catid]}&">{$v[catname]}</a>{/loop}
+												</div>
+		</div>
+		<div id="jg">
+			<span>价格范围</span>
+			<div>
+				<a href="javascript:void(0)" data-val="">全部</a>
+				{php $jiage = array('4000以下','4000-5000元', '5000-6000元', '6000-7000元', '7000-8000元', '8000-9000元', '9000-10000元','10000元以上');}
+{loop $jiage $k $v}
+		<a href="javascript:void(0)" data-val="p=<?php echo $k+1;?>&">{$v}</a>{/loop}
+												</div>
+		</div>
+		<input type="text" value="请输入关键字（楼盘名/地名、开发商等）">
+		<button> </button>
+	</div> </form>
+</div>
+<script type="text/javascript">
+seajs.use(["jquery","hsearch"],function($){
+$("#Search").hSearch("{$MODULE[6][linkurl]}","")
+})
+</script>
+		
+    <!--搜索+导航-->
+    <!--导航-->
+    <div class="nav_br mt1">
+    <p class="w187"><a target="_blank" href="{$MODULE[8][linkurl]}" class="newsA">资讯</a><a target="_blank" href="{$MODULE[8][linkurl]}list-28.html">本地</a><a target="_blank" href="{$MODULE[8][linkurl]}list-29.html">国内</a><a target="_blank" href="{$MODULE[8][linkurl]}list-30.html">人物专访</a><br><a target="_blank" href="{$MODULE[8][linkurl]}list-32.html">&nbsp;导购</a><a target="_blank" href="{$MODULE[8][linkurl]}list-33.html">优惠</a><a target="_blank" href="{$MODULE[8][linkurl]}list-31.html">政策</a><a target="_blank" href="{$MODULE[8][linkurl]}list-35.html">楼盘动态</a></p>
+        <p class="w187"><a target="_blank" href="{$MODULE[6][linkurl]}" class="newsA">新房</a><a target="_blank" href="{$MODULE[6][linkurl]}list.php?typeid=1">在售</a><a target="_blank" href="{$MODULE[6][linkurl]}list.php?typeid=0">待售</a><a target="_blank" href="{$MODULE[6][linkurl]}list.php?typeid=2">尾盘</a><a target="_blank" href="{$MODULE[6][linkurl]}list.php?typeid=3">售完</a><br><a target="_blank" href="{$MODULE[6][linkurl]}list.php?catid=1">&nbsp;住宅</a><a target="_blank" href="{$MODULE[6][linkurl]}list.php?catid=3">商铺</a><a target="_blank" href="{$MODULE[6][linkurl]}list.php?catid=6">综合体</a><a target="_blank" href="{$MODULE[1][linkurl]}map/newhouse.php">地图找房</a></p>
+        <p class="w192"><a target="_blank" href="{$MODULE[5][linkurl]}" class="newsA">二手房</a><a target="_blank" href="{$MODULE[5][linkurl]}list.php">出售</a><a target="_blank" href="{$MODULE[1][linkurl]}map">地图找房</a><a target="_blank" href="{$MODULE[18][linkurl]}list.php">小区</a><br><a target="_blank" href="{$MODULE[7][linkurl]}" class="newsA">出租房</a><a target="_blank" href="{$MODULE[7][linkurl]}list.php">出租</a><a target="_blank" href="{$MODULE[16][linkurl]}list.php">求购</a><a target="_blank" href="{$MODULE[1][linkurl]}map/rent.php">地图找房</a></p>
+        <p class="w200"><a target="_blank" href="{$MODULE[11][linkurl]}" class="newsA">专题</a><a target="_blank" href="{$MODULE[8][linkurl]}list-37.html">购房手册</a><a target="_blank" href="{$MODULE[8][linkurl]}list-34.html">看房日记</a><a target="_blank" href="{$MODULE[8][linkurl]}list-33.html">优惠</a><br><a target="_blank" href="{$MODULE[12][linkurl]}" class="newsA">图库</a><a target="_blank" href="{$MODULE[12][linkurl]}list-24.html">户&nbsp;型&nbsp;图</a><a target="_blank" href="{$MODULE[12][linkurl]}list-23.html">&nbsp;&nbsp;效&nbsp;果&nbsp;图</a><a target="_blank" href="{$MODULE[12][linkurl]}list-26.html">&nbsp;&nbsp;实景</a></p>
+        <p class="w120" style="background:none;"><a target="_blank" href="{$MODULE[15][linkurl]}" class="newsA">淘房团</a><a target="_blank" href="{$MODULE[14][linkurl]}" >视频秀</a><br>
+<a target="_blank" href="{$MODULE[15][linkurl]}list.php">置业团</a><a target="_blank" href="{$MODULE[4][linkurl]}list.php?g=2">中介公司</a></p>
+        <div class="clear"></div>
+    </div>
+ <!--n首页广告 通栏1-->
+    <div class="mt5">
+<!-- 广告位： 	首页B区横幅AD1 -->
+{ad(12)}
+</div>
+<div class="mt5">
+<!-- 广告位：首页B区横幅AD2 -->
+{ad(13)}
+</div>
+<div class="adb cf border">
+<div class="fl lnews"><!--首页B区翻版左区广告位B3-->{ad(14)}<!--nz新首页广告 小画中画左--></div>
+<div class="fr lnews"><!--首页广告 翻版-右-->{ad(24)}<!--nz新首页广告 小画中画右--></div>
+<div class="cnews">
+          {ad(15)}
+		  {ad(16)}
+		  {ad(17)}
+		  {ad(18)}
+<!--az新首页 异型通栏上-->
+            </div>
+<!--首页B区通栏中B8-->{ad(19)}<!--nz新首页广告 异型通栏-->
+<div class="cnews">
+            {ad(20)}
+		  {ad(21)}
+		  {ad(22)}
+		  {ad(23)}
+<!--az新首页 异型通栏下-->
+</div>
+</div>
+    <!--n首页广告 通栏1-->
+   <div class="mt5">
+<!-- 广告位：首页C区第一位C1 -->
+{ad(25)}
+</div>
+ <div class="mt5">
+<!-- 广告位：首页C区第二位C2 -->
+{ad(26)}
+</div>
+<div class="mt5">
+<!-- 广告位：首页C区第三位C3 -->
+{ad(27)}
+</div>
+<div class="mt5">
+<!-- 广告位： 	首页C区第四位C4 -->
+{ad(28)}
+</div>
+
+<!--n首页广告 通栏2-->
+    <!--新闻正文-->
+    <div class="news_content mt5">
+    <div class="conL"> 
+ <h4 class="gb"><a href="{$MODULE[15][linkurl]}" target="_blank" class="more" style="color:#FFFFFF">更多&gt;&gt;</a><a target="_blank" href="{$MODULE[15][linkurl]}">置业会</a></h4>
+                <div class="gbh"> <!--{php $tags=tag("moduleid=15&condition=status=3 and level>0&pagesize=1&length=18&order=addtime desc&template=null");}-->
+		{loop $tags $t}
+                    <div class="leftImg" style="margin-left:10px;"><a href="{$t[linkurl]}" target="_blank"><img src="{imgurl($t[thumb], 1)}" width="260" height="118" alt=""/></a></div>
+                    <ul class="cul">
+    <li>        活动｜<a href="{$t[linkurl]}"  target="_blank" title="{$t[title]}">{$t[title]}</a>&nbsp;&nbsp;<span style="color:#FF6600"><strong>{$t[orders]}</strong></span>人报名
+    </li> {/loop}
+   	<!--{php $tags=tag("table=announce&condition=totime=0 or totime>$today_endtime-86400&areaid=$cityid&length=40&pagesize=3&datetype=2&order=listorder desc,addtime desc&template=null");}-->
+{loop $tags $k $v}
+  <li>   公告｜ <a href="{$v[linkurl]}" target="_blank">{$v[title]}</a>
+      </li>{/loop}
+</ul><!--az新首页 1枣房-列表-->
+                    <div class="mobile">
+                        {$AJ[telephone]}
+                    </div>
+                </div>
+<div class="clear"></div>
+<!--az新首页 1业界热点-->
+<h4 class="gl"><a href="{$MODULE[8][linkurl]}" target="_blank" class="more">更多&gt;&gt;</a><a target="_blank" href="{$MODULE[8][linkurl]}">热点推荐</a></h4>
+ <!--{php $tags=tag("moduleid=8&condition=status=3 and thumb!=''&areaid=$cityid&length=16&order=addtime desc&pagesize=1&target=_blank&template=null");}-->
+	{loop $tags $k $t} 
+<div class="inbox cf gbh">
+ <a class="fl" target="_blank" href="{$t[linkurl]}">
+<img alt="{$t[linkurl]}" src="{imgurl($t[thumb], 1)}" />
+</a>
+<h5><a target="_blank"  title="{$t[alt]}" href="{$t[linkurl]}">{$t[title]}</a></h5>
+{dsubstr($t[introduce], 52, $suffix = '..')}【<a href="{$t[linkurl]}" target="_blank">详细</a>】<!--az新首页 1业界热点-->
+</div>{/loop}
+</div>
+       <div class="fr w670">
+             <!--头条推荐-->
+          <div class="toutiao">
+            <div class="tt_pic"><a href="{$MODULE[8][linkurl]}" target="_blank"><img src="{AJ_SKIN}images/index/toutiao.gif"></a></div>
+            <h2>  <!--{php $tags=tag("moduleid=8&condition=status=3  and level=5&areaid=$cityid&length=36&pagesize=1&order=addtime desc&target=_blank&template=null");}-->
+ {loop $tags $i $t}
+          <a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}" >{$t[title]}</a>{/loop} 
+        </h2><!--a首页 1头条-->
+            <p>
+     <!--{php $tags=tag("moduleid=8&condition=status=3  and level=4&areaid=$cityid&length=32&pagesize=3&order=addtime desc&target=_blank&template=null");}-->
+ {loop $tags $i $t}
+          <a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}" >{$t[title]}</a>|{/loop} </p><!--a首页 1头条相关-->
+          </div>
+          <div class="mt5">
+             <div class="fl w350 pdl10">
+                 <div class="mb5">
+       <!--{php $tags=tag("moduleid=8&condition=status=3&areaid=$cityid&showcat=1&length=42&pagesize=14&order=addtime desc&target=_blank&template=null");}-->
+{loop $tags $i $t}
+{if $i%7==0} <ul class="news_list f14">{/if}
+
+    <li><a href="{$t[caturl]}">[{$t[catname]}]</A><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}" >{$t[title]}</a></li>{if $i==6 }</UL>   <div class="dashed"></div>{/if}
+ {/loop}<!--a首页 1中间-栏目1-->
+                 </div>
+                 </div>
+              <!--一屏右右侧-->
+              <div class="fr w280 pd8 border_cdb">
+				   <div class="focus-pic f">
+    <dl>
+        <dt>
+                        <i class="">1</i>
+                            <i class="">2</i>
+                            <i class="">3</i>
+                            <i class="cur">4</i>
+                            <i class="">5</i>
+             
+        </dt>
+                       <!--{php $tags=tag("moduleid=8&condition=status=3 and level=2 and thumb!=''&areaid=$cityid&order=addtime desc&pagesize=5&target=_blank&template=null");}-->
+	{loop $tags $k $t}  <dd style="{if $k==""}display:block;{else}display:none;{/if}">
+            <a target="_blank" href="{$t[linkurl]}" title="{$t[alt]}"> <img alt="{$t[alt]}" src="{imgurl($t[thumb], 1)}" /></a><p><a href="{$t[linkurl]}" title="{$t[alt]}" target="_blank">{$t[title]}</a></p>
+        </dd>{/loop}
+          </dl>
+</div><!--a首页 1焦点图-->
+                  <ul class="news_list f12">
+           <!--{php $tags=tag("moduleid=8&condition=status=3 and level=1&areaid=$cityid&length=40&pagesize=4&order=addtime desc&target=_blank&template=null");}-->
+ {loop $tags $i $t}
+<LI><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></LI>
+  {/loop}
+    </ul><!--a首页 1右侧-栏目1-->
+              </div>
+			  <!--一屏右右侧END-->
+          </div>
+      
+       </div><div class="clear"></div>
+    </div>
+<!--信息栏-->
+<div class="mt5">
+<!-- 广告位：首页D区第一位D1 -->
+{ad(29)}
+</div>
+<!-- 网上售楼部 -->
+ <div class="mt">
+        <h1 class="big_title">
+           <span class="fr title_nav">{php $maincat = get_maincat(0,6)}
+ {loop $maincat $k $v} <a href='{$MODULE[6][linkurl]}list.php?catid={$v[catid]} '>{$v[catname]}</a>|  {/loop} <a href="{$MODULE[1][linkurl]}map/newhouse.php" target="_blank">楼市地图</a></span><span class="loupan fl">楼盘大全</span>
+           <div class="clear"></div>
+        </h1>
+ <div class="box-pic clearfix">
+         <div class="lab01_box">
+             <form action="{$MODULE[6][linkurl]}search.php" method="get" id="formNewhouse" name="formNewhouse" target="_blank">
+	  <input type="hidden" name="spread" value="0" id="aijiacms_spread"/>
+	  <input type="hidden" name="moduleid" value="6" id="aijiacms_moduleid"/>
+                    <div class="name fl">按字母搜索：</div>
+                    <div class="abc fl"> {php $l = array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z');}
+	 {loop $l $k $v}
+	<a href="{$MODULE[6][linkurl]}list.php?l={$v}" class="bbs_letters">{$v}</a>{/loop}</div>
+                    <input class="text text3 resetinput" name="kw" id="bbs_srchtxt" type="text">
+                    <input value="yes" name="searchsubmit" type="hidden">
+                    <input class="button" name="" value="" type="submit">
+                    <div class="clear"></div>
+                </form>
+            </div>    
+    <div>
+<div class="hot_house_lists">
+<ul>
+<!--{php $tags=tag("moduleid=6&condition=status=3  and isnew=1 and thumb!=''&areaid=$cityid&length=10&pagesize=10&order=addtime desc&target=_blank&template=null");}-->
+{loop $tags $k $t}
+<li >
+<div class="h_h_pic"><a href="{$t[linkurl]}" target="_blank"><img src="{imgurl($t[thumb], 1)}" width="171" height="115" border="0" /></a></div>
+<div class="h_h_info">
+<div class="h_h_name"><a href="{$t[linkurl]}"  target="_blank">{$t[title]}</a></div><div class="h_h_tel">{dsubstr($t[telephone], 12, '')}<b></b></div>
+<div class="h_h_arrow"></div>
+<div class="h_h_purposes"><span class="warn">{if $t[price]}{$t[price]}元/㎡{else}一房一价{/if}</span>
+</div>
+</div>
+<div class="h_h_tip"><a href="{$t[linkurl]}" target="_blank">{$t[tedian]}</a></div>
+</li>{/loop}
+
+</ul></div>
+      <div class="clearbox"></div>
+    </div>
+   </div>
+</div>
+    <!--新房 newhouse-->
+    <div class="mt5">
+        <h1 class="big_title">
+           <span class="fr title_nav"><a href="{$MODULE[6][linkurl]}" target="_blank">新房首页</a>|<a href="{$MODULE[1][linkurl]}map/newhouse.php" target="_blank">楼市地图</a>|<a href="{$MODULE[8][linkurl]}list-34.html" target="_blank">包打听聊房</a>|<a href="{$MODULE[8][linkurl]}list-33.html" target="_blank">优惠折扣</a>|<a href="{$MODULE[8][linkurl]}list-32.html" target="_blank">楼盘导购</a>|<a href="{$MODULE[8][linkurl]}list-35.html" target="_blank">项目动态</a></span><span class="newhouse fl">新房中心</span><div class="clear"></div>
+        </h1>
+        <div class="border_notop">
+          <!--搜索-->
+            <div class="lab01_box newhouse">
+                    <div class="none">
+                            <div class="select"><em class="iconbg">区域</em></div>
+                            <input class="resetinput" value="" id="xf_place" type="hidden">
+                            <div class="s_Box" style="display:none">
+                                <div class="cBox">
+                                    <span><a href="javascript:void(0)" val="">不限</a></span>
+                                     {php $mainarea = get_mainarea($cityid)}
+						    {loop $mainarea $k $v}    
+						 	<span><a href="javascript:void(0)" val="{$v[areaid]}">{$v[areaname]}</a></span>{/loop}
+ 
+<!--a首页 搜索-新房区域-->
+                                </div>
+                            </div>
+                        </div>
+                    <div class="none">
+                            <div class="select"><em class="iconbg">价格</em></div>
+                            <input class="resetinput" value="" id="xf_price" type="hidden">
+                            <div class="s_Box" style="display:none">
+                                <div class="cBox">
+                                    <span><a href="javascript:void(0)" val="">不限</a></span>
+                                  {php $jiage = array('4000元以下','4000-5000元', '5000-6000元', '6000-7000元', '7000-8000元', '8000-9000元', '9000-10000元','10000元以上');}
+{loop $jiage $k $v}  
+						 	<span><a href="javascript:void(0)" val="<?php echo $k+1;?>">{$v}</a></span>{/loop}
+<!--a首页 搜索-新房均价-->		
+                                </div>
+                            </div>
+                        </div>  
+                    <div class="none">
+                            <div class="select"><em class="iconbg">项目类型</em></div>
+                            <input class="resetinput" value="" id="xf_project" type="hidden">
+                            <div class="s_Box s_Box1" style="display:none">
+                                <div class="cBox">
+                                    <span><a href="javascript:void(0)" val="">不限</a></span>
+                                   {php $leixing = get_maincat(0,6)}
+			    {loop $leixing $k $v}    
+						 	<span><a href="javascript:void(0)" val="{$v[catid]}">{$v[catname]}</a></span>{/loop}
+<!--a首页 搜索-新房项目类型-->
+                                </div>
+                            </div>
+                        </div> 
+                  
+                    <input class="text" id="xf_key" type="text">
+                    <input class="button" id="xf_search_bt" type="button">
+                    <div class="clear"></div>
+            </div>
+            <div>
+            	 <div class="fl w280 border_jianbbian">
+                    <div class="pd10 pt0 mt10">
+                        <h2 class="fullbg border"><a class="fr rightbg" href="{$MODULE[14][linkurl]}" target="_blank">更多&gt;&gt;</a><span class="fl leftbg"><a href="{$MODULE[14][linkurl]}" target="_blank">楼盘视频</a></span></h2>
+<ul class="pic_list pic_list_zttxp">
+  <!--{php $tags=tag("moduleid=14&condition=status=3&areaid=$cityid&length=36&pagesize=4&order=addtime desc&target=_blank&template=null");}-->
+{loop $tags $i $t}
+           <li><div><a href="{$t[linkurl]}" target="_blank"><img src="{imgurl($t[thumb], 1)}" alt="{$t[titlle]}" height="66" width="85"></a></div><p><a href="{$t[linkurl]}" target="_blank">{$t[title]}</a></p></li> {/loop}  </ul>
+<!--a首页 4最新视频--><div class="clear"></div>
+                      </div>
+
+                    <!--热门楼盘-->  
+                    <div class="pd10 pt0 pd5">
+                           <h2 class="fullbg border"><a class="fr rightbg" href="{$MODULE[8][linkurl]}" target="_blank">更多&gt;&gt;</a><span class="fl leftbg"><a href="{$MODULE[8][linkurl]}" target="_blank">房价动态</a></span></h2>
+                           <ul class="newhouse_list pdl10 mt10">
+            <!--{php $tags=tag("moduleid=8&condition=status=3&areaid=$cityid&length=42&pagesize=8&order=addtime desc&target=_blank&template=null");}-->
+ {loop $tags $i $t}         <li>
+        <span class="num1"><?php echo $i+1;?></span><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}" >{$t[title]}</a>
+    </li> {/loop}
+     </ul>
+<!--a首页 2热门楼盘-->
+                    </div>
+            	</div>
+                <div class="fl shade">
+                    <div class="mt10 clearfix">
+                      <!--折扣优惠-->
+                      <div class="w350 fl pd11">
+                      <h2 class="title"><a class="fr more" href="{$MODULE[8][linkurl]}list-33.html" target="_blank">更多&gt;&gt;</a><span class="fl"><div class="space"></div><a href="{$MODULE[8][linkurl]}list-33.html" target="_blank">折扣优惠</a></span></h2>  
+                      <div class="pd10">
+       
+<ul class="news_list f14">
+         <!--{php $tags=tag("moduleid=8&condition=status=3&areaid=$cityid&catid=33&length=36&pagesize=10&order=addtime desc&target=_blank&template=null");}-->
+ {loop $tags $i $t}
+<LI>{if $t[houseid]}<a href="{$MODULE[6][linkurl]}show.php?itemid={$t[houseid]}" target="_blank" title="{$t[alt]}">[{$t[housename]}]</a>{/if}<a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></LI>
+  {/loop}
+    
+</ul><!--a首页 2折扣优惠-->
+                      </div>
+                    </div>
+                      <!--购房指导-->
+                      <div class="fr w280 pd11">
+                        <h2 class="title"><a class="fr more" href="{$MODULE[8][linkurl]}list-32.html" target="_blank">更多&gt;&gt;</a><span class="fl"><div class="space"></div><a href="{$MODULE[8][linkurl]}list-32.html" target="_blank">购房指导</a></span></h2>
+                    <div class="pd5 mt10">
+                            <div class="focus-pic2 f2">
+    <dl>
+        <dt>
+                        <i class="cur">1</i>
+                            <i class="">2</i>
+                            <i class="">3</i>
+             
+        </dt>
+                         <!--{php $tags=tag("moduleid=8&condition=status=3 and level=2 and thumb!=''&areaid=$cityid&order=addtime desc&pagesize=5&target=_blank&template=null");}-->
+	{loop $tags $k $t}  <dd style="{if $k==""}display:block;{else}display:none;{/if}">
+            <a target="_blank" href="{$t[linkurl]}" title="{$t[alt]}"> <img alt="{$t[alt]}" src="{imgurl($t[thumb], 1)}" /></a><p><a href="{$t[linkurl]}" title="{$t[alt]}" target="_blank">{$t[title]}</a></p>
+        </dd>{/loop}
+             
+    </dl>
+</div><!--a首页 2购房导购-焦点图-->
+                       		<ul class="news_list f12 pt10">
+							  <!--{php $tags=tag("moduleid=8&condition=status=3&areaid=$cityid&catid=32&length=40&pagesize=3&order=addtime desc&target=_blank&template=null");}-->
+ {loop $tags $i $t}
+<LI><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></LI>
+  {/loop}
+ 
+</ul><!--a首页 2购房导购-列表-->
+                      </div>
+                    </div>
+                    </div>
+                    <div class="clearfix">
+                      <!--楼盘导购-->
+                      <div class="w350 fl pd11">
+                      <h2 class="title"><a class="fr more" href="{$MODULE[8][linkurl]}list-34.html" target="_blank">更多&gt;&gt;</a><span class="fl"><div class="space"></div><a href="{$MODULE[8][linkurl]}list-34.html" target="_blank">看房日记</a></span></h2>  
+                      <div class="pd10">
+                       
+<ul class="news_list f14">
+    <!--{php $tags=tag("moduleid=8&condition=status=3&areaid=$cityid&catid=34&length=36&pagesize=8&order=addtime desc&target=_blank&template=null");}-->
+ {loop $tags $i $t}
+<LI>{if $t[houseid]}<a href="{$MODULE[6][linkurl]}show.php?itemid={$t[houseid]}" target="_blank" title="{$t[alt]}">[{$t[housename]}]</a>{/if}<a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></LI>
+  {/loop}
+</ul><!--a首页 2楼盘导购-->
+                      </div>
+                    </div>
+                      <!--楼盘问答-->
+                      <div class="fr w280 pd11">
+                        <h2 class="title"><span class="fl"><div class="space"></div><a href="{$MODULE[6][linkurl]}list.php" target="_blank">楼盘问答</a></span></h2>
+                        <div class="pd5 mt10">
+					
+                          <ul >
+     <!--{php $tags=tag("table=wenfang&condition=status=3&pagesize=2&order=addtime desc&template=null");}-->
+	{loop $tags $i $t}
+        <LI><B class=cDRed>网友</B> 于{date('Y-m-d', $t[addtime])}购房咨询了【<a href="{$t[item_linkurl]}" target="_blank">{$t[item_title]}</a>】<BR><B class=cBlue>问题：</B>{$t[content]}<BR><B 
+    class=cGreen>解答：</B> <font color="#FF0000">{if $t[reply]}{$t[reply]}&nbsp;<a href="{$t[item_linkurl]}" target="_blank">[详细]</a>{else}暂无回复{/if}</font> 
+        </LI>
+		{/loop}
+    </ul><!--a首页 2别墅关注-列表-->
+                      </div>
+                    </div> <div class="clear"></div>
+                    </div>
+                 
+                  
+                </div>
+            	<div class="clear"></div>
+            </div>
+        </div>
+    </div>
+ 
+<div class="mt5">
+<!-- 广告位：首页E区第一位E1 -->
+{ad(30)}
+</div>
+ 
+<!--楼盘团购-->
+{if $AJ[page_group]}
+  <div class="mt5">
+<div class="w-tit ">
+<h3><a href="{$MODULE[15][linkurl]}"></a></h3><span class="more"><a  href="{$MODULE[15][linkurl]}">{$city_name}本土真实有效的房产电商平台&gt;&gt;</a> </span></div>
+<div class="TuanGou">
+ <ul>
+  <!--{php $tags=tag("moduleid=15&condition=status=3&pagesize=5&datetype=2&length=18&order=addtime desc&template=null");}-->
+		{loop $tags $t}
+     	
+    <li>
+    <p class="tit"><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}"> {$t[price]}</a></p>
+    <p><a href="{$t[linkurl]}" target="_blank"><img src="{imgurl($t[thumb], 1)}" class="leftImg" alt="{$t[alt]}" height="120" width="180"></a></p>
+    <p class="tit2"><a href="{$t[linkurl]}"  target="_blank" title="{$t[alt]}">{$t[title]}</a>&nbsp;&nbsp;<span class="num">{$t[orders]}</span>人报名</p>
+    </li>
+    {/loop}
+     </ul></div></div>
+	 <div class="clear"></div>
+<!--楼盘团购结束-->
+	{/if}
+	<!--论坛 bbs-->
+   
+
+    <!--论坛 bbs-->
+    
+   <div class="mt5">
+<!-- 广告位：首页F区第一位F1 -->
+{ad(31)}
+</div><!--首页广告 通栏5-->
+    <!--二手房 esf-->
+    <div class="mt5">
+        <h1 class="big_title">
+           <span class="fr title_nav"><a href="{$MODULE[5][linkurl]}list.php" target="_blank">出售房源</a>|<a href="{$MODULE[7][linkurl]}list.php" target="_blank">出租房源</a>|<a href="{$MODULE[18][linkurl]}list.php" target="_blank">小区</a>|<a href="{$MODULE[1][linkurl]}map" target="_blank">地图</a>|<a href="{$MODULE[4][linkurl]}list.php?g=1" target="_blank">经纪人</a>|<a href="{$MODULE[8][linkurl]}list.php" target="_blank">资讯</a>|<a href="{$MODULE[16][linkurl]}list.php" target="_blank">求购房源</a></span><span class="esf fl">二手房租房</span>
+           <div class="clear"></div>
+        </h1>
+        <div class="border_notop">
+            <!--搜索-->
+            <div class="lab01_box esf" id="search_rent">
+              <form action="{$MODULE[7][linkurl]}search.php" method="get" id="formNewhouse" name="formNewhouse" target="_blank">
+	  <input type="hidden" name="spread" value="0" id="aijiacms_spread"/>
+                    <div class="none">
+                            <div class="select select2"><em class="iconbg" id="type_show_rent">出租</em></div>
+                            <div class="s_Box s_Box2" style="display:none">
+                                <div class="cBox">
+                                    <span><a href="javascript:void(0)" onClick="search_esf_rent(1)">出租</a></span>
+                                    <span><a href="javascript:void(0)" onClick="search_esf_rent(2)">出售</a></span>				
+                                </div>
+                            </div>
+                        </div>
+                    <div class="none">
+                            <div class="select"><em class="iconbg">区域</em></div>
+                            <input class="resetinput" value="" name="areaid" type="hidden">
+                            <div class="s_Box" style="display:none">
+                                <div class="cBox">
+                                    <span><a href="javascript:void(0)" val="">不限</a></span>
+                                     {php $mainarea = get_mainarea($cityid)}
+						    {loop $mainarea $k $v}    
+						 	<span><a href="javascript:void(0)" val="{$v[areaid]}">{$v[areaname]}</a></span>{/loop}
+<!--a首页 搜索-非新房区域-->				
+                                </div>
+                            </div>
+                        </div>
+                    <div class="none">
+                            <div class="select"><em class="iconbg">价格</em></div>
+                            <input class="resetinput" value="" name="p" type="hidden">
+                            <div class="s_Box" style="display:none">
+                                <div class="cBox">
+                                    <span><a href="javascript:void(0)" val="">不限</a></span>
+                                      {php $price = array('200元以下', '200-500元', '500-1000元', '1000-1500元', '1500-2000元', '2000-3000元','3000元以上');}
+									  {loop $price $k $v}
+						 	<span><a href="javascript:void(0)" val="<?php echo $k+1;?>">{$v}</a></span>{/loop}
+<!--a首页 搜索-二手房出租价格-->
+                                </div>
+                            </div>
+                        </div>  
+                    <div class="none">
+                            <div class="select"><em class="iconbg">户型</em></div>
+                            <input class="resetinput" value="" name="r" type="hidden">
+                            <div class="s_Box s_Box1" style="display:none">
+                                <div class="cBox">
+                                    <span><a href="javascript:void(0)" val="">不限</a></span>
+                                   {php $huxing = array('一室', '二室', '三室', '四室', '五室以上');}
+{loop $huxing $k $v}
+						 	<span><a href="javascript:void(0)" val="<?php echo $k+1;?>">{$v}</a></span>{/loop}
+<!--a首页 搜索-二手房户型-->
+                                </div>
+                            </div>
+                        </div> 
+                    <div class="none">
+                            <div class="select"><em class="iconbg">面积</em></div>
+                            <input class="resetinput" value="" name="a" type="hidden">
+                            <div class="s_Box" style="display:none">
+                                <div class="cBox">
+                                    <span><a href="javascript:void(0)" val="">不限</a></span>
+									 {php $mianji = array('40平米以下', '40-60平米', '60-80平米', '80-100平米', '100-120平米', '120-150平米','150平米以上');}
+{loop $mianji $k $v}
+                                     <span><a href="javascript:void(0)" val="<?php echo $k+1;?>">{$v}</a></span>{/loop}
+<!--a首页 搜索-二手房面积-->
+                                </div>
+                            </div>
+                        </div>
+                    <input class="text text2 esf_rent_key resetinput" name="kw" type="text">
+                    <input class="button" value="" type="submit">
+                    <div class="clear"></div>
+                </form>
+            </div>
+
+            <div class="lab01_box esf" id="search_esf" style="display:none;">
+                <form action="{$MODULE[5][linkurl]}search.php" method="get" id="formNewhouse" name="formNewhouse" target="_blank">
+	  <input type="hidden" name="spread" value="0" id="aijiacms_spread"/>
+                    <div class="none">
+                            <div class="select select2"><em class="iconbg" id="type_show_esf">出售</em></div>
+                            <div class="s_Box s_Box2" style="display:none">
+                                <div class="cBox">
+                                    <span><a href="javascript:void(0)" onClick="search_esf_rent(1)">出租</a></span>
+                                    <span><a href="javascript:void(0)" onClick="search_esf_rent(2)">出售</a></span>				
+                                </div>
+                            </div>
+                        </div>
+                    <div class="none">
+                            <div class="select"><em class="iconbg">区域</em></div>
+                            <input class="resetinput" value="" name="areaid" type="hidden">
+                            <div class="s_Box" style="display:none">
+                                <div class="cBox">
+                                    <span><a href="javascript:void(0)" val="">不限</a></span>
+                                    {php $mainarea = get_mainarea($cityid)}
+						    {loop $mainarea $k $v}    
+						 	<span><a href="javascript:void(0)" val="{$v[areaid]}">{$v[areaname]}</a></span>{/loop}
+<!--a首页 搜索-非新房区域-->				
+                                </div>
+                            </div>
+                        </div>
+                    <div class="none">
+                            <div class="select"><em class="iconbg">价格</em></div>
+                            <input class="resetinput" value="" name="p" type="hidden">
+                            <div class="s_Box" style="display:none">
+                                <div class="cBox">
+                                    <span><a href="javascript:void(0)" val="">不限</a></span>
+                               {php $price = array('30万以下', '30-50万', '50-80万', '80-100万', '100-120万', '120-150万','150-200万');}
+{loop $price $k $v}
+                                     <span><a href="javascript:void(0)" val="<?php echo $k+1;?>">{$v}</a></span>{/loop}
+<!--a首页 搜索-二手房出售价格-->
+                                </div>
+                            </div>
+                        </div>  
+                    <div class="none">
+                            <div class="select"><em class="iconbg">户型</em></div>
+                            <input class="resetinput" value="" name="r" type="hidden">
+                            <div class="s_Box s_Box1" style="display:none">
+                                <div class="cBox">
+                                    <span><a href="javascript:void(0)" val="">不限</a></span>
+                                   {php $huxing = array('一室', '二室', '三室', '四室', '五室以上');}
+{loop $huxing $k $v}   <span><a href="javascript:void(0)" val="<?php echo $k+1;?>">{$v}</a></span>{/loop}
+<!--a首页 搜索-二手房户型-->
+                                </div>
+                            </div>
+                        </div> 
+                    <div class="none">
+                            <div class="select"><em class="iconbg">面积</em></div>
+                            <input class="resetinput" value="" name="a" type="hidden">
+                            <div class="s_Box" style="display:none">
+                                <div class="cBox">
+                                    <span><a href="javascript:void(0)" val="">不限</a></span>
+                                      {php $mianji = array('40平米以下', '40-60平米', '60-80平米', '80-100平米', '100-120平米', '120-150平米','150平米以上');}
+{loop $mianji $k $v}  <span><a href="javascript:void(0)" val="<?php echo $k+1;?>">{$v}</a></span>{/loop}
+<!--a首页 搜索-二手房面积-->
+                                </div>
+                            </div>
+                        </div>
+                    <input class="text text2 esf_rent_key resetinput" name="kw" type="text">
+                    <input class="button" value="" type="submit">
+                    <div class="clear"></div>
+                </form>
+            </div>
+            <div>
+            	<div class="fl w280 border_jianbbian">
+                    <ul class="esf_btn mt10">
+                    	<li><a href="{$MODULE[2][linkurl]}my.php?mid=5&action=add" target="_blank">我要卖房</a></li>
+                    	<li><a href="{$MODULE[2][linkurl]}my.php?mid=16&action=add" target="_blank">我要买房</a></li>
+                    	<li><a href="{$MODULE[2][linkurl]}my.php?mid=7&action=add" target="_blank">我要出租</a></li>
+                    	<li><a href="{$MODULE[2][linkurl]}my.php?mid=16&action=add" target="_blank">我要租房</a></li>
+                        <div class="clear"></div>
+                    </ul>
+                    <div class="pd10 pt0">
+                        <h2 class="fullbg border"><a class="fr rightbg" href="{$MODULE[8][linkurl]}list-36.html" target="_blank">更多&gt;&gt;</a><span class="fl leftbg"><a href="{$MODULE[8][linkurl]}list-36.html" target="_blank">二手房动态</a></span></h2>
+                        <ul class="news_list pdl10 mt10">
+         <!--{php $tags=tag("moduleid=8&condition=status=3&areaid=$cityid&catid=36&length=42&pagesize=6&order=addtime desc&target=_blank&template=null");}-->
+ {loop $tags $i $t}
+      <LI><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}" >{$t[title]}</a></LI>{/loop}
+    </ul><!--a首页 4二手房动态-->
+                      </div>
+                    <!--热点经纪人-->  
+                    <div class="pd10 pt0">
+                           <h2 class="fullbg border"><a class="fr rightbg" href="{$MODULE[4][linkurl]}list.php" target="_blank">更多&gt;&gt;</a><span class="fl leftbg"><a href="{$MODULE[4][linkurl]}list.php" target="_blank">热点经纪人</a></span></h2>
+                           <div class="zt_imgs">
+						    <!--{php $tags=tag("table=member&condition=groupid=6&areaid=$cityid&order=userid desc&pagesize=6&template=null");}-->
+ {loop $tags $i $t}
+						 
+                              	        <span>
+            <a href="{userurl($t[username], '')}" title="{$t[username]}" target="_blank">
+            <img src="{imgurl($t[thumb], 1)}" title="{$t[username]}" alt="{$t[username]}" height="50" width="50">
+            </a>
+            <font>{$t[truename]}</font>
+        </span>{/loop}
+        
+    <!--a首页 4热点经纪人-->
+                               <div class="clear"></div>
+                           </div>
+                    </div>
+            	</div>
+                <div class="fl shade">
+                    <div class="fr tt_tab mt10">
+                        <h2 class="title"><a class="fr more" href="{$MODULE[5][linkurl]}" target="_blank">更多&gt;&gt;</a><span class="fl"><div class="space"></div><a href="{$MODULE[5][linkurl]}" target="_blank">出售房源</a></span></h2>
+                        <div class="cont_esf">
+                            <div>
+                                <ul class="pic_list_esf">
+									<!--{php $tags=tag("moduleid=5&condition=status=3 and thumb<>''&areaid=$cityid&length=22&pagesize=3&order=addtime desc&target=_blank&template=null");}-->
+ {loop $tags $i $t}
+        <li><div><a href="{$t[linkurl]}" target="_blank"><img src="{imgurl($t[thumb], 1)}" alt="{$t[alt]}" height="66" width="85"></a></div><p><a href="{$t[linkurl]}" target="_blank">{$t[title]}</a></p></li>{/loop}
+          
+    <div class="clear"></div>
+ </ul><div class="clear"></div>
+<ul class="esf_loupan_list pt0 mt5">
+	<!--{php $tags=tag("moduleid=5&condition=status=3&areaid=$cityid&length=22&pagesize=9&order=addtime desc&target=_blank&template=null");}-->
+ {loop $tags $i $t}
+               <li><span class="wid50 pdr10 fl">[<a target="_blank" href="{$MODULE[5][linkurl]}list.php?areaid={$t[areaid]}">{area_poss($t[areaid], '')}</a>]</span><span class="wid85 pdr10 fl"><a href="{$t[linkurl]}" target="_blank">{$t[title]}</a></span><span class="wid45 pdr10 fl">{if $t[room]}{$t[room]}室{else}待定{/if}{if $t[hall]}{$t[hall]}厅{/if}{if $t[toilet]}{$t[toilet]}卫{/if}</span><span class="wid45 pdr10 fl">{$t[houseearm]}㎡</span><span class="red wid55 fr text_r">{if $t[price]}{$t[price]}万元{else}面议{/if}</span><div class="clear"></div></li>{/loop}
+                  
+           <div class="clear"></div>
+ </ul><!--a首页 4出售房源-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fr tt_tab mt10">
+                      <h2 class="title"><a class="fr more" href="{$MODULE[7][linkurl]}" target="_blank">更多&gt;&gt;</a><span class="fl"><div class="space"></div><a href="{$MODULE[7][linkurl]}" target="_blank">出租房源</a></span></h2>  
+                        <div class="cont_esf">
+                            <div>
+                                <ul class="pic_list_esf">
+       	<!--{php $tags=tag("moduleid=7&condition=status=3 and thumb<>''&areaid=$cityid&length=22&pagesize=3&order=addtime desc&target=_blank&template=null");}-->
+ {loop $tags $i $t}
+        <li><div><a href="{$t[linkurl]}" target="_blank"><img src="{imgurl($t[thumb], 1)}" alt="{$t[alt]}" height="66" width="85"></a></div><p><a href="{$t[linkurl]}" target="_blank">{$t[title]}</a></p></li>{/loop}
+          
+    <div class="clear"></div>
+ </ul><div class="clear"></div>
+<ul class="esf_loupan_list pt0 mt5">
+	<!--{php $tags=tag("moduleid=7&condition=status=3&areaid=$cityid&length=22&pagesize=9&order=addtime desc&target=_blank&template=null");}-->
+ {loop $tags $i $t}
+               <li><span class="wid50 pdr10 fl">[<a target="_blank" href="{$MODULE[5][linkurl]}list.php?areaid={$t[areaid]}">{area_poss($t[areaid], '')}</a>]</span><span class="wid85 pdr10 fl"><a href="{$t[linkurl]}" target="_blank">{$t[title]}</a></span><span class="wid45 pdr10 fl">{if $t[room]}{$t[room]}室{else}待定{/if}{if $t[hall]}{$t[hall]}厅{/if}{if $t[toilet]}{$t[toilet]}卫{/if}</span><span class="wid45 pdr10 fl">{$t[houseearm]}㎡</span><span class="red wid55 fr text_r">{if $t[price]}{$t[price]}元/月{else}面议{/if}</span><div class="clear"></div></li>{/loop}
+           <div class="clear"></div>
+ </ul><!--a首页 4出租房源-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ml10 hot_xiaoqu">
+                        <h2 class="title"><a class="fr more" href="{$MODULE[18][linkurl]}list.php" target="_blank">更多&gt;&gt;</a><span class="fl"><div class="space"></div><a href="{$MODULE[18][linkurl]}list.php" target="_blank">热门小区</a></span></h2>
+                        <div class="hot_xiaoquCon">
+						
+								<!--{php $tags=tag("moduleid=18&condition=status=3&areaid=$cityid&length=22&pagesize=10&order=hits desc&target=_blank&template=null");}-->
+ {loop $tags $i $t}
+						{if $i%5==0} <ul class="{if $i!=0}ml20{/if}">  {/if}
+ <li>
+    <span class="wid55"><a  target="_blank" href="{$MODULE[18][linkurl]}list.php?areaid={$t[areaid]}" >[{area_poss($t[areaid], '')}]</a></span><span class="wid110"><a href="{$t[linkurl]}" title="{$t[alt]}" target="_blank">{$t[title]}</a></span>
+    <span class="wid70">售<a href="{$t[linkurl]}" target="_blank">{get_sale($t[itemid])}</a>套</span><span class="wid70">租<a href="{$t[linkurl]}" target="_blank">{get_rent($t[itemid])}</a>套</span>
+    </li>
+    {if $i==4 || $i==9 }</ul>  {/if}{/loop}
+   	<!--a首页 4热门小区-->
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                </div>
+            	<div class="clear"></div>
+            </div>
+        </div>
+    </div>
+   
+    <!--业界关注-->
+   
+    <!--排行榜-->
+    <div class="mt10 border phb">
+      <h2 class="fullbg"><span class="fr" href="#">{$AJ[sitename]}热线：{$AJ[telephone]}</span><span class="fl"><div class="space"></div><a href="{$MODULE[8][linkurl]}" target="_blank">排行榜</a></span></h2>
+      <div class="pd10 pt0">
+          <div class="ph">
+             <b>热点资讯</b>
+             <ul class="num">
+           <!--{php $tags=tag("moduleid=8&condition=status=3&areaid=$cityid&length=28&pagesize=10&order=hits desc&target=_blank&template=null");}-->
+{loop $tags $i $t} <li><span>{$t[hits]}</span><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}" >{$t[title]}</a><div class="clear"></div></li>{/loop}
+     </ul>
+<!--a首页 排行榜-热点资讯-->
+          </div>
+          <div class="ph w2">
+             <b>热点楼盘</b>
+               <ul>
+                   <!--{php $tags=tag("moduleid=6&condition=status=3 and isnew=1&areaid=$cityid&length=28&pagesize=10&order=hits desc&target=_blank&template=null");}-->
+{loop $tags $i $t} <li><span>{$t[hits]}</span><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}" >{$t[title]}</a><div class="clear"></div></li>{/loop}
+          </ul><!--a首页 排行榜-热点楼盘-->
+          </div>
+          <div class="ph w2">
+             <b>热点二手房</b>
+             <ul class="num ">
+              <!--{php $tags=tag("moduleid=5&condition=status=3&areaid=$cityid&length=20&pagesize=10&order=hits desc&target=_blank&template=null");}-->
+{loop $tags $i $t} <li><span>{$t[hits]}</span><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}" >{$t[title]}</a><div class="clear"></div></li>{/loop}
+          </ul><!--a首页 排行榜-热点二手房-->
+          </div>
+          <div class="ph last">
+             <b>热点租房</b>
+             <ul class="num ">
+ <!--{php $tags=tag("moduleid=7&condition=status=3&areaid=$cityid&length=20&pagesize=10&order=hits desc&target=_blank&template=null");}-->
+{loop $tags $i $t} <li><span>{$t[hits]}</span><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}" >{$t[title]}</a><div class="clear"></div></li>{/loop}
+</ul><!--a首页 排行榜-热点租房-->
+          </div><div class="clear"></div>
+      </div>
+    </div>
+    <!--图片滚动-->
+<h2 class=" fullbg mt10 border">
+    <span class="fl"><div class="space"></div><a href="{$MODULE[8][linkurl]}" target="_blank">精彩回顾</a></span>
+    <span class="fr iconwz"><a id="goD" href="javascript:void(0);">下移一次</a><span id="gobox"><span id="gobox_page">1/3</span>页</span><a id="goU" href="javascript:void(0);">上移一次</a></span>
+</h2>
+<div class="job_index">
+	<div id="marquee_box">
+    <ul style="height: 1300px;">
+	<!--{php $tags=tag("moduleid=8&condition=status=3 and thumb<>''&areaid=$cityid&length=32&pagesize=18&order=itemid desc&target=_blank&template=null");}-->
+ {loop $tags $i $t}{if $i%6==0} <li>
+<dl>{/if}
+ <dd>
+   <a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}"><img src="{imgurl($t[thumb], 1)}" title="{$t[alt]}" alt="{$t[alt]}" height="90" width="180"></a>
+   <a class="link" href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a>
+    </dd> 
+    {if $i==5 || $i==11 || $i==17  } </dl>
+<div class="clear"></div>
+</li> {/if}{/loop}
+</ul>
+             
+<!--a首页 精彩回顾-->
+</div>
+</div>
+    <!--友情链接-->
+    <div class="links mt15">
+        <h2><span>友情链接</span><font style="size:12px;">首页要求pr&gt;=5 QQ：{$AJ[QQ]} 欢迎各界朋友前来洽谈网站栏目、内容合作！PR&lt;5的已链入更多页</font></h2> 
+        <div class="flinks">
+			<!--{php $tags=tag("table=link&condition=status=3 and thumb='' and username=''&areaid=$cityid&pagesize=".$AJ['page_text']."&order=listorder desc,itemid desc&template=null");}-->
+					  {loop $tags $t}  
+			      	<a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a> {/loop}
+<!--a首页 友情链接-->
+    	    <div class="clear"></div>    
+    </div>
+    </div>
+</div>
+{template 'footer'}
+
+
+</body></html>

@@ -1,0 +1,89 @@
+{template 'header'}
+<div class="m">	
+
+ <!--q新房广告 新房详情页-导航下通栏1-->
+ <form name="detailForm" id="detailForm" action="{$MODULE[2][linkurl]}favorite.php" method="post">	
+<input type="hidden" name="action" value="add"/>
+<input type="hidden" name="title" value="{$title}"/>
+<input type="hidden" name="url" value="{$linkurl}"/>
+</form>
+    <div class="bread">
+	<div class="fr">
+		访问：<strong>{$hits}</strong>人次 | <a href="javascript:document.getElementById('detailForm').submit();">收藏</a>
+		<span>{$editdate}更新</span>
+	 </div>
+	您当前的位置：<a href="{$MODULE[1][linkurl]}" title="{$AJ[sitename]}">{$AJ[sitename]}</a> &gt; <a href="{$MOD[linkurl]}">{$MOD[name]}    </a> &gt; <a href="{$MOD[linkurl]}list.php?areaid={$areaid}">{area_poss($areaid, ' ')}</a> &gt;  {$title} 
+	</div>
+<div class="name cf">
+	<div class="qr fr">{twoCode($EXT[wap_url],$moduleid,$itemid)}</div>
+	<div class="fl">
+		<div class="name_top">
+		<h2><a href="{$linkurl}" title="{$title}">{$title}</a></h2>
+				<div class="name_icon name_icon1">{$TYPE[$typeid]}</div>		</div>
+		
+	</div>
+</div>
+<div class="navcon">
+<div class="navbox">
+	<ul>
+		{php $menu = array('xinxi'=>'详细', 'jiage'=>'房价', 'xiangce'=>'相册','huxing'=>'户型', 'zixun'=>'导购', 'peitao'=>'地图交通',  'dianping'=>'点评', 'wenfang'=>'问房');}
+<li><a href="{$linkurl}"  >主页</a></li>{loop $menu $k $v} 
+<li><a href="{$MODULE[6][linkurl]}{$k}.php?itemid={$itemid}" {if dianping==$k}class='on'{else}{/if} >{$v}</a></li>
+{/loop}
+       {if $bbsurl}<li><a href="{$bbsurl}">论坛</a></li>{/if}
+		<li><a href="{$linkurl}#iwantgroupbuy">团购报名</a></li>
+        	    	</ul>
+</div>	
+</div>		<div class="cf">
+			<!--点评 START-->
+{template 'commentlp', 'chip'}
+<!--点评 END-->
+			</div></div>
+			<div class=" fr w200">
+				<div class="modB mt10">
+    <h4>
+        <sub></sub>
+      <a href="{$MODULE[6][linkurl]}xinxi.php?itemid={$itemid}" target="_blank">祥云国际楼盘详情</a>
+    </h4>
+        <ul class="smInfo cf">
+ <li>
+            <span>参考售价：</span>
+            <p class="price">{if $price}{$price}元/平米{else}待定{/if}</p>
+        </li>
+        <li>
+            <span>物业类型：</span>
+            <p>{search_cats($catid, '6')}</p>
+        </li>
+        <li>
+            <span>所属商圈：</span>
+            <p>{area_pos($areaid, ' ')}</p>
+        </li>
+        <li>
+            <span>楼盘地址：</span>
+            <p>{$address}</p>
+            <div class="clear"></div>
+        </li>
+        <li>
+            <span>售楼热线：</span>
+            <p class="red">{$telephone}</p>
+        </li>    </ul>
+</div>                				<div class="modB">
+					<h4>
+						<sub></sub>同区域排行
+					</h4>
+					<ul class="top10">
+                                <!--{tag("moduleid=6&condition=status=3 and itemid!=$itemid and isnew=1&areaid=$areaid&pagesize=8&order=hits desc&template=lp-right")}-->
+                        					</ul>
+				</div>
+                                				<div class="modB">
+					<h4>
+						<span class="fl">同价位排行</span>
+					</h4>
+					<ul class="top10">
+                            <!--{tag("moduleid=6&condition=status=3 and itemid!=$itemid and price between $pricea and $priceb  and isnew=1&areaid=$cityid&pagesize=8&order=hits desc&template=lp-right")}-->	</ul>
+				</div>
+                			</div>
+		</div>
+		{template 'footer'}</div>
+</body>
+</html>

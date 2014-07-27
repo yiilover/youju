@@ -1,0 +1,215 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=gbk"/>
+<title>{if $seo_title}{$seo_title}{else}{if $head_title}{$head_title}{$AJ[seo_delimiter]}{/if}{if $city_sitename}{$city_sitename}{else}{$AJ[sitename]}{/if}{/if}</title>
+{if $head_keywords}
+<meta name="keywords" content="{$head_keywords}"/>
+{/if}
+{if $head_description}
+<meta name="description" content="{$head_description}"/>
+{/if}
+<meta name="generator" content="bbs.52jscn.com"/>
+<link href="{AJ_SKIN}common.css" rel="stylesheet">
+<link href="{AJ_SKIN}tuan.css" rel="stylesheet">
+<link href="{AJ_SKIN}tgmain.css" rel="stylesheet">
+<script type="text/javascript" src="{AJ_PATH}lang/{AJ_LANG}/lang.js"></script>
+<script type="text/javascript" src="{AJ_STATIC}file/script/config.js"></script>
+<script type="text/javascript" src="{AJ_STATIC}file/script/common.js"></script>
+<script type="text/javascript" src="{AJ_STATIC}file/script/page.js"></script>
+</head>
+<body>
+<DIV class="miniNavWrap cf">
+<DIV class="miniNav layout cf"><SPAN class="fl"><A href="{$MODULE[1][linkurl]}" target="_blank">首页</A>&nbsp;|&nbsp;<A href="{$MODULE[6][linkurl]}" target="_blank">新楼盘</A>&nbsp;|&nbsp;<A href="{$MODULE[5][linkurl]}" target="_blank">二手房</A>&nbsp;|&nbsp;<A href="{$MODULE[7][linkurl]}" target="_blank">租房</A></SPAN><SPAN class="fr login">
+<A class="loginBtn icons"  
+href="/member/login.php">会员登录</A>&nbsp;    <A 
+href="/member/register.php">会员注册</A></SPAN>
+</DIV></DIV>
+
+<DIV class="header layout cf">
+<DIV class="fl">
+<H1 class="fl" style="margin-top:10px;"><a href="{$MODULE[1][linkurl]}"><img src="{if $MODULE[$moduleid][logo]}{AJ_SKIN}image/logo_{$moduleid}.gif{elseif $AJ[logo]}{$AJ[logo]}{else}{AJ_SKIN}image/logo.gif{/if}"  alt="{$AJ[sitename]}"/></a></H1>
+<DIV id="selCity" class="selCity fl"> 看房团<EM class="icons"></EM>
+</DIV></DIV>
+<DIV class="fr">
+<DIV class="telBox icons">
+<H2>看房团热线</H2>
+<P>{$AJ[telephone]}<SPAN></SPAN></P></DIV></DIV></DIV><!-- header e --><!-- mainNavWrap s -->
+<DIV class="mainNavWrap mb15">
+<DIV class="mainNav layout">
+<UL class="cf">
+  <LI><A class="current" href="{$MODULE[15][linkurl]}">团购首页</A></LI>
+{php $maincat = get_maincatmenu(0,15)}
+{loop $maincat $k $v}
+  <LI><A href="{$MOD[linkurl]}{$v[linkurl]}">{$v[catname]}</A></LI>
+{/loop}
+</UL></DIV></DIV>
+<!-- 顶部 -->
+<DIV class="mainWrap layout cf">
+<DIV class="main">
+<DIV class="linkBox mb15 cf">
+<UL class="linkList cf">
+  <LI class="item1 icons fl">
+  <H2 class="fl">参团看房</H2><SPAN class="fl">总有一条线路适合你！</SPAN></LI>
+  <LI class="item2 icons fl">
+  <H2 class="fl">团购惠</H2><SPAN class="fl">无优惠！不参加！</SPAN></LI>
+  <LI class="item3 icons fl">
+  <H2 class="fl">全程免费</H2><SPAN class="fl">不收任何费用！</SPAN></LI></UL></DIV><!-- 参团看房 -->
+<DIV id="mainList" class="mainList mb10">
+<DIV class="tit icons cf">
+<H2 class="fl">参团看房</H2></DIV>
+
+<DIV class="con"><!-- 列表 -->
+<!--{tag("moduleid=$moduleid&condition=status=3&catid=$catid&areaid=$cityid&pagesize=".$MOD[pagesize]."&page=$page&showpage=1&width=250&height=180&cols=3&datetype=5&order=".$MOD[order]."&fields=".$MOD[fields]."&target=_blank&template=list-tuan")}--> 
+</DIV>
+</DIV>
+<!-- 往期回顾 -->
+</DIV><!-- 列表结束 -->
+<DIV class="side">
+<DIV class="userBox mb10">
+<DIV class="hd">
+<DIV style="padding-bottom:5px;"><img src="http://www.zzfcw.com.cn/skin/default/images/tuan/mfkf_an.gif"></DIV>
+<DIV>请在相应的团购项目选择报名&nbsp;|&nbsp;报名一次即可</DIV></DIV>
+<DIV class="bd l24">
+<DIV>目前已有超<SPAN class="num">12051</SPAN>位网友报名</DIV>
+</DIV></DIV>
+<DIV class="userBox mb10">
+<DIV class="bd l24">
+<H3 class="bold f12">置业会动态</H3>
+<P class="hide"><B style="color: red;">每行最多共计输入17个汉字或者字符</B></P>
+<DIV>已有<SPAN class="num">75</SPAN>个楼盘组团成功</DIV>
+<DIV>每期活动限额<SPAN class="num">200-400</SPAN>位网友参与</DIV>
+<UL>
+<!--{php $tags=tag("moduleid=15&condition=status=3 and level>0&pagesize=1&length=18&order=addtime desc&template=null");}-->
+{loop $tags $t}
+    <LI><a href="{$t[linkurl]}" target="_blank" title="{$t[title]">{$t[title]}</a></LI>
+{/loop}
+</UL></DIV></DIV>
+<DIV class="bmMod mb10">
+<DIV class="hd">
+<H3>大家正在报名</H3></DIV>
+<DIV class="bd">
+<DIV id="bmList" class="bmList l24">
+<DIV class="split" title="136****6874成功报名东湖豪庭"><SPAN 
+class="tel">136****6874</SPAN><SPAN>成功报名   请等待通知看房</SPAN></DIV>
+<DIV class="split" title="189****7730成功报名塞纳斯城"><SPAN 
+class="tel">189****7730</SPAN><SPAN>成功报名   请等待通知看房</SPAN></DIV>
+<DIV class="split" title="159****3427成功报名高铁锦水长街"><SPAN 
+class="tel">159****3427</SPAN><SPAN>成功报名   请等待通知看房</SPAN></DIV>
+<DIV class="split" title="151****1154成功报名中央花城"><SPAN 
+class="tel">151****1154</SPAN><SPAN>成功报名   请等待通知看房</SPAN></DIV>
+<DIV class="split" title="132****3159成功报名四季菁华"><SPAN 
+class="tel">132****3159</SPAN><SPAN>成功报名   请等待通知看房</SPAN></DIV>
+<DIV class="split" title="136****1736成功报名和家园"><SPAN 
+class="tel">136****1736</SPAN><SPAN>成功报名   请等待通知看房</SPAN></DIV>
+<DIV class="split" title="132****3159成功报名金洲商业广场"><SPAN 
+class="tel">132****3159</SPAN><SPAN>成功报名   请等待通知看房</SPAN></DIV>
+<DIV class="split" title="134****3719成功报名香江城"><SPAN 
+class="tel">134****3719</SPAN><SPAN>成功报名   请等待通知看房</SPAN></DIV>
+<DIV class="split" title="132****3159成功报名山亭商贸城"><SPAN 
+class="tel">132****3159</SPAN><SPAN>成功报名   请等待通知看房</SPAN></DIV>
+<DIV class="split" title="138****7500成功报名东湖豪庭"><SPAN 
+class="tel">138****7500</SPAN><SPAN>成功报名   请等待通知看房</SPAN></DIV>
+<DIV class="split" title="136****6091成功报名东湖豪庭"><SPAN 
+class="tel">136****6091</SPAN><SPAN>成功报名   请等待通知看房</SPAN></DIV>
+<DIV class="split" title="139****2490成功报名中安道南里"><SPAN 
+class="tel">139****2490</SPAN><SPAN>成功报名   请等待通知看房</SPAN></DIV>
+<DIV class="split" title="132****3159成功报名万象城"><SPAN 
+class="tel">132****3159</SPAN><SPAN>成功报名   请等待通知看房</SPAN></DIV>
+<DIV class="split" title="139****0295成功报名鑫和国际佳园"><SPAN 
+class="tel">139****0295</SPAN><SPAN>成功报名   请等待通知看房</SPAN></DIV>
+<DIV class="split" title="186****6794成功报名塞纳斯城"><SPAN 
+class="tel">186****6794</SPAN><SPAN>成功报名   请等待通知看房</SPAN></DIV>
+<DIV class="split" title="186****2748成功报名鑫和国际佳园"><SPAN 
+class="tel">186****2748</SPAN><SPAN>成功报名   请等待通知看房</SPAN></DIV>
+<DIV class="split" title="158****1056成功报名四季菁华"><SPAN 
+class="tel">158****1056</SPAN><SPAN>成功报名   请等待通知看房</SPAN></DIV>
+<DIV class="split" title="134****7787成功报名东湖豪庭"><SPAN 
+class="tel">134****7787</SPAN><SPAN>成功报名   请等待通知看房</SPAN></DIV>
+<DIV class="split" title="158****1056成功报名龙潭新天地"><SPAN 
+class="tel">158****1056</SPAN><SPAN>成功报名   请等待通知看房</SPAN></DIV>
+<DIV class="split" title="135****2630成功报名燕山公馆"><SPAN 
+class="tel">135****2630</SPAN><SPAN>成功报名   请等待通知看房</SPAN></DIV>
+<DIV class="split" title="136****2513成功报名百合花园"><SPAN 
+class="tel">136****2513</SPAN><SPAN>成功报名   请等待通知看房</SPAN></DIV>
+<DIV class="split" title="136****2513成功报名鲁南水城"><SPAN 
+class="tel">136****2513</SPAN><SPAN>成功报名   请等待通知看房</SPAN></DIV>
+<DIV class="split" title="137****1702成功报名鸿基万尚城"><SPAN 
+class="tel">137****1702</SPAN><SPAN>成功报名   请等待通知看房</SPAN></DIV>
+<DIV class="split" title="138****9063成功报名舜天国际花园"><SPAN 
+class="tel">138****9063</SPAN><SPAN>成功报名   请等待通知看房</SPAN></DIV>
+<DIV class="split" title="138****5879成功报名四季菁华"><SPAN 
+class="tel">138****5879</SPAN><SPAN>成功报名   请等待通知看房</SPAN></DIV>
+<DIV class="split" title="136****1921成功报名龙潭新天地"><SPAN 
+class="tel">136****1921</SPAN><SPAN>成功报名   请等待通知看房</SPAN></DIV>
+<DIV class="split" title="139****6488成功报名中央花城"><SPAN 
+class="tel">139****6488</SPAN><SPAN>成功报名   请等待通知看房</SPAN></DIV>
+<DIV class="split" title="137****3027成功报名锦华翡翠城"><SPAN 
+class="tel">137****3027</SPAN><SPAN>成功报名   请等待通知看房</SPAN></DIV>
+<DIV class="split" title="132****2367成功报名四季菁华"><SPAN 
+class="tel">132****2367</SPAN><SPAN>成功报名   请等待通知看房</SPAN></DIV>
+<DIV class="split" title="139****8195成功报名鲁南水城"><SPAN 
+class="tel">139****8195</SPAN><SPAN>成功报名   请等待通知看房</SPAN></DIV>
+<DIV class="split" title="186****7358成功报名青云锦绣花城"><SPAN 
+class="tel">186****7358</SPAN><SPAN>成功报名   请等待通知看房</SPAN></DIV>
+<DIV class="split" title="136****9570成功报名中安名翠苑"><SPAN 
+class="tel">136****9570</SPAN><SPAN>成功报名   请等待通知看房</SPAN></DIV>
+<DIV class="split" title="137****0342成功报名东湖豪庭"><SPAN 
+class="tel">137****0342</SPAN><SPAN>成功报名   请等待通知看房</SPAN></DIV>
+<DIV class="split" title="158****7413成功报名燕山公馆"><SPAN 
+class="tel">158****7413</SPAN><SPAN>成功报名   请等待通知看房</SPAN></DIV>
+<DIV class="split" title="158****7413成功报名龙潭新天地"><SPAN 
+class="tel">158****7413</SPAN><SPAN>成功报名   请等待通知看房</SPAN></DIV>
+<DIV class="split" title="159****2730成功报名高铁锦水长街"><SPAN 
+class="tel">159****2730</SPAN><SPAN>成功报名   请等待通知看房</SPAN></DIV>
+<DIV class="split" title="138****6283成功报名和家园"><SPAN 
+class="tel">138****6283</SPAN><SPAN>成功报名   请等待通知看房</SPAN></DIV>
+<DIV class="split" title="136****2329成功报名金洲商业广场"><SPAN 
+class="tel">136****2329</SPAN><SPAN>成功报名   请等待通知看房</SPAN></DIV>
+</DIV>
+</DIV></DIV>
+<DIV id="yhMod" class="yhMod sideRank mb10">
+<DIV class="hd">
+<H3>热门楼盘</H3></DIV>
+<DIV class="bd">
+<DIV class="listHd cf"><SPAN class="col1">&nbsp;</SPAN><SPAN 
+class="col2">楼盘名称</SPAN><SPAN class="col3">区域</SPAN><SPAN style="text-align: center;" 
+class="col4">进度</SPAN></DIV>
+<UL class="list">
+<!--{php $tags=tag("moduleid=6&condition=status=3 and isnew=1&areaid=$cityid&length=28&pagesize=10&order=hits desc&target=_blank&template=null");}-->
+{loop $tags $i $t}
+  <LI class="rankItem current">
+  <DIV class="info cf"><SPAN class="col1"><EM><?php echo $i+1;?></EM></SPAN><SPAN 
+  class="col2"><A href="{$t[linkurl]}" target="_blank">{$t[title]}</A></SPAN><SPAN 
+  class="col3"><a href="{$MODULE[6][linkurl]}list.php?areaid={$t[areaid]}" class="a1">{area_poss($t[areaid], ' ')}</a></SPAN><SPAN style="text-align: center;" class="col4 num" 
+  >现房</SPAN></DIV>
+  </LI>
+{/loop}
+
+
+  </UL></DIV></DIV>
+<!--<DIV class="bdMod mb10">
+<DIV class="hd">
+<H3>买房宝典</H3></DIV>
+<DIV class="bd icons">
+<UL class="list cf">
+  <LI><A href="http://www.zzfcw.com.cn/house/" target="_blank">最新楼盘</A></LI>
+  <LI><A href="http://www.zzfcw.com.cn/sell/" 
+  target="_blank">二手房</A></LI>
+  <LI><A href="http://www.zzfcw.com.cn/house/map.php" 
+  target="_blank">电子地图</A></LI>
+  <LI><A href="http://www.zzfcw.com.cn/news/" 
+  target="_blank">房产资讯</A></LI>
+  <LI><A href="http://www.zzfcw.com.cn/home/" 
+  target="_blank">家居装修</A></LI>
+  <LI><A href="http://www.zzfcw.com.cn/tuan/" 
+  target="_blank">看房团购</A></LI></UL></DIV></DIV>-->
+<DIV class="sideAd"></DIV></DIV></DIV></DIV><!--公共底部-->
+<!-- 底部链接 -->
+	<div class="footer">
+		<p><a href="{$MODULE[1][linkurl]}">网站首页</a><!--{tag("table=webpage&condition=item=1&areaid=$cityid&order=listorder desc,itemid desc&template=list-webpage")}--></p>
+		<p><div id="copyright">{$AJ[copyright]}</div></p>
+		{if $AJ[icpno]}  <a href="http://bbs.52jscn.com" target="_blank">{$AJ[icpno]}</a>{/if}
+	</div>
+</body></html>

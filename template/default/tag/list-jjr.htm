@@ -1,0 +1,11 @@
+
+{loop $tags $k $t} 
+	<li>	<a class="tx" href="{userurl($t[username], '')}" title="{$t[username]}" target="_blank"><img src="{imgurl($t[thumb])}" alt="{$t[username]}"></a>
+					<a href="{userurl($t[username], '')}">{$t[username]}</a>
+					<a class="z" href="{userurl($t[username], '')}&file=rent" target="_blank"></a>
+					<a class="s" href="{userurl($t[username], '')}&file=sale" target="_blank"></a>
+						<p>{$t[company]}</p>
+					</li>
+  {/loop}
+			
+			

@@ -1,0 +1,47 @@
+
+<div class="m">
+	<div class="foot">
+		<!--页尾 begin-->
+    <div id="footer">
+    <p class="hui">
+        <a href="{$MODULE[1][linkurl]}">网站首页</a>
+		<!--{tag("table=webpage&condition=item=1&areaid=$cityid&order=listorder desc,itemid desc&template=list-webpage")}-->
+		| <a href="{$MODULE[1][linkurl]}sitemap/">网站地图</a>
+		{if $EXT[guestbook_enable]} | <a href="{$EXT[guestbook_url]}">网站留言</a>{/if}
+		{if $EXT[ad_enable]} | <a href="{$EXT[ad_url]}">广告服务</a>{/if}
+        <br>
+        <a target="_blank" href="{$MODULE[1][linkurl]}">{$city_sitename}</a>
+        <a target="_blank" href="{$MODULE[6][linkurl]}">{$city_name}楼盘</a>
+        <a target="_blank" href="{$MODULE[5][linkurl]}">{$city_name}二手房</a>
+        <a target="_blank" href="{$MODULE[7][linkurl]}">{$city_name}出租房</a>
+        <a target="_blank" href="{$MODULE[4][linkurl]}">{$city_name}房产经纪人</a>
+        <a target="_blank" href="{$MODULE[18][linkurl]}">{$city_name}小区找房</a>
+       
+        <br>
+       {$AJ[copyright]}
+        <br>
+        <span>
+            ICP备案号：
+           {if $AJ[icpno]} | <a href="http://www.miibeian.gov.cn" target="_blank">{$AJ[icpno]}</a> | <a href="http://www.haoid.cn" target="_blank">好站长资源 技术支持</a> {/if}
+            
+        </span>
+    </p>
+</div>
+	
+	</div>
+</div>
+<!--[系统关键代码，请勿删除]-->
+<div id="back2top" class="back2top"><a href="javascript:void(0);" title="返回顶部">&nbsp;</a></div>
+<script type="text/javascript">
+{if $aijiacms_task}
+show_task('{$aijiacms_task}');
+{else}
+{php include AJ_ROOT.'/api/task.inc.php';}
+{/if}
+{if $lazy}$(function(){$("img").lazyload();});{/if}
+$('#back2top').click(function() {
+	$("html, body").animate({scrollTop:0}, 200);
+});
+</script>
+</body>
+</html>

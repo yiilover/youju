@@ -1,0 +1,265 @@
+<html>
+<head>
+<title>混合计算器</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<style type="text/css">
+<!--
+a:link { font-family: 宋体;text-decoration: none }
+a:visited{ font-family: 宋体;text-decoration: none }
+a:hover{text-decoration: underline }
+.k1{font-size:14px;line-height:20px}
+.k2{font-size:12px;line-height:20px}
+.k3{font-size:12px;line-height:18px}
+
+a.js:link { font-size:12.8px;font-family: 宋体;color: #00000;text-decoration: none }
+a.js:visited{ font-size:12.8px;font-family: 宋体;color: #00000;text-decoration: none }
+a.js:hover{ font-size:12.8px;color: #FF0000; text-decoration: none }
+
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0">
+<script language="JavaScript">
+function selectionMade(obj){
+document.formt.ajbl.value=(100-(document.formt.gjjbl.value)*100)+"%";}
+function runjs4(obj){
+var dj=parseFloat(obj.dj.value);
+var chsh=parseInt(obj.chsh.options[obj.chsh.selectedIndex].value)/10;
+var gjjnsh=parseInt(obj.gjjnsh.options[obj.gjjnsh.selectedIndex].value);
+var ajnsh=parseInt(obj.ajnsh.options[obj.ajnsh.selectedIndex].value);
+var gjjqsh=12*gjjnsh;
+var ajqsh=12*ajnsh;
+var gjjlx;
+{if(gjjnsh<6)gjjlx=parseFloat(0.0414);
+if(gjjnsh>=6)gjjlx=parseFloat(0.0459);}
+var ajlx;
+{if(ajnsh<6)ajlx=parseFloat(0.0477);
+if(ajnsh>=6)ajlx=parseFloat(0.0504);}
+var gjjylx=gjjlx/12;
+var ajylx=ajlx/12;
+var mj=parseFloat(obj.mj.value);
+var gjjbl=parseFloat(obj.gjjbl.options[obj.gjjbl.selectedIndex].value);
+var fkz=dj*mj;
+var dkz=fkz*chsh;
+var gjj=dkz*gjjbl;
+var aj=dkz*(1-gjjbl);
+var gjjyj=(gjjylx/(1-(1/(Math.pow(1+gjjylx,gjjqsh)))))*gjj;
+var ajyj=(ajylx/(1-(1/(Math.pow(1+ajylx,ajqsh)))))*aj;
+var gjjhkz=gjjyj*gjjqsh;
+var ajhkz=ajyj*ajqsh;
+var shf=fkz-dkz;
+var yh=fkz*0.0005;
+var q=fkz*0.02;
+var fw=fkz*0.005;
+var gzh=fkz*0.003;
+obj.dkz.value=dkz;
+obj.fkz.value=fkz;
+obj.shf.value=shf;
+obj.gjjshf.value=shf*gjjbl;
+obj.ajshf.value=Math.round(shf*(1-gjjbl),2);
+obj.ajyj.value=Math.round(ajyj,2);
+obj.gjjyj.value=Math.round(gjjyj,2);
+obj.yj.value=Math.round(ajyj+gjjyj,2);
+obj.gjjhkz.value=Math.round(gjjyj*gjjqsh,2);
+obj.ajhkz.value=Math.round(ajyj*ajqsh,2);
+obj.gjjlxfd.value=Math.round(gjjhkz-gjj,2);
+obj.ajlxfd.value=Math.round(ajhkz-aj,2);
+obj.yh.value=Math.round(yh*100,5)/100;
+obj.fkz.value=Math.round(fkz*100,5)/100;
+obj.q.value=Math.round(q*100,5)/100;
+obj.gzh.value=Math.round(gzh*100,5)/100;
+obj.wt.value=Math.round(gzh*100,5)/100;
+obj.fw.value=Math.round(fw*100,5)/100;
+}
+</script>
+<form method="post" action="" name="formt">
+  <table width="400" border="0" cellspacing="1" bordercolorlight="#FFFFFF" cellpadding="2" bgcolor="#666666" align="center" class=k3>
+    <tr bgcolor="#97D5FF"> 
+      <td colspan="2" height="25"> 
+        <div align="center"><a name=#4></a>组合计算器</div>
+      </td>
+    </tr>
+    <tr> 
+      <td bgcolor="cfefff">单价:  
+        <input type="text" name="dj" size="10" maxlength="6"> 
+        元/平米</td> 
+      <td bgcolor="cfefff">面积:  
+        <input type="text" name="mj" size="10" maxlength="6"> 
+        平方米 </td> 
+    </tr> 
+    <tr>  
+      <td colspan="2" bgcolor="cfefff">  
+        <div align="center">贷款成数  
+          <select  
+                  style="font-size:12px;" name=chsh size=1> 
+            <option value="8" SELECTED>8成</option>
+            <option value="7">7成</option>
+            <option value="6">6成</option>
+            <option value="5">5成</option>
+            <option value="4">4成</option>
+            <option value="3">3成</option>
+            <option value="2">2成</option>
+          </select>
+        </div>
+      </td>
+    </tr>
+    <tr> 
+      <td bgcolor="cfefff">公积金贷款比例  
+        <select style="font-size:12px;" name=gjjbl size=1 onChange=selectionMade()> 
+          <option value="1" SELECTED>100%</option>
+          <option value="0.9">90%</option>
+          <option value="0.8">80%</option>
+          <option value="0.7">70%</option>
+          <option value="0.6">60%</option>
+          <option value="0.5">50%</option>
+          <option value="0.4">40%</option>
+          <option value="0.3">30%</option>
+          <option value="0.2">20%</option>
+          <option value="0.1">10%</option>
+          <option value="0">0</option>
+        </select>
+      </td>
+      <td bgcolor="cfefff">年数  
+        <select style="font-size:12px;"  
+                  name=gjjnsh size=1> 
+          <option value="2">2年(24期)</option>
+          <option value="3">3年(36期)</option>
+          <option value="4">4年(48期)</option>
+          <option value="5">5年(60期)</option>
+          <option value="6">6年(72期)</option>
+          <option value="7">7年(84期)</option>
+          <option value="8">8年(96期)</option>
+          <option value="9">9年(108期)</option>
+          <option value="10">10年(120期)</option>
+          <option value="15" SELECTED>15年(180期)</option>
+          <option value="20">20年(240期)</option>
+          <option value="25">25年(300期)</option>
+          <option value="30">30年(360期)</option>
+        </select>
+      </td>
+    </tr>
+    <tr> 
+      <td bgcolor="cfefff">&nbsp;  
+        <!--银行按揭贷款比例  
+                      <input type="text" name="ajbl" size="4" maxlength="3">--> 
+      </td> 
+      <td bgcolor="cfefff">年数  
+        <select style="font-size:12px;"  
+                  name=ajnsh size=1> 
+          <option value="2">2年(24期)</option>
+          <option value="3">3年(36期)</option>
+          <option value="4">4年(48期)</option>
+          <option value="5">5年(60期)</option>
+          <option value="6">6年(72期)</option>
+          <option value="7">7年(84期)</option>
+          <option value="8">8年(96期)</option>
+          <option value="9">9年(108期)</option>
+          <option value="10">10年(120期)</option>
+          <option value="15" SELECTED>15年(180期)</option>
+          <option value="20">20年(240期)</option>
+          <option value="25">25年(300期)</option>
+          <option value="30">30年(360期)</option>
+        </select>
+      </td>
+    </tr>
+    <tr> 
+      <td colspan="2" bgcolor="cfefff"> 
+        <div align="center"> 
+          <input type="button" style="font-size:12px;" name="math4" value="开始计算" onClick=runjs4(this.form) class="box">
+          &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+          <input type="reset" style="font-size:12px;" name="Submit24" value="重新计算" class="box"> 
+        </div> 
+      </td> 
+    </tr> 
+    <tr bgcolor="#97D5FF">  
+      <td colspan="2" height="20">  
+        <div align="center">计算结果</div> 
+      </td> 
+    </tr> 
+    <tr>  
+      <td bgcolor="cfefff">  
+        <div align="left">房款总额:  
+          <input type="text" name="fkz" size="10"> 
+          元</div> 
+      </td> 
+      <td bgcolor="cfefff">  
+        <div align="left">贷款总额:  
+          <input type="text" name="dkz" size="10"> 
+          元</div> 
+      </td> 
+    </tr> 
+    <tr bgcolor="cfefff">  
+      <td height="20">  
+        <div align="center">公积金</div> 
+      </td> 
+      <td height="20">  
+        <div align="center">按揭</div> 
+      </td> 
+    </tr> 
+    <tr>  
+      <td bgcolor="cfefff">首期付款:  
+        <input type="text" name="gjjshf" size="10"> 
+        元<br> 
+        月均还款:  
+        <input type="text" name="gjjyj" size="10"> 
+        元<br> 
+        还款总额:  
+        <input type="text" name="gjjhkz" size="10"> 
+        元<br> 
+        支付息款:  
+        <input type="text" name="gjjlxfd" size="10"> 
+        元 </td> 
+      <td bgcolor="cfefff">首期付款:  
+        <input type="text" name="ajshf" size="10"> 
+        元<br> 
+        月均还款:  
+        <input type="text" name="ajyj" size="10"> 
+        元<br> 
+        还款总额:  
+        <input type="text" name="ajhkz" size="10"> 
+        元<br> 
+        支付息款:  
+        <input type="text" name="ajlxfd" size="10"> 
+        元 </td> 
+    </tr> 
+    <tr>  
+      <td bgcolor="cfefff">首期总付款:  
+        <input type="text" name="shf" size="10"> 
+        元</td> 
+      <td bgcolor="cfefff">月均总还款:  
+        <input type="text" name="yj" size="10"> 
+        元</td> 
+    </tr> 
+    <tr>  
+      <td colspan="2" height="20" bgcolor="cfefff">  
+        <div align="center">税&nbsp;&nbsp;&nbsp;&nbsp;费</div> 
+      </td> 
+    </tr> 
+    <tr>  
+      <td bgcolor="cfefff">公证费:  
+        <input type="text" name="gzh" size="10"> 
+        元</td> 
+      <td bgcolor="cfefff">印花税:  
+        <input type="text" name="yh" size="10"> 
+        元 </td> 
+    </tr> 
+    <tr>  
+      <td bgcolor="cfefff">契　税:  
+        <input type="text" name="q" size="10"> 
+        元 </td> 
+      <td bgcolor="cfefff">&nbsp;</td> 
+    </tr> 
+    <tr>  
+      <td colspan="2" bgcolor="cfefff">委托办理产权手续费:  
+        <input type="text" name="wt" size="10"> 
+        元</td> 
+    </tr> 
+    <tr bgcolor="cfefff">  
+      <td colspan="2">房屋买卖手续费:　　  
+        <input type="text" name="fw" size="10"> 
+        元</td> 
+    </tr> 
+  </table> 
+</form> 
+</body> 
+</html> 
